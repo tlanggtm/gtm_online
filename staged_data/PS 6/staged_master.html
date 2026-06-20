@@ -179,6 +179,11 @@ ul.task-list li input[type="checkbox"] {
       display: flex;
       flex-direction: column;
   }
+  /* 🎯 RIGHT ALIGNMENT ENGINE: Automatically pushes this block to the far right */
+  .portal-metric-item.portal-metric-right {
+      margin-left: auto;
+      text-align: right;
+  }
   .portal-metric-label {
       font-size: 0.78rem;
       text-transform: uppercase;
@@ -198,6 +203,10 @@ ul.task-list li input[type="checkbox"] {
       .portal-hero-banner { padding: 25px; }
       .portal-hero-subtitle { font-size: 1.4rem !important; }
       .portal-metrics-ribbon { gap: 15px; }
+      .portal-metric-item.portal-metric-right {
+          margin-left: 0;
+          text-align: left;
+      }
   }
 
   /* 🌟 PREMIUM GRAPHICAL LANDING MATRIX CONTAINER */
