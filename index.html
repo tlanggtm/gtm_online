@@ -291,6 +291,14 @@ ul.task-list li input[type="checkbox"] {
   .toc-back-divider { border-top: 1px solid #e9ecef; margin: 12px 0; }
   .toc-back-link { display: inline-block; font-size: 0.85rem; font-weight: 600; color: #6c757d; text-decoration: none; padding: 2px 0; cursor: pointer; }
   .toc-back-link:hover { text-decoration: underline; color: #2b5c8f; }
+
+
+  /* 🔍 LIVE INTERACTIVE QUICK SEARCH INTERFACE RULES */
+  #portalQuickSearch:focus {
+      outline: none !important;
+      border-color: #4a74a4 !important;
+      box-shadow: 0 0 0 3px rgba(74, 116, 164, 0.15), inset 0 1px 2px rgba(0,0,0,0.05) !important;
+  }
 </style>
 
 
@@ -319,7 +327,7 @@ ul.task-list li input[type="checkbox"] {
                 <h2 class="portal-hero-subtitle anchored">Vyhodnotenie a analýza výsledkov geotechnického monitoringu</h2>
                 <p class="portal-hero-lead">Záujmové územie predstavuje okolie trasy diaľnice D1 v úseku Hubová – Ivachnová vo variante V2 </p>
                 
-                                <!-- 📊 AUTOMATED DYNAMIC DASHBOARD COUNTERS MATRIX -->
+                <!-- 📊 AUTOMATED DYNAMIC DASHBOARD COUNTERS MATRIX -->
                 <div class="portal-dashboard-bars">
                     <div class="portal-bar-row">
                         <div class="portal-bar-info">
@@ -350,6 +358,15 @@ ul.task-list li input[type="checkbox"] {
                         </div>
                     </div>
                 </div>
+                
+                
+                <!-- 🎯 QUICK-SEARCH FILTER INTERFACE PANEL -->
+                <div class="portal-search-wrapper" style="margin-bottom: 25px; max-width: 400px; position: relative;">
+                    <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; pointer-events: none;">🔍</span>
+                    <input type="text" id="portalQuickSearch" placeholder="Rýchle vyhľadávanie objektu (napr. PS 6, 101...)..." style="width: 100%; padding: 12px 16px 12px 42px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 0.95rem; font-family: Calibri, sans-serif; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s ease;">
+                </div>
+
+                
 
 
                 <div class="portal-metrics-ribbon" style="margin-top: 25px;">
@@ -367,15 +384,26 @@ ul.task-list li input[type="checkbox"] {
 
         <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // 🎯 FORCE-BUST BROWSER FAVICON CACHE VIA DOM INJECTION
-            const cacheBuster = "?v=" + new Date().getTime();
-            let favLink = document.querySelector("link[rel*='icon']");
-            if (!favLink) {
-                favLink = document.createElement('link');
-                favLink.rel = 'shortcut icon';
-                document.getElementsByTagName('head')[0].appendChild(favLink);
+            // 🎯 NEW: LIVE QUICK-FILTER SEARCH LOGIC ENGINE
+            const searchInput = document.getElementById('portalQuickSearch');
+            const cards = document.querySelectorAll('.portal-grid-container .portal-nav-card');
+
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    const query = e.target.value.toLowerCase().trim();
+
+                    cards.forEach(card => {
+                        // Read all text labels inside the specific card container body matrix
+                        const cardText = card.textContent.toLowerCase();
+                        
+                        if (cardText.includes(query)) {
+                            card.style.display = 'flex'; // Reset back to standard grid card flex layout
+                        } else {
+                            card.style.display = 'none'; // Hide non-matching card elements seamlessly
+                        }
+                    });
+                });
             }
-            favLink.href = "site_libs/favicon.png" + cacheBuster;
 
             // 1. Ticking Counter Animation
             const counters = document.querySelectorAll('.count-animate');
@@ -383,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
                 const target = parseInt(counter.getAttribute('data-target'), 10);
                 if (target === 0) return;
                 let count = 0;
-                const speed = Math.max(10, Math.floor(2500 / target));
+                const speed = Math.max(10, Math.floor(1500 / target));
                 const timer = setInterval(() => {
                     count++;
                     counter.textContent = count;
@@ -397,7 +425,7 @@ ul.task-list li input[type="checkbox"] {
                 fills.forEach(fill => {
                     fill.style.width = fill.getAttribute('data-width');
                 });
-            }, 200); // 🎯 Slightly higher delay ensures the browser paint cycle captures the animation
+            }, 200);
         });
         </script>
         <div class="portal-grid-container">
