@@ -293,11 +293,17 @@ ul.task-list li input[type="checkbox"] {
   .toc-back-link:hover { text-decoration: underline; color: #2b5c8f; }
 
 
-  /* 🔍 LIVE INTERACTIVE QUICK SEARCH INTERFACE RULES */
+    /* 🔍 LIVE INTERACTIVE QUICK SEARCH INTERFACE RULES */
+  #portalQuickSearch {
+      background: #ffffff;
+      color: #1e293b;
+  }
   #portalQuickSearch:focus {
       outline: none !important;
       border-color: #4a74a4 !important;
-      box-shadow: 0 0 0 3px rgba(74, 116, 164, 0.15), inset 0 1px 2px rgba(0,0,0,0.05) !important;
+      /* Smooth glow effect that matches your object card hover themes */
+      box-shadow: 0 0 0 4px rgba(74, 116, 164, 0.15), inset 0 1px 2px rgba(0,0,0,0.05) !important;
+      background-color: #f8fafc !important;
   }
 </style>
 
