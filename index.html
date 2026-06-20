@@ -293,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
   .toc-back-link:hover { text-decoration: underline; color: #2b5c8f; }
 
 
-    /* 🔍 LIVE INTERACTIVE QUICK SEARCH INTERFACE RULES */
+  /* 🔍 LIVE INTERACTIVE QUICK SEARCH INTERFACE RULES */
   #portalQuickSearch {
       background: #ffffff;
       color: #1e293b;
@@ -341,7 +341,6 @@ ul.task-list li input[type="checkbox"] {
                             <strong class="count-animate" data-target="15">0</strong>
                         </div>
                         <div class="portal-bar-track">
-                            <!-- 🎯 FIX: Inline style="width: 0%;" forces the browser to catch the animation starting frame -->
                             <div class="portal-bar-fill ink-fill" style="width: 0%;" data-width="50%"></div>
                         </div>
                     </div>
@@ -364,17 +363,6 @@ ul.task-list li input[type="checkbox"] {
                         </div>
                     </div>
                 </div>
-                
-                
-                <!-- 🎯 FIXED: FULL-WIDTH QUICK-SEARCH FILTER INTERFACE PANEL -->
-                <!-- margin: 25px 0; creates a perfect balanced gap between the banner above and cards below -->
-                <div class="portal-search-wrapper" style="margin: 25px 0; width: 100%; position: relative;">
-                    <span style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; pointer-events: none;">🔍</span>
-                    <input type="text" id="portalQuickSearch" placeholder="Rýchle vyhľadávanie objektu (napr. PS 6, 101, Zosuvné územie...)..." style="width: 100%; padding: 14px 16px 14px 48px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; font-family: Calibri, sans-serif; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s ease;">
-                </div>
-
-                
-
 
                 <div class="portal-metrics-ribbon" style="margin-top: 25px;">
                     <div class="portal-metric-item">
@@ -389,9 +377,15 @@ ul.task-list li input[type="checkbox"] {
             </div>
         </div>
 
+        <!-- 🎯 MOVED: STANDALONE FULL-WIDTH QUICK-SEARCH FILTER INTERFACE PANEL -->
+        <div class="portal-search-wrapper" style="margin: 35px auto 25px auto; max-width: 100%; position: relative;">
+            <span style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; pointer-events: none;">🔍</span>
+            <input type="text" id="portalQuickSearch" placeholder="Rýchle vyhľadávanie objektu (napr. PS 6, 101, Zosuvné územie...)..." style="width: 100%; padding: 14px 16px 14px 48px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; font-family: Calibri, sans-serif; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s ease;">
+        </div>
+
         <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // 🎯 NEW: LIVE QUICK-FILTER SEARCH LOGIC ENGINE
+            // 🎯 LIVE QUICK-FILTER SEARCH LOGIC ENGINE
             const searchInput = document.getElementById('portalQuickSearch');
             const cards = document.querySelectorAll('.portal-grid-container .portal-nav-card');
 
@@ -400,13 +394,11 @@ ul.task-list li input[type="checkbox"] {
                     const query = e.target.value.toLowerCase().trim();
 
                     cards.forEach(card => {
-                        // Read all text labels inside the specific card container body matrix
                         const cardText = card.textContent.toLowerCase();
-                        
                         if (cardText.includes(query)) {
-                            card.style.display = 'flex'; // Reset back to standard grid card flex layout
+                            card.style.display = 'flex';
                         } else {
-                            card.style.display = 'none'; // Hide non-matching card elements seamlessly
+                            card.style.display = 'none';
                         }
                     });
                 });
