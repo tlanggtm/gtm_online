@@ -72,6 +72,134 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 <style>
+  /* 🎯 PREMIUM WIDESCREEN HERO HEADER BANNER STYLE */
+  .portal-hero-banner {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 35px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+  }
+  .portal-hero-banner::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(74,116,164,0.15) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+  }
+  .portal-hero-title {
+      font-size: 1.4rem !important;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #93c5fd !important;
+      font-weight: 700 !important;
+      margin: 0 0 10px 0 !important;
+  }
+  .portal-hero-subtitle {
+      font-size: 1.8rem !important;
+      font-weight: 800 !important;
+      color: #ffffff !important;
+      line-height: 1.3 !important;
+      margin: 0 0 15px 0 !important;
+      font-family: Verdana, sans-serif;
+  }
+  .portal-hero-lead {
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      max-width: 800px;
+      line-height: 1.6;
+      margin: 0 0 30px 0 !important;
+  }
+  
+  /* 📊 🚀 HIGH-CONTRAST PRESET LAYOUT GRAPH DASHBOARD BAR MIX */
+  .portal-dashboard-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 25px;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+  }
+  .portal-bar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+  }
+  .portal-bar-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #f8fafc !important;
+      font-weight: 600;
+  }
+  .portal-bar-info strong {
+      font-size: 1.05rem;
+      color: #38bdf8 !important; 
+      font-family: monospace;
+  }
+  .portal-bar-track {
+      background: rgba(255, 255, 255, 0.2); 
+      height: 10px;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+  }
+  .portal-bar-fill {
+      width: 0%; 
+      display: block !important;
+      height: 100%;
+      border-radius: 6px;
+      transition: width 2.5s cubic-bezier(0.1, 1, 0.1, 1) !important;
+  }
+  
+  /* Vibrant premium neon gradients optimized for dark backgrounds */
+  .ink-fill { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .geo-fill { background: linear-gradient(90deg, #10b981, #34d399); }
+  .dyn-fill { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+  /* LIVE ENGINEERING METRICS RIBBON LAYER */
+  .portal-metrics-ribbon {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 20px;
+  }
+  .portal-metric-item {
+      display: flex;
+      flex-direction: column;
+  }
+  .portal-metric-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #94a3b8;
+      font-weight: 600;
+      margin-bottom: 2px;
+  }
+  .portal-metric-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f8fafc;
+  }
+
+  /* RESPONSIVE LAYOUT GRID CORRECTIONS */
+  @media (max-width: 768px) {
+      .portal-hero-banner { padding: 25px; }
+      .portal-hero-subtitle { font-size: 1.4rem !important; }
+      .portal-metrics-ribbon { gap: 15px; }
+  }
+
   /* 🌟 PREMIUM GRAPHICAL LANDING MATRIX CONTAINER */
   .portal-grid-container {
       display: grid;
