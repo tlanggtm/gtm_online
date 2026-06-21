@@ -72,6 +72,43 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 <style>
+/* ⚠️ GLOBAL SYSTEM NOTICE BANNER PANEL */
+  .portal-global-alert {
+      background: linear-gradient(90deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1px solid #f59e0b;
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.08);
+      width: 100%;
+  }
+  .portal-alert-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      font-size: 0.92rem;
+      color: #78350f;
+      font-family: Calibri, sans-serif;
+  }
+  .portal-alert-content strong {
+      font-weight: 600;
+  }
+  .portal-alert-close {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #b45309;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 5px;
+      transition: color 0.15s ease;
+  }
+  .portal-alert-close:hover {
+      color: #78350f;
+  }
+  
   /* 🎯 PREMIUM WIDESCREEN HERO HEADER BANNER STYLE */
   .portal-hero-banner {
       background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
@@ -159,7 +196,8 @@ ul.task-list li input[type="checkbox"] {
       display: block !important;
       height: 100%;
       border-radius: 6px;
-      transition: width 2.5s cubic-bezier(0.1, 1, 0.1, 1) !important;
+      /* 🎯 FIXED: Locked to exactly 3 seconds for smooth, uniform expansion */
+      transition: width 3s cubic-bezier(0.1, 1, 0.1, 1) !important;
   }
   
   /* Vibrant premium neon gradients optimized for dark backgrounds */
@@ -206,6 +244,9 @@ ul.task-list li input[type="checkbox"] {
       .portal-metric-item.portal-metric-right {
           margin-left: 0;
           text-align: left;
+      }
+      .portal-alert-content { 
+          font-size: 0.85rem; 
       }
   }
 

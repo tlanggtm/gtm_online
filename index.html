@@ -72,6 +72,43 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 <style>
+/* ⚠️ GLOBAL SYSTEM NOTICE BANNER PANEL */
+  .portal-global-alert {
+      background: linear-gradient(90deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1px solid #f59e0b;
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.08);
+      width: 100%;
+  }
+  .portal-alert-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      font-size: 0.92rem;
+      color: #78350f;
+      font-family: Calibri, sans-serif;
+  }
+  .portal-alert-content strong {
+      font-weight: 600;
+  }
+  .portal-alert-close {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #b45309;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 5px;
+      transition: color 0.15s ease;
+  }
+  .portal-alert-close:hover {
+      color: #78350f;
+  }
+  
   /* 🎯 PREMIUM WIDESCREEN HERO HEADER BANNER STYLE */
   .portal-hero-banner {
       background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
@@ -159,7 +196,8 @@ ul.task-list li input[type="checkbox"] {
       display: block !important;
       height: 100%;
       border-radius: 6px;
-      transition: width 2.5s cubic-bezier(0.1, 1, 0.1, 1) !important;
+      /* 🎯 FIXED: Locked to exactly 3 seconds for smooth, uniform expansion */
+      transition: width 3s cubic-bezier(0.1, 1, 0.1, 1) !important;
   }
   
   /* Vibrant premium neon gradients optimized for dark backgrounds */
@@ -206,6 +244,9 @@ ul.task-list li input[type="checkbox"] {
       .portal-metric-item.portal-metric-right {
           margin-left: 0;
           text-align: left;
+      }
+      .portal-alert-content { 
+          font-size: 0.85rem; 
       }
   }
 
@@ -327,6 +368,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+        
+            <div class="portal-global-alert" id="globalPortalAlert">
+                <div class="portal-alert-content">
+                    <span>⚠️ <strong>Upozornenie: Údaje na tomto portáli sú priebežne dopĺňané a momentálne nie sú kompletné. Prebieha nahrávanie dát.</strong></span>
+                    <button class="portal-alert-close" onclick="document.getElementById('globalPortalAlert').style.display='none'">×</button>
+                </div>
+            </div>
+            
         <div class="portal-hero-banner">
             <div class="portal-hero-overlay">
                 <!-- <h1 class="portal-hero-title">📈 GTM Portal</h1> -->
@@ -371,7 +420,7 @@ ul.task-list li input[type="checkbox"] {
                     </div>
                     <div class="portal-metric-item portal-metric-right">
                         <span class="portal-metric-label">⏱️ Status dát</span>
-                        <span class="portal-metric-value">Posledná aktualizácia údajov: Jún 2026</span>
+                        <span class="portal-metric-value">Posledná aktualizácia údajov: 21. jún 2026</span>
                     </div>
                 </div>
             </div>
@@ -383,16 +432,25 @@ ul.task-list li input[type="checkbox"] {
             <input type="text" id="portalQuickSearch" placeholder="Rýchle vyhľadávanie objektu (napr. PS 6, 101, Zosuvné územie...)..." style="width: 100%; padding: 14px 16px 14px 48px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; font-family: Calibri, sans-serif; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s ease;">
         </div>
 
-        <script>
+                <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // 🎯 LIVE QUICK-FILTER SEARCH LOGIC ENGINE
+            // FORCE-BUST BROWSER FAVICON CACHE VIA DOM INJECTION
+            const cacheBuster = "?v=" + new Date().getTime();
+            let favLink = document.querySelector("link[rel*='icon']");
+            if (!favLink) {
+                favLink = document.createElement('link');
+                favLink.rel = 'shortcut icon';
+                document.getElementsByTagName('head').appendChild(favLink);
+            }
+            favLink.href = "site_libs/favicon.png" + cacheBuster;
+
+            // 🎯 NEW: LIVE QUICK-FILTER SEARCH LOGIC ENGINE
             const searchInput = document.getElementById('portalQuickSearch');
             const cards = document.querySelectorAll('.portal-grid-container .portal-nav-card');
 
             if (searchInput) {
                 searchInput.addEventListener('input', function(e) {
                     const query = e.target.value.toLowerCase().trim();
-
                     cards.forEach(card => {
                         const cardText = card.textContent.toLowerCase();
                         if (cardText.includes(query)) {
@@ -404,21 +462,33 @@ ul.task-list li input[type="checkbox"] {
                 });
             }
 
-            // 1. Ticking Counter Animation
+            // 🎯 SMART 3-SECOND LOCKED COUNTING ENGINE
+            // Ensures calculations always take exactly 3000ms regardless of data size!
             const counters = document.querySelectorAll('.count-animate');
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-target'), 10);
                 if (target === 0) return;
+                
                 let count = 0;
-                const speed = Math.max(10, Math.floor(1500 / target));
+                const totalDuration = 3000; // Locked time target in milliseconds
+                
+                // Adaptive stepping: if target is over 100 items, count by jumps 
+                // so the browser rendering frame updates fluidly without dropping frames
+                const step = target > 100 ? Math.ceil(target / 100) : 1;
+                const speed = Math.floor(totalDuration / (target / step));
+                
                 const timer = setInterval(() => {
-                    count++;
-                    counter.textContent = count;
-                    if (count >= target) clearInterval(timer);
+                    count += step;
+                    if (count >= target) {
+                        counter.textContent = target; // Hard lock onto exact precision end value
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = count;
+                    }
                 }, speed);
             });
 
-            // 2. Smooth Bar Animation Fill Delay
+            // Smooth Bar Animation Fill Delay
             setTimeout(() => {
                 const fills = document.querySelectorAll('.portal-bar-fill');
                 fills.forEach(fill => {
