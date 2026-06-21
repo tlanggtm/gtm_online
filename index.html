@@ -426,13 +426,13 @@ ul.task-list li input[type="checkbox"] {
             </div>
         </div>
 
-        <!-- 🎯 MOVED: STANDALONE FULL-WIDTH QUICK-SEARCH FILTER INTERFACE PANEL -->
+                <!-- 🎯 MOVED: STANDALONE FULL-WIDTH QUICK-SEARCH FILTER INTERFACE PANEL -->
         <div class="portal-search-wrapper" style="margin: 35px auto 25px auto; max-width: 100%; position: relative;">
             <span style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; pointer-events: none;">🔍</span>
             <input type="text" id="portalQuickSearch" placeholder="Rýchle vyhľadávanie objektu (napr. PS 6, 101, Zosuvné územie...)..." style="width: 100%; padding: 14px 16px 14px 48px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; font-family: Calibri, sans-serif; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s ease;">
         </div>
 
-                <script>
+        <script>
         document.addEventListener("DOMContentLoaded", function() {
             // FORCE-BUST BROWSER FAVICON CACHE VIA DOM INJECTION
             const cacheBuster = "?v=" + new Date().getTime();
@@ -444,14 +444,14 @@ ul.task-list li input[type="checkbox"] {
             }
             favLink.href = "site_libs/favicon.png" + cacheBuster;
 
-            // 🎯 NEW: LIVE QUICK-FILTER SEARCH LOGIC ENGINE
+            // 🎯 FIXED TRADITIONAL FUNCTION: LIVE QUICK-FILTER SEARCH LOGIC ENGINE
             const searchInput = document.getElementById('portalQuickSearch');
             const cards = document.querySelectorAll('.portal-grid-container .portal-nav-card');
 
             if (searchInput) {
                 searchInput.addEventListener('input', function(e) {
                     const query = e.target.value.toLowerCase().trim();
-                    cards.forEach(card => {
+                    cards.forEach(function(card) {
                         const cardText = card.textContent.toLowerCase();
                         if (cardText.includes(query)) {
                             card.style.display = 'flex';
@@ -462,22 +462,19 @@ ul.task-list li input[type="checkbox"] {
                 });
             }
 
-                        // 🎯 FIXED 3-SECOND COUNTING ENGINE
+            // 🎯 FIXED TRADITIONAL FUNCTION: 3-SECOND LOCKED COUNTING ENGINE
             const counters = document.querySelectorAll('.count-animate');
-            counters.forEach(counter => {
+            counters.forEach(function(counter) {
                 const target = parseInt(counter.getAttribute('data-target'), 10);
                 if (target === 0) return;
                 
                 let count = 0;
                 const totalDuration = 3000; // 3 seconds locked duration
                 
-                // Determine step increment size based on target scale volume
                 const step = target > 60 ? Math.ceil(target / 60) : 1;
-                
-                // Math.round fixes the decimal bug and prevents interval crashes!
                 const speed = Math.round(totalDuration / (target / step));
                 
-                const timer = setInterval(() => {
+                const timer = setInterval(function() {
                     count += step;
                     if (count >= target) {
                         counter.textContent = target; // Lock final exact number
@@ -488,11 +485,10 @@ ul.task-list li input[type="checkbox"] {
                 }, speed);
             });
 
-
-            // Smooth Bar Animation Fill Delay
-            setTimeout(() => {
+            // 🎯 FIXED TRADITIONAL FUNCTION: Smooth Bar Animation Fill Delay
+            setTimeout(function() {
                 const fills = document.querySelectorAll('.portal-bar-fill');
-                fills.forEach(fill => {
+                fills.forEach(function(fill) {
                     fill.style.width = fill.getAttribute('data-width');
                 });
             }, 200);
