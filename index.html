@@ -460,71 +460,71 @@ ul.task-list li input[type="checkbox"] {
 &lt;/div&gt;
 
 &lt;script&gt;
-document.addEventListener("DOMContentLoaded", function() {
-    // FORCE-BUST BROWSER FAVICON CACHE VIA DOM INJECTION
-    const cacheBuster = "?v=" + new Date().getTime();
-    let favLink = document.querySelector("link[rel*='icon']");
-    if (!favLink) {
-        favLink = document.createElement('link');
-        favLink.rel = 'shortcut icon';
-        document.getElementsByTagName('head').appendChild(favLink);
-    }
-    favLink.href = "site_libs/favicon.png" + cacheBuster;
-
-    // LIVE QUICK-FILTER SEARCH LOGIC ENGINE
-    const searchInput = document.getElementById('portalQuickSearch');
-    const cards = document.querySelectorAll('.portal-grid-container .portal-nav-card');
-
-    if (searchInput) {
-        searchInput.addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase().trim();
-            cards.forEach(function(card) {
-                const cardTitleBlock = card.querySelector('.portal-nav-card-title');
-                const cardText = card.textContent.toLowerCase();
-                if (cardText.includes(query)) {
-                    card.style.setProperty('display', 'flex', 'important');
-                } else {
-                    card.style.setProperty('display', 'none', 'important');
-                }
-            });
-        });
-    }
-
-            // 3-SECOND LOCKED COUNTING ENGINE
-    const counters = document.querySelectorAll('.count-animate');
-    counters.forEach(function(counter) {
-        const target = parseInt(counter.getAttribute('data-target'), 10);
-        if (target === 0) return;
-        
-        let count = 0;
-        const totalDuration = 3000; 
-        const step = target &gt; 60 ? Math.ceil(target / 60) : 1;
-        const speed = Math.round(totalDuration / (target / step));
-        
-        const timer = setInterval(function() {
-            count += step;
-            if (count &gt;= target) {
-                counter.textContent = target; 
-                clearInterval(timer);
-            } else {
-                counter.textContent = count;
-            }
-        }, speed);
-        
-        if (speed &lt;= 0) {
-            counter.textContent = target;
+    document.addEventListener("DOMContentLoaded", function() {
+        // 🎯 FIXED: Proper DOM selection prevents script runtime exceptions!
+        const cacheBuster = "?v=" + new Date().getTime();
+        let favLink = document.querySelector("link[rel*='icon']");
+        if (!favLink) {
+            favLink = document.createElement('link');
+            favLink.rel = 'shortcut icon';
+            document.head.appendChild(favLink); // Clean, native shortcut link attachment
         }
-    });
+        favLink.href = "site_libs/favicon.png" + cacheBuster;
 
-    // Smooth Bar Animation Fill Delay
-    setTimeout(function() {
-        const fills = document.querySelectorAll('.portal-bar-fill');
-        fills.forEach(function(fill) {
-            fill.style.setProperty('width', fill.getAttribute('data-width'), 'important');
+        // LIVE QUICK-FILTER SEARCH LOGIC ENGINE
+        const searchInput = document.getElementById('portalQuickSearch');
+        const cards = document.querySelectorAll('.portal-grid-container .portal-nav-card');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase().trim();
+                cards.forEach(function(card) {
+                    const cardText = card.textContent.toLowerCase();
+                    if (cardText.includes(query)) {
+                        card.style.setProperty('display', 'flex', 'important');
+                    } else {
+                        card.style.setProperty('display', 'none', 'important');
+                    }
+                });
+            });
+        }
+
+        // 3-SECOND LOCKED COUNTING ENGINE
+        const counters = document.querySelectorAll('.count-animate');
+        counters.forEach(function(counter) {
+            const target = parseInt(counter.getAttribute('data-target'), 10);
+            if (target === 0) return;
+            
+            let count = 0;
+            const totalDuration = 3000; 
+            const step = target &gt; 60 ? Math.ceil(target / 60) : 1;
+            const speed = Math.round(totalDuration / (target / step));
+            
+            const timer = setInterval(function() {
+                count += step;
+                if (count &gt;= target) {
+                    counter.textContent = target; 
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = count;
+                }
+            }, speed);
+            
+            if (speed &lt;= 0) {
+                counter.textContent = target;
+            }
         });
-    }, 250);
-});
-&lt;/script&gt;</code></pre>
+
+        // Smooth Bar Animation Fill Delay
+        setTimeout(function() {
+            const fills = document.querySelectorAll('.portal-bar-fill');
+            fills.forEach(function(fill) {
+                fill.style.setProperty('width', fill.getAttribute('data-width'), 'important');
+            });
+        }, 250);
+    });
+    &lt;/script&gt;
+    </code></pre>
 
 
 
