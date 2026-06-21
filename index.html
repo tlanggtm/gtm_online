@@ -367,49 +367,164 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>```{=html}</p>
-<pre><code>    &lt;div class="portal-hero-banner"&gt;
-        &lt;div class="portal-hero-overlay"&gt;
-            &lt;h2 class="portal-hero-subtitle"&gt;Geotechnický monitoring&lt;/h2&gt;
-            &lt;p class="portal-hero-lead"&gt;Záujmové územie trasy diaľnice D1&lt;/p&gt;
-            
-            &lt;div class="portal-dashboard-bars"&gt;
-                &lt;div class="portal-bar-row"&gt;
-                    &lt;div class="portal-bar-info"&gt;
-                        &lt;span&gt;📉 Inklinometrické vrty&lt;/span&gt;
-                        &lt;strong class="count-animate" data-target="14"&gt;0&lt;/strong&gt;
-                    &lt;/div&gt;
-                    &lt;div class="portal-bar-track"&gt;
-                        &lt;div class="portal-bar-fill ink-fill" style="width: 0%;" data-width="70%"&gt;&lt;/div&gt;
-                    &lt;/div&gt;
+<pre><code>    &lt;div class="portal-global-alert" id="globalPortalAlert"&gt;
+        &lt;div class="portal-alert-content"&gt;
+            &lt;span&gt;⚠️ &lt;strong&gt;Upozornenie: Údaje na tomto portáli sú priebežne dopĺňané a momentálne nie sú kompletné. Prebieha nahrávanie dát...&lt;/strong&gt;&lt;/span&gt;
+            &lt;button class="portal-alert-close" onclick="document.getElementById('globalPortalAlert').style.display='none'"&gt;×&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+&lt;div class="portal-hero-banner"&gt;
+    &lt;div class="portal-hero-overlay"&gt;
+        &lt;h2 class="portal-hero-subtitle"&gt;Vyhodnotenie a analýza výsledkov geotechnického monitoringu&lt;/h2&gt;
+        &lt;p class="portal-hero-lead"&gt;Záujmové územie predstavuje okolie trasy diaľnice D1 v úseku Hubová – Ivachnová vo variante V2 &lt;/p&gt;
+        
+        &lt;div class="portal-dashboard-bars"&gt;
+            &lt;div class="portal-bar-row"&gt;
+                &lt;div class="portal-bar-info"&gt;
+                    &lt;span&gt;📉 Inklinometrické vrty&lt;/span&gt;
+                    &lt;strong class="count-animate" data-target="15"&gt;0&lt;/strong&gt;
+                &lt;/div&gt;
+                &lt;div class="portal-bar-track"&gt;
+                    &lt;div class="portal-bar-fill ink-fill" style="width: 0%;" data-width="50%"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="portal-bar-row"&gt;
+                &lt;div class="portal-bar-info"&gt;
+                    &lt;span&gt;📐 Geodetické body&lt;/span&gt;
+                    &lt;strong class="count-animate" data-target="0"&gt;0&lt;/strong&gt;
+                &lt;/div&gt;
+                &lt;div class="portal-bar-track"&gt;
+                    &lt;div class="portal-bar-fill geo-fill" style="width: 0%;" data-width="5%"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="portal-bar-row"&gt;
+                &lt;div class="portal-bar-info"&gt;
+                    &lt;span&gt;⚙️ Dynamometria kotiev&lt;/span&gt;
+                    &lt;strong class="count-animate" data-target="0"&gt;0&lt;/strong&gt;
+                &lt;/div&gt;
+                &lt;div class="portal-bar-track"&gt;
+                    &lt;div class="portal-bar-fill dyn-fill" style="width: 0%;" data-width="5%"&gt;&lt;/div&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
+
+        &lt;div class="portal-metrics-ribbon" style="margin-top: 25px;"&gt;
+            &lt;div class="portal-metric-item"&gt;
+                &lt;span class="portal-metric-label"&gt;📍 Lokalita&lt;/span&gt;
+                &lt;span class="portal-metric-value"&gt;Diaľnica D1 (Hubová - Ivachnová)&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="portal-metric-item portal-metric-right"&gt;
+                &lt;span class="portal-metric-label"&gt;⏱️ Status dát&lt;/span&gt;
+                &lt;span class="portal-metric-value"&gt;Posledná aktualizácia údajov: 21. jún 2026&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
+&lt;/div&gt;
 
-    &lt;script&gt;
-    document.addEventListener("DOMContentLoaded", function() {
-        // Test standard single bracket logic directly
-        const counters = document.querySelectorAll('.count-animate');
-        counters.forEach(function(counter) {
-            const target = parseInt(counter.getAttribute('data-target'), 10);
-            let count = 0;
-            const timer = setInterval(function() {
-                count++;
-                counter.textContent = count;
-                if (count &gt;= target) clearInterval(timer);
-            }, 50);
-        });
+&lt;div class="portal-search-wrapper" style="margin: 35px auto 25px auto; max-width: 100%; position: relative;"&gt;
+    &lt;span style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; pointer-events: none;"&gt;🔍&lt;/span&gt;
+    &lt;input type="text" id="portalQuickSearch" placeholder="Rýchle vyhľadávanie objektu (napr. PS 6, 101, Zosuvné územie...)..." 
+        style="width: 100%; padding: 14px 16px 14px 48px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; font-family: Calibri, sans-serif; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s ease;"&gt;
+&lt;/div&gt;
 
-        setTimeout(function() {
-            const fills = document.querySelectorAll('.portal-bar-fill');
-            fills.forEach(function(fill) {
-                fill.style.width = fill.getAttribute('data-width');
+&lt;div class="portal-grid-container"&gt;
+    
+    &lt;div class="portal-nav-card" onclick="window.location.href='staged_data/SO 101-00 (2A)/staged_master.html'"&gt;
+        &lt;div class="portal-card-icon"&gt;🏗️&lt;/div&gt;
+        &lt;div class="portal-card-body"&gt;
+            &lt;h3 class="portal-nav-card-title" style="margin:0 0 6px 0 !important; font-size:1.25rem !important; font-weight:700 !important; color:#2d3748; font-family:Verdana,sans-serif;"&gt;SO 101-00 (2A) &lt;span style="font-weight:400; font-size:0.95rem; color:#718096; display:block; margin-top:4px;"&gt;Zosuvné územie Likavka v km 6,875 – 7,200&lt;/span&gt;&lt;/h3&gt;
+            &lt;p class="portal-card-text"&gt;Výsledky geotechnického monitoringu: inklinometria, geodézia, dynamometria.&lt;/p&gt;
+            &lt;span class="portal-card-link"&gt;Zobraziť analýzu →&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="portal-nav-card" onclick="window.location.href='staged_data/PS 6/staged_master.html'"&gt;
+        &lt;div class="portal-card-icon"&gt;⚡&lt;/div&gt;
+        &lt;div class="portal-card-body"&gt;
+            &lt;h3 class="portal-nav-card-title" style="margin:0 0 6px 0 !important; font-size:1.25rem !important; font-weight:700 !important; color:#2d3748; font-family:Verdana,sans-serif;"&gt;PS 6 &lt;span style="font-weight:400; font-size:0.95rem; color:#718096; display:block; margin-top:4px;"&gt;Pilótová stena 6&lt;/span&gt;&lt;/h3&gt;
+            &lt;p class="portal-card-text"&gt;Analýza stability, merania dynamometrie kotiev a vizualizácie časových záznamov deformácií.&lt;/p&gt;
+            &lt;span class="portal-card-link"&gt;Zobraziť analýzu →&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="portal-nav-card" onclick="window.location.href='staged_data/tryskovka/staged_master.html'"&gt;
+        &lt;div class="portal-card-icon"&gt;⚙️&lt;/div&gt;
+        &lt;div class="portal-card-body"&gt;
+            &lt;h3 class="portal-nav-card-title" style="margin:0 0 6px 0 !important; font-size:1.25rem !important; font-weight:700 !important; color:#2d3748; font-family:Verdana,sans-serif;"&gt;tryskovka &lt;span style="font-weight:400; font-size:0.95rem; color:#718096; display:block; margin-top:4px;"&gt;Trysková injektáž&lt;/span&gt;&lt;/h3&gt;
+            &lt;p class="portal-card-text"&gt;Analýza a vizualizácie časových záznamov priebehu tryskovej injektáže.&lt;/p&gt;
+            &lt;span class="portal-card-link"&gt;Zobraziť analýzu →&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+
+&lt;script&gt;
+document.addEventListener("DOMContentLoaded", function() {
+    // FORCE-BUST BROWSER FAVICON CACHE VIA DOM INJECTION
+    const cacheBuster = "?v=" + new Date().getTime();
+    let favLink = document.querySelector("link[rel*='icon']");
+    if (!favLink) {
+        favLink = document.createElement('link');
+        favLink.rel = 'shortcut icon';
+        document.getElementsByTagName('head').appendChild(favLink);
+    }
+    favLink.href = "site_libs/favicon.png" + cacheBuster;
+
+    // LIVE QUICK-FILTER SEARCH LOGIC ENGINE
+    const searchInput = document.getElementById('portalQuickSearch');
+    const cards = document.querySelectorAll('.portal-grid-container .portal-nav-card');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            cards.forEach(function(card) {
+                const cardTitleBlock = card.querySelector('.portal-nav-card-title');
+                const cardText = card.textContent.toLowerCase();
+                if (cardText.includes(query)) {
+                    card.style.setProperty('display', 'flex', 'important');
+                } else {
+                    card.style.setProperty('display', 'none', 'important');
+                }
             });
-        }, 200);
+        });
+    }
+
+            // 3-SECOND LOCKED COUNTING ENGINE
+    const counters = document.querySelectorAll('.count-animate');
+    counters.forEach(function(counter) {
+        const target = parseInt(counter.getAttribute('data-target'), 10);
+        if (target === 0) return;
+        
+        let count = 0;
+        const totalDuration = 3000; 
+        const step = target &gt; 60 ? Math.ceil(target / 60) : 1;
+        const speed = Math.round(totalDuration / (target / step));
+        
+        const timer = setInterval(function() {
+            count += step;
+            if (count &gt;= target) {
+                counter.textContent = target; 
+                clearInterval(timer);
+            } else {
+                counter.textContent = count;
+            }
+        }, speed);
+        
+        if (speed &lt;= 0) {
+            counter.textContent = target;
+        }
     });
-    &lt;/script&gt;
-    ```</code></pre>
+
+    // Smooth Bar Animation Fill Delay
+    setTimeout(function() {
+        const fills = document.querySelectorAll('.portal-bar-fill');
+        fills.forEach(function(fill) {
+            fill.style.setProperty('width', fill.getAttribute('data-width'), 'important');
+        });
+    }, 250);
+});
+&lt;/script&gt;</code></pre>
 
 
 
