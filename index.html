@@ -462,31 +462,32 @@ ul.task-list li input[type="checkbox"] {
                 });
             }
 
-            // 🎯 SMART 3-SECOND LOCKED COUNTING ENGINE
-            // Ensures calculations always take exactly 3000ms regardless of data size!
+                        // 🎯 FIXED 3-SECOND COUNTING ENGINE
             const counters = document.querySelectorAll('.count-animate');
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-target'), 10);
                 if (target === 0) return;
                 
                 let count = 0;
-                const totalDuration = 3000; // Locked time target in milliseconds
+                const totalDuration = 3000; // 3 seconds locked duration
                 
-                // Adaptive stepping: if target is over 100 items, count by jumps 
-                // so the browser rendering frame updates fluidly without dropping frames
-                const step = target > 100 ? Math.ceil(target / 100) : 1;
-                const speed = Math.floor(totalDuration / (target / step));
+                // Determine step increment size based on target scale volume
+                const step = target > 60 ? Math.ceil(target / 60) : 1;
+                
+                // Math.round fixes the decimal bug and prevents interval crashes!
+                const speed = Math.round(totalDuration / (target / step));
                 
                 const timer = setInterval(() => {
                     count += step;
                     if (count >= target) {
-                        counter.textContent = target; // Hard lock onto exact precision end value
+                        counter.textContent = target; // Lock final exact number
                         clearInterval(timer);
                     } else {
                         counter.textContent = count;
                     }
                 }, speed);
             });
+
 
             // Smooth Bar Animation Fill Delay
             setTimeout(() => {
