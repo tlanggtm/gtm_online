@@ -483,418 +483,6 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="inklinometria">📉 Inklinometria</h2>
 <section id="ink-1" class="level3">
 <h3 class="anchored" data-anchor-id="ink-1">21_INK-1</h3>
-<section id="azimut" class="level5">
-<h5 class="anchored" data-anchor-id="azimut">🧭 Azimut</h5>
-<p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
-
-    <!-- 🎛️ STYLE CENTRAL -->
-    <style>
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi {
-        margin-bottom: 30px; 
-        background: #222222; 
-        padding: 15px; 
-        border-radius: 8px; 
-        user-select: none; 
-        -webkit-user-select: none;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .image-container {
-        background: #000000; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        min-height: 300px; 
-        margin-bottom: 15px; 
-        border-radius: 4px; 
-        overflow: hidden;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .control-action-bar {
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        gap: 12px;               
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-cluster {
-        display: flex; 
-        gap: 6px;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .player-btn {
-        color: #ffffff; 
-        border: none; 
-        height: 32px; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        border-radius: 4px; 
-        cursor: pointer;
-        transition: background-color 0.15s ease;
-        font-family: 'monospace',
-        font-size: 12px;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-nav {
-        background-color: #444444; 
-        width: 38px;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-nav:hover {
-        background-color: #555555;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-action {
-        background-color: #0d6efd; 
-        padding: 0 22px; 
-        font-weight: bold;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-action:hover {
-        filter: brightness(1.15); 
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-loop3 {
-        background-color: #6f42c1;
-        padding: 0 14px;
-        font-weight: bold;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-loop3:hover {
-        filter: brightness(1.15);
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-loop3.active {
-        background-color: #dc3545 !important;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .speed-selector {
-        background-color: #444444;
-        color: #ffffff;
-        border: none;
-        height: 32px;
-        padding: 0 6px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-family: monospace;
-        font-size: 13px;
-        outline: none;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .speed-selector:hover {
-        background-color: #555555;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi .timeline-slider {
-        flex-grow: 1; 
-        cursor: pointer;
-        height: 6px;
-        accent-color: #0d6efd; 
-    }
-
-    /* NATIVE FULLSCREEN LAYOUT FIXES */
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi:fullscreen {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        padding: 25px !important;
-        background: #111111 !important;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi:fullscreen .image-container {
-        flex-grow: 1 !important;
-        margin-bottom: 20px !important;
-    }
-    #player_wrapper_so_101_00_2__d_21_ink_1_azi:fullscreen #img_display_so_101_00_2__d_21_ink_1_azi {
-        max-height: calc(100vh - 120px) !important; 
-        width: auto !important;
-    }
-    </style>
-
-        <!-- 🏗️ HTML STRUCTURE -->
-    <div id="player_wrapper_so_101_00_2__d_21_ink_1_azi">
-        <div class="image-container">
-            <img id="img_display_so_101_00_2__d_21_ink_1_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
-        </div>
-        
-        <!-- Timeline Slider Bar -->
-        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_so_101_00_2__d_21_ink_1_azi" class="timeline-slider" type="range" min="0" max="37" value="0">
-        </div>
-
-        <!-- Control Action Bar -->
-        <div class="control-action-bar">
-            <!-- Left Cluster -->
-            <div class="btn-cluster">
-                <button id="btn_first_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-nav" title="First Frame (Home)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
-                </button>
-                <button id="btn_prev_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
-                </button>
-            </div>
-
-            <!-- Play Command -->
-            <button id="btn_play_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-action">
-                <span id="play_icon_so_101_00_2__d_21_ink_1_azi" style="display:flex; align-items:center; margin-right:6px;">
-                    <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
-                </span>
-                <span id="play_text_so_101_00_2__d_21_ink_1_azi">Play</span>
-            </button>
-
-            <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
-                🔄 Last 3 Measurements
-            </button>
-
-            <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
-            <select id="speed_select_so_101_00_2__d_21_ink_1_azi" class="speed-selector" title="Playback Speed">
-                <option value="2.0">0.5x</option>
-                <option value="1.5">0.75x</option>
-                <option value="1.0" selected="">1.0x</option>
-                <option value="0.5">2.0x</option>
-                <option value="0.25">4.0x</option>
-            </select>
-
-            <!-- Fullscreen Command -->
-            <button id="btn_fullscreen_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
-                <span id="fullscreen_icon_so_101_00_2__d_21_ink_1_azi" style="display:flex; align-items:center;">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
-                </span>
-            </button>
-
-            <!-- Right Cluster -->
-            <div class="btn-cluster">
-                <button id="btn_next_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
-                </button>
-                <button id="btn_last_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-nav" title="Last Frame (End)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- 🧠 JAVASCRIPT LOGIC -->
-    <script>
-    (function() {
-        const images_so_101_00_2__d_21_ink_1_azi = ["./ink/21_INK-1/azi/21_INK-1_0.png", "./ink/21_INK-1/azi/21_INK-1_1.png", "./ink/21_INK-1/azi/21_INK-1_10.png", "./ink/21_INK-1/azi/21_INK-1_11.png", "./ink/21_INK-1/azi/21_INK-1_12.png", "./ink/21_INK-1/azi/21_INK-1_13.png", "./ink/21_INK-1/azi/21_INK-1_14.png", "./ink/21_INK-1/azi/21_INK-1_15.png", "./ink/21_INK-1/azi/21_INK-1_16.png", "./ink/21_INK-1/azi/21_INK-1_17.png", "./ink/21_INK-1/azi/21_INK-1_18.png", "./ink/21_INK-1/azi/21_INK-1_19.png", "./ink/21_INK-1/azi/21_INK-1_2.png", "./ink/21_INK-1/azi/21_INK-1_20.png", "./ink/21_INK-1/azi/21_INK-1_21.png", "./ink/21_INK-1/azi/21_INK-1_22.png", "./ink/21_INK-1/azi/21_INK-1_23.png", "./ink/21_INK-1/azi/21_INK-1_24.png", "./ink/21_INK-1/azi/21_INK-1_25.png", "./ink/21_INK-1/azi/21_INK-1_26.png", "./ink/21_INK-1/azi/21_INK-1_27.png", "./ink/21_INK-1/azi/21_INK-1_28.png", "./ink/21_INK-1/azi/21_INK-1_29.png", "./ink/21_INK-1/azi/21_INK-1_3.png", "./ink/21_INK-1/azi/21_INK-1_30.png", "./ink/21_INK-1/azi/21_INK-1_31.png", "./ink/21_INK-1/azi/21_INK-1_32.png", "./ink/21_INK-1/azi/21_INK-1_33.png", "./ink/21_INK-1/azi/21_INK-1_34.png", "./ink/21_INK-1/azi/21_INK-1_35.png", "./ink/21_INK-1/azi/21_INK-1_36.png", "./ink/21_INK-1/azi/21_INK-1_37.png", "./ink/21_INK-1/azi/21_INK-1_4.png", "./ink/21_INK-1/azi/21_INK-1_5.png", "./ink/21_INK-1/azi/21_INK-1_6.png", "./ink/21_INK-1/azi/21_INK-1_7.png", "./ink/21_INK-1/azi/21_INK-1_8.png", "./ink/21_INK-1/azi/21_INK-1_9.png"];
-        const totalFrames_so_101_00_2__d_21_ink_1_azi = 38;
-        const baseInterval_so_101_00_2__d_21_ink_1_azi = 300; // The baseline 300ms passed from python
-        const loopStartIdx_so_101_00_2__d_21_ink_1_azi = 35;
-        
-        let currentIdx_so_101_00_2__d_21_ink_1_azi = 0;
-        let isPlaying_so_101_00_2__d_21_ink_1_azi = false;
-        let isLoopingLast3_so_101_00_2__d_21_ink_1_azi = false;
-        let interval_so_101_00_2__d_21_ink_1_azi = null;
-        let isMouseOver_so_101_00_2__d_21_ink_1_azi = false;
-        let speedMultiplier_so_101_00_2__d_21_ink_1_azi = 1.0;
-
-        const wrapperEl = document.getElementById("player_wrapper_so_101_00_2__d_21_ink_1_azi");
-        const imgEl = document.getElementById("img_display_so_101_00_2__d_21_ink_1_azi");
-        const sliderEl = document.getElementById("slider_so_101_00_2__d_21_ink_1_azi");
-        const speedSelectEl = document.getElementById("speed_select_so_101_00_2__d_21_ink_1_azi");
-        
-        const btnPlay = document.getElementById("btn_play_so_101_00_2__d_21_ink_1_azi");
-        const playIconContainer = document.getElementById("play_icon_so_101_00_2__d_21_ink_1_azi");
-        const playTextContainer = document.getElementById("play_text_so_101_00_2__d_21_ink_1_azi");
-        const btnLoop3 = document.getElementById("btn_loop3_so_101_00_2__d_21_ink_1_azi");
-        
-        const btnFullscreen = document.getElementById("btn_fullscreen_so_101_00_2__d_21_ink_1_azi");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_so_101_00_2__d_21_ink_1_azi");
-        
-        const btnFirst = document.getElementById("btn_first_so_101_00_2__d_21_ink_1_azi");
-        const btnPrev = document.getElementById("btn_prev_so_101_00_2__d_21_ink_1_azi");
-        const btnNext = document.getElementById("btn_next_so_101_00_2__d_21_ink_1_azi");
-        const btnLast = document.getElementById("btn_last_so_101_00_2__d_21_ink_1_azi");
-
-        const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
-        const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
-        
-        const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
-        const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
-
-        function updatePlayer_so_101_00_2__d_21_ink_1_azi(idx) {
-            currentIdx_so_101_00_2__d_21_ink_1_azi = idx;
-            if(images_so_101_00_2__d_21_ink_1_azi[idx]) {
-                imgEl.src = images_so_101_00_2__d_21_ink_1_azi[idx];
-            }
-            sliderEl.value = idx;
-        }
-
-        // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_so_101_00_2__d_21_ink_1_azi() {
-            const activeInterval = baseInterval_so_101_00_2__d_21_ink_1_azi * speedMultiplier_so_101_00_2__d_21_ink_1_azi;
-            interval_so_101_00_2__d_21_ink_1_azi = setInterval(function() {
-                let nextIdx = currentIdx_so_101_00_2__d_21_ink_1_azi + 1;
-                
-                if (isLoopingLast3_so_101_00_2__d_21_ink_1_azi) {
-                    if (nextIdx >= totalFrames_so_101_00_2__d_21_ink_1_azi) {
-                        nextIdx = loopStartIdx_so_101_00_2__d_21_ink_1_azi;
-                    }
-                } else {
-                    if (nextIdx >= totalFrames_so_101_00_2__d_21_ink_1_azi) {
-                        nextIdx = 0;
-                    }
-                }
-                updatePlayer_so_101_00_2__d_21_ink_1_azi(nextIdx);
-            }, activeInterval);
-        }
-        function togglePlay_so_101_00_2__d_21_ink_1_azi() {
-            if(isPlaying_so_101_00_2__d_21_ink_1_azi) {
-                clearInterval(interval_so_101_00_2__d_21_ink_1_azi);
-                playIconContainer.innerHTML = svgPlay;
-                playTextContainer.textContent = "Play";
-                isPlaying_so_101_00_2__d_21_ink_1_azi = false;
-            } else {
-                playIconContainer.innerHTML = svgPause;
-                playTextContainer.textContent = "Pause";
-                isPlaying_so_101_00_2__d_21_ink_1_azi = true;
-                
-                // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_so_101_00_2__d_21_ink_1_azi && currentIdx_so_101_00_2__d_21_ink_1_azi < loopStartIdx_so_101_00_2__d_21_ink_1_azi) {
-                    updatePlayer_so_101_00_2__d_21_ink_1_azi(loopStartIdx_so_101_00_2__d_21_ink_1_azi);
-                }
-                startPlaybackLoop_so_101_00_2__d_21_ink_1_azi();
-            }
-        }
-
-        function pausePlayback_so_101_00_2__d_21_ink_1_azi() {
-            if(isPlaying_so_101_00_2__d_21_ink_1_azi) {
-                clearInterval(interval_so_101_00_2__d_21_ink_1_azi);
-                playIconContainer.innerHTML = svgPlay;
-                playTextContainer.textContent = "Play";
-                isPlaying_so_101_00_2__d_21_ink_1_azi = false;
-            }
-        }
-
-        function breakLoop3State_so_101_00_2__d_21_ink_1_azi() {
-            if (isLoopingLast3_so_101_00_2__d_21_ink_1_azi) {
-                isLoopingLast3_so_101_00_2__d_21_ink_1_azi = false;
-                btnLoop3.classList.remove("active");
-                btnLoop3.textContent = "🔄 Loop Last 3";
-            }
-        }
-
-        function toggleFullscreen_so_101_00_2__d_21_ink_1_azi() {
-            if (!document.fullscreenElement) {
-                if (wrapperEl.requestFullscreen) {
-                    wrapperEl.requestFullscreen();
-                } else if (wrapperEl.webkitRequestFullscreen) {
-                    wrapperEl.webkitRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
-
-        document.addEventListener('fullscreenchange', function() {
-            if (document.fullscreenElement === wrapperEl) {
-                fullscreenIconContainer.innerHTML = svgExitScreen;
-                wrapperEl.style.padding = "30px";
-            } else {
-                fullscreenIconContainer.innerHTML = svgNormalScreen;
-                wrapperEl.style.padding = "15px";
-            }
-        });
-
-        // Instantly load and display the last frame on page load
-        updatePlayer_so_101_00_2__d_21_ink_1_azi(totalFrames_so_101_00_2__d_21_ink_1_azi - 1);
-
-        // Slider Event
-        sliderEl.addEventListener("input", function(e) {
-            pausePlayback_so_101_00_2__d_21_ink_1_azi();
-            breakLoop3State_so_101_00_2__d_21_ink_1_azi();
-            updatePlayer_so_101_00_2__d_21_ink_1_azi(parseInt(e.target.value));
-        });
-
-        // Speed Change Event Handler
-        speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_so_101_00_2__d_21_ink_1_azi = parseFloat(e.target.value);
-            if (isPlaying_so_101_00_2__d_21_ink_1_azi) {
-                clearInterval(interval_so_101_00_2__d_21_ink_1_azi);
-                startPlaybackLoop_so_101_00_2__d_21_ink_1_azi();
-            }
-        });
-        btnPlay.addEventListener("click", togglePlay_so_101_00_2__d_21_ink_1_azi);
-        btnFullscreen.addEventListener("click", toggleFullscreen_so_101_00_2__d_21_ink_1_azi);
-
-        // 🔄 Loop Last 3 Button Handler
-        btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_so_101_00_2__d_21_ink_1_azi = !isLoopingLast3_so_101_00_2__d_21_ink_1_azi;
-            
-            if (isLoopingLast3_so_101_00_2__d_21_ink_1_azi) {
-                btnLoop3.classList.add("active");
-                btnLoop3.textContent = "Stop Loop";
-                
-                // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_so_101_00_2__d_21_ink_1_azi < loopStartIdx_so_101_00_2__d_21_ink_1_azi) {
-                    updatePlayer_so_101_00_2__d_21_ink_1_azi(totalFrames_so_101_00_2__d_21_ink_1_azi - 1);
-                }
-                
-                // Force playback start if paused
-                if (!isPlaying_so_101_00_2__d_21_ink_1_azi) {
-                    togglePlay_so_101_00_2__d_21_ink_1_azi();
-                } else {
-                    // Reset interval to snap parameters immediately
-                    clearInterval(interval_so_101_00_2__d_21_ink_1_azi);
-                    startPlaybackLoop_so_101_00_2__d_21_ink_1_azi();
-                }
-            } else {
-                btnLoop3.classList.remove("active");
-                btnLoop3.textContent = "🔄 Loop Last 3";
-                pausePlayback_so_101_00_2__d_21_ink_1_azi();
-            }
-        });
-
-        btnFirst.addEventListener("click", function() { pausePlayback_so_101_00_2__d_21_ink_1_azi(); breakLoop3State_so_101_00_2__d_21_ink_1_azi(); updatePlayer_so_101_00_2__d_21_ink_1_azi(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_so_101_00_2__d_21_ink_1_azi(); breakLoop3State_so_101_00_2__d_21_ink_1_azi(); updatePlayer_so_101_00_2__d_21_ink_1_azi(totalFrames_so_101_00_2__d_21_ink_1_azi - 1); });
-        
-        btnPrev.addEventListener("click", function() {
-            pausePlayback_so_101_00_2__d_21_ink_1_azi();
-            breakLoop3State_so_101_00_2__d_21_ink_1_azi();
-            let prevIdx = currentIdx_so_101_00_2__d_21_ink_1_azi - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_so_101_00_2__d_21_ink_1_azi - 1;
-            updatePlayer_so_101_00_2__d_21_ink_1_azi(prevIdx);
-        });
-
-        btnNext.addEventListener("click", function() {
-            pausePlayback_so_101_00_2__d_21_ink_1_azi();
-            breakLoop3State_so_101_00_2__d_21_ink_1_azi();
-            let nextIdx = (currentIdx_so_101_00_2__d_21_ink_1_azi + 1) % totalFrames_so_101_00_2__d_21_ink_1_azi;
-            updatePlayer_so_101_00_2__d_21_ink_1_azi(nextIdx);
-        });
-
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_so_101_00_2__d_21_ink_1_azi = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_so_101_00_2__d_21_ink_1_azi = false; });
-
-        window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_so_101_00_2__d_21_ink_1_azi) return;
-
-            switch(e.key) {
-                case "ArrowLeft":
-                    e.preventDefault();
-                    btnPrev.click();
-                    break;
-                case "ArrowRight":
-                    e.preventDefault();
-                    btnNext.click();
-                    break;
-                case " ":
-                    e.preventDefault();
-                    btnPlay.click();
-                    break;
-                case "Home":
-                    e.preventDefault();
-                    btnFirst.click();
-                    break;
-                case "End":
-                    e.preventDefault();
-                    btnLast.click();
-                    break;
-                case "f":
-                case "F":
-                    e.preventDefault();
-                    btnFullscreen.click();
-                    break;
-                case "l":
-                case "L":
-                    e.preventDefault();
-                    e.stopPropagation();
-                    btnLoop3.click();
-                    break;
-            }
-        });
-    })();
-    </script>
-    
-</section>
 <section id="celková-deformácia" class="level5">
 <h5 class="anchored" data-anchor-id="celková-deformácia">📈 Celková deformácia</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
@@ -1307,16 +895,13 @@ ul.task-list li input[type="checkbox"] {
     </script>
     
 </section>
-</section>
-<section id="iv-40" class="level3">
-<h3 class="anchored" data-anchor-id="iv-40">IV-40</h3>
-<section id="azimut-1" class="level5">
-<h5 class="anchored" data-anchor-id="azimut-1">🧭 Azimut</h5>
+<section id="azimut" class="level5">
+<h5 class="anchored" data-anchor-id="azimut">🧭 Azimut</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
 
     <!-- 🎛️ STYLE CENTRAL -->
     <style>
-    #player_wrapper_so_101_00_2__d_iv_40_azi {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi {
         margin-bottom: 30px; 
         background: #222222; 
         padding: 15px; 
@@ -1324,7 +909,7 @@ ul.task-list li input[type="checkbox"] {
         user-select: none; 
         -webkit-user-select: none;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .image-container {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .image-container {
         background: #000000; 
         display: flex; 
         align-items: center; 
@@ -1334,17 +919,17 @@ ul.task-list li input[type="checkbox"] {
         border-radius: 4px; 
         overflow: hidden;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .control-action-bar {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .control-action-bar {
         display: flex; 
         align-items: center; 
         justify-content: center; 
         gap: 12px;               
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-cluster {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-cluster {
         display: flex; 
         gap: 6px;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .player-btn {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .player-btn {
         color: #ffffff; 
         border: none; 
         height: 32px; 
@@ -1357,33 +942,33 @@ ul.task-list li input[type="checkbox"] {
         font-family: 'monospace',
         font-size: 12px;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-nav {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-nav {
         background-color: #444444; 
         width: 38px;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-nav:hover {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-nav:hover {
         background-color: #555555;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-action {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-action {
         background-color: #0d6efd; 
         padding: 0 22px; 
         font-weight: bold;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-action:hover {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-action:hover {
         filter: brightness(1.15); 
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-loop3 {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-loop3 {
         background-color: #6f42c1;
         padding: 0 14px;
         font-weight: bold;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-loop3:hover {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-loop3:hover {
         filter: brightness(1.15);
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-loop3.active {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .btn-loop3.active {
         background-color: #dc3545 !important;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .speed-selector {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .speed-selector {
         background-color: #444444;
         color: #ffffff;
         border: none;
@@ -1395,10 +980,10 @@ ul.task-list li input[type="checkbox"] {
         font-size: 13px;
         outline: none;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .speed-selector:hover {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .speed-selector:hover {
         background-color: #555555;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi .timeline-slider {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi .timeline-slider {
         flex-grow: 1; 
         cursor: pointer;
         height: 6px;
@@ -1406,61 +991,61 @@ ul.task-list li input[type="checkbox"] {
     }
 
     /* NATIVE FULLSCREEN LAYOUT FIXES */
-    #player_wrapper_so_101_00_2__d_iv_40_azi:fullscreen {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi:fullscreen {
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
         padding: 25px !important;
         background: #111111 !important;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi:fullscreen .image-container {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi:fullscreen .image-container {
         flex-grow: 1 !important;
         margin-bottom: 20px !important;
     }
-    #player_wrapper_so_101_00_2__d_iv_40_azi:fullscreen #img_display_so_101_00_2__d_iv_40_azi {
+    #player_wrapper_so_101_00_2__d_21_ink_1_azi:fullscreen #img_display_so_101_00_2__d_21_ink_1_azi {
         max-height: calc(100vh - 120px) !important; 
         width: auto !important;
     }
     </style>
 
         <!-- 🏗️ HTML STRUCTURE -->
-    <div id="player_wrapper_so_101_00_2__d_iv_40_azi">
+    <div id="player_wrapper_so_101_00_2__d_21_ink_1_azi">
         <div class="image-container">
-            <img id="img_display_so_101_00_2__d_iv_40_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
+            <img id="img_display_so_101_00_2__d_21_ink_1_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         
         <!-- Timeline Slider Bar -->
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_so_101_00_2__d_iv_40_azi" class="timeline-slider" type="range" min="0" max="34" value="0">
+            <input id="slider_so_101_00_2__d_21_ink_1_azi" class="timeline-slider" type="range" min="0" max="37" value="0">
         </div>
 
         <!-- Control Action Bar -->
         <div class="control-action-bar">
             <!-- Left Cluster -->
             <div class="btn-cluster">
-                <button id="btn_first_so_101_00_2__d_iv_40_azi" class="player-btn btn-nav" title="First Frame (Home)">
+                <button id="btn_first_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-nav" title="First Frame (Home)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
                 </button>
-                <button id="btn_prev_so_101_00_2__d_iv_40_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
+                <button id="btn_prev_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
                 </button>
             </div>
 
             <!-- Play Command -->
-            <button id="btn_play_so_101_00_2__d_iv_40_azi" class="player-btn btn-action">
-                <span id="play_icon_so_101_00_2__d_iv_40_azi" style="display:flex; align-items:center; margin-right:6px;">
+            <button id="btn_play_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-action">
+                <span id="play_icon_so_101_00_2__d_21_ink_1_azi" style="display:flex; align-items:center; margin-right:6px;">
                     <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
                 </span>
-                <span id="play_text_so_101_00_2__d_iv_40_azi">Play</span>
+                <span id="play_text_so_101_00_2__d_21_ink_1_azi">Play</span>
             </button>
 
             <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_so_101_00_2__d_iv_40_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
+            <button id="btn_loop3_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
                 🔄 Last 3 Measurements
             </button>
 
             <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
-            <select id="speed_select_so_101_00_2__d_iv_40_azi" class="speed-selector" title="Playback Speed">
+            <select id="speed_select_so_101_00_2__d_21_ink_1_azi" class="speed-selector" title="Playback Speed">
                 <option value="2.0">0.5x</option>
                 <option value="1.5">0.75x</option>
                 <option value="1.0" selected="">1.0x</option>
@@ -1469,18 +1054,18 @@ ul.task-list li input[type="checkbox"] {
             </select>
 
             <!-- Fullscreen Command -->
-            <button id="btn_fullscreen_so_101_00_2__d_iv_40_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
-                <span id="fullscreen_icon_so_101_00_2__d_iv_40_azi" style="display:flex; align-items:center;">
+            <button id="btn_fullscreen_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
+                <span id="fullscreen_icon_so_101_00_2__d_21_ink_1_azi" style="display:flex; align-items:center;">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
                 </span>
             </button>
 
             <!-- Right Cluster -->
             <div class="btn-cluster">
-                <button id="btn_next_so_101_00_2__d_iv_40_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
+                <button id="btn_next_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
                 </button>
-                <button id="btn_last_so_101_00_2__d_iv_40_azi" class="player-btn btn-nav" title="Last Frame (End)">
+                <button id="btn_last_so_101_00_2__d_21_ink_1_azi" class="player-btn btn-nav" title="Last Frame (End)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
                 </button>
             </div>
@@ -1489,35 +1074,35 @@ ul.task-list li input[type="checkbox"] {
     <!-- 🧠 JAVASCRIPT LOGIC -->
     <script>
     (function() {
-        const images_so_101_00_2__d_iv_40_azi = ["./ink/IV-40/azi/IV-40_0.png", "./ink/IV-40/azi/IV-40_1.png", "./ink/IV-40/azi/IV-40_10.png", "./ink/IV-40/azi/IV-40_11.png", "./ink/IV-40/azi/IV-40_12.png", "./ink/IV-40/azi/IV-40_13.png", "./ink/IV-40/azi/IV-40_14.png", "./ink/IV-40/azi/IV-40_15.png", "./ink/IV-40/azi/IV-40_16.png", "./ink/IV-40/azi/IV-40_17.png", "./ink/IV-40/azi/IV-40_18.png", "./ink/IV-40/azi/IV-40_19.png", "./ink/IV-40/azi/IV-40_2.png", "./ink/IV-40/azi/IV-40_20.png", "./ink/IV-40/azi/IV-40_21.png", "./ink/IV-40/azi/IV-40_22.png", "./ink/IV-40/azi/IV-40_23.png", "./ink/IV-40/azi/IV-40_24.png", "./ink/IV-40/azi/IV-40_25.png", "./ink/IV-40/azi/IV-40_26.png", "./ink/IV-40/azi/IV-40_27.png", "./ink/IV-40/azi/IV-40_28.png", "./ink/IV-40/azi/IV-40_29.png", "./ink/IV-40/azi/IV-40_3.png", "./ink/IV-40/azi/IV-40_30.png", "./ink/IV-40/azi/IV-40_31.png", "./ink/IV-40/azi/IV-40_32.png", "./ink/IV-40/azi/IV-40_33.png", "./ink/IV-40/azi/IV-40_34.png", "./ink/IV-40/azi/IV-40_4.png", "./ink/IV-40/azi/IV-40_5.png", "./ink/IV-40/azi/IV-40_6.png", "./ink/IV-40/azi/IV-40_7.png", "./ink/IV-40/azi/IV-40_8.png", "./ink/IV-40/azi/IV-40_9.png"];
-        const totalFrames_so_101_00_2__d_iv_40_azi = 35;
-        const baseInterval_so_101_00_2__d_iv_40_azi = 300; // The baseline 300ms passed from python
-        const loopStartIdx_so_101_00_2__d_iv_40_azi = 32;
+        const images_so_101_00_2__d_21_ink_1_azi = ["./ink/21_INK-1/azi/21_INK-1_0.png", "./ink/21_INK-1/azi/21_INK-1_1.png", "./ink/21_INK-1/azi/21_INK-1_10.png", "./ink/21_INK-1/azi/21_INK-1_11.png", "./ink/21_INK-1/azi/21_INK-1_12.png", "./ink/21_INK-1/azi/21_INK-1_13.png", "./ink/21_INK-1/azi/21_INK-1_14.png", "./ink/21_INK-1/azi/21_INK-1_15.png", "./ink/21_INK-1/azi/21_INK-1_16.png", "./ink/21_INK-1/azi/21_INK-1_17.png", "./ink/21_INK-1/azi/21_INK-1_18.png", "./ink/21_INK-1/azi/21_INK-1_19.png", "./ink/21_INK-1/azi/21_INK-1_2.png", "./ink/21_INK-1/azi/21_INK-1_20.png", "./ink/21_INK-1/azi/21_INK-1_21.png", "./ink/21_INK-1/azi/21_INK-1_22.png", "./ink/21_INK-1/azi/21_INK-1_23.png", "./ink/21_INK-1/azi/21_INK-1_24.png", "./ink/21_INK-1/azi/21_INK-1_25.png", "./ink/21_INK-1/azi/21_INK-1_26.png", "./ink/21_INK-1/azi/21_INK-1_27.png", "./ink/21_INK-1/azi/21_INK-1_28.png", "./ink/21_INK-1/azi/21_INK-1_29.png", "./ink/21_INK-1/azi/21_INK-1_3.png", "./ink/21_INK-1/azi/21_INK-1_30.png", "./ink/21_INK-1/azi/21_INK-1_31.png", "./ink/21_INK-1/azi/21_INK-1_32.png", "./ink/21_INK-1/azi/21_INK-1_33.png", "./ink/21_INK-1/azi/21_INK-1_34.png", "./ink/21_INK-1/azi/21_INK-1_35.png", "./ink/21_INK-1/azi/21_INK-1_36.png", "./ink/21_INK-1/azi/21_INK-1_37.png", "./ink/21_INK-1/azi/21_INK-1_4.png", "./ink/21_INK-1/azi/21_INK-1_5.png", "./ink/21_INK-1/azi/21_INK-1_6.png", "./ink/21_INK-1/azi/21_INK-1_7.png", "./ink/21_INK-1/azi/21_INK-1_8.png", "./ink/21_INK-1/azi/21_INK-1_9.png"];
+        const totalFrames_so_101_00_2__d_21_ink_1_azi = 38;
+        const baseInterval_so_101_00_2__d_21_ink_1_azi = 300; // The baseline 300ms passed from python
+        const loopStartIdx_so_101_00_2__d_21_ink_1_azi = 35;
         
-        let currentIdx_so_101_00_2__d_iv_40_azi = 0;
-        let isPlaying_so_101_00_2__d_iv_40_azi = false;
-        let isLoopingLast3_so_101_00_2__d_iv_40_azi = false;
-        let interval_so_101_00_2__d_iv_40_azi = null;
-        let isMouseOver_so_101_00_2__d_iv_40_azi = false;
-        let speedMultiplier_so_101_00_2__d_iv_40_azi = 1.0;
+        let currentIdx_so_101_00_2__d_21_ink_1_azi = 0;
+        let isPlaying_so_101_00_2__d_21_ink_1_azi = false;
+        let isLoopingLast3_so_101_00_2__d_21_ink_1_azi = false;
+        let interval_so_101_00_2__d_21_ink_1_azi = null;
+        let isMouseOver_so_101_00_2__d_21_ink_1_azi = false;
+        let speedMultiplier_so_101_00_2__d_21_ink_1_azi = 1.0;
 
-        const wrapperEl = document.getElementById("player_wrapper_so_101_00_2__d_iv_40_azi");
-        const imgEl = document.getElementById("img_display_so_101_00_2__d_iv_40_azi");
-        const sliderEl = document.getElementById("slider_so_101_00_2__d_iv_40_azi");
-        const speedSelectEl = document.getElementById("speed_select_so_101_00_2__d_iv_40_azi");
+        const wrapperEl = document.getElementById("player_wrapper_so_101_00_2__d_21_ink_1_azi");
+        const imgEl = document.getElementById("img_display_so_101_00_2__d_21_ink_1_azi");
+        const sliderEl = document.getElementById("slider_so_101_00_2__d_21_ink_1_azi");
+        const speedSelectEl = document.getElementById("speed_select_so_101_00_2__d_21_ink_1_azi");
         
-        const btnPlay = document.getElementById("btn_play_so_101_00_2__d_iv_40_azi");
-        const playIconContainer = document.getElementById("play_icon_so_101_00_2__d_iv_40_azi");
-        const playTextContainer = document.getElementById("play_text_so_101_00_2__d_iv_40_azi");
-        const btnLoop3 = document.getElementById("btn_loop3_so_101_00_2__d_iv_40_azi");
+        const btnPlay = document.getElementById("btn_play_so_101_00_2__d_21_ink_1_azi");
+        const playIconContainer = document.getElementById("play_icon_so_101_00_2__d_21_ink_1_azi");
+        const playTextContainer = document.getElementById("play_text_so_101_00_2__d_21_ink_1_azi");
+        const btnLoop3 = document.getElementById("btn_loop3_so_101_00_2__d_21_ink_1_azi");
         
-        const btnFullscreen = document.getElementById("btn_fullscreen_so_101_00_2__d_iv_40_azi");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_so_101_00_2__d_iv_40_azi");
+        const btnFullscreen = document.getElementById("btn_fullscreen_so_101_00_2__d_21_ink_1_azi");
+        const fullscreenIconContainer = document.getElementById("fullscreen_icon_so_101_00_2__d_21_ink_1_azi");
         
-        const btnFirst = document.getElementById("btn_first_so_101_00_2__d_iv_40_azi");
-        const btnPrev = document.getElementById("btn_prev_so_101_00_2__d_iv_40_azi");
-        const btnNext = document.getElementById("btn_next_so_101_00_2__d_iv_40_azi");
-        const btnLast = document.getElementById("btn_last_so_101_00_2__d_iv_40_azi");
+        const btnFirst = document.getElementById("btn_first_so_101_00_2__d_21_ink_1_azi");
+        const btnPrev = document.getElementById("btn_prev_so_101_00_2__d_21_ink_1_azi");
+        const btnNext = document.getElementById("btn_next_so_101_00_2__d_21_ink_1_azi");
+        const btnLast = document.getElementById("btn_last_so_101_00_2__d_21_ink_1_azi");
 
         const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
         const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
@@ -1525,69 +1110,69 @@ ul.task-list li input[type="checkbox"] {
         const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
         const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
 
-        function updatePlayer_so_101_00_2__d_iv_40_azi(idx) {
-            currentIdx_so_101_00_2__d_iv_40_azi = idx;
-            if(images_so_101_00_2__d_iv_40_azi[idx]) {
-                imgEl.src = images_so_101_00_2__d_iv_40_azi[idx];
+        function updatePlayer_so_101_00_2__d_21_ink_1_azi(idx) {
+            currentIdx_so_101_00_2__d_21_ink_1_azi = idx;
+            if(images_so_101_00_2__d_21_ink_1_azi[idx]) {
+                imgEl.src = images_so_101_00_2__d_21_ink_1_azi[idx];
             }
             sliderEl.value = idx;
         }
 
         // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_so_101_00_2__d_iv_40_azi() {
-            const activeInterval = baseInterval_so_101_00_2__d_iv_40_azi * speedMultiplier_so_101_00_2__d_iv_40_azi;
-            interval_so_101_00_2__d_iv_40_azi = setInterval(function() {
-                let nextIdx = currentIdx_so_101_00_2__d_iv_40_azi + 1;
+        function startPlaybackLoop_so_101_00_2__d_21_ink_1_azi() {
+            const activeInterval = baseInterval_so_101_00_2__d_21_ink_1_azi * speedMultiplier_so_101_00_2__d_21_ink_1_azi;
+            interval_so_101_00_2__d_21_ink_1_azi = setInterval(function() {
+                let nextIdx = currentIdx_so_101_00_2__d_21_ink_1_azi + 1;
                 
-                if (isLoopingLast3_so_101_00_2__d_iv_40_azi) {
-                    if (nextIdx >= totalFrames_so_101_00_2__d_iv_40_azi) {
-                        nextIdx = loopStartIdx_so_101_00_2__d_iv_40_azi;
+                if (isLoopingLast3_so_101_00_2__d_21_ink_1_azi) {
+                    if (nextIdx >= totalFrames_so_101_00_2__d_21_ink_1_azi) {
+                        nextIdx = loopStartIdx_so_101_00_2__d_21_ink_1_azi;
                     }
                 } else {
-                    if (nextIdx >= totalFrames_so_101_00_2__d_iv_40_azi) {
+                    if (nextIdx >= totalFrames_so_101_00_2__d_21_ink_1_azi) {
                         nextIdx = 0;
                     }
                 }
-                updatePlayer_so_101_00_2__d_iv_40_azi(nextIdx);
+                updatePlayer_so_101_00_2__d_21_ink_1_azi(nextIdx);
             }, activeInterval);
         }
-        function togglePlay_so_101_00_2__d_iv_40_azi() {
-            if(isPlaying_so_101_00_2__d_iv_40_azi) {
-                clearInterval(interval_so_101_00_2__d_iv_40_azi);
+        function togglePlay_so_101_00_2__d_21_ink_1_azi() {
+            if(isPlaying_so_101_00_2__d_21_ink_1_azi) {
+                clearInterval(interval_so_101_00_2__d_21_ink_1_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_so_101_00_2__d_iv_40_azi = false;
+                isPlaying_so_101_00_2__d_21_ink_1_azi = false;
             } else {
                 playIconContainer.innerHTML = svgPause;
                 playTextContainer.textContent = "Pause";
-                isPlaying_so_101_00_2__d_iv_40_azi = true;
+                isPlaying_so_101_00_2__d_21_ink_1_azi = true;
                 
                 // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_so_101_00_2__d_iv_40_azi && currentIdx_so_101_00_2__d_iv_40_azi < loopStartIdx_so_101_00_2__d_iv_40_azi) {
-                    updatePlayer_so_101_00_2__d_iv_40_azi(loopStartIdx_so_101_00_2__d_iv_40_azi);
+                if (isLoopingLast3_so_101_00_2__d_21_ink_1_azi && currentIdx_so_101_00_2__d_21_ink_1_azi < loopStartIdx_so_101_00_2__d_21_ink_1_azi) {
+                    updatePlayer_so_101_00_2__d_21_ink_1_azi(loopStartIdx_so_101_00_2__d_21_ink_1_azi);
                 }
-                startPlaybackLoop_so_101_00_2__d_iv_40_azi();
+                startPlaybackLoop_so_101_00_2__d_21_ink_1_azi();
             }
         }
 
-        function pausePlayback_so_101_00_2__d_iv_40_azi() {
-            if(isPlaying_so_101_00_2__d_iv_40_azi) {
-                clearInterval(interval_so_101_00_2__d_iv_40_azi);
+        function pausePlayback_so_101_00_2__d_21_ink_1_azi() {
+            if(isPlaying_so_101_00_2__d_21_ink_1_azi) {
+                clearInterval(interval_so_101_00_2__d_21_ink_1_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_so_101_00_2__d_iv_40_azi = false;
+                isPlaying_so_101_00_2__d_21_ink_1_azi = false;
             }
         }
 
-        function breakLoop3State_so_101_00_2__d_iv_40_azi() {
-            if (isLoopingLast3_so_101_00_2__d_iv_40_azi) {
-                isLoopingLast3_so_101_00_2__d_iv_40_azi = false;
+        function breakLoop3State_so_101_00_2__d_21_ink_1_azi() {
+            if (isLoopingLast3_so_101_00_2__d_21_ink_1_azi) {
+                isLoopingLast3_so_101_00_2__d_21_ink_1_azi = false;
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
             }
         }
 
-        function toggleFullscreen_so_101_00_2__d_iv_40_azi() {
+        function toggleFullscreen_so_101_00_2__d_21_ink_1_azi() {
             if (!document.fullscreenElement) {
                 if (wrapperEl.requestFullscreen) {
                     wrapperEl.requestFullscreen();
@@ -1612,77 +1197,77 @@ ul.task-list li input[type="checkbox"] {
         });
 
         // Instantly load and display the last frame on page load
-        updatePlayer_so_101_00_2__d_iv_40_azi(totalFrames_so_101_00_2__d_iv_40_azi - 1);
+        updatePlayer_so_101_00_2__d_21_ink_1_azi(totalFrames_so_101_00_2__d_21_ink_1_azi - 1);
 
         // Slider Event
         sliderEl.addEventListener("input", function(e) {
-            pausePlayback_so_101_00_2__d_iv_40_azi();
-            breakLoop3State_so_101_00_2__d_iv_40_azi();
-            updatePlayer_so_101_00_2__d_iv_40_azi(parseInt(e.target.value));
+            pausePlayback_so_101_00_2__d_21_ink_1_azi();
+            breakLoop3State_so_101_00_2__d_21_ink_1_azi();
+            updatePlayer_so_101_00_2__d_21_ink_1_azi(parseInt(e.target.value));
         });
 
         // Speed Change Event Handler
         speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_so_101_00_2__d_iv_40_azi = parseFloat(e.target.value);
-            if (isPlaying_so_101_00_2__d_iv_40_azi) {
-                clearInterval(interval_so_101_00_2__d_iv_40_azi);
-                startPlaybackLoop_so_101_00_2__d_iv_40_azi();
+            speedMultiplier_so_101_00_2__d_21_ink_1_azi = parseFloat(e.target.value);
+            if (isPlaying_so_101_00_2__d_21_ink_1_azi) {
+                clearInterval(interval_so_101_00_2__d_21_ink_1_azi);
+                startPlaybackLoop_so_101_00_2__d_21_ink_1_azi();
             }
         });
-        btnPlay.addEventListener("click", togglePlay_so_101_00_2__d_iv_40_azi);
-        btnFullscreen.addEventListener("click", toggleFullscreen_so_101_00_2__d_iv_40_azi);
+        btnPlay.addEventListener("click", togglePlay_so_101_00_2__d_21_ink_1_azi);
+        btnFullscreen.addEventListener("click", toggleFullscreen_so_101_00_2__d_21_ink_1_azi);
 
         // 🔄 Loop Last 3 Button Handler
         btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_so_101_00_2__d_iv_40_azi = !isLoopingLast3_so_101_00_2__d_iv_40_azi;
+            isLoopingLast3_so_101_00_2__d_21_ink_1_azi = !isLoopingLast3_so_101_00_2__d_21_ink_1_azi;
             
-            if (isLoopingLast3_so_101_00_2__d_iv_40_azi) {
+            if (isLoopingLast3_so_101_00_2__d_21_ink_1_azi) {
                 btnLoop3.classList.add("active");
                 btnLoop3.textContent = "Stop Loop";
                 
                 // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_so_101_00_2__d_iv_40_azi < loopStartIdx_so_101_00_2__d_iv_40_azi) {
-                    updatePlayer_so_101_00_2__d_iv_40_azi(totalFrames_so_101_00_2__d_iv_40_azi - 1);
+                if (currentIdx_so_101_00_2__d_21_ink_1_azi < loopStartIdx_so_101_00_2__d_21_ink_1_azi) {
+                    updatePlayer_so_101_00_2__d_21_ink_1_azi(totalFrames_so_101_00_2__d_21_ink_1_azi - 1);
                 }
                 
                 // Force playback start if paused
-                if (!isPlaying_so_101_00_2__d_iv_40_azi) {
-                    togglePlay_so_101_00_2__d_iv_40_azi();
+                if (!isPlaying_so_101_00_2__d_21_ink_1_azi) {
+                    togglePlay_so_101_00_2__d_21_ink_1_azi();
                 } else {
                     // Reset interval to snap parameters immediately
-                    clearInterval(interval_so_101_00_2__d_iv_40_azi);
-                    startPlaybackLoop_so_101_00_2__d_iv_40_azi();
+                    clearInterval(interval_so_101_00_2__d_21_ink_1_azi);
+                    startPlaybackLoop_so_101_00_2__d_21_ink_1_azi();
                 }
             } else {
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
-                pausePlayback_so_101_00_2__d_iv_40_azi();
+                pausePlayback_so_101_00_2__d_21_ink_1_azi();
             }
         });
 
-        btnFirst.addEventListener("click", function() { pausePlayback_so_101_00_2__d_iv_40_azi(); breakLoop3State_so_101_00_2__d_iv_40_azi(); updatePlayer_so_101_00_2__d_iv_40_azi(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_so_101_00_2__d_iv_40_azi(); breakLoop3State_so_101_00_2__d_iv_40_azi(); updatePlayer_so_101_00_2__d_iv_40_azi(totalFrames_so_101_00_2__d_iv_40_azi - 1); });
+        btnFirst.addEventListener("click", function() { pausePlayback_so_101_00_2__d_21_ink_1_azi(); breakLoop3State_so_101_00_2__d_21_ink_1_azi(); updatePlayer_so_101_00_2__d_21_ink_1_azi(0); });
+        btnLast.addEventListener("click", function() { pausePlayback_so_101_00_2__d_21_ink_1_azi(); breakLoop3State_so_101_00_2__d_21_ink_1_azi(); updatePlayer_so_101_00_2__d_21_ink_1_azi(totalFrames_so_101_00_2__d_21_ink_1_azi - 1); });
         
         btnPrev.addEventListener("click", function() {
-            pausePlayback_so_101_00_2__d_iv_40_azi();
-            breakLoop3State_so_101_00_2__d_iv_40_azi();
-            let prevIdx = currentIdx_so_101_00_2__d_iv_40_azi - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_so_101_00_2__d_iv_40_azi - 1;
-            updatePlayer_so_101_00_2__d_iv_40_azi(prevIdx);
+            pausePlayback_so_101_00_2__d_21_ink_1_azi();
+            breakLoop3State_so_101_00_2__d_21_ink_1_azi();
+            let prevIdx = currentIdx_so_101_00_2__d_21_ink_1_azi - 1;
+            if (prevIdx < 0) prevIdx = totalFrames_so_101_00_2__d_21_ink_1_azi - 1;
+            updatePlayer_so_101_00_2__d_21_ink_1_azi(prevIdx);
         });
 
         btnNext.addEventListener("click", function() {
-            pausePlayback_so_101_00_2__d_iv_40_azi();
-            breakLoop3State_so_101_00_2__d_iv_40_azi();
-            let nextIdx = (currentIdx_so_101_00_2__d_iv_40_azi + 1) % totalFrames_so_101_00_2__d_iv_40_azi;
-            updatePlayer_so_101_00_2__d_iv_40_azi(nextIdx);
+            pausePlayback_so_101_00_2__d_21_ink_1_azi();
+            breakLoop3State_so_101_00_2__d_21_ink_1_azi();
+            let nextIdx = (currentIdx_so_101_00_2__d_21_ink_1_azi + 1) % totalFrames_so_101_00_2__d_21_ink_1_azi;
+            updatePlayer_so_101_00_2__d_21_ink_1_azi(nextIdx);
         });
 
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_so_101_00_2__d_iv_40_azi = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_so_101_00_2__d_iv_40_azi = false; });
+        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_so_101_00_2__d_21_ink_1_azi = true; });
+        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_so_101_00_2__d_21_ink_1_azi = false; });
 
         window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_so_101_00_2__d_iv_40_azi) return;
+            if (!isMouseOver_so_101_00_2__d_21_ink_1_azi) return;
 
             switch(e.key) {
                 case "ArrowLeft":
@@ -1722,6 +1307,9 @@ ul.task-list li input[type="checkbox"] {
     </script>
     
 </section>
+</section>
+<section id="iv-40" class="level3">
+<h3 class="anchored" data-anchor-id="iv-40">IV-40</h3>
 <section id="celková-deformácia-1" class="level5">
 <h5 class="anchored" data-anchor-id="celková-deformácia-1">📈 Celková deformácia</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
@@ -2095,6 +1683,418 @@ ul.task-list li input[type="checkbox"] {
 
         window.addEventListener("keydown", function(e) {
             if (!isMouseOver_so_101_00_2__d_iv_40_tot) return;
+
+            switch(e.key) {
+                case "ArrowLeft":
+                    e.preventDefault();
+                    btnPrev.click();
+                    break;
+                case "ArrowRight":
+                    e.preventDefault();
+                    btnNext.click();
+                    break;
+                case " ":
+                    e.preventDefault();
+                    btnPlay.click();
+                    break;
+                case "Home":
+                    e.preventDefault();
+                    btnFirst.click();
+                    break;
+                case "End":
+                    e.preventDefault();
+                    btnLast.click();
+                    break;
+                case "f":
+                case "F":
+                    e.preventDefault();
+                    btnFullscreen.click();
+                    break;
+                case "l":
+                case "L":
+                    e.preventDefault();
+                    e.stopPropagation();
+                    btnLoop3.click();
+                    break;
+            }
+        });
+    })();
+    </script>
+    
+</section>
+<section id="azimut-1" class="level5">
+<h5 class="anchored" data-anchor-id="azimut-1">🧭 Azimut</h5>
+<p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
+
+    <!-- 🎛️ STYLE CENTRAL -->
+    <style>
+    #player_wrapper_so_101_00_2__d_iv_40_azi {
+        margin-bottom: 30px; 
+        background: #222222; 
+        padding: 15px; 
+        border-radius: 8px; 
+        user-select: none; 
+        -webkit-user-select: none;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .image-container {
+        background: #000000; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        min-height: 300px; 
+        margin-bottom: 15px; 
+        border-radius: 4px; 
+        overflow: hidden;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .control-action-bar {
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 12px;               
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-cluster {
+        display: flex; 
+        gap: 6px;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .player-btn {
+        color: #ffffff; 
+        border: none; 
+        height: 32px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        border-radius: 4px; 
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+        font-family: 'monospace',
+        font-size: 12px;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-nav {
+        background-color: #444444; 
+        width: 38px;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-nav:hover {
+        background-color: #555555;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-action {
+        background-color: #0d6efd; 
+        padding: 0 22px; 
+        font-weight: bold;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-action:hover {
+        filter: brightness(1.15); 
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-loop3 {
+        background-color: #6f42c1;
+        padding: 0 14px;
+        font-weight: bold;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-loop3:hover {
+        filter: brightness(1.15);
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .btn-loop3.active {
+        background-color: #dc3545 !important;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .speed-selector {
+        background-color: #444444;
+        color: #ffffff;
+        border: none;
+        height: 32px;
+        padding: 0 6px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: monospace;
+        font-size: 13px;
+        outline: none;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .speed-selector:hover {
+        background-color: #555555;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi .timeline-slider {
+        flex-grow: 1; 
+        cursor: pointer;
+        height: 6px;
+        accent-color: #0d6efd; 
+    }
+
+    /* NATIVE FULLSCREEN LAYOUT FIXES */
+    #player_wrapper_so_101_00_2__d_iv_40_azi:fullscreen {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        padding: 25px !important;
+        background: #111111 !important;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi:fullscreen .image-container {
+        flex-grow: 1 !important;
+        margin-bottom: 20px !important;
+    }
+    #player_wrapper_so_101_00_2__d_iv_40_azi:fullscreen #img_display_so_101_00_2__d_iv_40_azi {
+        max-height: calc(100vh - 120px) !important; 
+        width: auto !important;
+    }
+    </style>
+
+        <!-- 🏗️ HTML STRUCTURE -->
+    <div id="player_wrapper_so_101_00_2__d_iv_40_azi">
+        <div class="image-container">
+            <img id="img_display_so_101_00_2__d_iv_40_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
+        </div>
+        
+        <!-- Timeline Slider Bar -->
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+            <input id="slider_so_101_00_2__d_iv_40_azi" class="timeline-slider" type="range" min="0" max="34" value="0">
+        </div>
+
+        <!-- Control Action Bar -->
+        <div class="control-action-bar">
+            <!-- Left Cluster -->
+            <div class="btn-cluster">
+                <button id="btn_first_so_101_00_2__d_iv_40_azi" class="player-btn btn-nav" title="First Frame (Home)">
+                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
+                </button>
+                <button id="btn_prev_so_101_00_2__d_iv_40_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
+                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
+                </button>
+            </div>
+
+            <!-- Play Command -->
+            <button id="btn_play_so_101_00_2__d_iv_40_azi" class="player-btn btn-action">
+                <span id="play_icon_so_101_00_2__d_iv_40_azi" style="display:flex; align-items:center; margin-right:6px;">
+                    <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
+                </span>
+                <span id="play_text_so_101_00_2__d_iv_40_azi">Play</span>
+            </button>
+
+            <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
+            <button id="btn_loop3_so_101_00_2__d_iv_40_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
+                🔄 Last 3 Measurements
+            </button>
+
+            <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
+            <select id="speed_select_so_101_00_2__d_iv_40_azi" class="speed-selector" title="Playback Speed">
+                <option value="2.0">0.5x</option>
+                <option value="1.5">0.75x</option>
+                <option value="1.0" selected="">1.0x</option>
+                <option value="0.5">2.0x</option>
+                <option value="0.25">4.0x</option>
+            </select>
+
+            <!-- Fullscreen Command -->
+            <button id="btn_fullscreen_so_101_00_2__d_iv_40_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
+                <span id="fullscreen_icon_so_101_00_2__d_iv_40_azi" style="display:flex; align-items:center;">
+                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
+                </span>
+            </button>
+
+            <!-- Right Cluster -->
+            <div class="btn-cluster">
+                <button id="btn_next_so_101_00_2__d_iv_40_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
+                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
+                </button>
+                <button id="btn_last_so_101_00_2__d_iv_40_azi" class="player-btn btn-nav" title="Last Frame (End)">
+                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- 🧠 JAVASCRIPT LOGIC -->
+    <script>
+    (function() {
+        const images_so_101_00_2__d_iv_40_azi = ["./ink/IV-40/azi/IV-40_0.png", "./ink/IV-40/azi/IV-40_1.png", "./ink/IV-40/azi/IV-40_10.png", "./ink/IV-40/azi/IV-40_11.png", "./ink/IV-40/azi/IV-40_12.png", "./ink/IV-40/azi/IV-40_13.png", "./ink/IV-40/azi/IV-40_14.png", "./ink/IV-40/azi/IV-40_15.png", "./ink/IV-40/azi/IV-40_16.png", "./ink/IV-40/azi/IV-40_17.png", "./ink/IV-40/azi/IV-40_18.png", "./ink/IV-40/azi/IV-40_19.png", "./ink/IV-40/azi/IV-40_2.png", "./ink/IV-40/azi/IV-40_20.png", "./ink/IV-40/azi/IV-40_21.png", "./ink/IV-40/azi/IV-40_22.png", "./ink/IV-40/azi/IV-40_23.png", "./ink/IV-40/azi/IV-40_24.png", "./ink/IV-40/azi/IV-40_25.png", "./ink/IV-40/azi/IV-40_26.png", "./ink/IV-40/azi/IV-40_27.png", "./ink/IV-40/azi/IV-40_28.png", "./ink/IV-40/azi/IV-40_29.png", "./ink/IV-40/azi/IV-40_3.png", "./ink/IV-40/azi/IV-40_30.png", "./ink/IV-40/azi/IV-40_31.png", "./ink/IV-40/azi/IV-40_32.png", "./ink/IV-40/azi/IV-40_33.png", "./ink/IV-40/azi/IV-40_34.png", "./ink/IV-40/azi/IV-40_4.png", "./ink/IV-40/azi/IV-40_5.png", "./ink/IV-40/azi/IV-40_6.png", "./ink/IV-40/azi/IV-40_7.png", "./ink/IV-40/azi/IV-40_8.png", "./ink/IV-40/azi/IV-40_9.png"];
+        const totalFrames_so_101_00_2__d_iv_40_azi = 35;
+        const baseInterval_so_101_00_2__d_iv_40_azi = 300; // The baseline 300ms passed from python
+        const loopStartIdx_so_101_00_2__d_iv_40_azi = 32;
+        
+        let currentIdx_so_101_00_2__d_iv_40_azi = 0;
+        let isPlaying_so_101_00_2__d_iv_40_azi = false;
+        let isLoopingLast3_so_101_00_2__d_iv_40_azi = false;
+        let interval_so_101_00_2__d_iv_40_azi = null;
+        let isMouseOver_so_101_00_2__d_iv_40_azi = false;
+        let speedMultiplier_so_101_00_2__d_iv_40_azi = 1.0;
+
+        const wrapperEl = document.getElementById("player_wrapper_so_101_00_2__d_iv_40_azi");
+        const imgEl = document.getElementById("img_display_so_101_00_2__d_iv_40_azi");
+        const sliderEl = document.getElementById("slider_so_101_00_2__d_iv_40_azi");
+        const speedSelectEl = document.getElementById("speed_select_so_101_00_2__d_iv_40_azi");
+        
+        const btnPlay = document.getElementById("btn_play_so_101_00_2__d_iv_40_azi");
+        const playIconContainer = document.getElementById("play_icon_so_101_00_2__d_iv_40_azi");
+        const playTextContainer = document.getElementById("play_text_so_101_00_2__d_iv_40_azi");
+        const btnLoop3 = document.getElementById("btn_loop3_so_101_00_2__d_iv_40_azi");
+        
+        const btnFullscreen = document.getElementById("btn_fullscreen_so_101_00_2__d_iv_40_azi");
+        const fullscreenIconContainer = document.getElementById("fullscreen_icon_so_101_00_2__d_iv_40_azi");
+        
+        const btnFirst = document.getElementById("btn_first_so_101_00_2__d_iv_40_azi");
+        const btnPrev = document.getElementById("btn_prev_so_101_00_2__d_iv_40_azi");
+        const btnNext = document.getElementById("btn_next_so_101_00_2__d_iv_40_azi");
+        const btnLast = document.getElementById("btn_last_so_101_00_2__d_iv_40_azi");
+
+        const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
+        const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
+        
+        const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
+        const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
+
+        function updatePlayer_so_101_00_2__d_iv_40_azi(idx) {
+            currentIdx_so_101_00_2__d_iv_40_azi = idx;
+            if(images_so_101_00_2__d_iv_40_azi[idx]) {
+                imgEl.src = images_so_101_00_2__d_iv_40_azi[idx];
+            }
+            sliderEl.value = idx;
+        }
+
+        // NOTE: Playback cycles backwards in current implementation
+        function startPlaybackLoop_so_101_00_2__d_iv_40_azi() {
+            const activeInterval = baseInterval_so_101_00_2__d_iv_40_azi * speedMultiplier_so_101_00_2__d_iv_40_azi;
+            interval_so_101_00_2__d_iv_40_azi = setInterval(function() {
+                let nextIdx = currentIdx_so_101_00_2__d_iv_40_azi + 1;
+                
+                if (isLoopingLast3_so_101_00_2__d_iv_40_azi) {
+                    if (nextIdx >= totalFrames_so_101_00_2__d_iv_40_azi) {
+                        nextIdx = loopStartIdx_so_101_00_2__d_iv_40_azi;
+                    }
+                } else {
+                    if (nextIdx >= totalFrames_so_101_00_2__d_iv_40_azi) {
+                        nextIdx = 0;
+                    }
+                }
+                updatePlayer_so_101_00_2__d_iv_40_azi(nextIdx);
+            }, activeInterval);
+        }
+        function togglePlay_so_101_00_2__d_iv_40_azi() {
+            if(isPlaying_so_101_00_2__d_iv_40_azi) {
+                clearInterval(interval_so_101_00_2__d_iv_40_azi);
+                playIconContainer.innerHTML = svgPlay;
+                playTextContainer.textContent = "Play";
+                isPlaying_so_101_00_2__d_iv_40_azi = false;
+            } else {
+                playIconContainer.innerHTML = svgPause;
+                playTextContainer.textContent = "Pause";
+                isPlaying_so_101_00_2__d_iv_40_azi = true;
+                
+                // If looping last 3, guarantee index falls inside boundaries upon launch
+                if (isLoopingLast3_so_101_00_2__d_iv_40_azi && currentIdx_so_101_00_2__d_iv_40_azi < loopStartIdx_so_101_00_2__d_iv_40_azi) {
+                    updatePlayer_so_101_00_2__d_iv_40_azi(loopStartIdx_so_101_00_2__d_iv_40_azi);
+                }
+                startPlaybackLoop_so_101_00_2__d_iv_40_azi();
+            }
+        }
+
+        function pausePlayback_so_101_00_2__d_iv_40_azi() {
+            if(isPlaying_so_101_00_2__d_iv_40_azi) {
+                clearInterval(interval_so_101_00_2__d_iv_40_azi);
+                playIconContainer.innerHTML = svgPlay;
+                playTextContainer.textContent = "Play";
+                isPlaying_so_101_00_2__d_iv_40_azi = false;
+            }
+        }
+
+        function breakLoop3State_so_101_00_2__d_iv_40_azi() {
+            if (isLoopingLast3_so_101_00_2__d_iv_40_azi) {
+                isLoopingLast3_so_101_00_2__d_iv_40_azi = false;
+                btnLoop3.classList.remove("active");
+                btnLoop3.textContent = "🔄 Loop Last 3";
+            }
+        }
+
+        function toggleFullscreen_so_101_00_2__d_iv_40_azi() {
+            if (!document.fullscreenElement) {
+                if (wrapperEl.requestFullscreen) {
+                    wrapperEl.requestFullscreen();
+                } else if (wrapperEl.webkitRequestFullscreen) {
+                    wrapperEl.webkitRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        document.addEventListener('fullscreenchange', function() {
+            if (document.fullscreenElement === wrapperEl) {
+                fullscreenIconContainer.innerHTML = svgExitScreen;
+                wrapperEl.style.padding = "30px";
+            } else {
+                fullscreenIconContainer.innerHTML = svgNormalScreen;
+                wrapperEl.style.padding = "15px";
+            }
+        });
+
+        // Instantly load and display the last frame on page load
+        updatePlayer_so_101_00_2__d_iv_40_azi(totalFrames_so_101_00_2__d_iv_40_azi - 1);
+
+        // Slider Event
+        sliderEl.addEventListener("input", function(e) {
+            pausePlayback_so_101_00_2__d_iv_40_azi();
+            breakLoop3State_so_101_00_2__d_iv_40_azi();
+            updatePlayer_so_101_00_2__d_iv_40_azi(parseInt(e.target.value));
+        });
+
+        // Speed Change Event Handler
+        speedSelectEl.addEventListener("change", function(e) {
+            speedMultiplier_so_101_00_2__d_iv_40_azi = parseFloat(e.target.value);
+            if (isPlaying_so_101_00_2__d_iv_40_azi) {
+                clearInterval(interval_so_101_00_2__d_iv_40_azi);
+                startPlaybackLoop_so_101_00_2__d_iv_40_azi();
+            }
+        });
+        btnPlay.addEventListener("click", togglePlay_so_101_00_2__d_iv_40_azi);
+        btnFullscreen.addEventListener("click", toggleFullscreen_so_101_00_2__d_iv_40_azi);
+
+        // 🔄 Loop Last 3 Button Handler
+        btnLoop3.addEventListener("click", function() {
+            isLoopingLast3_so_101_00_2__d_iv_40_azi = !isLoopingLast3_so_101_00_2__d_iv_40_azi;
+            
+            if (isLoopingLast3_so_101_00_2__d_iv_40_azi) {
+                btnLoop3.classList.add("active");
+                btnLoop3.textContent = "Stop Loop";
+                
+                // If current image index falls out of target bounds, jump directly to end frame
+                if (currentIdx_so_101_00_2__d_iv_40_azi < loopStartIdx_so_101_00_2__d_iv_40_azi) {
+                    updatePlayer_so_101_00_2__d_iv_40_azi(totalFrames_so_101_00_2__d_iv_40_azi - 1);
+                }
+                
+                // Force playback start if paused
+                if (!isPlaying_so_101_00_2__d_iv_40_azi) {
+                    togglePlay_so_101_00_2__d_iv_40_azi();
+                } else {
+                    // Reset interval to snap parameters immediately
+                    clearInterval(interval_so_101_00_2__d_iv_40_azi);
+                    startPlaybackLoop_so_101_00_2__d_iv_40_azi();
+                }
+            } else {
+                btnLoop3.classList.remove("active");
+                btnLoop3.textContent = "🔄 Loop Last 3";
+                pausePlayback_so_101_00_2__d_iv_40_azi();
+            }
+        });
+
+        btnFirst.addEventListener("click", function() { pausePlayback_so_101_00_2__d_iv_40_azi(); breakLoop3State_so_101_00_2__d_iv_40_azi(); updatePlayer_so_101_00_2__d_iv_40_azi(0); });
+        btnLast.addEventListener("click", function() { pausePlayback_so_101_00_2__d_iv_40_azi(); breakLoop3State_so_101_00_2__d_iv_40_azi(); updatePlayer_so_101_00_2__d_iv_40_azi(totalFrames_so_101_00_2__d_iv_40_azi - 1); });
+        
+        btnPrev.addEventListener("click", function() {
+            pausePlayback_so_101_00_2__d_iv_40_azi();
+            breakLoop3State_so_101_00_2__d_iv_40_azi();
+            let prevIdx = currentIdx_so_101_00_2__d_iv_40_azi - 1;
+            if (prevIdx < 0) prevIdx = totalFrames_so_101_00_2__d_iv_40_azi - 1;
+            updatePlayer_so_101_00_2__d_iv_40_azi(prevIdx);
+        });
+
+        btnNext.addEventListener("click", function() {
+            pausePlayback_so_101_00_2__d_iv_40_azi();
+            breakLoop3State_so_101_00_2__d_iv_40_azi();
+            let nextIdx = (currentIdx_so_101_00_2__d_iv_40_azi + 1) % totalFrames_so_101_00_2__d_iv_40_azi;
+            updatePlayer_so_101_00_2__d_iv_40_azi(nextIdx);
+        });
+
+        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_so_101_00_2__d_iv_40_azi = true; });
+        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_so_101_00_2__d_iv_40_azi = false; });
+
+        window.addEventListener("keydown", function(e) {
+            if (!isMouseOver_so_101_00_2__d_iv_40_azi) return;
 
             switch(e.key) {
                 case "ArrowLeft":

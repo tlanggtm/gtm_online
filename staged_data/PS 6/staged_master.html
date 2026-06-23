@@ -1340,418 +1340,6 @@ Your page content starts here... -->
 </section>
 <section id="ivs-115" class="level3">
 <h3 class="anchored" data-anchor-id="ivs-115">IVS-115</h3>
-<section id="azimut" class="level5">
-<h5 class="anchored" data-anchor-id="azimut">🧭 Azimut</h5>
-<p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
-
-    <!-- 🎛️ STYLE CENTRAL -->
-    <style>
-    #player_wrapper_ps_6_ivs_115_azi {
-        margin-bottom: 30px; 
-        background: #222222; 
-        padding: 15px; 
-        border-radius: 8px; 
-        user-select: none; 
-        -webkit-user-select: none;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .image-container {
-        background: #000000; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        min-height: 300px; 
-        margin-bottom: 15px; 
-        border-radius: 4px; 
-        overflow: hidden;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .control-action-bar {
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        gap: 12px;               
-    }
-    #player_wrapper_ps_6_ivs_115_azi .btn-cluster {
-        display: flex; 
-        gap: 6px;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .player-btn {
-        color: #ffffff; 
-        border: none; 
-        height: 32px; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        border-radius: 4px; 
-        cursor: pointer;
-        transition: background-color 0.15s ease;
-        font-family: 'monospace',
-        font-size: 12px;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .btn-nav {
-        background-color: #444444; 
-        width: 38px;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .btn-nav:hover {
-        background-color: #555555;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .btn-action {
-        background-color: #0d6efd; 
-        padding: 0 22px; 
-        font-weight: bold;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .btn-action:hover {
-        filter: brightness(1.15); 
-    }
-    #player_wrapper_ps_6_ivs_115_azi .btn-loop3 {
-        background-color: #6f42c1;
-        padding: 0 14px;
-        font-weight: bold;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .btn-loop3:hover {
-        filter: brightness(1.15);
-    }
-    #player_wrapper_ps_6_ivs_115_azi .btn-loop3.active {
-        background-color: #dc3545 !important;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .speed-selector {
-        background-color: #444444;
-        color: #ffffff;
-        border: none;
-        height: 32px;
-        padding: 0 6px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-family: monospace;
-        font-size: 13px;
-        outline: none;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .speed-selector:hover {
-        background-color: #555555;
-    }
-    #player_wrapper_ps_6_ivs_115_azi .timeline-slider {
-        flex-grow: 1; 
-        cursor: pointer;
-        height: 6px;
-        accent-color: #0d6efd; 
-    }
-
-    /* NATIVE FULLSCREEN LAYOUT FIXES */
-    #player_wrapper_ps_6_ivs_115_azi:fullscreen {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        padding: 25px !important;
-        background: #111111 !important;
-    }
-    #player_wrapper_ps_6_ivs_115_azi:fullscreen .image-container {
-        flex-grow: 1 !important;
-        margin-bottom: 20px !important;
-    }
-    #player_wrapper_ps_6_ivs_115_azi:fullscreen #img_display_ps_6_ivs_115_azi {
-        max-height: calc(100vh - 120px) !important; 
-        width: auto !important;
-    }
-    </style>
-
-        <!-- 🏗️ HTML STRUCTURE -->
-    <div id="player_wrapper_ps_6_ivs_115_azi">
-        <div class="image-container">
-            <img id="img_display_ps_6_ivs_115_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
-        </div>
-        
-        <!-- Timeline Slider Bar -->
-        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_ps_6_ivs_115_azi" class="timeline-slider" type="range" min="0" max="47" value="0">
-        </div>
-
-        <!-- Control Action Bar -->
-        <div class="control-action-bar">
-            <!-- Left Cluster -->
-            <div class="btn-cluster">
-                <button id="btn_first_ps_6_ivs_115_azi" class="player-btn btn-nav" title="First Frame (Home)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
-                </button>
-                <button id="btn_prev_ps_6_ivs_115_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
-                </button>
-            </div>
-
-            <!-- Play Command -->
-            <button id="btn_play_ps_6_ivs_115_azi" class="player-btn btn-action">
-                <span id="play_icon_ps_6_ivs_115_azi" style="display:flex; align-items:center; margin-right:6px;">
-                    <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
-                </span>
-                <span id="play_text_ps_6_ivs_115_azi">Play</span>
-            </button>
-
-            <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_ps_6_ivs_115_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
-                🔄 Last 3 Measurements
-            </button>
-
-            <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
-            <select id="speed_select_ps_6_ivs_115_azi" class="speed-selector" title="Playback Speed">
-                <option value="2.0">0.5x</option>
-                <option value="1.5">0.75x</option>
-                <option value="1.0" selected="">1.0x</option>
-                <option value="0.5">2.0x</option>
-                <option value="0.25">4.0x</option>
-            </select>
-
-            <!-- Fullscreen Command -->
-            <button id="btn_fullscreen_ps_6_ivs_115_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
-                <span id="fullscreen_icon_ps_6_ivs_115_azi" style="display:flex; align-items:center;">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
-                </span>
-            </button>
-
-            <!-- Right Cluster -->
-            <div class="btn-cluster">
-                <button id="btn_next_ps_6_ivs_115_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
-                </button>
-                <button id="btn_last_ps_6_ivs_115_azi" class="player-btn btn-nav" title="Last Frame (End)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- 🧠 JAVASCRIPT LOGIC -->
-    <script>
-    (function() {
-        const images_ps_6_ivs_115_azi = ["./ink/IVS-115/azi/IVS-115_0.png", "./ink/IVS-115/azi/IVS-115_1.png", "./ink/IVS-115/azi/IVS-115_10.png", "./ink/IVS-115/azi/IVS-115_11.png", "./ink/IVS-115/azi/IVS-115_12.png", "./ink/IVS-115/azi/IVS-115_13.png", "./ink/IVS-115/azi/IVS-115_14.png", "./ink/IVS-115/azi/IVS-115_15.png", "./ink/IVS-115/azi/IVS-115_16.png", "./ink/IVS-115/azi/IVS-115_17.png", "./ink/IVS-115/azi/IVS-115_18.png", "./ink/IVS-115/azi/IVS-115_19.png", "./ink/IVS-115/azi/IVS-115_2.png", "./ink/IVS-115/azi/IVS-115_20.png", "./ink/IVS-115/azi/IVS-115_21.png", "./ink/IVS-115/azi/IVS-115_22.png", "./ink/IVS-115/azi/IVS-115_23.png", "./ink/IVS-115/azi/IVS-115_24.png", "./ink/IVS-115/azi/IVS-115_25.png", "./ink/IVS-115/azi/IVS-115_26.png", "./ink/IVS-115/azi/IVS-115_27.png", "./ink/IVS-115/azi/IVS-115_28.png", "./ink/IVS-115/azi/IVS-115_29.png", "./ink/IVS-115/azi/IVS-115_3.png", "./ink/IVS-115/azi/IVS-115_30.png", "./ink/IVS-115/azi/IVS-115_31.png", "./ink/IVS-115/azi/IVS-115_32.png", "./ink/IVS-115/azi/IVS-115_33.png", "./ink/IVS-115/azi/IVS-115_34.png", "./ink/IVS-115/azi/IVS-115_35.png", "./ink/IVS-115/azi/IVS-115_36.png", "./ink/IVS-115/azi/IVS-115_37.png", "./ink/IVS-115/azi/IVS-115_38.png", "./ink/IVS-115/azi/IVS-115_39.png", "./ink/IVS-115/azi/IVS-115_4.png", "./ink/IVS-115/azi/IVS-115_40.png", "./ink/IVS-115/azi/IVS-115_41.png", "./ink/IVS-115/azi/IVS-115_42.png", "./ink/IVS-115/azi/IVS-115_43.png", "./ink/IVS-115/azi/IVS-115_44.png", "./ink/IVS-115/azi/IVS-115_45.png", "./ink/IVS-115/azi/IVS-115_46.png", "./ink/IVS-115/azi/IVS-115_47.png", "./ink/IVS-115/azi/IVS-115_5.png", "./ink/IVS-115/azi/IVS-115_6.png", "./ink/IVS-115/azi/IVS-115_7.png", "./ink/IVS-115/azi/IVS-115_8.png", "./ink/IVS-115/azi/IVS-115_9.png"];
-        const totalFrames_ps_6_ivs_115_azi = 48;
-        const baseInterval_ps_6_ivs_115_azi = 300; // The baseline 300ms passed from python
-        const loopStartIdx_ps_6_ivs_115_azi = 45;
-        
-        let currentIdx_ps_6_ivs_115_azi = 0;
-        let isPlaying_ps_6_ivs_115_azi = false;
-        let isLoopingLast3_ps_6_ivs_115_azi = false;
-        let interval_ps_6_ivs_115_azi = null;
-        let isMouseOver_ps_6_ivs_115_azi = false;
-        let speedMultiplier_ps_6_ivs_115_azi = 1.0;
-
-        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_115_azi");
-        const imgEl = document.getElementById("img_display_ps_6_ivs_115_azi");
-        const sliderEl = document.getElementById("slider_ps_6_ivs_115_azi");
-        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_115_azi");
-        
-        const btnPlay = document.getElementById("btn_play_ps_6_ivs_115_azi");
-        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_115_azi");
-        const playTextContainer = document.getElementById("play_text_ps_6_ivs_115_azi");
-        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_115_azi");
-        
-        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_115_azi");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_115_azi");
-        
-        const btnFirst = document.getElementById("btn_first_ps_6_ivs_115_azi");
-        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_115_azi");
-        const btnNext = document.getElementById("btn_next_ps_6_ivs_115_azi");
-        const btnLast = document.getElementById("btn_last_ps_6_ivs_115_azi");
-
-        const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
-        const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
-        
-        const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
-        const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
-
-        function updatePlayer_ps_6_ivs_115_azi(idx) {
-            currentIdx_ps_6_ivs_115_azi = idx;
-            if(images_ps_6_ivs_115_azi[idx]) {
-                imgEl.src = images_ps_6_ivs_115_azi[idx];
-            }
-            sliderEl.value = idx;
-        }
-
-        // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_ps_6_ivs_115_azi() {
-            const activeInterval = baseInterval_ps_6_ivs_115_azi * speedMultiplier_ps_6_ivs_115_azi;
-            interval_ps_6_ivs_115_azi = setInterval(function() {
-                let nextIdx = currentIdx_ps_6_ivs_115_azi + 1;
-                
-                if (isLoopingLast3_ps_6_ivs_115_azi) {
-                    if (nextIdx >= totalFrames_ps_6_ivs_115_azi) {
-                        nextIdx = loopStartIdx_ps_6_ivs_115_azi;
-                    }
-                } else {
-                    if (nextIdx >= totalFrames_ps_6_ivs_115_azi) {
-                        nextIdx = 0;
-                    }
-                }
-                updatePlayer_ps_6_ivs_115_azi(nextIdx);
-            }, activeInterval);
-        }
-        function togglePlay_ps_6_ivs_115_azi() {
-            if(isPlaying_ps_6_ivs_115_azi) {
-                clearInterval(interval_ps_6_ivs_115_azi);
-                playIconContainer.innerHTML = svgPlay;
-                playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_115_azi = false;
-            } else {
-                playIconContainer.innerHTML = svgPause;
-                playTextContainer.textContent = "Pause";
-                isPlaying_ps_6_ivs_115_azi = true;
-                
-                // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_ps_6_ivs_115_azi && currentIdx_ps_6_ivs_115_azi < loopStartIdx_ps_6_ivs_115_azi) {
-                    updatePlayer_ps_6_ivs_115_azi(loopStartIdx_ps_6_ivs_115_azi);
-                }
-                startPlaybackLoop_ps_6_ivs_115_azi();
-            }
-        }
-
-        function pausePlayback_ps_6_ivs_115_azi() {
-            if(isPlaying_ps_6_ivs_115_azi) {
-                clearInterval(interval_ps_6_ivs_115_azi);
-                playIconContainer.innerHTML = svgPlay;
-                playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_115_azi = false;
-            }
-        }
-
-        function breakLoop3State_ps_6_ivs_115_azi() {
-            if (isLoopingLast3_ps_6_ivs_115_azi) {
-                isLoopingLast3_ps_6_ivs_115_azi = false;
-                btnLoop3.classList.remove("active");
-                btnLoop3.textContent = "🔄 Loop Last 3";
-            }
-        }
-
-        function toggleFullscreen_ps_6_ivs_115_azi() {
-            if (!document.fullscreenElement) {
-                if (wrapperEl.requestFullscreen) {
-                    wrapperEl.requestFullscreen();
-                } else if (wrapperEl.webkitRequestFullscreen) {
-                    wrapperEl.webkitRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
-
-        document.addEventListener('fullscreenchange', function() {
-            if (document.fullscreenElement === wrapperEl) {
-                fullscreenIconContainer.innerHTML = svgExitScreen;
-                wrapperEl.style.padding = "30px";
-            } else {
-                fullscreenIconContainer.innerHTML = svgNormalScreen;
-                wrapperEl.style.padding = "15px";
-            }
-        });
-
-        // Instantly load and display the last frame on page load
-        updatePlayer_ps_6_ivs_115_azi(totalFrames_ps_6_ivs_115_azi - 1);
-
-        // Slider Event
-        sliderEl.addEventListener("input", function(e) {
-            pausePlayback_ps_6_ivs_115_azi();
-            breakLoop3State_ps_6_ivs_115_azi();
-            updatePlayer_ps_6_ivs_115_azi(parseInt(e.target.value));
-        });
-
-        // Speed Change Event Handler
-        speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_ps_6_ivs_115_azi = parseFloat(e.target.value);
-            if (isPlaying_ps_6_ivs_115_azi) {
-                clearInterval(interval_ps_6_ivs_115_azi);
-                startPlaybackLoop_ps_6_ivs_115_azi();
-            }
-        });
-        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_115_azi);
-        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_115_azi);
-
-        // 🔄 Loop Last 3 Button Handler
-        btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_ps_6_ivs_115_azi = !isLoopingLast3_ps_6_ivs_115_azi;
-            
-            if (isLoopingLast3_ps_6_ivs_115_azi) {
-                btnLoop3.classList.add("active");
-                btnLoop3.textContent = "Stop Loop";
-                
-                // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_ps_6_ivs_115_azi < loopStartIdx_ps_6_ivs_115_azi) {
-                    updatePlayer_ps_6_ivs_115_azi(totalFrames_ps_6_ivs_115_azi - 1);
-                }
-                
-                // Force playback start if paused
-                if (!isPlaying_ps_6_ivs_115_azi) {
-                    togglePlay_ps_6_ivs_115_azi();
-                } else {
-                    // Reset interval to snap parameters immediately
-                    clearInterval(interval_ps_6_ivs_115_azi);
-                    startPlaybackLoop_ps_6_ivs_115_azi();
-                }
-            } else {
-                btnLoop3.classList.remove("active");
-                btnLoop3.textContent = "🔄 Loop Last 3";
-                pausePlayback_ps_6_ivs_115_azi();
-            }
-        });
-
-        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_115_azi(); breakLoop3State_ps_6_ivs_115_azi(); updatePlayer_ps_6_ivs_115_azi(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_115_azi(); breakLoop3State_ps_6_ivs_115_azi(); updatePlayer_ps_6_ivs_115_azi(totalFrames_ps_6_ivs_115_azi - 1); });
-        
-        btnPrev.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_115_azi();
-            breakLoop3State_ps_6_ivs_115_azi();
-            let prevIdx = currentIdx_ps_6_ivs_115_azi - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_115_azi - 1;
-            updatePlayer_ps_6_ivs_115_azi(prevIdx);
-        });
-
-        btnNext.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_115_azi();
-            breakLoop3State_ps_6_ivs_115_azi();
-            let nextIdx = (currentIdx_ps_6_ivs_115_azi + 1) % totalFrames_ps_6_ivs_115_azi;
-            updatePlayer_ps_6_ivs_115_azi(nextIdx);
-        });
-
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_115_azi = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_115_azi = false; });
-
-        window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_ps_6_ivs_115_azi) return;
-
-            switch(e.key) {
-                case "ArrowLeft":
-                    e.preventDefault();
-                    btnPrev.click();
-                    break;
-                case "ArrowRight":
-                    e.preventDefault();
-                    btnNext.click();
-                    break;
-                case " ":
-                    e.preventDefault();
-                    btnPlay.click();
-                    break;
-                case "Home":
-                    e.preventDefault();
-                    btnFirst.click();
-                    break;
-                case "End":
-                    e.preventDefault();
-                    btnLast.click();
-                    break;
-                case "f":
-                case "F":
-                    e.preventDefault();
-                    btnFullscreen.click();
-                    break;
-                case "l":
-                case "L":
-                    e.preventDefault();
-                    e.stopPropagation();
-                    btnLoop3.click();
-                    break;
-            }
-        });
-    })();
-    </script>
-    
-</section>
 <section id="celková-deformácia" class="level5">
 <h5 class="anchored" data-anchor-id="celková-deformácia">📈 Celková deformácia</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
@@ -2164,16 +1752,13 @@ Your page content starts here... -->
     </script>
     
 </section>
-</section>
-<section id="ivs-116" class="level3">
-<h3 class="anchored" data-anchor-id="ivs-116">IVS-116</h3>
-<section id="azimut-1" class="level5">
-<h5 class="anchored" data-anchor-id="azimut-1">🧭 Azimut</h5>
+<section id="azimut" class="level5">
+<h5 class="anchored" data-anchor-id="azimut">🧭 Azimut</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
 
     <!-- 🎛️ STYLE CENTRAL -->
     <style>
-    #player_wrapper_ps_6_ivs_116_azi {
+    #player_wrapper_ps_6_ivs_115_azi {
         margin-bottom: 30px; 
         background: #222222; 
         padding: 15px; 
@@ -2181,7 +1766,7 @@ Your page content starts here... -->
         user-select: none; 
         -webkit-user-select: none;
     }
-    #player_wrapper_ps_6_ivs_116_azi .image-container {
+    #player_wrapper_ps_6_ivs_115_azi .image-container {
         background: #000000; 
         display: flex; 
         align-items: center; 
@@ -2191,17 +1776,17 @@ Your page content starts here... -->
         border-radius: 4px; 
         overflow: hidden;
     }
-    #player_wrapper_ps_6_ivs_116_azi .control-action-bar {
+    #player_wrapper_ps_6_ivs_115_azi .control-action-bar {
         display: flex; 
         align-items: center; 
         justify-content: center; 
         gap: 12px;               
     }
-    #player_wrapper_ps_6_ivs_116_azi .btn-cluster {
+    #player_wrapper_ps_6_ivs_115_azi .btn-cluster {
         display: flex; 
         gap: 6px;
     }
-    #player_wrapper_ps_6_ivs_116_azi .player-btn {
+    #player_wrapper_ps_6_ivs_115_azi .player-btn {
         color: #ffffff; 
         border: none; 
         height: 32px; 
@@ -2214,33 +1799,33 @@ Your page content starts here... -->
         font-family: 'monospace',
         font-size: 12px;
     }
-    #player_wrapper_ps_6_ivs_116_azi .btn-nav {
+    #player_wrapper_ps_6_ivs_115_azi .btn-nav {
         background-color: #444444; 
         width: 38px;
     }
-    #player_wrapper_ps_6_ivs_116_azi .btn-nav:hover {
+    #player_wrapper_ps_6_ivs_115_azi .btn-nav:hover {
         background-color: #555555;
     }
-    #player_wrapper_ps_6_ivs_116_azi .btn-action {
+    #player_wrapper_ps_6_ivs_115_azi .btn-action {
         background-color: #0d6efd; 
         padding: 0 22px; 
         font-weight: bold;
     }
-    #player_wrapper_ps_6_ivs_116_azi .btn-action:hover {
+    #player_wrapper_ps_6_ivs_115_azi .btn-action:hover {
         filter: brightness(1.15); 
     }
-    #player_wrapper_ps_6_ivs_116_azi .btn-loop3 {
+    #player_wrapper_ps_6_ivs_115_azi .btn-loop3 {
         background-color: #6f42c1;
         padding: 0 14px;
         font-weight: bold;
     }
-    #player_wrapper_ps_6_ivs_116_azi .btn-loop3:hover {
+    #player_wrapper_ps_6_ivs_115_azi .btn-loop3:hover {
         filter: brightness(1.15);
     }
-    #player_wrapper_ps_6_ivs_116_azi .btn-loop3.active {
+    #player_wrapper_ps_6_ivs_115_azi .btn-loop3.active {
         background-color: #dc3545 !important;
     }
-    #player_wrapper_ps_6_ivs_116_azi .speed-selector {
+    #player_wrapper_ps_6_ivs_115_azi .speed-selector {
         background-color: #444444;
         color: #ffffff;
         border: none;
@@ -2252,10 +1837,10 @@ Your page content starts here... -->
         font-size: 13px;
         outline: none;
     }
-    #player_wrapper_ps_6_ivs_116_azi .speed-selector:hover {
+    #player_wrapper_ps_6_ivs_115_azi .speed-selector:hover {
         background-color: #555555;
     }
-    #player_wrapper_ps_6_ivs_116_azi .timeline-slider {
+    #player_wrapper_ps_6_ivs_115_azi .timeline-slider {
         flex-grow: 1; 
         cursor: pointer;
         height: 6px;
@@ -2263,61 +1848,61 @@ Your page content starts here... -->
     }
 
     /* NATIVE FULLSCREEN LAYOUT FIXES */
-    #player_wrapper_ps_6_ivs_116_azi:fullscreen {
+    #player_wrapper_ps_6_ivs_115_azi:fullscreen {
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
         padding: 25px !important;
         background: #111111 !important;
     }
-    #player_wrapper_ps_6_ivs_116_azi:fullscreen .image-container {
+    #player_wrapper_ps_6_ivs_115_azi:fullscreen .image-container {
         flex-grow: 1 !important;
         margin-bottom: 20px !important;
     }
-    #player_wrapper_ps_6_ivs_116_azi:fullscreen #img_display_ps_6_ivs_116_azi {
+    #player_wrapper_ps_6_ivs_115_azi:fullscreen #img_display_ps_6_ivs_115_azi {
         max-height: calc(100vh - 120px) !important; 
         width: auto !important;
     }
     </style>
 
         <!-- 🏗️ HTML STRUCTURE -->
-    <div id="player_wrapper_ps_6_ivs_116_azi">
+    <div id="player_wrapper_ps_6_ivs_115_azi">
         <div class="image-container">
-            <img id="img_display_ps_6_ivs_116_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
+            <img id="img_display_ps_6_ivs_115_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         
         <!-- Timeline Slider Bar -->
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_ps_6_ivs_116_azi" class="timeline-slider" type="range" min="0" max="47" value="0">
+            <input id="slider_ps_6_ivs_115_azi" class="timeline-slider" type="range" min="0" max="47" value="0">
         </div>
 
         <!-- Control Action Bar -->
         <div class="control-action-bar">
             <!-- Left Cluster -->
             <div class="btn-cluster">
-                <button id="btn_first_ps_6_ivs_116_azi" class="player-btn btn-nav" title="First Frame (Home)">
+                <button id="btn_first_ps_6_ivs_115_azi" class="player-btn btn-nav" title="First Frame (Home)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
                 </button>
-                <button id="btn_prev_ps_6_ivs_116_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
+                <button id="btn_prev_ps_6_ivs_115_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
                 </button>
             </div>
 
             <!-- Play Command -->
-            <button id="btn_play_ps_6_ivs_116_azi" class="player-btn btn-action">
-                <span id="play_icon_ps_6_ivs_116_azi" style="display:flex; align-items:center; margin-right:6px;">
+            <button id="btn_play_ps_6_ivs_115_azi" class="player-btn btn-action">
+                <span id="play_icon_ps_6_ivs_115_azi" style="display:flex; align-items:center; margin-right:6px;">
                     <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
                 </span>
-                <span id="play_text_ps_6_ivs_116_azi">Play</span>
+                <span id="play_text_ps_6_ivs_115_azi">Play</span>
             </button>
 
             <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_ps_6_ivs_116_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
+            <button id="btn_loop3_ps_6_ivs_115_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
                 🔄 Last 3 Measurements
             </button>
 
             <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
-            <select id="speed_select_ps_6_ivs_116_azi" class="speed-selector" title="Playback Speed">
+            <select id="speed_select_ps_6_ivs_115_azi" class="speed-selector" title="Playback Speed">
                 <option value="2.0">0.5x</option>
                 <option value="1.5">0.75x</option>
                 <option value="1.0" selected="">1.0x</option>
@@ -2326,18 +1911,18 @@ Your page content starts here... -->
             </select>
 
             <!-- Fullscreen Command -->
-            <button id="btn_fullscreen_ps_6_ivs_116_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
-                <span id="fullscreen_icon_ps_6_ivs_116_azi" style="display:flex; align-items:center;">
+            <button id="btn_fullscreen_ps_6_ivs_115_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
+                <span id="fullscreen_icon_ps_6_ivs_115_azi" style="display:flex; align-items:center;">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
                 </span>
             </button>
 
             <!-- Right Cluster -->
             <div class="btn-cluster">
-                <button id="btn_next_ps_6_ivs_116_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
+                <button id="btn_next_ps_6_ivs_115_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
                 </button>
-                <button id="btn_last_ps_6_ivs_116_azi" class="player-btn btn-nav" title="Last Frame (End)">
+                <button id="btn_last_ps_6_ivs_115_azi" class="player-btn btn-nav" title="Last Frame (End)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
                 </button>
             </div>
@@ -2346,35 +1931,35 @@ Your page content starts here... -->
     <!-- 🧠 JAVASCRIPT LOGIC -->
     <script>
     (function() {
-        const images_ps_6_ivs_116_azi = ["./ink/IVS-116/azi/IVS-116_0.png", "./ink/IVS-116/azi/IVS-116_1.png", "./ink/IVS-116/azi/IVS-116_10.png", "./ink/IVS-116/azi/IVS-116_11.png", "./ink/IVS-116/azi/IVS-116_12.png", "./ink/IVS-116/azi/IVS-116_13.png", "./ink/IVS-116/azi/IVS-116_14.png", "./ink/IVS-116/azi/IVS-116_15.png", "./ink/IVS-116/azi/IVS-116_16.png", "./ink/IVS-116/azi/IVS-116_17.png", "./ink/IVS-116/azi/IVS-116_18.png", "./ink/IVS-116/azi/IVS-116_19.png", "./ink/IVS-116/azi/IVS-116_2.png", "./ink/IVS-116/azi/IVS-116_20.png", "./ink/IVS-116/azi/IVS-116_21.png", "./ink/IVS-116/azi/IVS-116_22.png", "./ink/IVS-116/azi/IVS-116_23.png", "./ink/IVS-116/azi/IVS-116_24.png", "./ink/IVS-116/azi/IVS-116_25.png", "./ink/IVS-116/azi/IVS-116_26.png", "./ink/IVS-116/azi/IVS-116_27.png", "./ink/IVS-116/azi/IVS-116_28.png", "./ink/IVS-116/azi/IVS-116_29.png", "./ink/IVS-116/azi/IVS-116_3.png", "./ink/IVS-116/azi/IVS-116_30.png", "./ink/IVS-116/azi/IVS-116_31.png", "./ink/IVS-116/azi/IVS-116_32.png", "./ink/IVS-116/azi/IVS-116_33.png", "./ink/IVS-116/azi/IVS-116_34.png", "./ink/IVS-116/azi/IVS-116_35.png", "./ink/IVS-116/azi/IVS-116_36.png", "./ink/IVS-116/azi/IVS-116_37.png", "./ink/IVS-116/azi/IVS-116_38.png", "./ink/IVS-116/azi/IVS-116_39.png", "./ink/IVS-116/azi/IVS-116_4.png", "./ink/IVS-116/azi/IVS-116_40.png", "./ink/IVS-116/azi/IVS-116_41.png", "./ink/IVS-116/azi/IVS-116_42.png", "./ink/IVS-116/azi/IVS-116_43.png", "./ink/IVS-116/azi/IVS-116_44.png", "./ink/IVS-116/azi/IVS-116_45.png", "./ink/IVS-116/azi/IVS-116_46.png", "./ink/IVS-116/azi/IVS-116_47.png", "./ink/IVS-116/azi/IVS-116_5.png", "./ink/IVS-116/azi/IVS-116_6.png", "./ink/IVS-116/azi/IVS-116_7.png", "./ink/IVS-116/azi/IVS-116_8.png", "./ink/IVS-116/azi/IVS-116_9.png"];
-        const totalFrames_ps_6_ivs_116_azi = 48;
-        const baseInterval_ps_6_ivs_116_azi = 300; // The baseline 300ms passed from python
-        const loopStartIdx_ps_6_ivs_116_azi = 45;
+        const images_ps_6_ivs_115_azi = ["./ink/IVS-115/azi/IVS-115_0.png", "./ink/IVS-115/azi/IVS-115_1.png", "./ink/IVS-115/azi/IVS-115_10.png", "./ink/IVS-115/azi/IVS-115_11.png", "./ink/IVS-115/azi/IVS-115_12.png", "./ink/IVS-115/azi/IVS-115_13.png", "./ink/IVS-115/azi/IVS-115_14.png", "./ink/IVS-115/azi/IVS-115_15.png", "./ink/IVS-115/azi/IVS-115_16.png", "./ink/IVS-115/azi/IVS-115_17.png", "./ink/IVS-115/azi/IVS-115_18.png", "./ink/IVS-115/azi/IVS-115_19.png", "./ink/IVS-115/azi/IVS-115_2.png", "./ink/IVS-115/azi/IVS-115_20.png", "./ink/IVS-115/azi/IVS-115_21.png", "./ink/IVS-115/azi/IVS-115_22.png", "./ink/IVS-115/azi/IVS-115_23.png", "./ink/IVS-115/azi/IVS-115_24.png", "./ink/IVS-115/azi/IVS-115_25.png", "./ink/IVS-115/azi/IVS-115_26.png", "./ink/IVS-115/azi/IVS-115_27.png", "./ink/IVS-115/azi/IVS-115_28.png", "./ink/IVS-115/azi/IVS-115_29.png", "./ink/IVS-115/azi/IVS-115_3.png", "./ink/IVS-115/azi/IVS-115_30.png", "./ink/IVS-115/azi/IVS-115_31.png", "./ink/IVS-115/azi/IVS-115_32.png", "./ink/IVS-115/azi/IVS-115_33.png", "./ink/IVS-115/azi/IVS-115_34.png", "./ink/IVS-115/azi/IVS-115_35.png", "./ink/IVS-115/azi/IVS-115_36.png", "./ink/IVS-115/azi/IVS-115_37.png", "./ink/IVS-115/azi/IVS-115_38.png", "./ink/IVS-115/azi/IVS-115_39.png", "./ink/IVS-115/azi/IVS-115_4.png", "./ink/IVS-115/azi/IVS-115_40.png", "./ink/IVS-115/azi/IVS-115_41.png", "./ink/IVS-115/azi/IVS-115_42.png", "./ink/IVS-115/azi/IVS-115_43.png", "./ink/IVS-115/azi/IVS-115_44.png", "./ink/IVS-115/azi/IVS-115_45.png", "./ink/IVS-115/azi/IVS-115_46.png", "./ink/IVS-115/azi/IVS-115_47.png", "./ink/IVS-115/azi/IVS-115_5.png", "./ink/IVS-115/azi/IVS-115_6.png", "./ink/IVS-115/azi/IVS-115_7.png", "./ink/IVS-115/azi/IVS-115_8.png", "./ink/IVS-115/azi/IVS-115_9.png"];
+        const totalFrames_ps_6_ivs_115_azi = 48;
+        const baseInterval_ps_6_ivs_115_azi = 300; // The baseline 300ms passed from python
+        const loopStartIdx_ps_6_ivs_115_azi = 45;
         
-        let currentIdx_ps_6_ivs_116_azi = 0;
-        let isPlaying_ps_6_ivs_116_azi = false;
-        let isLoopingLast3_ps_6_ivs_116_azi = false;
-        let interval_ps_6_ivs_116_azi = null;
-        let isMouseOver_ps_6_ivs_116_azi = false;
-        let speedMultiplier_ps_6_ivs_116_azi = 1.0;
+        let currentIdx_ps_6_ivs_115_azi = 0;
+        let isPlaying_ps_6_ivs_115_azi = false;
+        let isLoopingLast3_ps_6_ivs_115_azi = false;
+        let interval_ps_6_ivs_115_azi = null;
+        let isMouseOver_ps_6_ivs_115_azi = false;
+        let speedMultiplier_ps_6_ivs_115_azi = 1.0;
 
-        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_116_azi");
-        const imgEl = document.getElementById("img_display_ps_6_ivs_116_azi");
-        const sliderEl = document.getElementById("slider_ps_6_ivs_116_azi");
-        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_116_azi");
+        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_115_azi");
+        const imgEl = document.getElementById("img_display_ps_6_ivs_115_azi");
+        const sliderEl = document.getElementById("slider_ps_6_ivs_115_azi");
+        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_115_azi");
         
-        const btnPlay = document.getElementById("btn_play_ps_6_ivs_116_azi");
-        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_116_azi");
-        const playTextContainer = document.getElementById("play_text_ps_6_ivs_116_azi");
-        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_116_azi");
+        const btnPlay = document.getElementById("btn_play_ps_6_ivs_115_azi");
+        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_115_azi");
+        const playTextContainer = document.getElementById("play_text_ps_6_ivs_115_azi");
+        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_115_azi");
         
-        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_116_azi");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_116_azi");
+        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_115_azi");
+        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_115_azi");
         
-        const btnFirst = document.getElementById("btn_first_ps_6_ivs_116_azi");
-        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_116_azi");
-        const btnNext = document.getElementById("btn_next_ps_6_ivs_116_azi");
-        const btnLast = document.getElementById("btn_last_ps_6_ivs_116_azi");
+        const btnFirst = document.getElementById("btn_first_ps_6_ivs_115_azi");
+        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_115_azi");
+        const btnNext = document.getElementById("btn_next_ps_6_ivs_115_azi");
+        const btnLast = document.getElementById("btn_last_ps_6_ivs_115_azi");
 
         const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
         const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
@@ -2382,69 +1967,69 @@ Your page content starts here... -->
         const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
         const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
 
-        function updatePlayer_ps_6_ivs_116_azi(idx) {
-            currentIdx_ps_6_ivs_116_azi = idx;
-            if(images_ps_6_ivs_116_azi[idx]) {
-                imgEl.src = images_ps_6_ivs_116_azi[idx];
+        function updatePlayer_ps_6_ivs_115_azi(idx) {
+            currentIdx_ps_6_ivs_115_azi = idx;
+            if(images_ps_6_ivs_115_azi[idx]) {
+                imgEl.src = images_ps_6_ivs_115_azi[idx];
             }
             sliderEl.value = idx;
         }
 
         // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_ps_6_ivs_116_azi() {
-            const activeInterval = baseInterval_ps_6_ivs_116_azi * speedMultiplier_ps_6_ivs_116_azi;
-            interval_ps_6_ivs_116_azi = setInterval(function() {
-                let nextIdx = currentIdx_ps_6_ivs_116_azi + 1;
+        function startPlaybackLoop_ps_6_ivs_115_azi() {
+            const activeInterval = baseInterval_ps_6_ivs_115_azi * speedMultiplier_ps_6_ivs_115_azi;
+            interval_ps_6_ivs_115_azi = setInterval(function() {
+                let nextIdx = currentIdx_ps_6_ivs_115_azi + 1;
                 
-                if (isLoopingLast3_ps_6_ivs_116_azi) {
-                    if (nextIdx >= totalFrames_ps_6_ivs_116_azi) {
-                        nextIdx = loopStartIdx_ps_6_ivs_116_azi;
+                if (isLoopingLast3_ps_6_ivs_115_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_115_azi) {
+                        nextIdx = loopStartIdx_ps_6_ivs_115_azi;
                     }
                 } else {
-                    if (nextIdx >= totalFrames_ps_6_ivs_116_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_115_azi) {
                         nextIdx = 0;
                     }
                 }
-                updatePlayer_ps_6_ivs_116_azi(nextIdx);
+                updatePlayer_ps_6_ivs_115_azi(nextIdx);
             }, activeInterval);
         }
-        function togglePlay_ps_6_ivs_116_azi() {
-            if(isPlaying_ps_6_ivs_116_azi) {
-                clearInterval(interval_ps_6_ivs_116_azi);
+        function togglePlay_ps_6_ivs_115_azi() {
+            if(isPlaying_ps_6_ivs_115_azi) {
+                clearInterval(interval_ps_6_ivs_115_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_116_azi = false;
+                isPlaying_ps_6_ivs_115_azi = false;
             } else {
                 playIconContainer.innerHTML = svgPause;
                 playTextContainer.textContent = "Pause";
-                isPlaying_ps_6_ivs_116_azi = true;
+                isPlaying_ps_6_ivs_115_azi = true;
                 
                 // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_ps_6_ivs_116_azi && currentIdx_ps_6_ivs_116_azi < loopStartIdx_ps_6_ivs_116_azi) {
-                    updatePlayer_ps_6_ivs_116_azi(loopStartIdx_ps_6_ivs_116_azi);
+                if (isLoopingLast3_ps_6_ivs_115_azi && currentIdx_ps_6_ivs_115_azi < loopStartIdx_ps_6_ivs_115_azi) {
+                    updatePlayer_ps_6_ivs_115_azi(loopStartIdx_ps_6_ivs_115_azi);
                 }
-                startPlaybackLoop_ps_6_ivs_116_azi();
+                startPlaybackLoop_ps_6_ivs_115_azi();
             }
         }
 
-        function pausePlayback_ps_6_ivs_116_azi() {
-            if(isPlaying_ps_6_ivs_116_azi) {
-                clearInterval(interval_ps_6_ivs_116_azi);
+        function pausePlayback_ps_6_ivs_115_azi() {
+            if(isPlaying_ps_6_ivs_115_azi) {
+                clearInterval(interval_ps_6_ivs_115_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_116_azi = false;
+                isPlaying_ps_6_ivs_115_azi = false;
             }
         }
 
-        function breakLoop3State_ps_6_ivs_116_azi() {
-            if (isLoopingLast3_ps_6_ivs_116_azi) {
-                isLoopingLast3_ps_6_ivs_116_azi = false;
+        function breakLoop3State_ps_6_ivs_115_azi() {
+            if (isLoopingLast3_ps_6_ivs_115_azi) {
+                isLoopingLast3_ps_6_ivs_115_azi = false;
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
             }
         }
 
-        function toggleFullscreen_ps_6_ivs_116_azi() {
+        function toggleFullscreen_ps_6_ivs_115_azi() {
             if (!document.fullscreenElement) {
                 if (wrapperEl.requestFullscreen) {
                     wrapperEl.requestFullscreen();
@@ -2469,77 +2054,77 @@ Your page content starts here... -->
         });
 
         // Instantly load and display the last frame on page load
-        updatePlayer_ps_6_ivs_116_azi(totalFrames_ps_6_ivs_116_azi - 1);
+        updatePlayer_ps_6_ivs_115_azi(totalFrames_ps_6_ivs_115_azi - 1);
 
         // Slider Event
         sliderEl.addEventListener("input", function(e) {
-            pausePlayback_ps_6_ivs_116_azi();
-            breakLoop3State_ps_6_ivs_116_azi();
-            updatePlayer_ps_6_ivs_116_azi(parseInt(e.target.value));
+            pausePlayback_ps_6_ivs_115_azi();
+            breakLoop3State_ps_6_ivs_115_azi();
+            updatePlayer_ps_6_ivs_115_azi(parseInt(e.target.value));
         });
 
         // Speed Change Event Handler
         speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_ps_6_ivs_116_azi = parseFloat(e.target.value);
-            if (isPlaying_ps_6_ivs_116_azi) {
-                clearInterval(interval_ps_6_ivs_116_azi);
-                startPlaybackLoop_ps_6_ivs_116_azi();
+            speedMultiplier_ps_6_ivs_115_azi = parseFloat(e.target.value);
+            if (isPlaying_ps_6_ivs_115_azi) {
+                clearInterval(interval_ps_6_ivs_115_azi);
+                startPlaybackLoop_ps_6_ivs_115_azi();
             }
         });
-        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_116_azi);
-        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_116_azi);
+        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_115_azi);
+        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_115_azi);
 
         // 🔄 Loop Last 3 Button Handler
         btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_ps_6_ivs_116_azi = !isLoopingLast3_ps_6_ivs_116_azi;
+            isLoopingLast3_ps_6_ivs_115_azi = !isLoopingLast3_ps_6_ivs_115_azi;
             
-            if (isLoopingLast3_ps_6_ivs_116_azi) {
+            if (isLoopingLast3_ps_6_ivs_115_azi) {
                 btnLoop3.classList.add("active");
                 btnLoop3.textContent = "Stop Loop";
                 
                 // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_ps_6_ivs_116_azi < loopStartIdx_ps_6_ivs_116_azi) {
-                    updatePlayer_ps_6_ivs_116_azi(totalFrames_ps_6_ivs_116_azi - 1);
+                if (currentIdx_ps_6_ivs_115_azi < loopStartIdx_ps_6_ivs_115_azi) {
+                    updatePlayer_ps_6_ivs_115_azi(totalFrames_ps_6_ivs_115_azi - 1);
                 }
                 
                 // Force playback start if paused
-                if (!isPlaying_ps_6_ivs_116_azi) {
-                    togglePlay_ps_6_ivs_116_azi();
+                if (!isPlaying_ps_6_ivs_115_azi) {
+                    togglePlay_ps_6_ivs_115_azi();
                 } else {
                     // Reset interval to snap parameters immediately
-                    clearInterval(interval_ps_6_ivs_116_azi);
-                    startPlaybackLoop_ps_6_ivs_116_azi();
+                    clearInterval(interval_ps_6_ivs_115_azi);
+                    startPlaybackLoop_ps_6_ivs_115_azi();
                 }
             } else {
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
-                pausePlayback_ps_6_ivs_116_azi();
+                pausePlayback_ps_6_ivs_115_azi();
             }
         });
 
-        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_116_azi(); breakLoop3State_ps_6_ivs_116_azi(); updatePlayer_ps_6_ivs_116_azi(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_116_azi(); breakLoop3State_ps_6_ivs_116_azi(); updatePlayer_ps_6_ivs_116_azi(totalFrames_ps_6_ivs_116_azi - 1); });
+        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_115_azi(); breakLoop3State_ps_6_ivs_115_azi(); updatePlayer_ps_6_ivs_115_azi(0); });
+        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_115_azi(); breakLoop3State_ps_6_ivs_115_azi(); updatePlayer_ps_6_ivs_115_azi(totalFrames_ps_6_ivs_115_azi - 1); });
         
         btnPrev.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_116_azi();
-            breakLoop3State_ps_6_ivs_116_azi();
-            let prevIdx = currentIdx_ps_6_ivs_116_azi - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_116_azi - 1;
-            updatePlayer_ps_6_ivs_116_azi(prevIdx);
+            pausePlayback_ps_6_ivs_115_azi();
+            breakLoop3State_ps_6_ivs_115_azi();
+            let prevIdx = currentIdx_ps_6_ivs_115_azi - 1;
+            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_115_azi - 1;
+            updatePlayer_ps_6_ivs_115_azi(prevIdx);
         });
 
         btnNext.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_116_azi();
-            breakLoop3State_ps_6_ivs_116_azi();
-            let nextIdx = (currentIdx_ps_6_ivs_116_azi + 1) % totalFrames_ps_6_ivs_116_azi;
-            updatePlayer_ps_6_ivs_116_azi(nextIdx);
+            pausePlayback_ps_6_ivs_115_azi();
+            breakLoop3State_ps_6_ivs_115_azi();
+            let nextIdx = (currentIdx_ps_6_ivs_115_azi + 1) % totalFrames_ps_6_ivs_115_azi;
+            updatePlayer_ps_6_ivs_115_azi(nextIdx);
         });
 
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_116_azi = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_116_azi = false; });
+        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_115_azi = true; });
+        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_115_azi = false; });
 
         window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_ps_6_ivs_116_azi) return;
+            if (!isMouseOver_ps_6_ivs_115_azi) return;
 
             switch(e.key) {
                 case "ArrowLeft":
@@ -2579,6 +2164,9 @@ Your page content starts here... -->
     </script>
     
 </section>
+</section>
+<section id="ivs-116" class="level3">
+<h3 class="anchored" data-anchor-id="ivs-116">IVS-116</h3>
 <section id="celková-deformácia-1" class="level5">
 <h5 class="anchored" data-anchor-id="celková-deformácia-1">📈 Celková deformácia</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
@@ -2991,16 +2579,13 @@ Your page content starts here... -->
     </script>
     
 </section>
-</section>
-<section id="ivs-117" class="level3">
-<h3 class="anchored" data-anchor-id="ivs-117">IVS-117</h3>
-<section id="azimut-2" class="level5">
-<h5 class="anchored" data-anchor-id="azimut-2">🧭 Azimut</h5>
+<section id="azimut-1" class="level5">
+<h5 class="anchored" data-anchor-id="azimut-1">🧭 Azimut</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
 
     <!-- 🎛️ STYLE CENTRAL -->
     <style>
-    #player_wrapper_ps_6_ivs_117_azi {
+    #player_wrapper_ps_6_ivs_116_azi {
         margin-bottom: 30px; 
         background: #222222; 
         padding: 15px; 
@@ -3008,7 +2593,7 @@ Your page content starts here... -->
         user-select: none; 
         -webkit-user-select: none;
     }
-    #player_wrapper_ps_6_ivs_117_azi .image-container {
+    #player_wrapper_ps_6_ivs_116_azi .image-container {
         background: #000000; 
         display: flex; 
         align-items: center; 
@@ -3018,17 +2603,17 @@ Your page content starts here... -->
         border-radius: 4px; 
         overflow: hidden;
     }
-    #player_wrapper_ps_6_ivs_117_azi .control-action-bar {
+    #player_wrapper_ps_6_ivs_116_azi .control-action-bar {
         display: flex; 
         align-items: center; 
         justify-content: center; 
         gap: 12px;               
     }
-    #player_wrapper_ps_6_ivs_117_azi .btn-cluster {
+    #player_wrapper_ps_6_ivs_116_azi .btn-cluster {
         display: flex; 
         gap: 6px;
     }
-    #player_wrapper_ps_6_ivs_117_azi .player-btn {
+    #player_wrapper_ps_6_ivs_116_azi .player-btn {
         color: #ffffff; 
         border: none; 
         height: 32px; 
@@ -3041,33 +2626,33 @@ Your page content starts here... -->
         font-family: 'monospace',
         font-size: 12px;
     }
-    #player_wrapper_ps_6_ivs_117_azi .btn-nav {
+    #player_wrapper_ps_6_ivs_116_azi .btn-nav {
         background-color: #444444; 
         width: 38px;
     }
-    #player_wrapper_ps_6_ivs_117_azi .btn-nav:hover {
+    #player_wrapper_ps_6_ivs_116_azi .btn-nav:hover {
         background-color: #555555;
     }
-    #player_wrapper_ps_6_ivs_117_azi .btn-action {
+    #player_wrapper_ps_6_ivs_116_azi .btn-action {
         background-color: #0d6efd; 
         padding: 0 22px; 
         font-weight: bold;
     }
-    #player_wrapper_ps_6_ivs_117_azi .btn-action:hover {
+    #player_wrapper_ps_6_ivs_116_azi .btn-action:hover {
         filter: brightness(1.15); 
     }
-    #player_wrapper_ps_6_ivs_117_azi .btn-loop3 {
+    #player_wrapper_ps_6_ivs_116_azi .btn-loop3 {
         background-color: #6f42c1;
         padding: 0 14px;
         font-weight: bold;
     }
-    #player_wrapper_ps_6_ivs_117_azi .btn-loop3:hover {
+    #player_wrapper_ps_6_ivs_116_azi .btn-loop3:hover {
         filter: brightness(1.15);
     }
-    #player_wrapper_ps_6_ivs_117_azi .btn-loop3.active {
+    #player_wrapper_ps_6_ivs_116_azi .btn-loop3.active {
         background-color: #dc3545 !important;
     }
-    #player_wrapper_ps_6_ivs_117_azi .speed-selector {
+    #player_wrapper_ps_6_ivs_116_azi .speed-selector {
         background-color: #444444;
         color: #ffffff;
         border: none;
@@ -3079,10 +2664,10 @@ Your page content starts here... -->
         font-size: 13px;
         outline: none;
     }
-    #player_wrapper_ps_6_ivs_117_azi .speed-selector:hover {
+    #player_wrapper_ps_6_ivs_116_azi .speed-selector:hover {
         background-color: #555555;
     }
-    #player_wrapper_ps_6_ivs_117_azi .timeline-slider {
+    #player_wrapper_ps_6_ivs_116_azi .timeline-slider {
         flex-grow: 1; 
         cursor: pointer;
         height: 6px;
@@ -3090,61 +2675,61 @@ Your page content starts here... -->
     }
 
     /* NATIVE FULLSCREEN LAYOUT FIXES */
-    #player_wrapper_ps_6_ivs_117_azi:fullscreen {
+    #player_wrapper_ps_6_ivs_116_azi:fullscreen {
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
         padding: 25px !important;
         background: #111111 !important;
     }
-    #player_wrapper_ps_6_ivs_117_azi:fullscreen .image-container {
+    #player_wrapper_ps_6_ivs_116_azi:fullscreen .image-container {
         flex-grow: 1 !important;
         margin-bottom: 20px !important;
     }
-    #player_wrapper_ps_6_ivs_117_azi:fullscreen #img_display_ps_6_ivs_117_azi {
+    #player_wrapper_ps_6_ivs_116_azi:fullscreen #img_display_ps_6_ivs_116_azi {
         max-height: calc(100vh - 120px) !important; 
         width: auto !important;
     }
     </style>
 
         <!-- 🏗️ HTML STRUCTURE -->
-    <div id="player_wrapper_ps_6_ivs_117_azi">
+    <div id="player_wrapper_ps_6_ivs_116_azi">
         <div class="image-container">
-            <img id="img_display_ps_6_ivs_117_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
+            <img id="img_display_ps_6_ivs_116_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         
         <!-- Timeline Slider Bar -->
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_ps_6_ivs_117_azi" class="timeline-slider" type="range" min="0" max="47" value="0">
+            <input id="slider_ps_6_ivs_116_azi" class="timeline-slider" type="range" min="0" max="47" value="0">
         </div>
 
         <!-- Control Action Bar -->
         <div class="control-action-bar">
             <!-- Left Cluster -->
             <div class="btn-cluster">
-                <button id="btn_first_ps_6_ivs_117_azi" class="player-btn btn-nav" title="First Frame (Home)">
+                <button id="btn_first_ps_6_ivs_116_azi" class="player-btn btn-nav" title="First Frame (Home)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
                 </button>
-                <button id="btn_prev_ps_6_ivs_117_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
+                <button id="btn_prev_ps_6_ivs_116_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
                 </button>
             </div>
 
             <!-- Play Command -->
-            <button id="btn_play_ps_6_ivs_117_azi" class="player-btn btn-action">
-                <span id="play_icon_ps_6_ivs_117_azi" style="display:flex; align-items:center; margin-right:6px;">
+            <button id="btn_play_ps_6_ivs_116_azi" class="player-btn btn-action">
+                <span id="play_icon_ps_6_ivs_116_azi" style="display:flex; align-items:center; margin-right:6px;">
                     <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
                 </span>
-                <span id="play_text_ps_6_ivs_117_azi">Play</span>
+                <span id="play_text_ps_6_ivs_116_azi">Play</span>
             </button>
 
             <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_ps_6_ivs_117_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
+            <button id="btn_loop3_ps_6_ivs_116_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
                 🔄 Last 3 Measurements
             </button>
 
             <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
-            <select id="speed_select_ps_6_ivs_117_azi" class="speed-selector" title="Playback Speed">
+            <select id="speed_select_ps_6_ivs_116_azi" class="speed-selector" title="Playback Speed">
                 <option value="2.0">0.5x</option>
                 <option value="1.5">0.75x</option>
                 <option value="1.0" selected="">1.0x</option>
@@ -3153,18 +2738,18 @@ Your page content starts here... -->
             </select>
 
             <!-- Fullscreen Command -->
-            <button id="btn_fullscreen_ps_6_ivs_117_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
-                <span id="fullscreen_icon_ps_6_ivs_117_azi" style="display:flex; align-items:center;">
+            <button id="btn_fullscreen_ps_6_ivs_116_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
+                <span id="fullscreen_icon_ps_6_ivs_116_azi" style="display:flex; align-items:center;">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
                 </span>
             </button>
 
             <!-- Right Cluster -->
             <div class="btn-cluster">
-                <button id="btn_next_ps_6_ivs_117_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
+                <button id="btn_next_ps_6_ivs_116_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
                 </button>
-                <button id="btn_last_ps_6_ivs_117_azi" class="player-btn btn-nav" title="Last Frame (End)">
+                <button id="btn_last_ps_6_ivs_116_azi" class="player-btn btn-nav" title="Last Frame (End)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
                 </button>
             </div>
@@ -3173,35 +2758,35 @@ Your page content starts here... -->
     <!-- 🧠 JAVASCRIPT LOGIC -->
     <script>
     (function() {
-        const images_ps_6_ivs_117_azi = ["./ink/IVS-117/azi/IVS-117_0.png", "./ink/IVS-117/azi/IVS-117_1.png", "./ink/IVS-117/azi/IVS-117_10.png", "./ink/IVS-117/azi/IVS-117_11.png", "./ink/IVS-117/azi/IVS-117_12.png", "./ink/IVS-117/azi/IVS-117_13.png", "./ink/IVS-117/azi/IVS-117_14.png", "./ink/IVS-117/azi/IVS-117_15.png", "./ink/IVS-117/azi/IVS-117_16.png", "./ink/IVS-117/azi/IVS-117_17.png", "./ink/IVS-117/azi/IVS-117_18.png", "./ink/IVS-117/azi/IVS-117_19.png", "./ink/IVS-117/azi/IVS-117_2.png", "./ink/IVS-117/azi/IVS-117_20.png", "./ink/IVS-117/azi/IVS-117_21.png", "./ink/IVS-117/azi/IVS-117_22.png", "./ink/IVS-117/azi/IVS-117_23.png", "./ink/IVS-117/azi/IVS-117_24.png", "./ink/IVS-117/azi/IVS-117_25.png", "./ink/IVS-117/azi/IVS-117_26.png", "./ink/IVS-117/azi/IVS-117_27.png", "./ink/IVS-117/azi/IVS-117_28.png", "./ink/IVS-117/azi/IVS-117_29.png", "./ink/IVS-117/azi/IVS-117_3.png", "./ink/IVS-117/azi/IVS-117_30.png", "./ink/IVS-117/azi/IVS-117_31.png", "./ink/IVS-117/azi/IVS-117_32.png", "./ink/IVS-117/azi/IVS-117_33.png", "./ink/IVS-117/azi/IVS-117_34.png", "./ink/IVS-117/azi/IVS-117_35.png", "./ink/IVS-117/azi/IVS-117_36.png", "./ink/IVS-117/azi/IVS-117_37.png", "./ink/IVS-117/azi/IVS-117_38.png", "./ink/IVS-117/azi/IVS-117_39.png", "./ink/IVS-117/azi/IVS-117_4.png", "./ink/IVS-117/azi/IVS-117_40.png", "./ink/IVS-117/azi/IVS-117_41.png", "./ink/IVS-117/azi/IVS-117_42.png", "./ink/IVS-117/azi/IVS-117_43.png", "./ink/IVS-117/azi/IVS-117_44.png", "./ink/IVS-117/azi/IVS-117_45.png", "./ink/IVS-117/azi/IVS-117_46.png", "./ink/IVS-117/azi/IVS-117_47.png", "./ink/IVS-117/azi/IVS-117_5.png", "./ink/IVS-117/azi/IVS-117_6.png", "./ink/IVS-117/azi/IVS-117_7.png", "./ink/IVS-117/azi/IVS-117_8.png", "./ink/IVS-117/azi/IVS-117_9.png"];
-        const totalFrames_ps_6_ivs_117_azi = 48;
-        const baseInterval_ps_6_ivs_117_azi = 300; // The baseline 300ms passed from python
-        const loopStartIdx_ps_6_ivs_117_azi = 45;
+        const images_ps_6_ivs_116_azi = ["./ink/IVS-116/azi/IVS-116_0.png", "./ink/IVS-116/azi/IVS-116_1.png", "./ink/IVS-116/azi/IVS-116_10.png", "./ink/IVS-116/azi/IVS-116_11.png", "./ink/IVS-116/azi/IVS-116_12.png", "./ink/IVS-116/azi/IVS-116_13.png", "./ink/IVS-116/azi/IVS-116_14.png", "./ink/IVS-116/azi/IVS-116_15.png", "./ink/IVS-116/azi/IVS-116_16.png", "./ink/IVS-116/azi/IVS-116_17.png", "./ink/IVS-116/azi/IVS-116_18.png", "./ink/IVS-116/azi/IVS-116_19.png", "./ink/IVS-116/azi/IVS-116_2.png", "./ink/IVS-116/azi/IVS-116_20.png", "./ink/IVS-116/azi/IVS-116_21.png", "./ink/IVS-116/azi/IVS-116_22.png", "./ink/IVS-116/azi/IVS-116_23.png", "./ink/IVS-116/azi/IVS-116_24.png", "./ink/IVS-116/azi/IVS-116_25.png", "./ink/IVS-116/azi/IVS-116_26.png", "./ink/IVS-116/azi/IVS-116_27.png", "./ink/IVS-116/azi/IVS-116_28.png", "./ink/IVS-116/azi/IVS-116_29.png", "./ink/IVS-116/azi/IVS-116_3.png", "./ink/IVS-116/azi/IVS-116_30.png", "./ink/IVS-116/azi/IVS-116_31.png", "./ink/IVS-116/azi/IVS-116_32.png", "./ink/IVS-116/azi/IVS-116_33.png", "./ink/IVS-116/azi/IVS-116_34.png", "./ink/IVS-116/azi/IVS-116_35.png", "./ink/IVS-116/azi/IVS-116_36.png", "./ink/IVS-116/azi/IVS-116_37.png", "./ink/IVS-116/azi/IVS-116_38.png", "./ink/IVS-116/azi/IVS-116_39.png", "./ink/IVS-116/azi/IVS-116_4.png", "./ink/IVS-116/azi/IVS-116_40.png", "./ink/IVS-116/azi/IVS-116_41.png", "./ink/IVS-116/azi/IVS-116_42.png", "./ink/IVS-116/azi/IVS-116_43.png", "./ink/IVS-116/azi/IVS-116_44.png", "./ink/IVS-116/azi/IVS-116_45.png", "./ink/IVS-116/azi/IVS-116_46.png", "./ink/IVS-116/azi/IVS-116_47.png", "./ink/IVS-116/azi/IVS-116_5.png", "./ink/IVS-116/azi/IVS-116_6.png", "./ink/IVS-116/azi/IVS-116_7.png", "./ink/IVS-116/azi/IVS-116_8.png", "./ink/IVS-116/azi/IVS-116_9.png"];
+        const totalFrames_ps_6_ivs_116_azi = 48;
+        const baseInterval_ps_6_ivs_116_azi = 300; // The baseline 300ms passed from python
+        const loopStartIdx_ps_6_ivs_116_azi = 45;
         
-        let currentIdx_ps_6_ivs_117_azi = 0;
-        let isPlaying_ps_6_ivs_117_azi = false;
-        let isLoopingLast3_ps_6_ivs_117_azi = false;
-        let interval_ps_6_ivs_117_azi = null;
-        let isMouseOver_ps_6_ivs_117_azi = false;
-        let speedMultiplier_ps_6_ivs_117_azi = 1.0;
+        let currentIdx_ps_6_ivs_116_azi = 0;
+        let isPlaying_ps_6_ivs_116_azi = false;
+        let isLoopingLast3_ps_6_ivs_116_azi = false;
+        let interval_ps_6_ivs_116_azi = null;
+        let isMouseOver_ps_6_ivs_116_azi = false;
+        let speedMultiplier_ps_6_ivs_116_azi = 1.0;
 
-        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_117_azi");
-        const imgEl = document.getElementById("img_display_ps_6_ivs_117_azi");
-        const sliderEl = document.getElementById("slider_ps_6_ivs_117_azi");
-        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_117_azi");
+        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_116_azi");
+        const imgEl = document.getElementById("img_display_ps_6_ivs_116_azi");
+        const sliderEl = document.getElementById("slider_ps_6_ivs_116_azi");
+        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_116_azi");
         
-        const btnPlay = document.getElementById("btn_play_ps_6_ivs_117_azi");
-        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_117_azi");
-        const playTextContainer = document.getElementById("play_text_ps_6_ivs_117_azi");
-        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_117_azi");
+        const btnPlay = document.getElementById("btn_play_ps_6_ivs_116_azi");
+        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_116_azi");
+        const playTextContainer = document.getElementById("play_text_ps_6_ivs_116_azi");
+        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_116_azi");
         
-        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_117_azi");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_117_azi");
+        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_116_azi");
+        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_116_azi");
         
-        const btnFirst = document.getElementById("btn_first_ps_6_ivs_117_azi");
-        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_117_azi");
-        const btnNext = document.getElementById("btn_next_ps_6_ivs_117_azi");
-        const btnLast = document.getElementById("btn_last_ps_6_ivs_117_azi");
+        const btnFirst = document.getElementById("btn_first_ps_6_ivs_116_azi");
+        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_116_azi");
+        const btnNext = document.getElementById("btn_next_ps_6_ivs_116_azi");
+        const btnLast = document.getElementById("btn_last_ps_6_ivs_116_azi");
 
         const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
         const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
@@ -3209,69 +2794,69 @@ Your page content starts here... -->
         const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
         const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
 
-        function updatePlayer_ps_6_ivs_117_azi(idx) {
-            currentIdx_ps_6_ivs_117_azi = idx;
-            if(images_ps_6_ivs_117_azi[idx]) {
-                imgEl.src = images_ps_6_ivs_117_azi[idx];
+        function updatePlayer_ps_6_ivs_116_azi(idx) {
+            currentIdx_ps_6_ivs_116_azi = idx;
+            if(images_ps_6_ivs_116_azi[idx]) {
+                imgEl.src = images_ps_6_ivs_116_azi[idx];
             }
             sliderEl.value = idx;
         }
 
         // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_ps_6_ivs_117_azi() {
-            const activeInterval = baseInterval_ps_6_ivs_117_azi * speedMultiplier_ps_6_ivs_117_azi;
-            interval_ps_6_ivs_117_azi = setInterval(function() {
-                let nextIdx = currentIdx_ps_6_ivs_117_azi + 1;
+        function startPlaybackLoop_ps_6_ivs_116_azi() {
+            const activeInterval = baseInterval_ps_6_ivs_116_azi * speedMultiplier_ps_6_ivs_116_azi;
+            interval_ps_6_ivs_116_azi = setInterval(function() {
+                let nextIdx = currentIdx_ps_6_ivs_116_azi + 1;
                 
-                if (isLoopingLast3_ps_6_ivs_117_azi) {
-                    if (nextIdx >= totalFrames_ps_6_ivs_117_azi) {
-                        nextIdx = loopStartIdx_ps_6_ivs_117_azi;
+                if (isLoopingLast3_ps_6_ivs_116_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_116_azi) {
+                        nextIdx = loopStartIdx_ps_6_ivs_116_azi;
                     }
                 } else {
-                    if (nextIdx >= totalFrames_ps_6_ivs_117_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_116_azi) {
                         nextIdx = 0;
                     }
                 }
-                updatePlayer_ps_6_ivs_117_azi(nextIdx);
+                updatePlayer_ps_6_ivs_116_azi(nextIdx);
             }, activeInterval);
         }
-        function togglePlay_ps_6_ivs_117_azi() {
-            if(isPlaying_ps_6_ivs_117_azi) {
-                clearInterval(interval_ps_6_ivs_117_azi);
+        function togglePlay_ps_6_ivs_116_azi() {
+            if(isPlaying_ps_6_ivs_116_azi) {
+                clearInterval(interval_ps_6_ivs_116_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_117_azi = false;
+                isPlaying_ps_6_ivs_116_azi = false;
             } else {
                 playIconContainer.innerHTML = svgPause;
                 playTextContainer.textContent = "Pause";
-                isPlaying_ps_6_ivs_117_azi = true;
+                isPlaying_ps_6_ivs_116_azi = true;
                 
                 // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_ps_6_ivs_117_azi && currentIdx_ps_6_ivs_117_azi < loopStartIdx_ps_6_ivs_117_azi) {
-                    updatePlayer_ps_6_ivs_117_azi(loopStartIdx_ps_6_ivs_117_azi);
+                if (isLoopingLast3_ps_6_ivs_116_azi && currentIdx_ps_6_ivs_116_azi < loopStartIdx_ps_6_ivs_116_azi) {
+                    updatePlayer_ps_6_ivs_116_azi(loopStartIdx_ps_6_ivs_116_azi);
                 }
-                startPlaybackLoop_ps_6_ivs_117_azi();
+                startPlaybackLoop_ps_6_ivs_116_azi();
             }
         }
 
-        function pausePlayback_ps_6_ivs_117_azi() {
-            if(isPlaying_ps_6_ivs_117_azi) {
-                clearInterval(interval_ps_6_ivs_117_azi);
+        function pausePlayback_ps_6_ivs_116_azi() {
+            if(isPlaying_ps_6_ivs_116_azi) {
+                clearInterval(interval_ps_6_ivs_116_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_117_azi = false;
+                isPlaying_ps_6_ivs_116_azi = false;
             }
         }
 
-        function breakLoop3State_ps_6_ivs_117_azi() {
-            if (isLoopingLast3_ps_6_ivs_117_azi) {
-                isLoopingLast3_ps_6_ivs_117_azi = false;
+        function breakLoop3State_ps_6_ivs_116_azi() {
+            if (isLoopingLast3_ps_6_ivs_116_azi) {
+                isLoopingLast3_ps_6_ivs_116_azi = false;
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
             }
         }
 
-        function toggleFullscreen_ps_6_ivs_117_azi() {
+        function toggleFullscreen_ps_6_ivs_116_azi() {
             if (!document.fullscreenElement) {
                 if (wrapperEl.requestFullscreen) {
                     wrapperEl.requestFullscreen();
@@ -3296,77 +2881,77 @@ Your page content starts here... -->
         });
 
         // Instantly load and display the last frame on page load
-        updatePlayer_ps_6_ivs_117_azi(totalFrames_ps_6_ivs_117_azi - 1);
+        updatePlayer_ps_6_ivs_116_azi(totalFrames_ps_6_ivs_116_azi - 1);
 
         // Slider Event
         sliderEl.addEventListener("input", function(e) {
-            pausePlayback_ps_6_ivs_117_azi();
-            breakLoop3State_ps_6_ivs_117_azi();
-            updatePlayer_ps_6_ivs_117_azi(parseInt(e.target.value));
+            pausePlayback_ps_6_ivs_116_azi();
+            breakLoop3State_ps_6_ivs_116_azi();
+            updatePlayer_ps_6_ivs_116_azi(parseInt(e.target.value));
         });
 
         // Speed Change Event Handler
         speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_ps_6_ivs_117_azi = parseFloat(e.target.value);
-            if (isPlaying_ps_6_ivs_117_azi) {
-                clearInterval(interval_ps_6_ivs_117_azi);
-                startPlaybackLoop_ps_6_ivs_117_azi();
+            speedMultiplier_ps_6_ivs_116_azi = parseFloat(e.target.value);
+            if (isPlaying_ps_6_ivs_116_azi) {
+                clearInterval(interval_ps_6_ivs_116_azi);
+                startPlaybackLoop_ps_6_ivs_116_azi();
             }
         });
-        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_117_azi);
-        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_117_azi);
+        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_116_azi);
+        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_116_azi);
 
         // 🔄 Loop Last 3 Button Handler
         btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_ps_6_ivs_117_azi = !isLoopingLast3_ps_6_ivs_117_azi;
+            isLoopingLast3_ps_6_ivs_116_azi = !isLoopingLast3_ps_6_ivs_116_azi;
             
-            if (isLoopingLast3_ps_6_ivs_117_azi) {
+            if (isLoopingLast3_ps_6_ivs_116_azi) {
                 btnLoop3.classList.add("active");
                 btnLoop3.textContent = "Stop Loop";
                 
                 // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_ps_6_ivs_117_azi < loopStartIdx_ps_6_ivs_117_azi) {
-                    updatePlayer_ps_6_ivs_117_azi(totalFrames_ps_6_ivs_117_azi - 1);
+                if (currentIdx_ps_6_ivs_116_azi < loopStartIdx_ps_6_ivs_116_azi) {
+                    updatePlayer_ps_6_ivs_116_azi(totalFrames_ps_6_ivs_116_azi - 1);
                 }
                 
                 // Force playback start if paused
-                if (!isPlaying_ps_6_ivs_117_azi) {
-                    togglePlay_ps_6_ivs_117_azi();
+                if (!isPlaying_ps_6_ivs_116_azi) {
+                    togglePlay_ps_6_ivs_116_azi();
                 } else {
                     // Reset interval to snap parameters immediately
-                    clearInterval(interval_ps_6_ivs_117_azi);
-                    startPlaybackLoop_ps_6_ivs_117_azi();
+                    clearInterval(interval_ps_6_ivs_116_azi);
+                    startPlaybackLoop_ps_6_ivs_116_azi();
                 }
             } else {
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
-                pausePlayback_ps_6_ivs_117_azi();
+                pausePlayback_ps_6_ivs_116_azi();
             }
         });
 
-        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_117_azi(); breakLoop3State_ps_6_ivs_117_azi(); updatePlayer_ps_6_ivs_117_azi(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_117_azi(); breakLoop3State_ps_6_ivs_117_azi(); updatePlayer_ps_6_ivs_117_azi(totalFrames_ps_6_ivs_117_azi - 1); });
+        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_116_azi(); breakLoop3State_ps_6_ivs_116_azi(); updatePlayer_ps_6_ivs_116_azi(0); });
+        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_116_azi(); breakLoop3State_ps_6_ivs_116_azi(); updatePlayer_ps_6_ivs_116_azi(totalFrames_ps_6_ivs_116_azi - 1); });
         
         btnPrev.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_117_azi();
-            breakLoop3State_ps_6_ivs_117_azi();
-            let prevIdx = currentIdx_ps_6_ivs_117_azi - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_117_azi - 1;
-            updatePlayer_ps_6_ivs_117_azi(prevIdx);
+            pausePlayback_ps_6_ivs_116_azi();
+            breakLoop3State_ps_6_ivs_116_azi();
+            let prevIdx = currentIdx_ps_6_ivs_116_azi - 1;
+            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_116_azi - 1;
+            updatePlayer_ps_6_ivs_116_azi(prevIdx);
         });
 
         btnNext.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_117_azi();
-            breakLoop3State_ps_6_ivs_117_azi();
-            let nextIdx = (currentIdx_ps_6_ivs_117_azi + 1) % totalFrames_ps_6_ivs_117_azi;
-            updatePlayer_ps_6_ivs_117_azi(nextIdx);
+            pausePlayback_ps_6_ivs_116_azi();
+            breakLoop3State_ps_6_ivs_116_azi();
+            let nextIdx = (currentIdx_ps_6_ivs_116_azi + 1) % totalFrames_ps_6_ivs_116_azi;
+            updatePlayer_ps_6_ivs_116_azi(nextIdx);
         });
 
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_117_azi = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_117_azi = false; });
+        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_116_azi = true; });
+        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_116_azi = false; });
 
         window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_ps_6_ivs_117_azi) return;
+            if (!isMouseOver_ps_6_ivs_116_azi) return;
 
             switch(e.key) {
                 case "ArrowLeft":
@@ -3406,6 +2991,9 @@ Your page content starts here... -->
     </script>
     
 </section>
+</section>
+<section id="ivs-117" class="level3">
+<h3 class="anchored" data-anchor-id="ivs-117">IVS-117</h3>
 <section id="celková-deformácia-2" class="level5">
 <h5 class="anchored" data-anchor-id="celková-deformácia-2">📈 Celková deformácia</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
@@ -3818,16 +3406,13 @@ Your page content starts here... -->
     </script>
     
 </section>
-</section>
-<section id="ivs-118" class="level3">
-<h3 class="anchored" data-anchor-id="ivs-118">IVS-118</h3>
-<section id="azimut-3" class="level5">
-<h5 class="anchored" data-anchor-id="azimut-3">🧭 Azimut</h5>
+<section id="azimut-2" class="level5">
+<h5 class="anchored" data-anchor-id="azimut-2">🧭 Azimut</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
 
     <!-- 🎛️ STYLE CENTRAL -->
     <style>
-    #player_wrapper_ps_6_ivs_118_azi {
+    #player_wrapper_ps_6_ivs_117_azi {
         margin-bottom: 30px; 
         background: #222222; 
         padding: 15px; 
@@ -3835,7 +3420,7 @@ Your page content starts here... -->
         user-select: none; 
         -webkit-user-select: none;
     }
-    #player_wrapper_ps_6_ivs_118_azi .image-container {
+    #player_wrapper_ps_6_ivs_117_azi .image-container {
         background: #000000; 
         display: flex; 
         align-items: center; 
@@ -3845,17 +3430,17 @@ Your page content starts here... -->
         border-radius: 4px; 
         overflow: hidden;
     }
-    #player_wrapper_ps_6_ivs_118_azi .control-action-bar {
+    #player_wrapper_ps_6_ivs_117_azi .control-action-bar {
         display: flex; 
         align-items: center; 
         justify-content: center; 
         gap: 12px;               
     }
-    #player_wrapper_ps_6_ivs_118_azi .btn-cluster {
+    #player_wrapper_ps_6_ivs_117_azi .btn-cluster {
         display: flex; 
         gap: 6px;
     }
-    #player_wrapper_ps_6_ivs_118_azi .player-btn {
+    #player_wrapper_ps_6_ivs_117_azi .player-btn {
         color: #ffffff; 
         border: none; 
         height: 32px; 
@@ -3868,33 +3453,33 @@ Your page content starts here... -->
         font-family: 'monospace',
         font-size: 12px;
     }
-    #player_wrapper_ps_6_ivs_118_azi .btn-nav {
+    #player_wrapper_ps_6_ivs_117_azi .btn-nav {
         background-color: #444444; 
         width: 38px;
     }
-    #player_wrapper_ps_6_ivs_118_azi .btn-nav:hover {
+    #player_wrapper_ps_6_ivs_117_azi .btn-nav:hover {
         background-color: #555555;
     }
-    #player_wrapper_ps_6_ivs_118_azi .btn-action {
+    #player_wrapper_ps_6_ivs_117_azi .btn-action {
         background-color: #0d6efd; 
         padding: 0 22px; 
         font-weight: bold;
     }
-    #player_wrapper_ps_6_ivs_118_azi .btn-action:hover {
+    #player_wrapper_ps_6_ivs_117_azi .btn-action:hover {
         filter: brightness(1.15); 
     }
-    #player_wrapper_ps_6_ivs_118_azi .btn-loop3 {
+    #player_wrapper_ps_6_ivs_117_azi .btn-loop3 {
         background-color: #6f42c1;
         padding: 0 14px;
         font-weight: bold;
     }
-    #player_wrapper_ps_6_ivs_118_azi .btn-loop3:hover {
+    #player_wrapper_ps_6_ivs_117_azi .btn-loop3:hover {
         filter: brightness(1.15);
     }
-    #player_wrapper_ps_6_ivs_118_azi .btn-loop3.active {
+    #player_wrapper_ps_6_ivs_117_azi .btn-loop3.active {
         background-color: #dc3545 !important;
     }
-    #player_wrapper_ps_6_ivs_118_azi .speed-selector {
+    #player_wrapper_ps_6_ivs_117_azi .speed-selector {
         background-color: #444444;
         color: #ffffff;
         border: none;
@@ -3906,10 +3491,10 @@ Your page content starts here... -->
         font-size: 13px;
         outline: none;
     }
-    #player_wrapper_ps_6_ivs_118_azi .speed-selector:hover {
+    #player_wrapper_ps_6_ivs_117_azi .speed-selector:hover {
         background-color: #555555;
     }
-    #player_wrapper_ps_6_ivs_118_azi .timeline-slider {
+    #player_wrapper_ps_6_ivs_117_azi .timeline-slider {
         flex-grow: 1; 
         cursor: pointer;
         height: 6px;
@@ -3917,61 +3502,61 @@ Your page content starts here... -->
     }
 
     /* NATIVE FULLSCREEN LAYOUT FIXES */
-    #player_wrapper_ps_6_ivs_118_azi:fullscreen {
+    #player_wrapper_ps_6_ivs_117_azi:fullscreen {
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
         padding: 25px !important;
         background: #111111 !important;
     }
-    #player_wrapper_ps_6_ivs_118_azi:fullscreen .image-container {
+    #player_wrapper_ps_6_ivs_117_azi:fullscreen .image-container {
         flex-grow: 1 !important;
         margin-bottom: 20px !important;
     }
-    #player_wrapper_ps_6_ivs_118_azi:fullscreen #img_display_ps_6_ivs_118_azi {
+    #player_wrapper_ps_6_ivs_117_azi:fullscreen #img_display_ps_6_ivs_117_azi {
         max-height: calc(100vh - 120px) !important; 
         width: auto !important;
     }
     </style>
 
         <!-- 🏗️ HTML STRUCTURE -->
-    <div id="player_wrapper_ps_6_ivs_118_azi">
+    <div id="player_wrapper_ps_6_ivs_117_azi">
         <div class="image-container">
-            <img id="img_display_ps_6_ivs_118_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
+            <img id="img_display_ps_6_ivs_117_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         
         <!-- Timeline Slider Bar -->
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_ps_6_ivs_118_azi" class="timeline-slider" type="range" min="0" max="47" value="0">
+            <input id="slider_ps_6_ivs_117_azi" class="timeline-slider" type="range" min="0" max="47" value="0">
         </div>
 
         <!-- Control Action Bar -->
         <div class="control-action-bar">
             <!-- Left Cluster -->
             <div class="btn-cluster">
-                <button id="btn_first_ps_6_ivs_118_azi" class="player-btn btn-nav" title="First Frame (Home)">
+                <button id="btn_first_ps_6_ivs_117_azi" class="player-btn btn-nav" title="First Frame (Home)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
                 </button>
-                <button id="btn_prev_ps_6_ivs_118_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
+                <button id="btn_prev_ps_6_ivs_117_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
                 </button>
             </div>
 
             <!-- Play Command -->
-            <button id="btn_play_ps_6_ivs_118_azi" class="player-btn btn-action">
-                <span id="play_icon_ps_6_ivs_118_azi" style="display:flex; align-items:center; margin-right:6px;">
+            <button id="btn_play_ps_6_ivs_117_azi" class="player-btn btn-action">
+                <span id="play_icon_ps_6_ivs_117_azi" style="display:flex; align-items:center; margin-right:6px;">
                     <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
                 </span>
-                <span id="play_text_ps_6_ivs_118_azi">Play</span>
+                <span id="play_text_ps_6_ivs_117_azi">Play</span>
             </button>
 
             <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_ps_6_ivs_118_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
+            <button id="btn_loop3_ps_6_ivs_117_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
                 🔄 Last 3 Measurements
             </button>
 
             <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
-            <select id="speed_select_ps_6_ivs_118_azi" class="speed-selector" title="Playback Speed">
+            <select id="speed_select_ps_6_ivs_117_azi" class="speed-selector" title="Playback Speed">
                 <option value="2.0">0.5x</option>
                 <option value="1.5">0.75x</option>
                 <option value="1.0" selected="">1.0x</option>
@@ -3980,18 +3565,18 @@ Your page content starts here... -->
             </select>
 
             <!-- Fullscreen Command -->
-            <button id="btn_fullscreen_ps_6_ivs_118_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
-                <span id="fullscreen_icon_ps_6_ivs_118_azi" style="display:flex; align-items:center;">
+            <button id="btn_fullscreen_ps_6_ivs_117_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
+                <span id="fullscreen_icon_ps_6_ivs_117_azi" style="display:flex; align-items:center;">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
                 </span>
             </button>
 
             <!-- Right Cluster -->
             <div class="btn-cluster">
-                <button id="btn_next_ps_6_ivs_118_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
+                <button id="btn_next_ps_6_ivs_117_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
                 </button>
-                <button id="btn_last_ps_6_ivs_118_azi" class="player-btn btn-nav" title="Last Frame (End)">
+                <button id="btn_last_ps_6_ivs_117_azi" class="player-btn btn-nav" title="Last Frame (End)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
                 </button>
             </div>
@@ -4000,35 +3585,35 @@ Your page content starts here... -->
     <!-- 🧠 JAVASCRIPT LOGIC -->
     <script>
     (function() {
-        const images_ps_6_ivs_118_azi = ["./ink/IVS-118/azi/IVS-118_0.png", "./ink/IVS-118/azi/IVS-118_1.png", "./ink/IVS-118/azi/IVS-118_10.png", "./ink/IVS-118/azi/IVS-118_11.png", "./ink/IVS-118/azi/IVS-118_12.png", "./ink/IVS-118/azi/IVS-118_13.png", "./ink/IVS-118/azi/IVS-118_14.png", "./ink/IVS-118/azi/IVS-118_15.png", "./ink/IVS-118/azi/IVS-118_16.png", "./ink/IVS-118/azi/IVS-118_17.png", "./ink/IVS-118/azi/IVS-118_18.png", "./ink/IVS-118/azi/IVS-118_19.png", "./ink/IVS-118/azi/IVS-118_2.png", "./ink/IVS-118/azi/IVS-118_20.png", "./ink/IVS-118/azi/IVS-118_21.png", "./ink/IVS-118/azi/IVS-118_22.png", "./ink/IVS-118/azi/IVS-118_23.png", "./ink/IVS-118/azi/IVS-118_24.png", "./ink/IVS-118/azi/IVS-118_25.png", "./ink/IVS-118/azi/IVS-118_26.png", "./ink/IVS-118/azi/IVS-118_27.png", "./ink/IVS-118/azi/IVS-118_28.png", "./ink/IVS-118/azi/IVS-118_29.png", "./ink/IVS-118/azi/IVS-118_3.png", "./ink/IVS-118/azi/IVS-118_30.png", "./ink/IVS-118/azi/IVS-118_31.png", "./ink/IVS-118/azi/IVS-118_32.png", "./ink/IVS-118/azi/IVS-118_33.png", "./ink/IVS-118/azi/IVS-118_34.png", "./ink/IVS-118/azi/IVS-118_35.png", "./ink/IVS-118/azi/IVS-118_36.png", "./ink/IVS-118/azi/IVS-118_37.png", "./ink/IVS-118/azi/IVS-118_38.png", "./ink/IVS-118/azi/IVS-118_39.png", "./ink/IVS-118/azi/IVS-118_4.png", "./ink/IVS-118/azi/IVS-118_40.png", "./ink/IVS-118/azi/IVS-118_41.png", "./ink/IVS-118/azi/IVS-118_42.png", "./ink/IVS-118/azi/IVS-118_43.png", "./ink/IVS-118/azi/IVS-118_44.png", "./ink/IVS-118/azi/IVS-118_45.png", "./ink/IVS-118/azi/IVS-118_46.png", "./ink/IVS-118/azi/IVS-118_47.png", "./ink/IVS-118/azi/IVS-118_5.png", "./ink/IVS-118/azi/IVS-118_6.png", "./ink/IVS-118/azi/IVS-118_7.png", "./ink/IVS-118/azi/IVS-118_8.png", "./ink/IVS-118/azi/IVS-118_9.png"];
-        const totalFrames_ps_6_ivs_118_azi = 48;
-        const baseInterval_ps_6_ivs_118_azi = 300; // The baseline 300ms passed from python
-        const loopStartIdx_ps_6_ivs_118_azi = 45;
+        const images_ps_6_ivs_117_azi = ["./ink/IVS-117/azi/IVS-117_0.png", "./ink/IVS-117/azi/IVS-117_1.png", "./ink/IVS-117/azi/IVS-117_10.png", "./ink/IVS-117/azi/IVS-117_11.png", "./ink/IVS-117/azi/IVS-117_12.png", "./ink/IVS-117/azi/IVS-117_13.png", "./ink/IVS-117/azi/IVS-117_14.png", "./ink/IVS-117/azi/IVS-117_15.png", "./ink/IVS-117/azi/IVS-117_16.png", "./ink/IVS-117/azi/IVS-117_17.png", "./ink/IVS-117/azi/IVS-117_18.png", "./ink/IVS-117/azi/IVS-117_19.png", "./ink/IVS-117/azi/IVS-117_2.png", "./ink/IVS-117/azi/IVS-117_20.png", "./ink/IVS-117/azi/IVS-117_21.png", "./ink/IVS-117/azi/IVS-117_22.png", "./ink/IVS-117/azi/IVS-117_23.png", "./ink/IVS-117/azi/IVS-117_24.png", "./ink/IVS-117/azi/IVS-117_25.png", "./ink/IVS-117/azi/IVS-117_26.png", "./ink/IVS-117/azi/IVS-117_27.png", "./ink/IVS-117/azi/IVS-117_28.png", "./ink/IVS-117/azi/IVS-117_29.png", "./ink/IVS-117/azi/IVS-117_3.png", "./ink/IVS-117/azi/IVS-117_30.png", "./ink/IVS-117/azi/IVS-117_31.png", "./ink/IVS-117/azi/IVS-117_32.png", "./ink/IVS-117/azi/IVS-117_33.png", "./ink/IVS-117/azi/IVS-117_34.png", "./ink/IVS-117/azi/IVS-117_35.png", "./ink/IVS-117/azi/IVS-117_36.png", "./ink/IVS-117/azi/IVS-117_37.png", "./ink/IVS-117/azi/IVS-117_38.png", "./ink/IVS-117/azi/IVS-117_39.png", "./ink/IVS-117/azi/IVS-117_4.png", "./ink/IVS-117/azi/IVS-117_40.png", "./ink/IVS-117/azi/IVS-117_41.png", "./ink/IVS-117/azi/IVS-117_42.png", "./ink/IVS-117/azi/IVS-117_43.png", "./ink/IVS-117/azi/IVS-117_44.png", "./ink/IVS-117/azi/IVS-117_45.png", "./ink/IVS-117/azi/IVS-117_46.png", "./ink/IVS-117/azi/IVS-117_47.png", "./ink/IVS-117/azi/IVS-117_5.png", "./ink/IVS-117/azi/IVS-117_6.png", "./ink/IVS-117/azi/IVS-117_7.png", "./ink/IVS-117/azi/IVS-117_8.png", "./ink/IVS-117/azi/IVS-117_9.png"];
+        const totalFrames_ps_6_ivs_117_azi = 48;
+        const baseInterval_ps_6_ivs_117_azi = 300; // The baseline 300ms passed from python
+        const loopStartIdx_ps_6_ivs_117_azi = 45;
         
-        let currentIdx_ps_6_ivs_118_azi = 0;
-        let isPlaying_ps_6_ivs_118_azi = false;
-        let isLoopingLast3_ps_6_ivs_118_azi = false;
-        let interval_ps_6_ivs_118_azi = null;
-        let isMouseOver_ps_6_ivs_118_azi = false;
-        let speedMultiplier_ps_6_ivs_118_azi = 1.0;
+        let currentIdx_ps_6_ivs_117_azi = 0;
+        let isPlaying_ps_6_ivs_117_azi = false;
+        let isLoopingLast3_ps_6_ivs_117_azi = false;
+        let interval_ps_6_ivs_117_azi = null;
+        let isMouseOver_ps_6_ivs_117_azi = false;
+        let speedMultiplier_ps_6_ivs_117_azi = 1.0;
 
-        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_118_azi");
-        const imgEl = document.getElementById("img_display_ps_6_ivs_118_azi");
-        const sliderEl = document.getElementById("slider_ps_6_ivs_118_azi");
-        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_118_azi");
+        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_117_azi");
+        const imgEl = document.getElementById("img_display_ps_6_ivs_117_azi");
+        const sliderEl = document.getElementById("slider_ps_6_ivs_117_azi");
+        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_117_azi");
         
-        const btnPlay = document.getElementById("btn_play_ps_6_ivs_118_azi");
-        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_118_azi");
-        const playTextContainer = document.getElementById("play_text_ps_6_ivs_118_azi");
-        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_118_azi");
+        const btnPlay = document.getElementById("btn_play_ps_6_ivs_117_azi");
+        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_117_azi");
+        const playTextContainer = document.getElementById("play_text_ps_6_ivs_117_azi");
+        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_117_azi");
         
-        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_118_azi");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_118_azi");
+        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_117_azi");
+        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_117_azi");
         
-        const btnFirst = document.getElementById("btn_first_ps_6_ivs_118_azi");
-        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_118_azi");
-        const btnNext = document.getElementById("btn_next_ps_6_ivs_118_azi");
-        const btnLast = document.getElementById("btn_last_ps_6_ivs_118_azi");
+        const btnFirst = document.getElementById("btn_first_ps_6_ivs_117_azi");
+        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_117_azi");
+        const btnNext = document.getElementById("btn_next_ps_6_ivs_117_azi");
+        const btnLast = document.getElementById("btn_last_ps_6_ivs_117_azi");
 
         const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
         const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
@@ -4036,69 +3621,69 @@ Your page content starts here... -->
         const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
         const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
 
-        function updatePlayer_ps_6_ivs_118_azi(idx) {
-            currentIdx_ps_6_ivs_118_azi = idx;
-            if(images_ps_6_ivs_118_azi[idx]) {
-                imgEl.src = images_ps_6_ivs_118_azi[idx];
+        function updatePlayer_ps_6_ivs_117_azi(idx) {
+            currentIdx_ps_6_ivs_117_azi = idx;
+            if(images_ps_6_ivs_117_azi[idx]) {
+                imgEl.src = images_ps_6_ivs_117_azi[idx];
             }
             sliderEl.value = idx;
         }
 
         // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_ps_6_ivs_118_azi() {
-            const activeInterval = baseInterval_ps_6_ivs_118_azi * speedMultiplier_ps_6_ivs_118_azi;
-            interval_ps_6_ivs_118_azi = setInterval(function() {
-                let nextIdx = currentIdx_ps_6_ivs_118_azi + 1;
+        function startPlaybackLoop_ps_6_ivs_117_azi() {
+            const activeInterval = baseInterval_ps_6_ivs_117_azi * speedMultiplier_ps_6_ivs_117_azi;
+            interval_ps_6_ivs_117_azi = setInterval(function() {
+                let nextIdx = currentIdx_ps_6_ivs_117_azi + 1;
                 
-                if (isLoopingLast3_ps_6_ivs_118_azi) {
-                    if (nextIdx >= totalFrames_ps_6_ivs_118_azi) {
-                        nextIdx = loopStartIdx_ps_6_ivs_118_azi;
+                if (isLoopingLast3_ps_6_ivs_117_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_117_azi) {
+                        nextIdx = loopStartIdx_ps_6_ivs_117_azi;
                     }
                 } else {
-                    if (nextIdx >= totalFrames_ps_6_ivs_118_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_117_azi) {
                         nextIdx = 0;
                     }
                 }
-                updatePlayer_ps_6_ivs_118_azi(nextIdx);
+                updatePlayer_ps_6_ivs_117_azi(nextIdx);
             }, activeInterval);
         }
-        function togglePlay_ps_6_ivs_118_azi() {
-            if(isPlaying_ps_6_ivs_118_azi) {
-                clearInterval(interval_ps_6_ivs_118_azi);
+        function togglePlay_ps_6_ivs_117_azi() {
+            if(isPlaying_ps_6_ivs_117_azi) {
+                clearInterval(interval_ps_6_ivs_117_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_118_azi = false;
+                isPlaying_ps_6_ivs_117_azi = false;
             } else {
                 playIconContainer.innerHTML = svgPause;
                 playTextContainer.textContent = "Pause";
-                isPlaying_ps_6_ivs_118_azi = true;
+                isPlaying_ps_6_ivs_117_azi = true;
                 
                 // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_ps_6_ivs_118_azi && currentIdx_ps_6_ivs_118_azi < loopStartIdx_ps_6_ivs_118_azi) {
-                    updatePlayer_ps_6_ivs_118_azi(loopStartIdx_ps_6_ivs_118_azi);
+                if (isLoopingLast3_ps_6_ivs_117_azi && currentIdx_ps_6_ivs_117_azi < loopStartIdx_ps_6_ivs_117_azi) {
+                    updatePlayer_ps_6_ivs_117_azi(loopStartIdx_ps_6_ivs_117_azi);
                 }
-                startPlaybackLoop_ps_6_ivs_118_azi();
+                startPlaybackLoop_ps_6_ivs_117_azi();
             }
         }
 
-        function pausePlayback_ps_6_ivs_118_azi() {
-            if(isPlaying_ps_6_ivs_118_azi) {
-                clearInterval(interval_ps_6_ivs_118_azi);
+        function pausePlayback_ps_6_ivs_117_azi() {
+            if(isPlaying_ps_6_ivs_117_azi) {
+                clearInterval(interval_ps_6_ivs_117_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_118_azi = false;
+                isPlaying_ps_6_ivs_117_azi = false;
             }
         }
 
-        function breakLoop3State_ps_6_ivs_118_azi() {
-            if (isLoopingLast3_ps_6_ivs_118_azi) {
-                isLoopingLast3_ps_6_ivs_118_azi = false;
+        function breakLoop3State_ps_6_ivs_117_azi() {
+            if (isLoopingLast3_ps_6_ivs_117_azi) {
+                isLoopingLast3_ps_6_ivs_117_azi = false;
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
             }
         }
 
-        function toggleFullscreen_ps_6_ivs_118_azi() {
+        function toggleFullscreen_ps_6_ivs_117_azi() {
             if (!document.fullscreenElement) {
                 if (wrapperEl.requestFullscreen) {
                     wrapperEl.requestFullscreen();
@@ -4123,77 +3708,77 @@ Your page content starts here... -->
         });
 
         // Instantly load and display the last frame on page load
-        updatePlayer_ps_6_ivs_118_azi(totalFrames_ps_6_ivs_118_azi - 1);
+        updatePlayer_ps_6_ivs_117_azi(totalFrames_ps_6_ivs_117_azi - 1);
 
         // Slider Event
         sliderEl.addEventListener("input", function(e) {
-            pausePlayback_ps_6_ivs_118_azi();
-            breakLoop3State_ps_6_ivs_118_azi();
-            updatePlayer_ps_6_ivs_118_azi(parseInt(e.target.value));
+            pausePlayback_ps_6_ivs_117_azi();
+            breakLoop3State_ps_6_ivs_117_azi();
+            updatePlayer_ps_6_ivs_117_azi(parseInt(e.target.value));
         });
 
         // Speed Change Event Handler
         speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_ps_6_ivs_118_azi = parseFloat(e.target.value);
-            if (isPlaying_ps_6_ivs_118_azi) {
-                clearInterval(interval_ps_6_ivs_118_azi);
-                startPlaybackLoop_ps_6_ivs_118_azi();
+            speedMultiplier_ps_6_ivs_117_azi = parseFloat(e.target.value);
+            if (isPlaying_ps_6_ivs_117_azi) {
+                clearInterval(interval_ps_6_ivs_117_azi);
+                startPlaybackLoop_ps_6_ivs_117_azi();
             }
         });
-        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_118_azi);
-        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_118_azi);
+        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_117_azi);
+        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_117_azi);
 
         // 🔄 Loop Last 3 Button Handler
         btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_ps_6_ivs_118_azi = !isLoopingLast3_ps_6_ivs_118_azi;
+            isLoopingLast3_ps_6_ivs_117_azi = !isLoopingLast3_ps_6_ivs_117_azi;
             
-            if (isLoopingLast3_ps_6_ivs_118_azi) {
+            if (isLoopingLast3_ps_6_ivs_117_azi) {
                 btnLoop3.classList.add("active");
                 btnLoop3.textContent = "Stop Loop";
                 
                 // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_ps_6_ivs_118_azi < loopStartIdx_ps_6_ivs_118_azi) {
-                    updatePlayer_ps_6_ivs_118_azi(totalFrames_ps_6_ivs_118_azi - 1);
+                if (currentIdx_ps_6_ivs_117_azi < loopStartIdx_ps_6_ivs_117_azi) {
+                    updatePlayer_ps_6_ivs_117_azi(totalFrames_ps_6_ivs_117_azi - 1);
                 }
                 
                 // Force playback start if paused
-                if (!isPlaying_ps_6_ivs_118_azi) {
-                    togglePlay_ps_6_ivs_118_azi();
+                if (!isPlaying_ps_6_ivs_117_azi) {
+                    togglePlay_ps_6_ivs_117_azi();
                 } else {
                     // Reset interval to snap parameters immediately
-                    clearInterval(interval_ps_6_ivs_118_azi);
-                    startPlaybackLoop_ps_6_ivs_118_azi();
+                    clearInterval(interval_ps_6_ivs_117_azi);
+                    startPlaybackLoop_ps_6_ivs_117_azi();
                 }
             } else {
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
-                pausePlayback_ps_6_ivs_118_azi();
+                pausePlayback_ps_6_ivs_117_azi();
             }
         });
 
-        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_118_azi(); breakLoop3State_ps_6_ivs_118_azi(); updatePlayer_ps_6_ivs_118_azi(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_118_azi(); breakLoop3State_ps_6_ivs_118_azi(); updatePlayer_ps_6_ivs_118_azi(totalFrames_ps_6_ivs_118_azi - 1); });
+        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_117_azi(); breakLoop3State_ps_6_ivs_117_azi(); updatePlayer_ps_6_ivs_117_azi(0); });
+        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_117_azi(); breakLoop3State_ps_6_ivs_117_azi(); updatePlayer_ps_6_ivs_117_azi(totalFrames_ps_6_ivs_117_azi - 1); });
         
         btnPrev.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_118_azi();
-            breakLoop3State_ps_6_ivs_118_azi();
-            let prevIdx = currentIdx_ps_6_ivs_118_azi - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_118_azi - 1;
-            updatePlayer_ps_6_ivs_118_azi(prevIdx);
+            pausePlayback_ps_6_ivs_117_azi();
+            breakLoop3State_ps_6_ivs_117_azi();
+            let prevIdx = currentIdx_ps_6_ivs_117_azi - 1;
+            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_117_azi - 1;
+            updatePlayer_ps_6_ivs_117_azi(prevIdx);
         });
 
         btnNext.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_118_azi();
-            breakLoop3State_ps_6_ivs_118_azi();
-            let nextIdx = (currentIdx_ps_6_ivs_118_azi + 1) % totalFrames_ps_6_ivs_118_azi;
-            updatePlayer_ps_6_ivs_118_azi(nextIdx);
+            pausePlayback_ps_6_ivs_117_azi();
+            breakLoop3State_ps_6_ivs_117_azi();
+            let nextIdx = (currentIdx_ps_6_ivs_117_azi + 1) % totalFrames_ps_6_ivs_117_azi;
+            updatePlayer_ps_6_ivs_117_azi(nextIdx);
         });
 
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_118_azi = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_118_azi = false; });
+        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_117_azi = true; });
+        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_117_azi = false; });
 
         window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_ps_6_ivs_118_azi) return;
+            if (!isMouseOver_ps_6_ivs_117_azi) return;
 
             switch(e.key) {
                 case "ArrowLeft":
@@ -4233,6 +3818,9 @@ Your page content starts here... -->
     </script>
     
 </section>
+</section>
+<section id="ivs-118" class="level3">
+<h3 class="anchored" data-anchor-id="ivs-118">IVS-118</h3>
 <section id="celková-deformácia-3" class="level5">
 <h5 class="anchored" data-anchor-id="celková-deformácia-3">📈 Celková deformácia</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
@@ -4645,16 +4233,13 @@ Your page content starts here... -->
     </script>
     
 </section>
-</section>
-<section id="ivs-119" class="level3">
-<h3 class="anchored" data-anchor-id="ivs-119">IVS-119</h3>
-<section id="azimut-4" class="level5">
-<h5 class="anchored" data-anchor-id="azimut-4">🧭 Azimut</h5>
+<section id="azimut-3" class="level5">
+<h5 class="anchored" data-anchor-id="azimut-3">🧭 Azimut</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
 
     <!-- 🎛️ STYLE CENTRAL -->
     <style>
-    #player_wrapper_ps_6_ivs_119_azi {
+    #player_wrapper_ps_6_ivs_118_azi {
         margin-bottom: 30px; 
         background: #222222; 
         padding: 15px; 
@@ -4662,7 +4247,7 @@ Your page content starts here... -->
         user-select: none; 
         -webkit-user-select: none;
     }
-    #player_wrapper_ps_6_ivs_119_azi .image-container {
+    #player_wrapper_ps_6_ivs_118_azi .image-container {
         background: #000000; 
         display: flex; 
         align-items: center; 
@@ -4672,17 +4257,17 @@ Your page content starts here... -->
         border-radius: 4px; 
         overflow: hidden;
     }
-    #player_wrapper_ps_6_ivs_119_azi .control-action-bar {
+    #player_wrapper_ps_6_ivs_118_azi .control-action-bar {
         display: flex; 
         align-items: center; 
         justify-content: center; 
         gap: 12px;               
     }
-    #player_wrapper_ps_6_ivs_119_azi .btn-cluster {
+    #player_wrapper_ps_6_ivs_118_azi .btn-cluster {
         display: flex; 
         gap: 6px;
     }
-    #player_wrapper_ps_6_ivs_119_azi .player-btn {
+    #player_wrapper_ps_6_ivs_118_azi .player-btn {
         color: #ffffff; 
         border: none; 
         height: 32px; 
@@ -4695,33 +4280,33 @@ Your page content starts here... -->
         font-family: 'monospace',
         font-size: 12px;
     }
-    #player_wrapper_ps_6_ivs_119_azi .btn-nav {
+    #player_wrapper_ps_6_ivs_118_azi .btn-nav {
         background-color: #444444; 
         width: 38px;
     }
-    #player_wrapper_ps_6_ivs_119_azi .btn-nav:hover {
+    #player_wrapper_ps_6_ivs_118_azi .btn-nav:hover {
         background-color: #555555;
     }
-    #player_wrapper_ps_6_ivs_119_azi .btn-action {
+    #player_wrapper_ps_6_ivs_118_azi .btn-action {
         background-color: #0d6efd; 
         padding: 0 22px; 
         font-weight: bold;
     }
-    #player_wrapper_ps_6_ivs_119_azi .btn-action:hover {
+    #player_wrapper_ps_6_ivs_118_azi .btn-action:hover {
         filter: brightness(1.15); 
     }
-    #player_wrapper_ps_6_ivs_119_azi .btn-loop3 {
+    #player_wrapper_ps_6_ivs_118_azi .btn-loop3 {
         background-color: #6f42c1;
         padding: 0 14px;
         font-weight: bold;
     }
-    #player_wrapper_ps_6_ivs_119_azi .btn-loop3:hover {
+    #player_wrapper_ps_6_ivs_118_azi .btn-loop3:hover {
         filter: brightness(1.15);
     }
-    #player_wrapper_ps_6_ivs_119_azi .btn-loop3.active {
+    #player_wrapper_ps_6_ivs_118_azi .btn-loop3.active {
         background-color: #dc3545 !important;
     }
-    #player_wrapper_ps_6_ivs_119_azi .speed-selector {
+    #player_wrapper_ps_6_ivs_118_azi .speed-selector {
         background-color: #444444;
         color: #ffffff;
         border: none;
@@ -4733,10 +4318,10 @@ Your page content starts here... -->
         font-size: 13px;
         outline: none;
     }
-    #player_wrapper_ps_6_ivs_119_azi .speed-selector:hover {
+    #player_wrapper_ps_6_ivs_118_azi .speed-selector:hover {
         background-color: #555555;
     }
-    #player_wrapper_ps_6_ivs_119_azi .timeline-slider {
+    #player_wrapper_ps_6_ivs_118_azi .timeline-slider {
         flex-grow: 1; 
         cursor: pointer;
         height: 6px;
@@ -4744,61 +4329,61 @@ Your page content starts here... -->
     }
 
     /* NATIVE FULLSCREEN LAYOUT FIXES */
-    #player_wrapper_ps_6_ivs_119_azi:fullscreen {
+    #player_wrapper_ps_6_ivs_118_azi:fullscreen {
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
         padding: 25px !important;
         background: #111111 !important;
     }
-    #player_wrapper_ps_6_ivs_119_azi:fullscreen .image-container {
+    #player_wrapper_ps_6_ivs_118_azi:fullscreen .image-container {
         flex-grow: 1 !important;
         margin-bottom: 20px !important;
     }
-    #player_wrapper_ps_6_ivs_119_azi:fullscreen #img_display_ps_6_ivs_119_azi {
+    #player_wrapper_ps_6_ivs_118_azi:fullscreen #img_display_ps_6_ivs_118_azi {
         max-height: calc(100vh - 120px) !important; 
         width: auto !important;
     }
     </style>
 
         <!-- 🏗️ HTML STRUCTURE -->
-    <div id="player_wrapper_ps_6_ivs_119_azi">
+    <div id="player_wrapper_ps_6_ivs_118_azi">
         <div class="image-container">
-            <img id="img_display_ps_6_ivs_119_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
+            <img id="img_display_ps_6_ivs_118_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         
         <!-- Timeline Slider Bar -->
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_ps_6_ivs_119_azi" class="timeline-slider" type="range" min="0" max="46" value="0">
+            <input id="slider_ps_6_ivs_118_azi" class="timeline-slider" type="range" min="0" max="47" value="0">
         </div>
 
         <!-- Control Action Bar -->
         <div class="control-action-bar">
             <!-- Left Cluster -->
             <div class="btn-cluster">
-                <button id="btn_first_ps_6_ivs_119_azi" class="player-btn btn-nav" title="First Frame (Home)">
+                <button id="btn_first_ps_6_ivs_118_azi" class="player-btn btn-nav" title="First Frame (Home)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
                 </button>
-                <button id="btn_prev_ps_6_ivs_119_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
+                <button id="btn_prev_ps_6_ivs_118_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
                 </button>
             </div>
 
             <!-- Play Command -->
-            <button id="btn_play_ps_6_ivs_119_azi" class="player-btn btn-action">
-                <span id="play_icon_ps_6_ivs_119_azi" style="display:flex; align-items:center; margin-right:6px;">
+            <button id="btn_play_ps_6_ivs_118_azi" class="player-btn btn-action">
+                <span id="play_icon_ps_6_ivs_118_azi" style="display:flex; align-items:center; margin-right:6px;">
                     <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
                 </span>
-                <span id="play_text_ps_6_ivs_119_azi">Play</span>
+                <span id="play_text_ps_6_ivs_118_azi">Play</span>
             </button>
 
             <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_ps_6_ivs_119_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
+            <button id="btn_loop3_ps_6_ivs_118_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
                 🔄 Last 3 Measurements
             </button>
 
             <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
-            <select id="speed_select_ps_6_ivs_119_azi" class="speed-selector" title="Playback Speed">
+            <select id="speed_select_ps_6_ivs_118_azi" class="speed-selector" title="Playback Speed">
                 <option value="2.0">0.5x</option>
                 <option value="1.5">0.75x</option>
                 <option value="1.0" selected="">1.0x</option>
@@ -4807,18 +4392,18 @@ Your page content starts here... -->
             </select>
 
             <!-- Fullscreen Command -->
-            <button id="btn_fullscreen_ps_6_ivs_119_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
-                <span id="fullscreen_icon_ps_6_ivs_119_azi" style="display:flex; align-items:center;">
+            <button id="btn_fullscreen_ps_6_ivs_118_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
+                <span id="fullscreen_icon_ps_6_ivs_118_azi" style="display:flex; align-items:center;">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
                 </span>
             </button>
 
             <!-- Right Cluster -->
             <div class="btn-cluster">
-                <button id="btn_next_ps_6_ivs_119_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
+                <button id="btn_next_ps_6_ivs_118_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
                 </button>
-                <button id="btn_last_ps_6_ivs_119_azi" class="player-btn btn-nav" title="Last Frame (End)">
+                <button id="btn_last_ps_6_ivs_118_azi" class="player-btn btn-nav" title="Last Frame (End)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
                 </button>
             </div>
@@ -4827,35 +4412,35 @@ Your page content starts here... -->
     <!-- 🧠 JAVASCRIPT LOGIC -->
     <script>
     (function() {
-        const images_ps_6_ivs_119_azi = ["./ink/IVS-119/azi/IVS-119_0.png", "./ink/IVS-119/azi/IVS-119_1.png", "./ink/IVS-119/azi/IVS-119_10.png", "./ink/IVS-119/azi/IVS-119_11.png", "./ink/IVS-119/azi/IVS-119_12.png", "./ink/IVS-119/azi/IVS-119_13.png", "./ink/IVS-119/azi/IVS-119_14.png", "./ink/IVS-119/azi/IVS-119_15.png", "./ink/IVS-119/azi/IVS-119_16.png", "./ink/IVS-119/azi/IVS-119_17.png", "./ink/IVS-119/azi/IVS-119_18.png", "./ink/IVS-119/azi/IVS-119_19.png", "./ink/IVS-119/azi/IVS-119_2.png", "./ink/IVS-119/azi/IVS-119_20.png", "./ink/IVS-119/azi/IVS-119_21.png", "./ink/IVS-119/azi/IVS-119_22.png", "./ink/IVS-119/azi/IVS-119_23.png", "./ink/IVS-119/azi/IVS-119_24.png", "./ink/IVS-119/azi/IVS-119_25.png", "./ink/IVS-119/azi/IVS-119_26.png", "./ink/IVS-119/azi/IVS-119_27.png", "./ink/IVS-119/azi/IVS-119_28.png", "./ink/IVS-119/azi/IVS-119_29.png", "./ink/IVS-119/azi/IVS-119_3.png", "./ink/IVS-119/azi/IVS-119_30.png", "./ink/IVS-119/azi/IVS-119_31.png", "./ink/IVS-119/azi/IVS-119_32.png", "./ink/IVS-119/azi/IVS-119_33.png", "./ink/IVS-119/azi/IVS-119_34.png", "./ink/IVS-119/azi/IVS-119_35.png", "./ink/IVS-119/azi/IVS-119_36.png", "./ink/IVS-119/azi/IVS-119_37.png", "./ink/IVS-119/azi/IVS-119_38.png", "./ink/IVS-119/azi/IVS-119_39.png", "./ink/IVS-119/azi/IVS-119_4.png", "./ink/IVS-119/azi/IVS-119_40.png", "./ink/IVS-119/azi/IVS-119_41.png", "./ink/IVS-119/azi/IVS-119_42.png", "./ink/IVS-119/azi/IVS-119_43.png", "./ink/IVS-119/azi/IVS-119_44.png", "./ink/IVS-119/azi/IVS-119_45.png", "./ink/IVS-119/azi/IVS-119_46.png", "./ink/IVS-119/azi/IVS-119_5.png", "./ink/IVS-119/azi/IVS-119_6.png", "./ink/IVS-119/azi/IVS-119_7.png", "./ink/IVS-119/azi/IVS-119_8.png", "./ink/IVS-119/azi/IVS-119_9.png"];
-        const totalFrames_ps_6_ivs_119_azi = 47;
-        const baseInterval_ps_6_ivs_119_azi = 300; // The baseline 300ms passed from python
-        const loopStartIdx_ps_6_ivs_119_azi = 44;
+        const images_ps_6_ivs_118_azi = ["./ink/IVS-118/azi/IVS-118_0.png", "./ink/IVS-118/azi/IVS-118_1.png", "./ink/IVS-118/azi/IVS-118_10.png", "./ink/IVS-118/azi/IVS-118_11.png", "./ink/IVS-118/azi/IVS-118_12.png", "./ink/IVS-118/azi/IVS-118_13.png", "./ink/IVS-118/azi/IVS-118_14.png", "./ink/IVS-118/azi/IVS-118_15.png", "./ink/IVS-118/azi/IVS-118_16.png", "./ink/IVS-118/azi/IVS-118_17.png", "./ink/IVS-118/azi/IVS-118_18.png", "./ink/IVS-118/azi/IVS-118_19.png", "./ink/IVS-118/azi/IVS-118_2.png", "./ink/IVS-118/azi/IVS-118_20.png", "./ink/IVS-118/azi/IVS-118_21.png", "./ink/IVS-118/azi/IVS-118_22.png", "./ink/IVS-118/azi/IVS-118_23.png", "./ink/IVS-118/azi/IVS-118_24.png", "./ink/IVS-118/azi/IVS-118_25.png", "./ink/IVS-118/azi/IVS-118_26.png", "./ink/IVS-118/azi/IVS-118_27.png", "./ink/IVS-118/azi/IVS-118_28.png", "./ink/IVS-118/azi/IVS-118_29.png", "./ink/IVS-118/azi/IVS-118_3.png", "./ink/IVS-118/azi/IVS-118_30.png", "./ink/IVS-118/azi/IVS-118_31.png", "./ink/IVS-118/azi/IVS-118_32.png", "./ink/IVS-118/azi/IVS-118_33.png", "./ink/IVS-118/azi/IVS-118_34.png", "./ink/IVS-118/azi/IVS-118_35.png", "./ink/IVS-118/azi/IVS-118_36.png", "./ink/IVS-118/azi/IVS-118_37.png", "./ink/IVS-118/azi/IVS-118_38.png", "./ink/IVS-118/azi/IVS-118_39.png", "./ink/IVS-118/azi/IVS-118_4.png", "./ink/IVS-118/azi/IVS-118_40.png", "./ink/IVS-118/azi/IVS-118_41.png", "./ink/IVS-118/azi/IVS-118_42.png", "./ink/IVS-118/azi/IVS-118_43.png", "./ink/IVS-118/azi/IVS-118_44.png", "./ink/IVS-118/azi/IVS-118_45.png", "./ink/IVS-118/azi/IVS-118_46.png", "./ink/IVS-118/azi/IVS-118_47.png", "./ink/IVS-118/azi/IVS-118_5.png", "./ink/IVS-118/azi/IVS-118_6.png", "./ink/IVS-118/azi/IVS-118_7.png", "./ink/IVS-118/azi/IVS-118_8.png", "./ink/IVS-118/azi/IVS-118_9.png"];
+        const totalFrames_ps_6_ivs_118_azi = 48;
+        const baseInterval_ps_6_ivs_118_azi = 300; // The baseline 300ms passed from python
+        const loopStartIdx_ps_6_ivs_118_azi = 45;
         
-        let currentIdx_ps_6_ivs_119_azi = 0;
-        let isPlaying_ps_6_ivs_119_azi = false;
-        let isLoopingLast3_ps_6_ivs_119_azi = false;
-        let interval_ps_6_ivs_119_azi = null;
-        let isMouseOver_ps_6_ivs_119_azi = false;
-        let speedMultiplier_ps_6_ivs_119_azi = 1.0;
+        let currentIdx_ps_6_ivs_118_azi = 0;
+        let isPlaying_ps_6_ivs_118_azi = false;
+        let isLoopingLast3_ps_6_ivs_118_azi = false;
+        let interval_ps_6_ivs_118_azi = null;
+        let isMouseOver_ps_6_ivs_118_azi = false;
+        let speedMultiplier_ps_6_ivs_118_azi = 1.0;
 
-        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_119_azi");
-        const imgEl = document.getElementById("img_display_ps_6_ivs_119_azi");
-        const sliderEl = document.getElementById("slider_ps_6_ivs_119_azi");
-        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_119_azi");
+        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_118_azi");
+        const imgEl = document.getElementById("img_display_ps_6_ivs_118_azi");
+        const sliderEl = document.getElementById("slider_ps_6_ivs_118_azi");
+        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_118_azi");
         
-        const btnPlay = document.getElementById("btn_play_ps_6_ivs_119_azi");
-        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_119_azi");
-        const playTextContainer = document.getElementById("play_text_ps_6_ivs_119_azi");
-        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_119_azi");
+        const btnPlay = document.getElementById("btn_play_ps_6_ivs_118_azi");
+        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_118_azi");
+        const playTextContainer = document.getElementById("play_text_ps_6_ivs_118_azi");
+        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_118_azi");
         
-        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_119_azi");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_119_azi");
+        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_118_azi");
+        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_118_azi");
         
-        const btnFirst = document.getElementById("btn_first_ps_6_ivs_119_azi");
-        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_119_azi");
-        const btnNext = document.getElementById("btn_next_ps_6_ivs_119_azi");
-        const btnLast = document.getElementById("btn_last_ps_6_ivs_119_azi");
+        const btnFirst = document.getElementById("btn_first_ps_6_ivs_118_azi");
+        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_118_azi");
+        const btnNext = document.getElementById("btn_next_ps_6_ivs_118_azi");
+        const btnLast = document.getElementById("btn_last_ps_6_ivs_118_azi");
 
         const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
         const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
@@ -4863,69 +4448,69 @@ Your page content starts here... -->
         const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
         const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
 
-        function updatePlayer_ps_6_ivs_119_azi(idx) {
-            currentIdx_ps_6_ivs_119_azi = idx;
-            if(images_ps_6_ivs_119_azi[idx]) {
-                imgEl.src = images_ps_6_ivs_119_azi[idx];
+        function updatePlayer_ps_6_ivs_118_azi(idx) {
+            currentIdx_ps_6_ivs_118_azi = idx;
+            if(images_ps_6_ivs_118_azi[idx]) {
+                imgEl.src = images_ps_6_ivs_118_azi[idx];
             }
             sliderEl.value = idx;
         }
 
         // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_ps_6_ivs_119_azi() {
-            const activeInterval = baseInterval_ps_6_ivs_119_azi * speedMultiplier_ps_6_ivs_119_azi;
-            interval_ps_6_ivs_119_azi = setInterval(function() {
-                let nextIdx = currentIdx_ps_6_ivs_119_azi + 1;
+        function startPlaybackLoop_ps_6_ivs_118_azi() {
+            const activeInterval = baseInterval_ps_6_ivs_118_azi * speedMultiplier_ps_6_ivs_118_azi;
+            interval_ps_6_ivs_118_azi = setInterval(function() {
+                let nextIdx = currentIdx_ps_6_ivs_118_azi + 1;
                 
-                if (isLoopingLast3_ps_6_ivs_119_azi) {
-                    if (nextIdx >= totalFrames_ps_6_ivs_119_azi) {
-                        nextIdx = loopStartIdx_ps_6_ivs_119_azi;
+                if (isLoopingLast3_ps_6_ivs_118_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_118_azi) {
+                        nextIdx = loopStartIdx_ps_6_ivs_118_azi;
                     }
                 } else {
-                    if (nextIdx >= totalFrames_ps_6_ivs_119_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_118_azi) {
                         nextIdx = 0;
                     }
                 }
-                updatePlayer_ps_6_ivs_119_azi(nextIdx);
+                updatePlayer_ps_6_ivs_118_azi(nextIdx);
             }, activeInterval);
         }
-        function togglePlay_ps_6_ivs_119_azi() {
-            if(isPlaying_ps_6_ivs_119_azi) {
-                clearInterval(interval_ps_6_ivs_119_azi);
+        function togglePlay_ps_6_ivs_118_azi() {
+            if(isPlaying_ps_6_ivs_118_azi) {
+                clearInterval(interval_ps_6_ivs_118_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_119_azi = false;
+                isPlaying_ps_6_ivs_118_azi = false;
             } else {
                 playIconContainer.innerHTML = svgPause;
                 playTextContainer.textContent = "Pause";
-                isPlaying_ps_6_ivs_119_azi = true;
+                isPlaying_ps_6_ivs_118_azi = true;
                 
                 // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_ps_6_ivs_119_azi && currentIdx_ps_6_ivs_119_azi < loopStartIdx_ps_6_ivs_119_azi) {
-                    updatePlayer_ps_6_ivs_119_azi(loopStartIdx_ps_6_ivs_119_azi);
+                if (isLoopingLast3_ps_6_ivs_118_azi && currentIdx_ps_6_ivs_118_azi < loopStartIdx_ps_6_ivs_118_azi) {
+                    updatePlayer_ps_6_ivs_118_azi(loopStartIdx_ps_6_ivs_118_azi);
                 }
-                startPlaybackLoop_ps_6_ivs_119_azi();
+                startPlaybackLoop_ps_6_ivs_118_azi();
             }
         }
 
-        function pausePlayback_ps_6_ivs_119_azi() {
-            if(isPlaying_ps_6_ivs_119_azi) {
-                clearInterval(interval_ps_6_ivs_119_azi);
+        function pausePlayback_ps_6_ivs_118_azi() {
+            if(isPlaying_ps_6_ivs_118_azi) {
+                clearInterval(interval_ps_6_ivs_118_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_119_azi = false;
+                isPlaying_ps_6_ivs_118_azi = false;
             }
         }
 
-        function breakLoop3State_ps_6_ivs_119_azi() {
-            if (isLoopingLast3_ps_6_ivs_119_azi) {
-                isLoopingLast3_ps_6_ivs_119_azi = false;
+        function breakLoop3State_ps_6_ivs_118_azi() {
+            if (isLoopingLast3_ps_6_ivs_118_azi) {
+                isLoopingLast3_ps_6_ivs_118_azi = false;
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
             }
         }
 
-        function toggleFullscreen_ps_6_ivs_119_azi() {
+        function toggleFullscreen_ps_6_ivs_118_azi() {
             if (!document.fullscreenElement) {
                 if (wrapperEl.requestFullscreen) {
                     wrapperEl.requestFullscreen();
@@ -4950,77 +4535,77 @@ Your page content starts here... -->
         });
 
         // Instantly load and display the last frame on page load
-        updatePlayer_ps_6_ivs_119_azi(totalFrames_ps_6_ivs_119_azi - 1);
+        updatePlayer_ps_6_ivs_118_azi(totalFrames_ps_6_ivs_118_azi - 1);
 
         // Slider Event
         sliderEl.addEventListener("input", function(e) {
-            pausePlayback_ps_6_ivs_119_azi();
-            breakLoop3State_ps_6_ivs_119_azi();
-            updatePlayer_ps_6_ivs_119_azi(parseInt(e.target.value));
+            pausePlayback_ps_6_ivs_118_azi();
+            breakLoop3State_ps_6_ivs_118_azi();
+            updatePlayer_ps_6_ivs_118_azi(parseInt(e.target.value));
         });
 
         // Speed Change Event Handler
         speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_ps_6_ivs_119_azi = parseFloat(e.target.value);
-            if (isPlaying_ps_6_ivs_119_azi) {
-                clearInterval(interval_ps_6_ivs_119_azi);
-                startPlaybackLoop_ps_6_ivs_119_azi();
+            speedMultiplier_ps_6_ivs_118_azi = parseFloat(e.target.value);
+            if (isPlaying_ps_6_ivs_118_azi) {
+                clearInterval(interval_ps_6_ivs_118_azi);
+                startPlaybackLoop_ps_6_ivs_118_azi();
             }
         });
-        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_119_azi);
-        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_119_azi);
+        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_118_azi);
+        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_118_azi);
 
         // 🔄 Loop Last 3 Button Handler
         btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_ps_6_ivs_119_azi = !isLoopingLast3_ps_6_ivs_119_azi;
+            isLoopingLast3_ps_6_ivs_118_azi = !isLoopingLast3_ps_6_ivs_118_azi;
             
-            if (isLoopingLast3_ps_6_ivs_119_azi) {
+            if (isLoopingLast3_ps_6_ivs_118_azi) {
                 btnLoop3.classList.add("active");
                 btnLoop3.textContent = "Stop Loop";
                 
                 // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_ps_6_ivs_119_azi < loopStartIdx_ps_6_ivs_119_azi) {
-                    updatePlayer_ps_6_ivs_119_azi(totalFrames_ps_6_ivs_119_azi - 1);
+                if (currentIdx_ps_6_ivs_118_azi < loopStartIdx_ps_6_ivs_118_azi) {
+                    updatePlayer_ps_6_ivs_118_azi(totalFrames_ps_6_ivs_118_azi - 1);
                 }
                 
                 // Force playback start if paused
-                if (!isPlaying_ps_6_ivs_119_azi) {
-                    togglePlay_ps_6_ivs_119_azi();
+                if (!isPlaying_ps_6_ivs_118_azi) {
+                    togglePlay_ps_6_ivs_118_azi();
                 } else {
                     // Reset interval to snap parameters immediately
-                    clearInterval(interval_ps_6_ivs_119_azi);
-                    startPlaybackLoop_ps_6_ivs_119_azi();
+                    clearInterval(interval_ps_6_ivs_118_azi);
+                    startPlaybackLoop_ps_6_ivs_118_azi();
                 }
             } else {
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
-                pausePlayback_ps_6_ivs_119_azi();
+                pausePlayback_ps_6_ivs_118_azi();
             }
         });
 
-        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_119_azi(); breakLoop3State_ps_6_ivs_119_azi(); updatePlayer_ps_6_ivs_119_azi(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_119_azi(); breakLoop3State_ps_6_ivs_119_azi(); updatePlayer_ps_6_ivs_119_azi(totalFrames_ps_6_ivs_119_azi - 1); });
+        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_118_azi(); breakLoop3State_ps_6_ivs_118_azi(); updatePlayer_ps_6_ivs_118_azi(0); });
+        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_118_azi(); breakLoop3State_ps_6_ivs_118_azi(); updatePlayer_ps_6_ivs_118_azi(totalFrames_ps_6_ivs_118_azi - 1); });
         
         btnPrev.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_119_azi();
-            breakLoop3State_ps_6_ivs_119_azi();
-            let prevIdx = currentIdx_ps_6_ivs_119_azi - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_119_azi - 1;
-            updatePlayer_ps_6_ivs_119_azi(prevIdx);
+            pausePlayback_ps_6_ivs_118_azi();
+            breakLoop3State_ps_6_ivs_118_azi();
+            let prevIdx = currentIdx_ps_6_ivs_118_azi - 1;
+            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_118_azi - 1;
+            updatePlayer_ps_6_ivs_118_azi(prevIdx);
         });
 
         btnNext.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_119_azi();
-            breakLoop3State_ps_6_ivs_119_azi();
-            let nextIdx = (currentIdx_ps_6_ivs_119_azi + 1) % totalFrames_ps_6_ivs_119_azi;
-            updatePlayer_ps_6_ivs_119_azi(nextIdx);
+            pausePlayback_ps_6_ivs_118_azi();
+            breakLoop3State_ps_6_ivs_118_azi();
+            let nextIdx = (currentIdx_ps_6_ivs_118_azi + 1) % totalFrames_ps_6_ivs_118_azi;
+            updatePlayer_ps_6_ivs_118_azi(nextIdx);
         });
 
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_119_azi = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_119_azi = false; });
+        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_118_azi = true; });
+        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_118_azi = false; });
 
         window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_ps_6_ivs_119_azi) return;
+            if (!isMouseOver_ps_6_ivs_118_azi) return;
 
             switch(e.key) {
                 case "ArrowLeft":
@@ -5060,6 +4645,9 @@ Your page content starts here... -->
     </script>
     
 </section>
+</section>
+<section id="ivs-119" class="level3">
+<h3 class="anchored" data-anchor-id="ivs-119">IVS-119</h3>
 <section id="celková-deformácia-4" class="level5">
 <h5 class="anchored" data-anchor-id="celková-deformácia-4">📈 Celková deformácia</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
@@ -5472,16 +5060,13 @@ Your page content starts here... -->
     </script>
     
 </section>
-</section>
-<section id="ivs-120" class="level3">
-<h3 class="anchored" data-anchor-id="ivs-120">IVS-120</h3>
-<section id="azimut-5" class="level5">
-<h5 class="anchored" data-anchor-id="azimut-5">🧭 Azimut</h5>
+<section id="azimut-4" class="level5">
+<h5 class="anchored" data-anchor-id="azimut-4">🧭 Azimut</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
 
     <!-- 🎛️ STYLE CENTRAL -->
     <style>
-    #player_wrapper_ps_6_ivs_120_azi {
+    #player_wrapper_ps_6_ivs_119_azi {
         margin-bottom: 30px; 
         background: #222222; 
         padding: 15px; 
@@ -5489,7 +5074,7 @@ Your page content starts here... -->
         user-select: none; 
         -webkit-user-select: none;
     }
-    #player_wrapper_ps_6_ivs_120_azi .image-container {
+    #player_wrapper_ps_6_ivs_119_azi .image-container {
         background: #000000; 
         display: flex; 
         align-items: center; 
@@ -5499,17 +5084,17 @@ Your page content starts here... -->
         border-radius: 4px; 
         overflow: hidden;
     }
-    #player_wrapper_ps_6_ivs_120_azi .control-action-bar {
+    #player_wrapper_ps_6_ivs_119_azi .control-action-bar {
         display: flex; 
         align-items: center; 
         justify-content: center; 
         gap: 12px;               
     }
-    #player_wrapper_ps_6_ivs_120_azi .btn-cluster {
+    #player_wrapper_ps_6_ivs_119_azi .btn-cluster {
         display: flex; 
         gap: 6px;
     }
-    #player_wrapper_ps_6_ivs_120_azi .player-btn {
+    #player_wrapper_ps_6_ivs_119_azi .player-btn {
         color: #ffffff; 
         border: none; 
         height: 32px; 
@@ -5522,33 +5107,33 @@ Your page content starts here... -->
         font-family: 'monospace',
         font-size: 12px;
     }
-    #player_wrapper_ps_6_ivs_120_azi .btn-nav {
+    #player_wrapper_ps_6_ivs_119_azi .btn-nav {
         background-color: #444444; 
         width: 38px;
     }
-    #player_wrapper_ps_6_ivs_120_azi .btn-nav:hover {
+    #player_wrapper_ps_6_ivs_119_azi .btn-nav:hover {
         background-color: #555555;
     }
-    #player_wrapper_ps_6_ivs_120_azi .btn-action {
+    #player_wrapper_ps_6_ivs_119_azi .btn-action {
         background-color: #0d6efd; 
         padding: 0 22px; 
         font-weight: bold;
     }
-    #player_wrapper_ps_6_ivs_120_azi .btn-action:hover {
+    #player_wrapper_ps_6_ivs_119_azi .btn-action:hover {
         filter: brightness(1.15); 
     }
-    #player_wrapper_ps_6_ivs_120_azi .btn-loop3 {
+    #player_wrapper_ps_6_ivs_119_azi .btn-loop3 {
         background-color: #6f42c1;
         padding: 0 14px;
         font-weight: bold;
     }
-    #player_wrapper_ps_6_ivs_120_azi .btn-loop3:hover {
+    #player_wrapper_ps_6_ivs_119_azi .btn-loop3:hover {
         filter: brightness(1.15);
     }
-    #player_wrapper_ps_6_ivs_120_azi .btn-loop3.active {
+    #player_wrapper_ps_6_ivs_119_azi .btn-loop3.active {
         background-color: #dc3545 !important;
     }
-    #player_wrapper_ps_6_ivs_120_azi .speed-selector {
+    #player_wrapper_ps_6_ivs_119_azi .speed-selector {
         background-color: #444444;
         color: #ffffff;
         border: none;
@@ -5560,10 +5145,10 @@ Your page content starts here... -->
         font-size: 13px;
         outline: none;
     }
-    #player_wrapper_ps_6_ivs_120_azi .speed-selector:hover {
+    #player_wrapper_ps_6_ivs_119_azi .speed-selector:hover {
         background-color: #555555;
     }
-    #player_wrapper_ps_6_ivs_120_azi .timeline-slider {
+    #player_wrapper_ps_6_ivs_119_azi .timeline-slider {
         flex-grow: 1; 
         cursor: pointer;
         height: 6px;
@@ -5571,61 +5156,61 @@ Your page content starts here... -->
     }
 
     /* NATIVE FULLSCREEN LAYOUT FIXES */
-    #player_wrapper_ps_6_ivs_120_azi:fullscreen {
+    #player_wrapper_ps_6_ivs_119_azi:fullscreen {
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
         padding: 25px !important;
         background: #111111 !important;
     }
-    #player_wrapper_ps_6_ivs_120_azi:fullscreen .image-container {
+    #player_wrapper_ps_6_ivs_119_azi:fullscreen .image-container {
         flex-grow: 1 !important;
         margin-bottom: 20px !important;
     }
-    #player_wrapper_ps_6_ivs_120_azi:fullscreen #img_display_ps_6_ivs_120_azi {
+    #player_wrapper_ps_6_ivs_119_azi:fullscreen #img_display_ps_6_ivs_119_azi {
         max-height: calc(100vh - 120px) !important; 
         width: auto !important;
     }
     </style>
 
         <!-- 🏗️ HTML STRUCTURE -->
-    <div id="player_wrapper_ps_6_ivs_120_azi">
+    <div id="player_wrapper_ps_6_ivs_119_azi">
         <div class="image-container">
-            <img id="img_display_ps_6_ivs_120_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
+            <img id="img_display_ps_6_ivs_119_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         
         <!-- Timeline Slider Bar -->
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_ps_6_ivs_120_azi" class="timeline-slider" type="range" min="0" max="47" value="0">
+            <input id="slider_ps_6_ivs_119_azi" class="timeline-slider" type="range" min="0" max="46" value="0">
         </div>
 
         <!-- Control Action Bar -->
         <div class="control-action-bar">
             <!-- Left Cluster -->
             <div class="btn-cluster">
-                <button id="btn_first_ps_6_ivs_120_azi" class="player-btn btn-nav" title="First Frame (Home)">
+                <button id="btn_first_ps_6_ivs_119_azi" class="player-btn btn-nav" title="First Frame (Home)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
                 </button>
-                <button id="btn_prev_ps_6_ivs_120_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
+                <button id="btn_prev_ps_6_ivs_119_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
                 </button>
             </div>
 
             <!-- Play Command -->
-            <button id="btn_play_ps_6_ivs_120_azi" class="player-btn btn-action">
-                <span id="play_icon_ps_6_ivs_120_azi" style="display:flex; align-items:center; margin-right:6px;">
+            <button id="btn_play_ps_6_ivs_119_azi" class="player-btn btn-action">
+                <span id="play_icon_ps_6_ivs_119_azi" style="display:flex; align-items:center; margin-right:6px;">
                     <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
                 </span>
-                <span id="play_text_ps_6_ivs_120_azi">Play</span>
+                <span id="play_text_ps_6_ivs_119_azi">Play</span>
             </button>
 
             <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_ps_6_ivs_120_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
+            <button id="btn_loop3_ps_6_ivs_119_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
                 🔄 Last 3 Measurements
             </button>
 
             <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
-            <select id="speed_select_ps_6_ivs_120_azi" class="speed-selector" title="Playback Speed">
+            <select id="speed_select_ps_6_ivs_119_azi" class="speed-selector" title="Playback Speed">
                 <option value="2.0">0.5x</option>
                 <option value="1.5">0.75x</option>
                 <option value="1.0" selected="">1.0x</option>
@@ -5634,18 +5219,18 @@ Your page content starts here... -->
             </select>
 
             <!-- Fullscreen Command -->
-            <button id="btn_fullscreen_ps_6_ivs_120_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
-                <span id="fullscreen_icon_ps_6_ivs_120_azi" style="display:flex; align-items:center;">
+            <button id="btn_fullscreen_ps_6_ivs_119_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
+                <span id="fullscreen_icon_ps_6_ivs_119_azi" style="display:flex; align-items:center;">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
                 </span>
             </button>
 
             <!-- Right Cluster -->
             <div class="btn-cluster">
-                <button id="btn_next_ps_6_ivs_120_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
+                <button id="btn_next_ps_6_ivs_119_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
                 </button>
-                <button id="btn_last_ps_6_ivs_120_azi" class="player-btn btn-nav" title="Last Frame (End)">
+                <button id="btn_last_ps_6_ivs_119_azi" class="player-btn btn-nav" title="Last Frame (End)">
                     <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
                 </button>
             </div>
@@ -5654,35 +5239,35 @@ Your page content starts here... -->
     <!-- 🧠 JAVASCRIPT LOGIC -->
     <script>
     (function() {
-        const images_ps_6_ivs_120_azi = ["./ink/IVS-120/azi/IVS-120_0.png", "./ink/IVS-120/azi/IVS-120_1.png", "./ink/IVS-120/azi/IVS-120_10.png", "./ink/IVS-120/azi/IVS-120_11.png", "./ink/IVS-120/azi/IVS-120_12.png", "./ink/IVS-120/azi/IVS-120_13.png", "./ink/IVS-120/azi/IVS-120_14.png", "./ink/IVS-120/azi/IVS-120_15.png", "./ink/IVS-120/azi/IVS-120_16.png", "./ink/IVS-120/azi/IVS-120_17.png", "./ink/IVS-120/azi/IVS-120_18.png", "./ink/IVS-120/azi/IVS-120_19.png", "./ink/IVS-120/azi/IVS-120_2.png", "./ink/IVS-120/azi/IVS-120_20.png", "./ink/IVS-120/azi/IVS-120_21.png", "./ink/IVS-120/azi/IVS-120_22.png", "./ink/IVS-120/azi/IVS-120_23.png", "./ink/IVS-120/azi/IVS-120_24.png", "./ink/IVS-120/azi/IVS-120_25.png", "./ink/IVS-120/azi/IVS-120_26.png", "./ink/IVS-120/azi/IVS-120_27.png", "./ink/IVS-120/azi/IVS-120_28.png", "./ink/IVS-120/azi/IVS-120_29.png", "./ink/IVS-120/azi/IVS-120_3.png", "./ink/IVS-120/azi/IVS-120_30.png", "./ink/IVS-120/azi/IVS-120_31.png", "./ink/IVS-120/azi/IVS-120_32.png", "./ink/IVS-120/azi/IVS-120_33.png", "./ink/IVS-120/azi/IVS-120_34.png", "./ink/IVS-120/azi/IVS-120_35.png", "./ink/IVS-120/azi/IVS-120_36.png", "./ink/IVS-120/azi/IVS-120_37.png", "./ink/IVS-120/azi/IVS-120_38.png", "./ink/IVS-120/azi/IVS-120_39.png", "./ink/IVS-120/azi/IVS-120_4.png", "./ink/IVS-120/azi/IVS-120_40.png", "./ink/IVS-120/azi/IVS-120_41.png", "./ink/IVS-120/azi/IVS-120_42.png", "./ink/IVS-120/azi/IVS-120_43.png", "./ink/IVS-120/azi/IVS-120_44.png", "./ink/IVS-120/azi/IVS-120_45.png", "./ink/IVS-120/azi/IVS-120_46.png", "./ink/IVS-120/azi/IVS-120_47.png", "./ink/IVS-120/azi/IVS-120_5.png", "./ink/IVS-120/azi/IVS-120_6.png", "./ink/IVS-120/azi/IVS-120_7.png", "./ink/IVS-120/azi/IVS-120_8.png", "./ink/IVS-120/azi/IVS-120_9.png"];
-        const totalFrames_ps_6_ivs_120_azi = 48;
-        const baseInterval_ps_6_ivs_120_azi = 300; // The baseline 300ms passed from python
-        const loopStartIdx_ps_6_ivs_120_azi = 45;
+        const images_ps_6_ivs_119_azi = ["./ink/IVS-119/azi/IVS-119_0.png", "./ink/IVS-119/azi/IVS-119_1.png", "./ink/IVS-119/azi/IVS-119_10.png", "./ink/IVS-119/azi/IVS-119_11.png", "./ink/IVS-119/azi/IVS-119_12.png", "./ink/IVS-119/azi/IVS-119_13.png", "./ink/IVS-119/azi/IVS-119_14.png", "./ink/IVS-119/azi/IVS-119_15.png", "./ink/IVS-119/azi/IVS-119_16.png", "./ink/IVS-119/azi/IVS-119_17.png", "./ink/IVS-119/azi/IVS-119_18.png", "./ink/IVS-119/azi/IVS-119_19.png", "./ink/IVS-119/azi/IVS-119_2.png", "./ink/IVS-119/azi/IVS-119_20.png", "./ink/IVS-119/azi/IVS-119_21.png", "./ink/IVS-119/azi/IVS-119_22.png", "./ink/IVS-119/azi/IVS-119_23.png", "./ink/IVS-119/azi/IVS-119_24.png", "./ink/IVS-119/azi/IVS-119_25.png", "./ink/IVS-119/azi/IVS-119_26.png", "./ink/IVS-119/azi/IVS-119_27.png", "./ink/IVS-119/azi/IVS-119_28.png", "./ink/IVS-119/azi/IVS-119_29.png", "./ink/IVS-119/azi/IVS-119_3.png", "./ink/IVS-119/azi/IVS-119_30.png", "./ink/IVS-119/azi/IVS-119_31.png", "./ink/IVS-119/azi/IVS-119_32.png", "./ink/IVS-119/azi/IVS-119_33.png", "./ink/IVS-119/azi/IVS-119_34.png", "./ink/IVS-119/azi/IVS-119_35.png", "./ink/IVS-119/azi/IVS-119_36.png", "./ink/IVS-119/azi/IVS-119_37.png", "./ink/IVS-119/azi/IVS-119_38.png", "./ink/IVS-119/azi/IVS-119_39.png", "./ink/IVS-119/azi/IVS-119_4.png", "./ink/IVS-119/azi/IVS-119_40.png", "./ink/IVS-119/azi/IVS-119_41.png", "./ink/IVS-119/azi/IVS-119_42.png", "./ink/IVS-119/azi/IVS-119_43.png", "./ink/IVS-119/azi/IVS-119_44.png", "./ink/IVS-119/azi/IVS-119_45.png", "./ink/IVS-119/azi/IVS-119_46.png", "./ink/IVS-119/azi/IVS-119_5.png", "./ink/IVS-119/azi/IVS-119_6.png", "./ink/IVS-119/azi/IVS-119_7.png", "./ink/IVS-119/azi/IVS-119_8.png", "./ink/IVS-119/azi/IVS-119_9.png"];
+        const totalFrames_ps_6_ivs_119_azi = 47;
+        const baseInterval_ps_6_ivs_119_azi = 300; // The baseline 300ms passed from python
+        const loopStartIdx_ps_6_ivs_119_azi = 44;
         
-        let currentIdx_ps_6_ivs_120_azi = 0;
-        let isPlaying_ps_6_ivs_120_azi = false;
-        let isLoopingLast3_ps_6_ivs_120_azi = false;
-        let interval_ps_6_ivs_120_azi = null;
-        let isMouseOver_ps_6_ivs_120_azi = false;
-        let speedMultiplier_ps_6_ivs_120_azi = 1.0;
+        let currentIdx_ps_6_ivs_119_azi = 0;
+        let isPlaying_ps_6_ivs_119_azi = false;
+        let isLoopingLast3_ps_6_ivs_119_azi = false;
+        let interval_ps_6_ivs_119_azi = null;
+        let isMouseOver_ps_6_ivs_119_azi = false;
+        let speedMultiplier_ps_6_ivs_119_azi = 1.0;
 
-        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_120_azi");
-        const imgEl = document.getElementById("img_display_ps_6_ivs_120_azi");
-        const sliderEl = document.getElementById("slider_ps_6_ivs_120_azi");
-        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_120_azi");
+        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_119_azi");
+        const imgEl = document.getElementById("img_display_ps_6_ivs_119_azi");
+        const sliderEl = document.getElementById("slider_ps_6_ivs_119_azi");
+        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_119_azi");
         
-        const btnPlay = document.getElementById("btn_play_ps_6_ivs_120_azi");
-        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_120_azi");
-        const playTextContainer = document.getElementById("play_text_ps_6_ivs_120_azi");
-        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_120_azi");
+        const btnPlay = document.getElementById("btn_play_ps_6_ivs_119_azi");
+        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_119_azi");
+        const playTextContainer = document.getElementById("play_text_ps_6_ivs_119_azi");
+        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_119_azi");
         
-        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_120_azi");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_120_azi");
+        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_119_azi");
+        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_119_azi");
         
-        const btnFirst = document.getElementById("btn_first_ps_6_ivs_120_azi");
-        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_120_azi");
-        const btnNext = document.getElementById("btn_next_ps_6_ivs_120_azi");
-        const btnLast = document.getElementById("btn_last_ps_6_ivs_120_azi");
+        const btnFirst = document.getElementById("btn_first_ps_6_ivs_119_azi");
+        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_119_azi");
+        const btnNext = document.getElementById("btn_next_ps_6_ivs_119_azi");
+        const btnLast = document.getElementById("btn_last_ps_6_ivs_119_azi");
 
         const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
         const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
@@ -5690,69 +5275,69 @@ Your page content starts here... -->
         const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
         const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
 
-        function updatePlayer_ps_6_ivs_120_azi(idx) {
-            currentIdx_ps_6_ivs_120_azi = idx;
-            if(images_ps_6_ivs_120_azi[idx]) {
-                imgEl.src = images_ps_6_ivs_120_azi[idx];
+        function updatePlayer_ps_6_ivs_119_azi(idx) {
+            currentIdx_ps_6_ivs_119_azi = idx;
+            if(images_ps_6_ivs_119_azi[idx]) {
+                imgEl.src = images_ps_6_ivs_119_azi[idx];
             }
             sliderEl.value = idx;
         }
 
         // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_ps_6_ivs_120_azi() {
-            const activeInterval = baseInterval_ps_6_ivs_120_azi * speedMultiplier_ps_6_ivs_120_azi;
-            interval_ps_6_ivs_120_azi = setInterval(function() {
-                let nextIdx = currentIdx_ps_6_ivs_120_azi + 1;
+        function startPlaybackLoop_ps_6_ivs_119_azi() {
+            const activeInterval = baseInterval_ps_6_ivs_119_azi * speedMultiplier_ps_6_ivs_119_azi;
+            interval_ps_6_ivs_119_azi = setInterval(function() {
+                let nextIdx = currentIdx_ps_6_ivs_119_azi + 1;
                 
-                if (isLoopingLast3_ps_6_ivs_120_azi) {
-                    if (nextIdx >= totalFrames_ps_6_ivs_120_azi) {
-                        nextIdx = loopStartIdx_ps_6_ivs_120_azi;
+                if (isLoopingLast3_ps_6_ivs_119_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_119_azi) {
+                        nextIdx = loopStartIdx_ps_6_ivs_119_azi;
                     }
                 } else {
-                    if (nextIdx >= totalFrames_ps_6_ivs_120_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_119_azi) {
                         nextIdx = 0;
                     }
                 }
-                updatePlayer_ps_6_ivs_120_azi(nextIdx);
+                updatePlayer_ps_6_ivs_119_azi(nextIdx);
             }, activeInterval);
         }
-        function togglePlay_ps_6_ivs_120_azi() {
-            if(isPlaying_ps_6_ivs_120_azi) {
-                clearInterval(interval_ps_6_ivs_120_azi);
+        function togglePlay_ps_6_ivs_119_azi() {
+            if(isPlaying_ps_6_ivs_119_azi) {
+                clearInterval(interval_ps_6_ivs_119_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_120_azi = false;
+                isPlaying_ps_6_ivs_119_azi = false;
             } else {
                 playIconContainer.innerHTML = svgPause;
                 playTextContainer.textContent = "Pause";
-                isPlaying_ps_6_ivs_120_azi = true;
+                isPlaying_ps_6_ivs_119_azi = true;
                 
                 // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_ps_6_ivs_120_azi && currentIdx_ps_6_ivs_120_azi < loopStartIdx_ps_6_ivs_120_azi) {
-                    updatePlayer_ps_6_ivs_120_azi(loopStartIdx_ps_6_ivs_120_azi);
+                if (isLoopingLast3_ps_6_ivs_119_azi && currentIdx_ps_6_ivs_119_azi < loopStartIdx_ps_6_ivs_119_azi) {
+                    updatePlayer_ps_6_ivs_119_azi(loopStartIdx_ps_6_ivs_119_azi);
                 }
-                startPlaybackLoop_ps_6_ivs_120_azi();
+                startPlaybackLoop_ps_6_ivs_119_azi();
             }
         }
 
-        function pausePlayback_ps_6_ivs_120_azi() {
-            if(isPlaying_ps_6_ivs_120_azi) {
-                clearInterval(interval_ps_6_ivs_120_azi);
+        function pausePlayback_ps_6_ivs_119_azi() {
+            if(isPlaying_ps_6_ivs_119_azi) {
+                clearInterval(interval_ps_6_ivs_119_azi);
                 playIconContainer.innerHTML = svgPlay;
                 playTextContainer.textContent = "Play";
-                isPlaying_ps_6_ivs_120_azi = false;
+                isPlaying_ps_6_ivs_119_azi = false;
             }
         }
 
-        function breakLoop3State_ps_6_ivs_120_azi() {
-            if (isLoopingLast3_ps_6_ivs_120_azi) {
-                isLoopingLast3_ps_6_ivs_120_azi = false;
+        function breakLoop3State_ps_6_ivs_119_azi() {
+            if (isLoopingLast3_ps_6_ivs_119_azi) {
+                isLoopingLast3_ps_6_ivs_119_azi = false;
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
             }
         }
 
-        function toggleFullscreen_ps_6_ivs_120_azi() {
+        function toggleFullscreen_ps_6_ivs_119_azi() {
             if (!document.fullscreenElement) {
                 if (wrapperEl.requestFullscreen) {
                     wrapperEl.requestFullscreen();
@@ -5777,77 +5362,77 @@ Your page content starts here... -->
         });
 
         // Instantly load and display the last frame on page load
-        updatePlayer_ps_6_ivs_120_azi(totalFrames_ps_6_ivs_120_azi - 1);
+        updatePlayer_ps_6_ivs_119_azi(totalFrames_ps_6_ivs_119_azi - 1);
 
         // Slider Event
         sliderEl.addEventListener("input", function(e) {
-            pausePlayback_ps_6_ivs_120_azi();
-            breakLoop3State_ps_6_ivs_120_azi();
-            updatePlayer_ps_6_ivs_120_azi(parseInt(e.target.value));
+            pausePlayback_ps_6_ivs_119_azi();
+            breakLoop3State_ps_6_ivs_119_azi();
+            updatePlayer_ps_6_ivs_119_azi(parseInt(e.target.value));
         });
 
         // Speed Change Event Handler
         speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_ps_6_ivs_120_azi = parseFloat(e.target.value);
-            if (isPlaying_ps_6_ivs_120_azi) {
-                clearInterval(interval_ps_6_ivs_120_azi);
-                startPlaybackLoop_ps_6_ivs_120_azi();
+            speedMultiplier_ps_6_ivs_119_azi = parseFloat(e.target.value);
+            if (isPlaying_ps_6_ivs_119_azi) {
+                clearInterval(interval_ps_6_ivs_119_azi);
+                startPlaybackLoop_ps_6_ivs_119_azi();
             }
         });
-        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_120_azi);
-        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_120_azi);
+        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_119_azi);
+        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_119_azi);
 
         // 🔄 Loop Last 3 Button Handler
         btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_ps_6_ivs_120_azi = !isLoopingLast3_ps_6_ivs_120_azi;
+            isLoopingLast3_ps_6_ivs_119_azi = !isLoopingLast3_ps_6_ivs_119_azi;
             
-            if (isLoopingLast3_ps_6_ivs_120_azi) {
+            if (isLoopingLast3_ps_6_ivs_119_azi) {
                 btnLoop3.classList.add("active");
                 btnLoop3.textContent = "Stop Loop";
                 
                 // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_ps_6_ivs_120_azi < loopStartIdx_ps_6_ivs_120_azi) {
-                    updatePlayer_ps_6_ivs_120_azi(totalFrames_ps_6_ivs_120_azi - 1);
+                if (currentIdx_ps_6_ivs_119_azi < loopStartIdx_ps_6_ivs_119_azi) {
+                    updatePlayer_ps_6_ivs_119_azi(totalFrames_ps_6_ivs_119_azi - 1);
                 }
                 
                 // Force playback start if paused
-                if (!isPlaying_ps_6_ivs_120_azi) {
-                    togglePlay_ps_6_ivs_120_azi();
+                if (!isPlaying_ps_6_ivs_119_azi) {
+                    togglePlay_ps_6_ivs_119_azi();
                 } else {
                     // Reset interval to snap parameters immediately
-                    clearInterval(interval_ps_6_ivs_120_azi);
-                    startPlaybackLoop_ps_6_ivs_120_azi();
+                    clearInterval(interval_ps_6_ivs_119_azi);
+                    startPlaybackLoop_ps_6_ivs_119_azi();
                 }
             } else {
                 btnLoop3.classList.remove("active");
                 btnLoop3.textContent = "🔄 Loop Last 3";
-                pausePlayback_ps_6_ivs_120_azi();
+                pausePlayback_ps_6_ivs_119_azi();
             }
         });
 
-        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_120_azi(); breakLoop3State_ps_6_ivs_120_azi(); updatePlayer_ps_6_ivs_120_azi(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_120_azi(); breakLoop3State_ps_6_ivs_120_azi(); updatePlayer_ps_6_ivs_120_azi(totalFrames_ps_6_ivs_120_azi - 1); });
+        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_119_azi(); breakLoop3State_ps_6_ivs_119_azi(); updatePlayer_ps_6_ivs_119_azi(0); });
+        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_119_azi(); breakLoop3State_ps_6_ivs_119_azi(); updatePlayer_ps_6_ivs_119_azi(totalFrames_ps_6_ivs_119_azi - 1); });
         
         btnPrev.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_120_azi();
-            breakLoop3State_ps_6_ivs_120_azi();
-            let prevIdx = currentIdx_ps_6_ivs_120_azi - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_120_azi - 1;
-            updatePlayer_ps_6_ivs_120_azi(prevIdx);
+            pausePlayback_ps_6_ivs_119_azi();
+            breakLoop3State_ps_6_ivs_119_azi();
+            let prevIdx = currentIdx_ps_6_ivs_119_azi - 1;
+            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_119_azi - 1;
+            updatePlayer_ps_6_ivs_119_azi(prevIdx);
         });
 
         btnNext.addEventListener("click", function() {
-            pausePlayback_ps_6_ivs_120_azi();
-            breakLoop3State_ps_6_ivs_120_azi();
-            let nextIdx = (currentIdx_ps_6_ivs_120_azi + 1) % totalFrames_ps_6_ivs_120_azi;
-            updatePlayer_ps_6_ivs_120_azi(nextIdx);
+            pausePlayback_ps_6_ivs_119_azi();
+            breakLoop3State_ps_6_ivs_119_azi();
+            let nextIdx = (currentIdx_ps_6_ivs_119_azi + 1) % totalFrames_ps_6_ivs_119_azi;
+            updatePlayer_ps_6_ivs_119_azi(nextIdx);
         });
 
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_120_azi = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_120_azi = false; });
+        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_119_azi = true; });
+        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_119_azi = false; });
 
         window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_ps_6_ivs_120_azi) return;
+            if (!isMouseOver_ps_6_ivs_119_azi) return;
 
             switch(e.key) {
                 case "ArrowLeft":
@@ -5887,6 +5472,9 @@ Your page content starts here... -->
     </script>
     
 </section>
+</section>
+<section id="ivs-120" class="level3">
+<h3 class="anchored" data-anchor-id="ivs-120">IVS-120</h3>
 <section id="celková-deformácia-5" class="level5">
 <h5 class="anchored" data-anchor-id="celková-deformácia-5">📈 Celková deformácia</h5>
 <p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
@@ -6260,6 +5848,418 @@ Your page content starts here... -->
 
         window.addEventListener("keydown", function(e) {
             if (!isMouseOver_ps_6_ivs_120_tot) return;
+
+            switch(e.key) {
+                case "ArrowLeft":
+                    e.preventDefault();
+                    btnPrev.click();
+                    break;
+                case "ArrowRight":
+                    e.preventDefault();
+                    btnNext.click();
+                    break;
+                case " ":
+                    e.preventDefault();
+                    btnPlay.click();
+                    break;
+                case "Home":
+                    e.preventDefault();
+                    btnFirst.click();
+                    break;
+                case "End":
+                    e.preventDefault();
+                    btnLast.click();
+                    break;
+                case "f":
+                case "F":
+                    e.preventDefault();
+                    btnFullscreen.click();
+                    break;
+                case "l":
+                case "L":
+                    e.preventDefault();
+                    e.stopPropagation();
+                    btnLoop3.click();
+                    break;
+            }
+        });
+    })();
+    </script>
+    
+</section>
+<section id="azimut-5" class="level5">
+<h5 class="anchored" data-anchor-id="azimut-5">🧭 Azimut</h5>
+<p>🎬 <strong>Vizualizácia časového záznamu:</strong></p>
+
+    <!-- 🎛️ STYLE CENTRAL -->
+    <style>
+    #player_wrapper_ps_6_ivs_120_azi {
+        margin-bottom: 30px; 
+        background: #222222; 
+        padding: 15px; 
+        border-radius: 8px; 
+        user-select: none; 
+        -webkit-user-select: none;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .image-container {
+        background: #000000; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        min-height: 300px; 
+        margin-bottom: 15px; 
+        border-radius: 4px; 
+        overflow: hidden;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .control-action-bar {
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 12px;               
+    }
+    #player_wrapper_ps_6_ivs_120_azi .btn-cluster {
+        display: flex; 
+        gap: 6px;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .player-btn {
+        color: #ffffff; 
+        border: none; 
+        height: 32px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        border-radius: 4px; 
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+        font-family: 'monospace',
+        font-size: 12px;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .btn-nav {
+        background-color: #444444; 
+        width: 38px;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .btn-nav:hover {
+        background-color: #555555;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .btn-action {
+        background-color: #0d6efd; 
+        padding: 0 22px; 
+        font-weight: bold;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .btn-action:hover {
+        filter: brightness(1.15); 
+    }
+    #player_wrapper_ps_6_ivs_120_azi .btn-loop3 {
+        background-color: #6f42c1;
+        padding: 0 14px;
+        font-weight: bold;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .btn-loop3:hover {
+        filter: brightness(1.15);
+    }
+    #player_wrapper_ps_6_ivs_120_azi .btn-loop3.active {
+        background-color: #dc3545 !important;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .speed-selector {
+        background-color: #444444;
+        color: #ffffff;
+        border: none;
+        height: 32px;
+        padding: 0 6px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: monospace;
+        font-size: 13px;
+        outline: none;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .speed-selector:hover {
+        background-color: #555555;
+    }
+    #player_wrapper_ps_6_ivs_120_azi .timeline-slider {
+        flex-grow: 1; 
+        cursor: pointer;
+        height: 6px;
+        accent-color: #0d6efd; 
+    }
+
+    /* NATIVE FULLSCREEN LAYOUT FIXES */
+    #player_wrapper_ps_6_ivs_120_azi:fullscreen {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        padding: 25px !important;
+        background: #111111 !important;
+    }
+    #player_wrapper_ps_6_ivs_120_azi:fullscreen .image-container {
+        flex-grow: 1 !important;
+        margin-bottom: 20px !important;
+    }
+    #player_wrapper_ps_6_ivs_120_azi:fullscreen #img_display_ps_6_ivs_120_azi {
+        max-height: calc(100vh - 120px) !important; 
+        width: auto !important;
+    }
+    </style>
+
+        <!-- 🏗️ HTML STRUCTURE -->
+    <div id="player_wrapper_ps_6_ivs_120_azi">
+        <div class="image-container">
+            <img id="img_display_ps_6_ivs_120_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
+        </div>
+        
+        <!-- Timeline Slider Bar -->
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+            <input id="slider_ps_6_ivs_120_azi" class="timeline-slider" type="range" min="0" max="47" value="0">
+        </div>
+
+        <!-- Control Action Bar -->
+        <div class="control-action-bar">
+            <!-- Left Cluster -->
+            <div class="btn-cluster">
+                <button id="btn_first_ps_6_ivs_120_azi" class="player-btn btn-nav" title="First Frame (Home)">
+                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
+                </button>
+                <button id="btn_prev_ps_6_ivs_120_azi" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
+                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
+                </button>
+            </div>
+
+            <!-- Play Command -->
+            <button id="btn_play_ps_6_ivs_120_azi" class="player-btn btn-action">
+                <span id="play_icon_ps_6_ivs_120_azi" style="display:flex; align-items:center; margin-right:6px;">
+                    <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
+                </span>
+                <span id="play_text_ps_6_ivs_120_azi">Play</span>
+            </button>
+
+            <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
+            <button id="btn_loop3_ps_6_ivs_120_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
+                🔄 Last 3 Measurements
+            </button>
+
+            <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
+            <select id="speed_select_ps_6_ivs_120_azi" class="speed-selector" title="Playback Speed">
+                <option value="2.0">0.5x</option>
+                <option value="1.5">0.75x</option>
+                <option value="1.0" selected="">1.0x</option>
+                <option value="0.5">2.0x</option>
+                <option value="0.25">4.0x</option>
+            </select>
+
+            <!-- Fullscreen Command -->
+            <button id="btn_fullscreen_ps_6_ivs_120_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
+                <span id="fullscreen_icon_ps_6_ivs_120_azi" style="display:flex; align-items:center;">
+                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
+                </span>
+            </button>
+
+            <!-- Right Cluster -->
+            <div class="btn-cluster">
+                <button id="btn_next_ps_6_ivs_120_azi" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
+                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
+                </button>
+                <button id="btn_last_ps_6_ivs_120_azi" class="player-btn btn-nav" title="Last Frame (End)">
+                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- 🧠 JAVASCRIPT LOGIC -->
+    <script>
+    (function() {
+        const images_ps_6_ivs_120_azi = ["./ink/IVS-120/azi/IVS-120_0.png", "./ink/IVS-120/azi/IVS-120_1.png", "./ink/IVS-120/azi/IVS-120_10.png", "./ink/IVS-120/azi/IVS-120_11.png", "./ink/IVS-120/azi/IVS-120_12.png", "./ink/IVS-120/azi/IVS-120_13.png", "./ink/IVS-120/azi/IVS-120_14.png", "./ink/IVS-120/azi/IVS-120_15.png", "./ink/IVS-120/azi/IVS-120_16.png", "./ink/IVS-120/azi/IVS-120_17.png", "./ink/IVS-120/azi/IVS-120_18.png", "./ink/IVS-120/azi/IVS-120_19.png", "./ink/IVS-120/azi/IVS-120_2.png", "./ink/IVS-120/azi/IVS-120_20.png", "./ink/IVS-120/azi/IVS-120_21.png", "./ink/IVS-120/azi/IVS-120_22.png", "./ink/IVS-120/azi/IVS-120_23.png", "./ink/IVS-120/azi/IVS-120_24.png", "./ink/IVS-120/azi/IVS-120_25.png", "./ink/IVS-120/azi/IVS-120_26.png", "./ink/IVS-120/azi/IVS-120_27.png", "./ink/IVS-120/azi/IVS-120_28.png", "./ink/IVS-120/azi/IVS-120_29.png", "./ink/IVS-120/azi/IVS-120_3.png", "./ink/IVS-120/azi/IVS-120_30.png", "./ink/IVS-120/azi/IVS-120_31.png", "./ink/IVS-120/azi/IVS-120_32.png", "./ink/IVS-120/azi/IVS-120_33.png", "./ink/IVS-120/azi/IVS-120_34.png", "./ink/IVS-120/azi/IVS-120_35.png", "./ink/IVS-120/azi/IVS-120_36.png", "./ink/IVS-120/azi/IVS-120_37.png", "./ink/IVS-120/azi/IVS-120_38.png", "./ink/IVS-120/azi/IVS-120_39.png", "./ink/IVS-120/azi/IVS-120_4.png", "./ink/IVS-120/azi/IVS-120_40.png", "./ink/IVS-120/azi/IVS-120_41.png", "./ink/IVS-120/azi/IVS-120_42.png", "./ink/IVS-120/azi/IVS-120_43.png", "./ink/IVS-120/azi/IVS-120_44.png", "./ink/IVS-120/azi/IVS-120_45.png", "./ink/IVS-120/azi/IVS-120_46.png", "./ink/IVS-120/azi/IVS-120_47.png", "./ink/IVS-120/azi/IVS-120_5.png", "./ink/IVS-120/azi/IVS-120_6.png", "./ink/IVS-120/azi/IVS-120_7.png", "./ink/IVS-120/azi/IVS-120_8.png", "./ink/IVS-120/azi/IVS-120_9.png"];
+        const totalFrames_ps_6_ivs_120_azi = 48;
+        const baseInterval_ps_6_ivs_120_azi = 300; // The baseline 300ms passed from python
+        const loopStartIdx_ps_6_ivs_120_azi = 45;
+        
+        let currentIdx_ps_6_ivs_120_azi = 0;
+        let isPlaying_ps_6_ivs_120_azi = false;
+        let isLoopingLast3_ps_6_ivs_120_azi = false;
+        let interval_ps_6_ivs_120_azi = null;
+        let isMouseOver_ps_6_ivs_120_azi = false;
+        let speedMultiplier_ps_6_ivs_120_azi = 1.0;
+
+        const wrapperEl = document.getElementById("player_wrapper_ps_6_ivs_120_azi");
+        const imgEl = document.getElementById("img_display_ps_6_ivs_120_azi");
+        const sliderEl = document.getElementById("slider_ps_6_ivs_120_azi");
+        const speedSelectEl = document.getElementById("speed_select_ps_6_ivs_120_azi");
+        
+        const btnPlay = document.getElementById("btn_play_ps_6_ivs_120_azi");
+        const playIconContainer = document.getElementById("play_icon_ps_6_ivs_120_azi");
+        const playTextContainer = document.getElementById("play_text_ps_6_ivs_120_azi");
+        const btnLoop3 = document.getElementById("btn_loop3_ps_6_ivs_120_azi");
+        
+        const btnFullscreen = document.getElementById("btn_fullscreen_ps_6_ivs_120_azi");
+        const fullscreenIconContainer = document.getElementById("fullscreen_icon_ps_6_ivs_120_azi");
+        
+        const btnFirst = document.getElementById("btn_first_ps_6_ivs_120_azi");
+        const btnPrev = document.getElementById("btn_prev_ps_6_ivs_120_azi");
+        const btnNext = document.getElementById("btn_next_ps_6_ivs_120_azi");
+        const btnLast = document.getElementById("btn_last_ps_6_ivs_120_azi");
+
+        const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
+        const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
+        
+        const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
+        const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
+
+        function updatePlayer_ps_6_ivs_120_azi(idx) {
+            currentIdx_ps_6_ivs_120_azi = idx;
+            if(images_ps_6_ivs_120_azi[idx]) {
+                imgEl.src = images_ps_6_ivs_120_azi[idx];
+            }
+            sliderEl.value = idx;
+        }
+
+        // NOTE: Playback cycles backwards in current implementation
+        function startPlaybackLoop_ps_6_ivs_120_azi() {
+            const activeInterval = baseInterval_ps_6_ivs_120_azi * speedMultiplier_ps_6_ivs_120_azi;
+            interval_ps_6_ivs_120_azi = setInterval(function() {
+                let nextIdx = currentIdx_ps_6_ivs_120_azi + 1;
+                
+                if (isLoopingLast3_ps_6_ivs_120_azi) {
+                    if (nextIdx >= totalFrames_ps_6_ivs_120_azi) {
+                        nextIdx = loopStartIdx_ps_6_ivs_120_azi;
+                    }
+                } else {
+                    if (nextIdx >= totalFrames_ps_6_ivs_120_azi) {
+                        nextIdx = 0;
+                    }
+                }
+                updatePlayer_ps_6_ivs_120_azi(nextIdx);
+            }, activeInterval);
+        }
+        function togglePlay_ps_6_ivs_120_azi() {
+            if(isPlaying_ps_6_ivs_120_azi) {
+                clearInterval(interval_ps_6_ivs_120_azi);
+                playIconContainer.innerHTML = svgPlay;
+                playTextContainer.textContent = "Play";
+                isPlaying_ps_6_ivs_120_azi = false;
+            } else {
+                playIconContainer.innerHTML = svgPause;
+                playTextContainer.textContent = "Pause";
+                isPlaying_ps_6_ivs_120_azi = true;
+                
+                // If looping last 3, guarantee index falls inside boundaries upon launch
+                if (isLoopingLast3_ps_6_ivs_120_azi && currentIdx_ps_6_ivs_120_azi < loopStartIdx_ps_6_ivs_120_azi) {
+                    updatePlayer_ps_6_ivs_120_azi(loopStartIdx_ps_6_ivs_120_azi);
+                }
+                startPlaybackLoop_ps_6_ivs_120_azi();
+            }
+        }
+
+        function pausePlayback_ps_6_ivs_120_azi() {
+            if(isPlaying_ps_6_ivs_120_azi) {
+                clearInterval(interval_ps_6_ivs_120_azi);
+                playIconContainer.innerHTML = svgPlay;
+                playTextContainer.textContent = "Play";
+                isPlaying_ps_6_ivs_120_azi = false;
+            }
+        }
+
+        function breakLoop3State_ps_6_ivs_120_azi() {
+            if (isLoopingLast3_ps_6_ivs_120_azi) {
+                isLoopingLast3_ps_6_ivs_120_azi = false;
+                btnLoop3.classList.remove("active");
+                btnLoop3.textContent = "🔄 Loop Last 3";
+            }
+        }
+
+        function toggleFullscreen_ps_6_ivs_120_azi() {
+            if (!document.fullscreenElement) {
+                if (wrapperEl.requestFullscreen) {
+                    wrapperEl.requestFullscreen();
+                } else if (wrapperEl.webkitRequestFullscreen) {
+                    wrapperEl.webkitRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        document.addEventListener('fullscreenchange', function() {
+            if (document.fullscreenElement === wrapperEl) {
+                fullscreenIconContainer.innerHTML = svgExitScreen;
+                wrapperEl.style.padding = "30px";
+            } else {
+                fullscreenIconContainer.innerHTML = svgNormalScreen;
+                wrapperEl.style.padding = "15px";
+            }
+        });
+
+        // Instantly load and display the last frame on page load
+        updatePlayer_ps_6_ivs_120_azi(totalFrames_ps_6_ivs_120_azi - 1);
+
+        // Slider Event
+        sliderEl.addEventListener("input", function(e) {
+            pausePlayback_ps_6_ivs_120_azi();
+            breakLoop3State_ps_6_ivs_120_azi();
+            updatePlayer_ps_6_ivs_120_azi(parseInt(e.target.value));
+        });
+
+        // Speed Change Event Handler
+        speedSelectEl.addEventListener("change", function(e) {
+            speedMultiplier_ps_6_ivs_120_azi = parseFloat(e.target.value);
+            if (isPlaying_ps_6_ivs_120_azi) {
+                clearInterval(interval_ps_6_ivs_120_azi);
+                startPlaybackLoop_ps_6_ivs_120_azi();
+            }
+        });
+        btnPlay.addEventListener("click", togglePlay_ps_6_ivs_120_azi);
+        btnFullscreen.addEventListener("click", toggleFullscreen_ps_6_ivs_120_azi);
+
+        // 🔄 Loop Last 3 Button Handler
+        btnLoop3.addEventListener("click", function() {
+            isLoopingLast3_ps_6_ivs_120_azi = !isLoopingLast3_ps_6_ivs_120_azi;
+            
+            if (isLoopingLast3_ps_6_ivs_120_azi) {
+                btnLoop3.classList.add("active");
+                btnLoop3.textContent = "Stop Loop";
+                
+                // If current image index falls out of target bounds, jump directly to end frame
+                if (currentIdx_ps_6_ivs_120_azi < loopStartIdx_ps_6_ivs_120_azi) {
+                    updatePlayer_ps_6_ivs_120_azi(totalFrames_ps_6_ivs_120_azi - 1);
+                }
+                
+                // Force playback start if paused
+                if (!isPlaying_ps_6_ivs_120_azi) {
+                    togglePlay_ps_6_ivs_120_azi();
+                } else {
+                    // Reset interval to snap parameters immediately
+                    clearInterval(interval_ps_6_ivs_120_azi);
+                    startPlaybackLoop_ps_6_ivs_120_azi();
+                }
+            } else {
+                btnLoop3.classList.remove("active");
+                btnLoop3.textContent = "🔄 Loop Last 3";
+                pausePlayback_ps_6_ivs_120_azi();
+            }
+        });
+
+        btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_120_azi(); breakLoop3State_ps_6_ivs_120_azi(); updatePlayer_ps_6_ivs_120_azi(0); });
+        btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_120_azi(); breakLoop3State_ps_6_ivs_120_azi(); updatePlayer_ps_6_ivs_120_azi(totalFrames_ps_6_ivs_120_azi - 1); });
+        
+        btnPrev.addEventListener("click", function() {
+            pausePlayback_ps_6_ivs_120_azi();
+            breakLoop3State_ps_6_ivs_120_azi();
+            let prevIdx = currentIdx_ps_6_ivs_120_azi - 1;
+            if (prevIdx < 0) prevIdx = totalFrames_ps_6_ivs_120_azi - 1;
+            updatePlayer_ps_6_ivs_120_azi(prevIdx);
+        });
+
+        btnNext.addEventListener("click", function() {
+            pausePlayback_ps_6_ivs_120_azi();
+            breakLoop3State_ps_6_ivs_120_azi();
+            let nextIdx = (currentIdx_ps_6_ivs_120_azi + 1) % totalFrames_ps_6_ivs_120_azi;
+            updatePlayer_ps_6_ivs_120_azi(nextIdx);
+        });
+
+        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_ps_6_ivs_120_azi = true; });
+        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_ps_6_ivs_120_azi = false; });
+
+        window.addEventListener("keydown", function(e) {
+            if (!isMouseOver_ps_6_ivs_120_azi) return;
 
             switch(e.key) {
                 case "ArrowLeft":
