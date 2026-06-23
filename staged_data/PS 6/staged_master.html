@@ -445,25 +445,12 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#úvod" id="toc-úvod" class="nav-link active" data-scroll-target="#úvod">Úvod</a>
   <ul class="collapse">
-  <li><a href="#pilótová-stena-6" id="toc-pilótová-stena-6" class="nav-link" data-scroll-target="#pilótová-stena-6">Pilótová stena 6</a></li>
-  </ul></li>
-  <li><a href="#inklinometria" id="toc-inklinometria" class="nav-link" data-scroll-target="#inklinometria">📉 Inklinometria</a>
-  <ul class="collapse">
-  <li><a href="#situácia" id="toc-situácia" class="nav-link" data-scroll-target="#situácia">🗺️ Situácia</a></li>
-  <li><a href="#časozberný-vývoj" id="toc-časozberný-vývoj" class="nav-link" data-scroll-target="#časozberný-vývoj">📈 Časozberný vývoj</a></li>
-  <li><a href="#ivs-115" id="toc-ivs-115" class="nav-link" data-scroll-target="#ivs-115">IVS-115</a></li>
-  <li><a href="#ivs-116" id="toc-ivs-116" class="nav-link" data-scroll-target="#ivs-116">IVS-116</a></li>
-  <li><a href="#ivs-117" id="toc-ivs-117" class="nav-link" data-scroll-target="#ivs-117">IVS-117</a></li>
-  <li><a href="#ivs-118" id="toc-ivs-118" class="nav-link" data-scroll-target="#ivs-118">IVS-118</a></li>
-  <li><a href="#ivs-119" id="toc-ivs-119" class="nav-link" data-scroll-target="#ivs-119">IVS-119</a></li>
-  <li><a href="#ivs-120" id="toc-ivs-120" class="nav-link" data-scroll-target="#ivs-120">IVS-120</a></li>
-  </ul></li>
+  <li><a href="#úvod" id="toc-úvod" class="nav-link active" data-scroll-target="#úvod">Úvod</a></li>
+  <li><a href="#inklinometria" id="toc-inklinometria" class="nav-link" data-scroll-target="#inklinometria">📉 Inklinometria</a></li>
   <li><a href="#dynamometria" id="toc-dynamometria" class="nav-link" data-scroll-target="#dynamometria">⚙️ Dynamometria</a></li>
   <li><a href="#geodézia" id="toc-geodézia" class="nav-link" data-scroll-target="#geodézia">📐 Geodézia</a></li>
   </ul>
@@ -6757,7 +6744,6 @@ document.addEventListener("DOMContentLoaded", function() {
     tocHeader.textContent = 'Na tejto stránke';
     tocContainer.appendChild(tocHeader);
     
-    // 🎯 FIX: Only query h3 (instruments) and h4 (subparagraphs like Vyhodnotenie)
     const subHeaders = activeSection.querySelectorAll('h3, h4');
     const ul = document.createElement('ul');
     ul.className = 'custom-toc-list';
@@ -6777,15 +6763,22 @@ document.addEventListener("DOMContentLoaded", function() {
         
         const tag = header.tagName.toLowerCase();
         const isH4 = (tag === 'h4');
-        const li = document.createElement('li');
         
+        # 🎯 FILTER: Ignore standard text paragraphs like 'Výpočty' or 'Vyhodnotenie'
+        if (isH4 && !header.textContent.includes('Vizualizácia')) {
+            return;
+        }
+        
+        const li = document.createElement('li');
         li.className = isH4 ? 'custom-toc-item level-4' : 'custom-toc-item level-3';
-        if (isH4) li.style.display = 'none'; // Hidden by default until parent scrolled into view
+        
+        # 🎯 REGEX STRIP: Safely removes the technical prefix label from the navigation element
+        let cleanLabel = header.textContent.replace(/🎬?\s*Vizualizácia\s+časového\s+záznamu:\s*/i, '').trim();
         
         const a = document.createElement('a');
         a.className = 'custom-toc-link';
         a.setAttribute('href', '#' + targetId);
-        a.textContent = header.textContent.trim();
+        a.textContent = cleanLabel;
         li.appendChild(a);
         ul.appendChild(li);
       });
@@ -6808,7 +6801,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     tocContainer.appendChild(backLink);
 
-    // Observer setup for scroll highlights tracking h3 and h4 sections
     const observerOptions = { root: null, rootMargin: '0px 0px -70% 0px', threshold: 0 };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -6820,21 +6812,14 @@ document.addEventListener("DOMContentLoaded", function() {
             
             if (parentLi && parentLi.classList.contains('level-3')) {
               tocContainer.querySelectorAll('.level-3').forEach(el => el.classList.remove('active-parent'));
-              tocContainer.querySelectorAll('.level-4').forEach(el => {
-                el.style.display = 'none';
-                el.classList.remove('active-sub');
-              });
+              tocContainer.querySelectorAll('.level-4').forEach(el => el.classList.remove('active-sub'));
               parentLi.classList.add('active-parent');
-              let nextLi = parentLi.nextElementSibling;
-              while (nextLi && nextLi.classList.contains('level-4')) {
-                nextLi.style.display = 'block';
-                nextLi = nextLi.nextElementSibling;
-              }
             }
             
             if (parentLi && parentLi.classList.contains('level-4')) {
               tocContainer.querySelectorAll('.level-4').forEach(el => el.classList.remove('active-sub'));
               parentLi.classList.add('active-sub');
+              
               let prevLi = parentLi.previousElementSibling;
               while (prevLi && prevLi.classList.contains('level-4')) {
                 prevLi = prevLi.previousElementSibling;
@@ -6849,7 +6834,6 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }, observerOptions);
 
-    // 🎯 FIX: Only observe section levels 3 and 4
     activeSection.querySelectorAll('section.level3, section.level4').forEach(sec => observer.observe(sec));
   }
 
@@ -6868,7 +6852,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     btn.addEventListener('click', () => {
       document.querySelectorAll('.dynamic-tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.dynamic-tab-content').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.dynamic-tab-content').forEach(s => s.classList.remove('active');
       btn.classList.add('active');
       section.classList.add('active');
       rebuildRightTOC(section);
