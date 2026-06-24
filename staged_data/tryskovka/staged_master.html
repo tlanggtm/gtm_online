@@ -593,7 +593,7 @@ Your page content starts here... -->
         border-radius: 4px; 
         cursor: pointer;
         transition: background-color 0.15s ease;
-        font-family: 'monospace',
+        font-family: 'monospace';
         font-size: 12px;
     }
     #player_wrapper_tryskovka_situacia_images .btn-nav {
@@ -622,6 +622,14 @@ Your page content starts here... -->
     #player_wrapper_tryskovka_situacia_images .btn-loop3.active {
         background-color: #dc3545 !important;
     }
+    #player_wrapper_tryskovka_situacia_images .btn-download {
+        background-color: #198754;
+        padding: 0 12px;
+        font-weight: bold;
+    }
+    #player_wrapper_tryskovka_situacia_images .btn-download:hover {
+        filter: brightness(1.15);
+    }
     #player_wrapper_tryskovka_situacia_images .speed-selector {
         background-color: #444444;
         color: #ffffff;
@@ -643,6 +651,29 @@ Your page content starts here... -->
         height: 6px;
         accent-color: #0d6efd; 
     }
+    
+    /* ⌨️ HINT BAR BOX DESIGN */
+    #player_wrapper_tryskovka_situacia_images .shortcut-hints {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+        padding-top: 12px;
+        border-top: 1px solid #3a3a3a;
+        color: #888888;
+        font-size: 11px;
+        font-family: sans-serif;
+    }
+    #player_wrapper_tryskovka_situacia_images .shortcut-hints kbd {
+        background: #333;
+        color: #eee;
+        padding: 2px 5px;
+        border-radius: 3px;
+        border: 1px solid #555;
+        font-family: monospace;
+        font-size: 10px;
+    }
 
     /* NATIVE FULLSCREEN LAYOUT FIXES */
     #player_wrapper_tryskovka_situacia_images:fullscreen {
@@ -657,12 +688,15 @@ Your page content starts here... -->
         margin-bottom: 20px !important;
     }
     #player_wrapper_tryskovka_situacia_images:fullscreen #img_display_tryskovka_situacia_images {
-        max-height: calc(100vh - 120px) !important; 
+        max-height: calc(100vh - 160px) !important; 
         width: auto !important;
+    }
+    #player_wrapper_tryskovka_situacia_images:fullscreen .shortcut-hints {
+        color: #666;
     }
     </style>
 
-        <!-- 🏗️ HTML STRUCTURE -->
+    <!-- 🏗️ HTML STRUCTURE -->
     <div id="player_wrapper_tryskovka_situacia_images">
         <div class="image-container">
             <img id="img_display_tryskovka_situacia_images" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
@@ -694,11 +728,11 @@ Your page content starts here... -->
             </button>
 
             <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_tryskovka_situacia_images" class="player-btn btn-loop3" title="Loop last 3 frames">
+            <button id="btn_loop3_tryskovka_situacia_images" class="player-btn btn-loop3" title="Loop last 3 frames (L)">
                 🔄 Last 3 Measurements
             </button>
 
-            <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
+            <!-- 🛠️ SPEED DROPDOWN CONTROLLER -->
             <select id="speed_select_tryskovka_situacia_images" class="speed-selector" title="Playback Speed">
                 <option value="2.0">0.5x</option>
                 <option value="1.5">0.75x</option>
@@ -706,6 +740,11 @@ Your page content starts here... -->
                 <option value="0.5">2.0x</option>
                 <option value="0.25">4.0x</option>
             </select>
+
+            <!-- 📥 DOWNLOAD BUTTON -->
+            <button id="btn_download_tryskovka_situacia_images" class="player-btn btn-download" title="Download all frames as individual PNG files">
+                📥 Save Set
+            </button>
 
             <!-- Fullscreen Command -->
             <button id="btn_fullscreen_tryskovka_situacia_images" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
@@ -724,241 +763,308 @@ Your page content starts here... -->
                 </button>
             </div>
         </div>
+
+        <!-- ⌨️ DYNAMIC SHORTCUT HUD PANEL (Hover context hints) -->
+        <div class="shortcut-hints">
+            <span>💡 Hover window to use hotkeys:</span>
+            <span><kbd>Space</kbd> Play/Pause</span>
+            <span><kbd>←</kbd> / <kbd>→</kbd> Prev / Next</span>
+            <span><kbd>L</kbd> Loop 3</span>
+            <span><kbd>F</kbd> Fullscreen</span>
+            <span><kbd>Home</kbd> / <kbd>End</kbd> Start / Final</span>
+        </div>
     </div>
+   
+    <!-- Include JSZip Library for client-side zipping -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
     <!-- 🧠 JAVASCRIPT LOGIC -->
-    <script>
-    (function() {
-        const images_tryskovka_situacia_images = ["./real/situacia/images/SO_101-00_2_A_2025-10-01.png", "./real/situacia/images/SO_101-00_2_A_2025-10-02.png", "./real/situacia/images/SO_101-00_2_A_2025-10-03.png", "./real/situacia/images/SO_101-00_2_A_2025-10-04.png", "./real/situacia/images/SO_101-00_2_A_2025-10-05.png", "./real/situacia/images/SO_101-00_2_A_2025-10-06.png", "./real/situacia/images/SO_101-00_2_A_2025-10-07.png", "./real/situacia/images/SO_101-00_2_A_2025-10-08.png", "./real/situacia/images/SO_101-00_2_A_2025-10-09.png", "./real/situacia/images/SO_101-00_2_A_2025-10-10.png", "./real/situacia/images/SO_101-00_2_A_2025-10-11.png", "./real/situacia/images/SO_101-00_2_A_2025-10-12.png", "./real/situacia/images/SO_101-00_2_A_2025-10-13.png", "./real/situacia/images/SO_101-00_2_A_2025-10-14.png", "./real/situacia/images/SO_101-00_2_A_2025-10-15.png", "./real/situacia/images/SO_101-00_2_A_2025-10-16.png", "./real/situacia/images/SO_101-00_2_A_2025-10-17.png", "./real/situacia/images/SO_101-00_2_A_2025-10-18.png", "./real/situacia/images/SO_101-00_2_A_2025-10-19.png", "./real/situacia/images/SO_101-00_2_A_2025-10-20.png", "./real/situacia/images/SO_101-00_2_A_2025-10-21.png", "./real/situacia/images/SO_101-00_2_A_2025-10-22.png", "./real/situacia/images/SO_101-00_2_A_2025-10-23.png", "./real/situacia/images/SO_101-00_2_A_2025-10-24.png", "./real/situacia/images/SO_101-00_2_A_2025-10-25.png", "./real/situacia/images/SO_101-00_2_A_2025-10-26.png", "./real/situacia/images/SO_101-00_2_A_2025-10-27.png", "./real/situacia/images/SO_101-00_2_A_2025-10-28.png", "./real/situacia/images/SO_101-00_2_A_2025-10-29.png", "./real/situacia/images/SO_101-00_2_A_2025-10-30.png", "./real/situacia/images/SO_101-00_2_A_2025-10-31.png", "./real/situacia/images/SO_101-00_2_A_2025-11-01.png", "./real/situacia/images/SO_101-00_2_A_2025-11-02.png", "./real/situacia/images/SO_101-00_2_A_2025-11-03.png", "./real/situacia/images/SO_101-00_2_A_2025-11-04.png", "./real/situacia/images/SO_101-00_2_A_2025-11-05.png", "./real/situacia/images/SO_101-00_2_A_2025-11-06.png", "./real/situacia/images/SO_101-00_2_A_2025-11-07.png", "./real/situacia/images/SO_101-00_2_A_2025-11-08.png", "./real/situacia/images/SO_101-00_2_A_2025-11-09.png", "./real/situacia/images/SO_101-00_2_A_2025-11-10.png", "./real/situacia/images/SO_101-00_2_A_2025-11-11.png", "./real/situacia/images/SO_101-00_2_A_2025-11-12.png", "./real/situacia/images/SO_101-00_2_A_2025-11-13.png", "./real/situacia/images/SO_101-00_2_A_2025-11-14.png", "./real/situacia/images/SO_101-00_2_A_2025-11-15.png", "./real/situacia/images/SO_101-00_2_A_2025-11-16.png", "./real/situacia/images/SO_101-00_2_A_2025-11-17.png", "./real/situacia/images/SO_101-00_2_A_2025-11-18.png", "./real/situacia/images/SO_101-00_2_A_2025-11-19.png", "./real/situacia/images/SO_101-00_2_A_2025-11-20.png", "./real/situacia/images/SO_101-00_2_A_2025-11-21.png", "./real/situacia/images/SO_101-00_2_A_2025-11-22.png", "./real/situacia/images/SO_101-00_2_A_2025-11-23.png", "./real/situacia/images/SO_101-00_2_A_2025-11-24.png", "./real/situacia/images/SO_101-00_2_A_2025-11-25.png", "./real/situacia/images/SO_101-00_2_A_2025-11-26.png", "./real/situacia/images/SO_101-00_2_A_2025-11-27.png", "./real/situacia/images/SO_101-00_2_A_2025-11-28.png", "./real/situacia/images/SO_101-00_2_A_2025-11-29.png", "./real/situacia/images/SO_101-00_2_A_2025-11-30.png", "./real/situacia/images/SO_101-00_2_A_2025-12-01.png", "./real/situacia/images/SO_101-00_2_A_2025-12-02.png", "./real/situacia/images/SO_101-00_2_A_2025-12-03.png", "./real/situacia/images/SO_101-00_2_A_2025-12-04.png", "./real/situacia/images/SO_101-00_2_A_2025-12-05.png", "./real/situacia/images/SO_101-00_2_A_2025-12-06.png", "./real/situacia/images/SO_101-00_2_A_2025-12-07.png", "./real/situacia/images/SO_101-00_2_A_2025-12-08.png", "./real/situacia/images/SO_101-00_2_A_2025-12-09.png", "./real/situacia/images/SO_101-00_2_A_2025-12-10.png", "./real/situacia/images/SO_101-00_2_A_2025-12-11.png", "./real/situacia/images/SO_101-00_2_A_2025-12-12.png", "./real/situacia/images/SO_101-00_2_A_2025-12-13.png", "./real/situacia/images/SO_101-00_2_A_2025-12-14.png", "./real/situacia/images/SO_101-00_2_A_2025-12-15.png", "./real/situacia/images/SO_101-00_2_A_2025-12-16.png", "./real/situacia/images/SO_101-00_2_A_2025-12-17.png", "./real/situacia/images/SO_101-00_2_A_2025-12-18.png", "./real/situacia/images/SO_101-00_2_A_2025-12-19.png", "./real/situacia/images/SO_101-00_2_A_2025-12-20.png", "./real/situacia/images/SO_101-00_2_A_2025-12-21.png", "./real/situacia/images/SO_101-00_2_A_2025-12-22.png", "./real/situacia/images/SO_101-00_2_A_2025-12-23.png", "./real/situacia/images/SO_101-00_2_A_2025-12-24.png", "./real/situacia/images/SO_101-00_2_A_2025-12-25.png", "./real/situacia/images/SO_101-00_2_A_2025-12-26.png", "./real/situacia/images/SO_101-00_2_A_2025-12-27.png", "./real/situacia/images/SO_101-00_2_A_2025-12-28.png", "./real/situacia/images/SO_101-00_2_A_2025-12-29.png", "./real/situacia/images/SO_101-00_2_A_2025-12-30.png", "./real/situacia/images/SO_101-00_2_A_2025-12-31.png", "./real/situacia/images/SO_101-00_2_A_2026-01-01.png", "./real/situacia/images/SO_101-00_2_A_2026-01-02.png", "./real/situacia/images/SO_101-00_2_A_2026-01-03.png", "./real/situacia/images/SO_101-00_2_A_2026-01-04.png", "./real/situacia/images/SO_101-00_2_A_2026-01-05.png", "./real/situacia/images/SO_101-00_2_A_2026-01-06.png", "./real/situacia/images/SO_101-00_2_A_2026-01-07.png", "./real/situacia/images/SO_101-00_2_A_2026-01-08.png", "./real/situacia/images/SO_101-00_2_A_2026-01-09.png", "./real/situacia/images/SO_101-00_2_A_2026-01-10.png", "./real/situacia/images/SO_101-00_2_A_2026-01-11.png", "./real/situacia/images/SO_101-00_2_A_2026-01-12.png", "./real/situacia/images/SO_101-00_2_A_2026-01-13.png", "./real/situacia/images/SO_101-00_2_A_2026-01-14.png", "./real/situacia/images/SO_101-00_2_A_2026-01-15.png", "./real/situacia/images/SO_101-00_2_A_2026-01-16.png", "./real/situacia/images/SO_101-00_2_A_2026-01-17.png", "./real/situacia/images/SO_101-00_2_A_2026-01-18.png", "./real/situacia/images/SO_101-00_2_A_2026-01-19.png", "./real/situacia/images/SO_101-00_2_A_2026-01-20.png", "./real/situacia/images/SO_101-00_2_A_2026-01-21.png", "./real/situacia/images/SO_101-00_2_A_2026-01-22.png", "./real/situacia/images/SO_101-00_2_A_2026-01-23.png", "./real/situacia/images/SO_101-00_2_A_2026-01-24.png", "./real/situacia/images/SO_101-00_2_A_2026-01-25.png", "./real/situacia/images/SO_101-00_2_A_2026-01-26.png", "./real/situacia/images/SO_101-00_2_A_2026-01-27.png", "./real/situacia/images/SO_101-00_2_A_2026-01-28.png", "./real/situacia/images/SO_101-00_2_A_2026-01-29.png", "./real/situacia/images/SO_101-00_2_A_2026-01-30.png", "./real/situacia/images/SO_101-00_2_A_2026-01-31.png", "./real/situacia/images/SO_101-00_2_A_2026-02-01.png", "./real/situacia/images/SO_101-00_2_A_2026-02-02.png", "./real/situacia/images/SO_101-00_2_A_2026-02-03.png", "./real/situacia/images/SO_101-00_2_A_2026-02-04.png", "./real/situacia/images/SO_101-00_2_A_2026-02-05.png", "./real/situacia/images/SO_101-00_2_A_2026-02-06.png", "./real/situacia/images/SO_101-00_2_A_2026-02-07.png", "./real/situacia/images/SO_101-00_2_A_2026-02-08.png"];
-        const totalFrames_tryskovka_situacia_images = 131;
-        const baseInterval_tryskovka_situacia_images = 300; // The baseline 300ms passed from python
-        const loopStartIdx_tryskovka_situacia_images = 128;
-        
-        let currentIdx_tryskovka_situacia_images = 0;
-        let isPlaying_tryskovka_situacia_images = false;
-        let isLoopingLast3_tryskovka_situacia_images = false;
-        let interval_tryskovka_situacia_images = null;
-        let isMouseOver_tryskovka_situacia_images = false;
-        let speedMultiplier_tryskovka_situacia_images = 1.0;
-
-        const wrapperEl = document.getElementById("player_wrapper_tryskovka_situacia_images");
-        const imgEl = document.getElementById("img_display_tryskovka_situacia_images");
-        const sliderEl = document.getElementById("slider_tryskovka_situacia_images");
-        const speedSelectEl = document.getElementById("speed_select_tryskovka_situacia_images");
-        
-        const btnPlay = document.getElementById("btn_play_tryskovka_situacia_images");
-        const playIconContainer = document.getElementById("play_icon_tryskovka_situacia_images");
-        const playTextContainer = document.getElementById("play_text_tryskovka_situacia_images");
-        const btnLoop3 = document.getElementById("btn_loop3_tryskovka_situacia_images");
-        
-        const btnFullscreen = document.getElementById("btn_fullscreen_tryskovka_situacia_images");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_tryskovka_situacia_images");
-        
-        const btnFirst = document.getElementById("btn_first_tryskovka_situacia_images");
-        const btnPrev = document.getElementById("btn_prev_tryskovka_situacia_images");
-        const btnNext = document.getElementById("btn_next_tryskovka_situacia_images");
-        const btnLast = document.getElementById("btn_last_tryskovka_situacia_images");
-
-        const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
-        const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
-        
-        const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
-        const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
-
-        function updatePlayer_tryskovka_situacia_images(idx) {
-            currentIdx_tryskovka_situacia_images = idx;
-            if(images_tryskovka_situacia_images[idx]) {
-                imgEl.src = images_tryskovka_situacia_images[idx];
-            }
-            sliderEl.value = idx;
-        }
-
-        // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_tryskovka_situacia_images() {
-            const activeInterval = baseInterval_tryskovka_situacia_images * speedMultiplier_tryskovka_situacia_images;
-            interval_tryskovka_situacia_images = setInterval(function() {
-                let nextIdx = currentIdx_tryskovka_situacia_images + 1;
-                
-                if (isLoopingLast3_tryskovka_situacia_images) {
-                    if (nextIdx >= totalFrames_tryskovka_situacia_images) {
-                        nextIdx = loopStartIdx_tryskovka_situacia_images;
-                    }
-                } else {
-                    if (nextIdx >= totalFrames_tryskovka_situacia_images) {
-                        nextIdx = 0;
-                    }
-                }
-                updatePlayer_tryskovka_situacia_images(nextIdx);
-            }, activeInterval);
-        }
-        function togglePlay_tryskovka_situacia_images() {
-            if(isPlaying_tryskovka_situacia_images) {
-                clearInterval(interval_tryskovka_situacia_images);
-                playIconContainer.innerHTML = svgPlay;
-                playTextContainer.textContent = "Play";
-                isPlaying_tryskovka_situacia_images = false;
-            } else {
-                playIconContainer.innerHTML = svgPause;
-                playTextContainer.textContent = "Pause";
-                isPlaying_tryskovka_situacia_images = true;
-                
-                // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_tryskovka_situacia_images && currentIdx_tryskovka_situacia_images < loopStartIdx_tryskovka_situacia_images) {
-                    updatePlayer_tryskovka_situacia_images(loopStartIdx_tryskovka_situacia_images);
-                }
-                startPlaybackLoop_tryskovka_situacia_images();
-            }
-        }
-
-        function pausePlayback_tryskovka_situacia_images() {
-            if(isPlaying_tryskovka_situacia_images) {
-                clearInterval(interval_tryskovka_situacia_images);
-                playIconContainer.innerHTML = svgPlay;
-                playTextContainer.textContent = "Play";
-                isPlaying_tryskovka_situacia_images = false;
-            }
-        }
-
-        function breakLoop3State_tryskovka_situacia_images() {
-            if (isLoopingLast3_tryskovka_situacia_images) {
-                isLoopingLast3_tryskovka_situacia_images = false;
-                btnLoop3.classList.remove("active");
-                btnLoop3.textContent = "🔄 Loop Last 3";
-            }
-        }
-
-        function toggleFullscreen_tryskovka_situacia_images() {
-            if (!document.fullscreenElement) {
-                if (wrapperEl.requestFullscreen) {
-                    wrapperEl.requestFullscreen();
-                } else if (wrapperEl.webkitRequestFullscreen) {
-                    wrapperEl.webkitRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
-
-        document.addEventListener('fullscreenchange', function() {
-            if (document.fullscreenElement === wrapperEl) {
-                fullscreenIconContainer.innerHTML = svgExitScreen;
-                wrapperEl.style.padding = "30px";
-            } else {
-                fullscreenIconContainer.innerHTML = svgNormalScreen;
-                wrapperEl.style.padding = "15px";
-            }
-        });
-
-        // Instantly load and display the last frame on page load
-        updatePlayer_tryskovka_situacia_images(totalFrames_tryskovka_situacia_images - 1);
-
-        // Slider Event
-        sliderEl.addEventListener("input", function(e) {
-            pausePlayback_tryskovka_situacia_images();
-            breakLoop3State_tryskovka_situacia_images();
-            updatePlayer_tryskovka_situacia_images(parseInt(e.target.value));
-        });
-
-        // Speed Change Event Handler
-        speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_tryskovka_situacia_images = parseFloat(e.target.value);
-            if (isPlaying_tryskovka_situacia_images) {
-                clearInterval(interval_tryskovka_situacia_images);
-                startPlaybackLoop_tryskovka_situacia_images();
-            }
-        });
-        btnPlay.addEventListener("click", togglePlay_tryskovka_situacia_images);
-        btnFullscreen.addEventListener("click", toggleFullscreen_tryskovka_situacia_images);
-
-        // 🔄 Loop Last 3 Button Handler
-        btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_tryskovka_situacia_images = !isLoopingLast3_tryskovka_situacia_images;
+        <script>
+        (function() {
+            const images_tryskovka_situacia_images = ["./real/situacia/images/SO_101-00_2_A_2025-10-01.png", "./real/situacia/images/SO_101-00_2_A_2025-10-02.png", "./real/situacia/images/SO_101-00_2_A_2025-10-03.png", "./real/situacia/images/SO_101-00_2_A_2025-10-04.png", "./real/situacia/images/SO_101-00_2_A_2025-10-05.png", "./real/situacia/images/SO_101-00_2_A_2025-10-06.png", "./real/situacia/images/SO_101-00_2_A_2025-10-07.png", "./real/situacia/images/SO_101-00_2_A_2025-10-08.png", "./real/situacia/images/SO_101-00_2_A_2025-10-09.png", "./real/situacia/images/SO_101-00_2_A_2025-10-10.png", "./real/situacia/images/SO_101-00_2_A_2025-10-11.png", "./real/situacia/images/SO_101-00_2_A_2025-10-12.png", "./real/situacia/images/SO_101-00_2_A_2025-10-13.png", "./real/situacia/images/SO_101-00_2_A_2025-10-14.png", "./real/situacia/images/SO_101-00_2_A_2025-10-15.png", "./real/situacia/images/SO_101-00_2_A_2025-10-16.png", "./real/situacia/images/SO_101-00_2_A_2025-10-17.png", "./real/situacia/images/SO_101-00_2_A_2025-10-18.png", "./real/situacia/images/SO_101-00_2_A_2025-10-19.png", "./real/situacia/images/SO_101-00_2_A_2025-10-20.png", "./real/situacia/images/SO_101-00_2_A_2025-10-21.png", "./real/situacia/images/SO_101-00_2_A_2025-10-22.png", "./real/situacia/images/SO_101-00_2_A_2025-10-23.png", "./real/situacia/images/SO_101-00_2_A_2025-10-24.png", "./real/situacia/images/SO_101-00_2_A_2025-10-25.png", "./real/situacia/images/SO_101-00_2_A_2025-10-26.png", "./real/situacia/images/SO_101-00_2_A_2025-10-27.png", "./real/situacia/images/SO_101-00_2_A_2025-10-28.png", "./real/situacia/images/SO_101-00_2_A_2025-10-29.png", "./real/situacia/images/SO_101-00_2_A_2025-10-30.png", "./real/situacia/images/SO_101-00_2_A_2025-10-31.png", "./real/situacia/images/SO_101-00_2_A_2025-11-01.png", "./real/situacia/images/SO_101-00_2_A_2025-11-02.png", "./real/situacia/images/SO_101-00_2_A_2025-11-03.png", "./real/situacia/images/SO_101-00_2_A_2025-11-04.png", "./real/situacia/images/SO_101-00_2_A_2025-11-05.png", "./real/situacia/images/SO_101-00_2_A_2025-11-06.png", "./real/situacia/images/SO_101-00_2_A_2025-11-07.png", "./real/situacia/images/SO_101-00_2_A_2025-11-08.png", "./real/situacia/images/SO_101-00_2_A_2025-11-09.png", "./real/situacia/images/SO_101-00_2_A_2025-11-10.png", "./real/situacia/images/SO_101-00_2_A_2025-11-11.png", "./real/situacia/images/SO_101-00_2_A_2025-11-12.png", "./real/situacia/images/SO_101-00_2_A_2025-11-13.png", "./real/situacia/images/SO_101-00_2_A_2025-11-14.png", "./real/situacia/images/SO_101-00_2_A_2025-11-15.png", "./real/situacia/images/SO_101-00_2_A_2025-11-16.png", "./real/situacia/images/SO_101-00_2_A_2025-11-17.png", "./real/situacia/images/SO_101-00_2_A_2025-11-18.png", "./real/situacia/images/SO_101-00_2_A_2025-11-19.png", "./real/situacia/images/SO_101-00_2_A_2025-11-20.png", "./real/situacia/images/SO_101-00_2_A_2025-11-21.png", "./real/situacia/images/SO_101-00_2_A_2025-11-22.png", "./real/situacia/images/SO_101-00_2_A_2025-11-23.png", "./real/situacia/images/SO_101-00_2_A_2025-11-24.png", "./real/situacia/images/SO_101-00_2_A_2025-11-25.png", "./real/situacia/images/SO_101-00_2_A_2025-11-26.png", "./real/situacia/images/SO_101-00_2_A_2025-11-27.png", "./real/situacia/images/SO_101-00_2_A_2025-11-28.png", "./real/situacia/images/SO_101-00_2_A_2025-11-29.png", "./real/situacia/images/SO_101-00_2_A_2025-11-30.png", "./real/situacia/images/SO_101-00_2_A_2025-12-01.png", "./real/situacia/images/SO_101-00_2_A_2025-12-02.png", "./real/situacia/images/SO_101-00_2_A_2025-12-03.png", "./real/situacia/images/SO_101-00_2_A_2025-12-04.png", "./real/situacia/images/SO_101-00_2_A_2025-12-05.png", "./real/situacia/images/SO_101-00_2_A_2025-12-06.png", "./real/situacia/images/SO_101-00_2_A_2025-12-07.png", "./real/situacia/images/SO_101-00_2_A_2025-12-08.png", "./real/situacia/images/SO_101-00_2_A_2025-12-09.png", "./real/situacia/images/SO_101-00_2_A_2025-12-10.png", "./real/situacia/images/SO_101-00_2_A_2025-12-11.png", "./real/situacia/images/SO_101-00_2_A_2025-12-12.png", "./real/situacia/images/SO_101-00_2_A_2025-12-13.png", "./real/situacia/images/SO_101-00_2_A_2025-12-14.png", "./real/situacia/images/SO_101-00_2_A_2025-12-15.png", "./real/situacia/images/SO_101-00_2_A_2025-12-16.png", "./real/situacia/images/SO_101-00_2_A_2025-12-17.png", "./real/situacia/images/SO_101-00_2_A_2025-12-18.png", "./real/situacia/images/SO_101-00_2_A_2025-12-19.png", "./real/situacia/images/SO_101-00_2_A_2025-12-20.png", "./real/situacia/images/SO_101-00_2_A_2025-12-21.png", "./real/situacia/images/SO_101-00_2_A_2025-12-22.png", "./real/situacia/images/SO_101-00_2_A_2025-12-23.png", "./real/situacia/images/SO_101-00_2_A_2025-12-24.png", "./real/situacia/images/SO_101-00_2_A_2025-12-25.png", "./real/situacia/images/SO_101-00_2_A_2025-12-26.png", "./real/situacia/images/SO_101-00_2_A_2025-12-27.png", "./real/situacia/images/SO_101-00_2_A_2025-12-28.png", "./real/situacia/images/SO_101-00_2_A_2025-12-29.png", "./real/situacia/images/SO_101-00_2_A_2025-12-30.png", "./real/situacia/images/SO_101-00_2_A_2025-12-31.png", "./real/situacia/images/SO_101-00_2_A_2026-01-01.png", "./real/situacia/images/SO_101-00_2_A_2026-01-02.png", "./real/situacia/images/SO_101-00_2_A_2026-01-03.png", "./real/situacia/images/SO_101-00_2_A_2026-01-04.png", "./real/situacia/images/SO_101-00_2_A_2026-01-05.png", "./real/situacia/images/SO_101-00_2_A_2026-01-06.png", "./real/situacia/images/SO_101-00_2_A_2026-01-07.png", "./real/situacia/images/SO_101-00_2_A_2026-01-08.png", "./real/situacia/images/SO_101-00_2_A_2026-01-09.png", "./real/situacia/images/SO_101-00_2_A_2026-01-10.png", "./real/situacia/images/SO_101-00_2_A_2026-01-11.png", "./real/situacia/images/SO_101-00_2_A_2026-01-12.png", "./real/situacia/images/SO_101-00_2_A_2026-01-13.png", "./real/situacia/images/SO_101-00_2_A_2026-01-14.png", "./real/situacia/images/SO_101-00_2_A_2026-01-15.png", "./real/situacia/images/SO_101-00_2_A_2026-01-16.png", "./real/situacia/images/SO_101-00_2_A_2026-01-17.png", "./real/situacia/images/SO_101-00_2_A_2026-01-18.png", "./real/situacia/images/SO_101-00_2_A_2026-01-19.png", "./real/situacia/images/SO_101-00_2_A_2026-01-20.png", "./real/situacia/images/SO_101-00_2_A_2026-01-21.png", "./real/situacia/images/SO_101-00_2_A_2026-01-22.png", "./real/situacia/images/SO_101-00_2_A_2026-01-23.png", "./real/situacia/images/SO_101-00_2_A_2026-01-24.png", "./real/situacia/images/SO_101-00_2_A_2026-01-25.png", "./real/situacia/images/SO_101-00_2_A_2026-01-26.png", "./real/situacia/images/SO_101-00_2_A_2026-01-27.png", "./real/situacia/images/SO_101-00_2_A_2026-01-28.png", "./real/situacia/images/SO_101-00_2_A_2026-01-29.png", "./real/situacia/images/SO_101-00_2_A_2026-01-30.png", "./real/situacia/images/SO_101-00_2_A_2026-01-31.png", "./real/situacia/images/SO_101-00_2_A_2026-02-01.png", "./real/situacia/images/SO_101-00_2_A_2026-02-02.png", "./real/situacia/images/SO_101-00_2_A_2026-02-03.png", "./real/situacia/images/SO_101-00_2_A_2026-02-04.png", "./real/situacia/images/SO_101-00_2_A_2026-02-05.png", "./real/situacia/images/SO_101-00_2_A_2026-02-06.png", "./real/situacia/images/SO_101-00_2_A_2026-02-07.png", "./real/situacia/images/SO_101-00_2_A_2026-02-08.png"];
+            const totalFrames_tryskovka_situacia_images = 131;
+            const baseInterval_tryskovka_situacia_images = 300; // The baseline 300ms passed from python
+            const loopStartIdx_tryskovka_situacia_images = 128;
             
-            if (isLoopingLast3_tryskovka_situacia_images) {
-                btnLoop3.classList.add("active");
-                btnLoop3.textContent = "Stop Loop";
-                
-                // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_tryskovka_situacia_images < loopStartIdx_tryskovka_situacia_images) {
-                    updatePlayer_tryskovka_situacia_images(totalFrames_tryskovka_situacia_images - 1);
+            let currentIdx_tryskovka_situacia_images = 0;
+            let isPlaying_tryskovka_situacia_images = false;
+            let isLoopingLast3_tryskovka_situacia_images = false;
+            let interval_tryskovka_situacia_images = null;
+            let isMouseOver_tryskovka_situacia_images = false;
+            let speedMultiplier_tryskovka_situacia_images = 1.0;
+
+            const wrapperEl = document.getElementById("player_wrapper_tryskovka_situacia_images");
+            const imgEl = document.getElementById("img_display_tryskovka_situacia_images");
+            const sliderEl = document.getElementById("slider_tryskovka_situacia_images");
+            const speedSelectEl = document.getElementById("speed_select_tryskovka_situacia_images");
+            
+            const btnPlay = document.getElementById("btn_play_tryskovka_situacia_images");
+            const playIconContainer = document.getElementById("play_icon_tryskovka_situacia_images");
+            const playTextContainer = document.getElementById("play_text_tryskovka_situacia_images");
+            const btnLoop3 = document.getElementById("btn_loop3_tryskovka_situacia_images");
+            const btnDownload = document.getElementById("btn_download_tryskovka_situacia_images");
+            
+            const btnFullscreen = document.getElementById("btn_fullscreen_tryskovka_situacia_images");
+            const fullscreenIconContainer = document.getElementById("fullscreen_icon_tryskovka_situacia_images");
+            
+            const btnFirst = document.getElementById("btn_first_tryskovka_situacia_images");
+            const btnPrev = document.getElementById("btn_prev_tryskovka_situacia_images");
+            const btnNext = document.getElementById("btn_next_tryskovka_situacia_images");
+            const btnLast = document.getElementById("btn_last_tryskovka_situacia_images");
+
+            const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
+            const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
+            
+            const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
+            const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
+
+            function updatePlayer_tryskovka_situacia_images(idx) {
+                currentIdx_tryskovka_situacia_images = idx;
+                if(images_tryskovka_situacia_images[idx]) {
+                    imgEl.src = images_tryskovka_situacia_images[idx];
                 }
-                
-                // Force playback start if paused
-                if (!isPlaying_tryskovka_situacia_images) {
-                    togglePlay_tryskovka_situacia_images();
+                sliderEl.value = idx;
+            }
+
+            function startPlaybackLoop_tryskovka_situacia_images() {
+                const activeInterval = baseInterval_tryskovka_situacia_images * speedMultiplier_tryskovka_situacia_images;
+                interval_tryskovka_situacia_images = setInterval(function() {
+                    let nextIdx = currentIdx_tryskovka_situacia_images + 1;
+                    
+                    if (isLoopingLast3_tryskovka_situacia_images) {
+                        if (nextIdx >= totalFrames_tryskovka_situacia_images) {
+                            nextIdx = loopStartIdx_tryskovka_situacia_images;
+                        }
+                    } else {
+                        if (nextIdx >= totalFrames_tryskovka_situacia_images) {
+                            nextIdx = 0;
+                        }
+                    }
+                    updatePlayer_tryskovka_situacia_images(nextIdx);
+                }, activeInterval);
+            }
+
+            function togglePlay_tryskovka_situacia_images() {
+                if(isPlaying_tryskovka_situacia_images) {
+                    clearInterval(interval_tryskovka_situacia_images);
+                    playIconContainer.innerHTML = svgPlay;
+                    playTextContainer.textContent = "Play";
+                    isPlaying_tryskovka_situacia_images = false;
                 } else {
-                    // Reset interval to snap parameters immediately
+                    playIconContainer.innerHTML = svgPause;
+                    playTextContainer.textContent = "Pause";
+                    isPlaying_tryskovka_situacia_images = true;
+                    
+                    if (isLoopingLast3_tryskovka_situacia_images && currentIdx_tryskovka_situacia_images < loopStartIdx_tryskovka_situacia_images) {
+                        updatePlayer_tryskovka_situacia_images(loopStartIdx_tryskovka_situacia_images);
+                    }
+                    startPlaybackLoop_tryskovka_situacia_images();
+                }
+            }
+
+            function pausePlayback_tryskovka_situacia_images() {
+                if(isPlaying_tryskovka_situacia_images) {
+                    clearInterval(interval_tryskovka_situacia_images);
+                    playIconContainer.innerHTML = svgPlay;
+                    playTextContainer.textContent = "Play";
+                    isPlaying_tryskovka_situacia_images = false;
+                }
+            }
+
+            function breakLoop3State_tryskovka_situacia_images() {
+                if (isLoopingLast3_tryskovka_situacia_images) {
+                    isLoopingLast3_tryskovka_situacia_images = false;
+                    btnLoop3.classList.remove("active");
+                    btnLoop3.textContent = "🔄 Loop Last 3";
+                }
+            }
+
+            function toggleFullscreen_tryskovka_situacia_images() {
+                if (!document.fullscreenElement) {
+                    if (wrapperEl.requestFullscreen) {
+                        wrapperEl.requestFullscreen();
+                    } else if (wrapperEl.webkitRequestFullscreen) {
+                        wrapperEl.webkitRequestFullscreen();
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            }
+
+            document.addEventListener('fullscreenchange', function() {
+                if (document.fullscreenElement === wrapperEl) {
+                    fullscreenIconContainer.innerHTML = svgExitScreen;
+                    wrapperEl.style.padding = "30px";
+                } else {
+                    fullscreenIconContainer.innerHTML = svgNormalScreen;
+                    wrapperEl.style.padding = "15px";
+                }
+            });
+
+                        // Instantly load and display the last frame on page load
+            updatePlayer_tryskovka_situacia_images(totalFrames_tryskovka_situacia_images - 1);
+
+            // Slider Event
+            sliderEl.addEventListener("input", function(e) {
+                pausePlayback_tryskovka_situacia_images();
+                breakLoop3State_tryskovka_situacia_images();
+                updatePlayer_tryskovka_situacia_images(parseInt(e.target.value));
+            });
+
+            // Speed Change Event Handler
+            speedSelectEl.addEventListener("change", function(e) {
+                speedMultiplier_tryskovka_situacia_images = parseFloat(e.target.value);
+                if (isPlaying_tryskovka_situacia_images) {
                     clearInterval(interval_tryskovka_situacia_images);
                     startPlaybackLoop_tryskovka_situacia_images();
                 }
-            } else {
-                btnLoop3.classList.remove("active");
-                btnLoop3.textContent = "🔄 Loop Last 3";
+            });
+
+            btnPlay.addEventListener("click", togglePlay_tryskovka_situacia_images);
+            btnFullscreen.addEventListener("click", toggleFullscreen_tryskovka_situacia_images);
+
+            // 🔄 Loop Last 3 Button Handler
+            btnLoop3.addEventListener("click", function() {
+                isLoopingLast3_tryskovka_situacia_images = !isLoopingLast3_tryskovka_situacia_images;
+                
+                if (isLoopingLast3_tryskovka_situacia_images) {
+                    btnLoop3.classList.add("active");
+                    btnLoop3.textContent = "Stop Loop";
+                    
+                    if (currentIdx_tryskovka_situacia_images < loopStartIdx_tryskovka_situacia_images) {
+                        updatePlayer_tryskovka_situacia_images(totalFrames_tryskovka_situacia_images - 1);
+                    }
+                    
+                    if (!isPlaying_tryskovka_situacia_images) {
+                        togglePlay_tryskovka_situacia_images();
+                    } else {
+                        clearInterval(interval_tryskovka_situacia_images);
+                        startPlaybackLoop_tryskovka_situacia_images();
+                    }
+                } else {
+                    btnLoop3.classList.remove("active");
+                    btnLoop3.textContent = "🔄 Loop Last 3";
+                    pausePlayback_tryskovka_situacia_images();
+                }
+            });
+
+            // 📥 Single ZIP Download Handler
+            btnDownload.addEventListener("click", async function() {
+                if (!images_tryskovka_situacia_images || images_tryskovka_situacia_images.length === 0) {
+                    alert("No source imagery located for this dataset.");
+                    return;
+                }
+
+                const originalText = btnDownload.innerHTML;
+                btnDownload.style.pointerEvents = "none";
+
+                try {
+                    const zip = new JSZip();
+                    let completedCount = 0;
+
+                    btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_tryskovka_situacia_images})...`;
+                    
+                    const downloadPromises = images_tryskovka_situacia_images.map(async (url, index) => {
+                        const response = await fetch(url);
+                        if (!response.ok) throw new Error("Failed to fetch image");
+                        const blob = await response.blob();
+                        
+                        let fileName = url.split('/').pop().split('?')[0];
+                        if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
+                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                        }
+                        
+                        zip.file(fileName, blob);
+                        
+                        completedCount++;
+                        btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_tryskovka_situacia_images})...`;
+                    });
+
+                    await Promise.all(downloadPromises);
+
+                    btnDownload.innerHTML = "📦 Finalizing Zip...";
+                    const content = await zip.generateAsync({ type: "blob" });
+                    
+                    const a = document.createElement("a");
+                    a.href = URL.createObjectURL(content);
+                    a.download = "player_set_" + player_id + ".zip";
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(a.href);
+
+                } catch (error) {
+                    console.error(error);
+                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                } finally {
+                    btnDownload.innerHTML = originalText;
+                    btnDownload.style.pointerEvents = "auto";
+                }
+            });
+
+            btnFirst.addEventListener("click", function() { pausePlayback_tryskovka_situacia_images(); breakLoop3State_tryskovka_situacia_images(); updatePlayer_tryskovka_situacia_images(0); });
+            btnLast.addEventListener("click", function() { pausePlayback_tryskovka_situacia_images(); breakLoop3State_tryskovka_situacia_images(); updatePlayer_tryskovka_situacia_images(totalFrames_tryskovka_situacia_images - 1); });
+            
+            btnPrev.addEventListener("click", function() {
                 pausePlayback_tryskovka_situacia_images();
-            }
-        });
+                breakLoop3State_tryskovka_situacia_images();
+                let prevIdx = currentIdx_tryskovka_situacia_images - 1;
+                if (prevIdx < 0) prevIdx = totalFrames_tryskovka_situacia_images - 1;
+                updatePlayer_tryskovka_situacia_images(prevIdx);
+            });
 
-        btnFirst.addEventListener("click", function() { pausePlayback_tryskovka_situacia_images(); breakLoop3State_tryskovka_situacia_images(); updatePlayer_tryskovka_situacia_images(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_tryskovka_situacia_images(); breakLoop3State_tryskovka_situacia_images(); updatePlayer_tryskovka_situacia_images(totalFrames_tryskovka_situacia_images - 1); });
-        
-        btnPrev.addEventListener("click", function() {
-            pausePlayback_tryskovka_situacia_images();
-            breakLoop3State_tryskovka_situacia_images();
-            let prevIdx = currentIdx_tryskovka_situacia_images - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_tryskovka_situacia_images - 1;
-            updatePlayer_tryskovka_situacia_images(prevIdx);
-        });
+            btnNext.addEventListener("click", function() {
+                pausePlayback_tryskovka_situacia_images();
+                breakLoop3State_tryskovka_situacia_images();
+                let nextIdx = (currentIdx_tryskovka_situacia_images + 1) % totalFrames_tryskovka_situacia_images;
+                updatePlayer_tryskovka_situacia_images(nextIdx);
+            });
 
-        btnNext.addEventListener("click", function() {
-            pausePlayback_tryskovka_situacia_images();
-            breakLoop3State_tryskovka_situacia_images();
-            let nextIdx = (currentIdx_tryskovka_situacia_images + 1) % totalFrames_tryskovka_situacia_images;
-            updatePlayer_tryskovka_situacia_images(nextIdx);
-        });
+            wrapperEl.addEventListener("mouseenter", function() { isMouseOver_tryskovka_situacia_images = true; });
+            wrapperEl.addEventListener("mouseleave", function() { isMouseOver_tryskovka_situacia_images = false; });
 
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_tryskovka_situacia_images = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_tryskovka_situacia_images = false; });
+            window.addEventListener("keydown", function(e) {
+                if (!isMouseOver_tryskovka_situacia_images) return;
 
-        window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_tryskovka_situacia_images) return;
-
-            switch(e.key) {
-                case "ArrowLeft":
-                    e.preventDefault();
-                    btnPrev.click();
-                    break;
-                case "ArrowRight":
-                    e.preventDefault();
-                    btnNext.click();
-                    break;
-                case " ":
-                    e.preventDefault();
-                    btnPlay.click();
-                    break;
-                case "Home":
-                    e.preventDefault();
-                    btnFirst.click();
-                    break;
-                case "End":
-                    e.preventDefault();
-                    btnLast.click();
-                    break;
-                case "f":
-                case "F":
-                    e.preventDefault();
-                    btnFullscreen.click();
-                    break;
-                case "l":
-                case "L":
-                    e.preventDefault();
-                    e.stopPropagation();
-                    btnLoop3.click();
-                    break;
-            }
-        });
-    })();
-    </script>
+                switch(e.key) {
+                    case "ArrowLeft":
+                        e.preventDefault();
+                        btnPrev.click();
+                        break;
+                    case "ArrowRight":
+                        e.preventDefault();
+                        btnNext.click();
+                        break;
+                    case " ":
+                        e.preventDefault();
+                        btnPlay.click();
+                        break;
+                    case "Home":
+                        e.preventDefault();
+                        btnFirst.click();
+                        break;
+                    case "End":
+                        e.preventDefault();
+                        btnLast.click();
+                        break;
+                    case "f":
+                    case "F":
+                        e.preventDefault();
+                        btnFullscreen.click();
+                        break;
+                    case "l":
+                    case "L":
+                        e.preventDefault();
+                        e.stopPropagation();
+                        btnLoop3.click();
+                        break;
+                }
+            });
+        })();
+        </script>
     
 
 

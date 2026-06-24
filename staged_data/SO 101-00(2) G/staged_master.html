@@ -526,7 +526,7 @@ ul.task-list li input[type="checkbox"] {
         border-radius: 4px; 
         cursor: pointer;
         transition: background-color 0.15s ease;
-        font-family: 'monospace',
+        font-family: 'monospace';
         font-size: 12px;
     }
     #player_wrapper_so_101_00_2__g_iv_s74_tot .btn-nav {
@@ -555,6 +555,14 @@ ul.task-list li input[type="checkbox"] {
     #player_wrapper_so_101_00_2__g_iv_s74_tot .btn-loop3.active {
         background-color: #dc3545 !important;
     }
+    #player_wrapper_so_101_00_2__g_iv_s74_tot .btn-download {
+        background-color: #198754;
+        padding: 0 12px;
+        font-weight: bold;
+    }
+    #player_wrapper_so_101_00_2__g_iv_s74_tot .btn-download:hover {
+        filter: brightness(1.15);
+    }
     #player_wrapper_so_101_00_2__g_iv_s74_tot .speed-selector {
         background-color: #444444;
         color: #ffffff;
@@ -576,6 +584,29 @@ ul.task-list li input[type="checkbox"] {
         height: 6px;
         accent-color: #0d6efd; 
     }
+    
+    /* ⌨️ HINT BAR BOX DESIGN */
+    #player_wrapper_so_101_00_2__g_iv_s74_tot .shortcut-hints {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+        padding-top: 12px;
+        border-top: 1px solid #3a3a3a;
+        color: #888888;
+        font-size: 11px;
+        font-family: sans-serif;
+    }
+    #player_wrapper_so_101_00_2__g_iv_s74_tot .shortcut-hints kbd {
+        background: #333;
+        color: #eee;
+        padding: 2px 5px;
+        border-radius: 3px;
+        border: 1px solid #555;
+        font-family: monospace;
+        font-size: 10px;
+    }
 
     /* NATIVE FULLSCREEN LAYOUT FIXES */
     #player_wrapper_so_101_00_2__g_iv_s74_tot:fullscreen {
@@ -590,12 +621,15 @@ ul.task-list li input[type="checkbox"] {
         margin-bottom: 20px !important;
     }
     #player_wrapper_so_101_00_2__g_iv_s74_tot:fullscreen #img_display_so_101_00_2__g_iv_s74_tot {
-        max-height: calc(100vh - 120px) !important; 
+        max-height: calc(100vh - 160px) !important; 
         width: auto !important;
+    }
+    #player_wrapper_so_101_00_2__g_iv_s74_tot:fullscreen .shortcut-hints {
+        color: #666;
     }
     </style>
 
-        <!-- 🏗️ HTML STRUCTURE -->
+    <!-- 🏗️ HTML STRUCTURE -->
     <div id="player_wrapper_so_101_00_2__g_iv_s74_tot">
         <div class="image-container">
             <img id="img_display_so_101_00_2__g_iv_s74_tot" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
@@ -627,11 +661,11 @@ ul.task-list li input[type="checkbox"] {
             </button>
 
             <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_so_101_00_2__g_iv_s74_tot" class="player-btn btn-loop3" title="Loop last 3 frames">
+            <button id="btn_loop3_so_101_00_2__g_iv_s74_tot" class="player-btn btn-loop3" title="Loop last 3 frames (L)">
                 🔄 Last 3 Measurements
             </button>
 
-            <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
+            <!-- 🛠️ SPEED DROPDOWN CONTROLLER -->
             <select id="speed_select_so_101_00_2__g_iv_s74_tot" class="speed-selector" title="Playback Speed">
                 <option value="2.0">0.5x</option>
                 <option value="1.5">0.75x</option>
@@ -639,6 +673,11 @@ ul.task-list li input[type="checkbox"] {
                 <option value="0.5">2.0x</option>
                 <option value="0.25">4.0x</option>
             </select>
+
+            <!-- 📥 DOWNLOAD BUTTON -->
+            <button id="btn_download_so_101_00_2__g_iv_s74_tot" class="player-btn btn-download" title="Download all frames as individual PNG files">
+                📥 Save Set
+            </button>
 
             <!-- Fullscreen Command -->
             <button id="btn_fullscreen_so_101_00_2__g_iv_s74_tot" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
@@ -657,241 +696,308 @@ ul.task-list li input[type="checkbox"] {
                 </button>
             </div>
         </div>
+
+        <!-- ⌨️ DYNAMIC SHORTCUT HUD PANEL (Hover context hints) -->
+        <div class="shortcut-hints">
+            <span>💡 Hover window to use hotkeys:</span>
+            <span><kbd>Space</kbd> Play/Pause</span>
+            <span><kbd>←</kbd> / <kbd>→</kbd> Prev / Next</span>
+            <span><kbd>L</kbd> Loop 3</span>
+            <span><kbd>F</kbd> Fullscreen</span>
+            <span><kbd>Home</kbd> / <kbd>End</kbd> Start / Final</span>
+        </div>
     </div>
+   
+    <!-- Include JSZip Library for client-side zipping -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
     <!-- 🧠 JAVASCRIPT LOGIC -->
-    <script>
-    (function() {
-        const images_so_101_00_2__g_iv_s74_tot = ["./ink/IV-S74/tot/IV-S74_01.png", "./ink/IV-S74/tot/IV-S74_02.png", "./ink/IV-S74/tot/IV-S74_03.png", "./ink/IV-S74/tot/IV-S74_04.png", "./ink/IV-S74/tot/IV-S74_05.png", "./ink/IV-S74/tot/IV-S74_06.png", "./ink/IV-S74/tot/IV-S74_07.png", "./ink/IV-S74/tot/IV-S74_08.png", "./ink/IV-S74/tot/IV-S74_09.png", "./ink/IV-S74/tot/IV-S74_10.png", "./ink/IV-S74/tot/IV-S74_11.png", "./ink/IV-S74/tot/IV-S74_12.png", "./ink/IV-S74/tot/IV-S74_13.png", "./ink/IV-S74/tot/IV-S74_14.png", "./ink/IV-S74/tot/IV-S74_15.png", "./ink/IV-S74/tot/IV-S74_16.png", "./ink/IV-S74/tot/IV-S74_17.png", "./ink/IV-S74/tot/IV-S74_18.png", "./ink/IV-S74/tot/IV-S74_19.png", "./ink/IV-S74/tot/IV-S74_20.png", "./ink/IV-S74/tot/IV-S74_21.png", "./ink/IV-S74/tot/IV-S74_22.png", "./ink/IV-S74/tot/IV-S74_23.png", "./ink/IV-S74/tot/IV-S74_24.png", "./ink/IV-S74/tot/IV-S74_25.png", "./ink/IV-S74/tot/IV-S74_26.png", "./ink/IV-S74/tot/IV-S74_27.png", "./ink/IV-S74/tot/IV-S74_28.png", "./ink/IV-S74/tot/IV-S74_29.png", "./ink/IV-S74/tot/IV-S74_30.png", "./ink/IV-S74/tot/IV-S74_31.png", "./ink/IV-S74/tot/IV-S74_32.png", "./ink/IV-S74/tot/IV-S74_33.png", "./ink/IV-S74/tot/IV-S74_34.png", "./ink/IV-S74/tot/IV-S74_35.png", "./ink/IV-S74/tot/IV-S74_36.png", "./ink/IV-S74/tot/IV-S74_37.png", "./ink/IV-S74/tot/IV-S74_38.png", "./ink/IV-S74/tot/IV-S74_39.png", "./ink/IV-S74/tot/IV-S74_40.png", "./ink/IV-S74/tot/IV-S74_41.png", "./ink/IV-S74/tot/IV-S74_42.png", "./ink/IV-S74/tot/IV-S74_43.png", "./ink/IV-S74/tot/IV-S74_44.png", "./ink/IV-S74/tot/IV-S74_45.png", "./ink/IV-S74/tot/IV-S74_46.png", "./ink/IV-S74/tot/IV-S74_47.png", "./ink/IV-S74/tot/IV-S74_48.png", "./ink/IV-S74/tot/IV-S74_49.png", "./ink/IV-S74/tot/IV-S74_50.png", "./ink/IV-S74/tot/IV-S74_51.png", "./ink/IV-S74/tot/IV-S74_52.png", "./ink/IV-S74/tot/IV-S74_53.png", "./ink/IV-S74/tot/IV-S74_54.png", "./ink/IV-S74/tot/IV-S74_55.png", "./ink/IV-S74/tot/IV-S74_56.png", "./ink/IV-S74/tot/IV-S74_57.png", "./ink/IV-S74/tot/IV-S74_58.png", "./ink/IV-S74/tot/IV-S74_59.png", "./ink/IV-S74/tot/IV-S74_60.png", "./ink/IV-S74/tot/IV-S74_61.png", "./ink/IV-S74/tot/IV-S74_62.png", "./ink/IV-S74/tot/IV-S74_63.png", "./ink/IV-S74/tot/IV-S74_64.png", "./ink/IV-S74/tot/IV-S74_65.png", "./ink/IV-S74/tot/IV-S74_66.png", "./ink/IV-S74/tot/IV-S74_67.png", "./ink/IV-S74/tot/IV-S74_68.png", "./ink/IV-S74/tot/IV-S74_69.png", "./ink/IV-S74/tot/IV-S74_70.png"];
-        const totalFrames_so_101_00_2__g_iv_s74_tot = 70;
-        const baseInterval_so_101_00_2__g_iv_s74_tot = 300; // The baseline 300ms passed from python
-        const loopStartIdx_so_101_00_2__g_iv_s74_tot = 67;
-        
-        let currentIdx_so_101_00_2__g_iv_s74_tot = 0;
-        let isPlaying_so_101_00_2__g_iv_s74_tot = false;
-        let isLoopingLast3_so_101_00_2__g_iv_s74_tot = false;
-        let interval_so_101_00_2__g_iv_s74_tot = null;
-        let isMouseOver_so_101_00_2__g_iv_s74_tot = false;
-        let speedMultiplier_so_101_00_2__g_iv_s74_tot = 1.0;
-
-        const wrapperEl = document.getElementById("player_wrapper_so_101_00_2__g_iv_s74_tot");
-        const imgEl = document.getElementById("img_display_so_101_00_2__g_iv_s74_tot");
-        const sliderEl = document.getElementById("slider_so_101_00_2__g_iv_s74_tot");
-        const speedSelectEl = document.getElementById("speed_select_so_101_00_2__g_iv_s74_tot");
-        
-        const btnPlay = document.getElementById("btn_play_so_101_00_2__g_iv_s74_tot");
-        const playIconContainer = document.getElementById("play_icon_so_101_00_2__g_iv_s74_tot");
-        const playTextContainer = document.getElementById("play_text_so_101_00_2__g_iv_s74_tot");
-        const btnLoop3 = document.getElementById("btn_loop3_so_101_00_2__g_iv_s74_tot");
-        
-        const btnFullscreen = document.getElementById("btn_fullscreen_so_101_00_2__g_iv_s74_tot");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_so_101_00_2__g_iv_s74_tot");
-        
-        const btnFirst = document.getElementById("btn_first_so_101_00_2__g_iv_s74_tot");
-        const btnPrev = document.getElementById("btn_prev_so_101_00_2__g_iv_s74_tot");
-        const btnNext = document.getElementById("btn_next_so_101_00_2__g_iv_s74_tot");
-        const btnLast = document.getElementById("btn_last_so_101_00_2__g_iv_s74_tot");
-
-        const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
-        const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
-        
-        const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
-        const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
-
-        function updatePlayer_so_101_00_2__g_iv_s74_tot(idx) {
-            currentIdx_so_101_00_2__g_iv_s74_tot = idx;
-            if(images_so_101_00_2__g_iv_s74_tot[idx]) {
-                imgEl.src = images_so_101_00_2__g_iv_s74_tot[idx];
-            }
-            sliderEl.value = idx;
-        }
-
-        // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_so_101_00_2__g_iv_s74_tot() {
-            const activeInterval = baseInterval_so_101_00_2__g_iv_s74_tot * speedMultiplier_so_101_00_2__g_iv_s74_tot;
-            interval_so_101_00_2__g_iv_s74_tot = setInterval(function() {
-                let nextIdx = currentIdx_so_101_00_2__g_iv_s74_tot + 1;
-                
-                if (isLoopingLast3_so_101_00_2__g_iv_s74_tot) {
-                    if (nextIdx >= totalFrames_so_101_00_2__g_iv_s74_tot) {
-                        nextIdx = loopStartIdx_so_101_00_2__g_iv_s74_tot;
-                    }
-                } else {
-                    if (nextIdx >= totalFrames_so_101_00_2__g_iv_s74_tot) {
-                        nextIdx = 0;
-                    }
-                }
-                updatePlayer_so_101_00_2__g_iv_s74_tot(nextIdx);
-            }, activeInterval);
-        }
-        function togglePlay_so_101_00_2__g_iv_s74_tot() {
-            if(isPlaying_so_101_00_2__g_iv_s74_tot) {
-                clearInterval(interval_so_101_00_2__g_iv_s74_tot);
-                playIconContainer.innerHTML = svgPlay;
-                playTextContainer.textContent = "Play";
-                isPlaying_so_101_00_2__g_iv_s74_tot = false;
-            } else {
-                playIconContainer.innerHTML = svgPause;
-                playTextContainer.textContent = "Pause";
-                isPlaying_so_101_00_2__g_iv_s74_tot = true;
-                
-                // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_so_101_00_2__g_iv_s74_tot && currentIdx_so_101_00_2__g_iv_s74_tot < loopStartIdx_so_101_00_2__g_iv_s74_tot) {
-                    updatePlayer_so_101_00_2__g_iv_s74_tot(loopStartIdx_so_101_00_2__g_iv_s74_tot);
-                }
-                startPlaybackLoop_so_101_00_2__g_iv_s74_tot();
-            }
-        }
-
-        function pausePlayback_so_101_00_2__g_iv_s74_tot() {
-            if(isPlaying_so_101_00_2__g_iv_s74_tot) {
-                clearInterval(interval_so_101_00_2__g_iv_s74_tot);
-                playIconContainer.innerHTML = svgPlay;
-                playTextContainer.textContent = "Play";
-                isPlaying_so_101_00_2__g_iv_s74_tot = false;
-            }
-        }
-
-        function breakLoop3State_so_101_00_2__g_iv_s74_tot() {
-            if (isLoopingLast3_so_101_00_2__g_iv_s74_tot) {
-                isLoopingLast3_so_101_00_2__g_iv_s74_tot = false;
-                btnLoop3.classList.remove("active");
-                btnLoop3.textContent = "🔄 Loop Last 3";
-            }
-        }
-
-        function toggleFullscreen_so_101_00_2__g_iv_s74_tot() {
-            if (!document.fullscreenElement) {
-                if (wrapperEl.requestFullscreen) {
-                    wrapperEl.requestFullscreen();
-                } else if (wrapperEl.webkitRequestFullscreen) {
-                    wrapperEl.webkitRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
-
-        document.addEventListener('fullscreenchange', function() {
-            if (document.fullscreenElement === wrapperEl) {
-                fullscreenIconContainer.innerHTML = svgExitScreen;
-                wrapperEl.style.padding = "30px";
-            } else {
-                fullscreenIconContainer.innerHTML = svgNormalScreen;
-                wrapperEl.style.padding = "15px";
-            }
-        });
-
-        // Instantly load and display the last frame on page load
-        updatePlayer_so_101_00_2__g_iv_s74_tot(totalFrames_so_101_00_2__g_iv_s74_tot - 1);
-
-        // Slider Event
-        sliderEl.addEventListener("input", function(e) {
-            pausePlayback_so_101_00_2__g_iv_s74_tot();
-            breakLoop3State_so_101_00_2__g_iv_s74_tot();
-            updatePlayer_so_101_00_2__g_iv_s74_tot(parseInt(e.target.value));
-        });
-
-        // Speed Change Event Handler
-        speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_so_101_00_2__g_iv_s74_tot = parseFloat(e.target.value);
-            if (isPlaying_so_101_00_2__g_iv_s74_tot) {
-                clearInterval(interval_so_101_00_2__g_iv_s74_tot);
-                startPlaybackLoop_so_101_00_2__g_iv_s74_tot();
-            }
-        });
-        btnPlay.addEventListener("click", togglePlay_so_101_00_2__g_iv_s74_tot);
-        btnFullscreen.addEventListener("click", toggleFullscreen_so_101_00_2__g_iv_s74_tot);
-
-        // 🔄 Loop Last 3 Button Handler
-        btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_so_101_00_2__g_iv_s74_tot = !isLoopingLast3_so_101_00_2__g_iv_s74_tot;
+        <script>
+        (function() {
+            const images_so_101_00_2__g_iv_s74_tot = ["./ink/IV-S74/tot/IV-S74_01.png", "./ink/IV-S74/tot/IV-S74_02.png", "./ink/IV-S74/tot/IV-S74_03.png", "./ink/IV-S74/tot/IV-S74_04.png", "./ink/IV-S74/tot/IV-S74_05.png", "./ink/IV-S74/tot/IV-S74_06.png", "./ink/IV-S74/tot/IV-S74_07.png", "./ink/IV-S74/tot/IV-S74_08.png", "./ink/IV-S74/tot/IV-S74_09.png", "./ink/IV-S74/tot/IV-S74_10.png", "./ink/IV-S74/tot/IV-S74_11.png", "./ink/IV-S74/tot/IV-S74_12.png", "./ink/IV-S74/tot/IV-S74_13.png", "./ink/IV-S74/tot/IV-S74_14.png", "./ink/IV-S74/tot/IV-S74_15.png", "./ink/IV-S74/tot/IV-S74_16.png", "./ink/IV-S74/tot/IV-S74_17.png", "./ink/IV-S74/tot/IV-S74_18.png", "./ink/IV-S74/tot/IV-S74_19.png", "./ink/IV-S74/tot/IV-S74_20.png", "./ink/IV-S74/tot/IV-S74_21.png", "./ink/IV-S74/tot/IV-S74_22.png", "./ink/IV-S74/tot/IV-S74_23.png", "./ink/IV-S74/tot/IV-S74_24.png", "./ink/IV-S74/tot/IV-S74_25.png", "./ink/IV-S74/tot/IV-S74_26.png", "./ink/IV-S74/tot/IV-S74_27.png", "./ink/IV-S74/tot/IV-S74_28.png", "./ink/IV-S74/tot/IV-S74_29.png", "./ink/IV-S74/tot/IV-S74_30.png", "./ink/IV-S74/tot/IV-S74_31.png", "./ink/IV-S74/tot/IV-S74_32.png", "./ink/IV-S74/tot/IV-S74_33.png", "./ink/IV-S74/tot/IV-S74_34.png", "./ink/IV-S74/tot/IV-S74_35.png", "./ink/IV-S74/tot/IV-S74_36.png", "./ink/IV-S74/tot/IV-S74_37.png", "./ink/IV-S74/tot/IV-S74_38.png", "./ink/IV-S74/tot/IV-S74_39.png", "./ink/IV-S74/tot/IV-S74_40.png", "./ink/IV-S74/tot/IV-S74_41.png", "./ink/IV-S74/tot/IV-S74_42.png", "./ink/IV-S74/tot/IV-S74_43.png", "./ink/IV-S74/tot/IV-S74_44.png", "./ink/IV-S74/tot/IV-S74_45.png", "./ink/IV-S74/tot/IV-S74_46.png", "./ink/IV-S74/tot/IV-S74_47.png", "./ink/IV-S74/tot/IV-S74_48.png", "./ink/IV-S74/tot/IV-S74_49.png", "./ink/IV-S74/tot/IV-S74_50.png", "./ink/IV-S74/tot/IV-S74_51.png", "./ink/IV-S74/tot/IV-S74_52.png", "./ink/IV-S74/tot/IV-S74_53.png", "./ink/IV-S74/tot/IV-S74_54.png", "./ink/IV-S74/tot/IV-S74_55.png", "./ink/IV-S74/tot/IV-S74_56.png", "./ink/IV-S74/tot/IV-S74_57.png", "./ink/IV-S74/tot/IV-S74_58.png", "./ink/IV-S74/tot/IV-S74_59.png", "./ink/IV-S74/tot/IV-S74_60.png", "./ink/IV-S74/tot/IV-S74_61.png", "./ink/IV-S74/tot/IV-S74_62.png", "./ink/IV-S74/tot/IV-S74_63.png", "./ink/IV-S74/tot/IV-S74_64.png", "./ink/IV-S74/tot/IV-S74_65.png", "./ink/IV-S74/tot/IV-S74_66.png", "./ink/IV-S74/tot/IV-S74_67.png", "./ink/IV-S74/tot/IV-S74_68.png", "./ink/IV-S74/tot/IV-S74_69.png", "./ink/IV-S74/tot/IV-S74_70.png"];
+            const totalFrames_so_101_00_2__g_iv_s74_tot = 70;
+            const baseInterval_so_101_00_2__g_iv_s74_tot = 300; // The baseline 300ms passed from python
+            const loopStartIdx_so_101_00_2__g_iv_s74_tot = 67;
             
-            if (isLoopingLast3_so_101_00_2__g_iv_s74_tot) {
-                btnLoop3.classList.add("active");
-                btnLoop3.textContent = "Stop Loop";
-                
-                // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_so_101_00_2__g_iv_s74_tot < loopStartIdx_so_101_00_2__g_iv_s74_tot) {
-                    updatePlayer_so_101_00_2__g_iv_s74_tot(totalFrames_so_101_00_2__g_iv_s74_tot - 1);
+            let currentIdx_so_101_00_2__g_iv_s74_tot = 0;
+            let isPlaying_so_101_00_2__g_iv_s74_tot = false;
+            let isLoopingLast3_so_101_00_2__g_iv_s74_tot = false;
+            let interval_so_101_00_2__g_iv_s74_tot = null;
+            let isMouseOver_so_101_00_2__g_iv_s74_tot = false;
+            let speedMultiplier_so_101_00_2__g_iv_s74_tot = 1.0;
+
+            const wrapperEl = document.getElementById("player_wrapper_so_101_00_2__g_iv_s74_tot");
+            const imgEl = document.getElementById("img_display_so_101_00_2__g_iv_s74_tot");
+            const sliderEl = document.getElementById("slider_so_101_00_2__g_iv_s74_tot");
+            const speedSelectEl = document.getElementById("speed_select_so_101_00_2__g_iv_s74_tot");
+            
+            const btnPlay = document.getElementById("btn_play_so_101_00_2__g_iv_s74_tot");
+            const playIconContainer = document.getElementById("play_icon_so_101_00_2__g_iv_s74_tot");
+            const playTextContainer = document.getElementById("play_text_so_101_00_2__g_iv_s74_tot");
+            const btnLoop3 = document.getElementById("btn_loop3_so_101_00_2__g_iv_s74_tot");
+            const btnDownload = document.getElementById("btn_download_so_101_00_2__g_iv_s74_tot");
+            
+            const btnFullscreen = document.getElementById("btn_fullscreen_so_101_00_2__g_iv_s74_tot");
+            const fullscreenIconContainer = document.getElementById("fullscreen_icon_so_101_00_2__g_iv_s74_tot");
+            
+            const btnFirst = document.getElementById("btn_first_so_101_00_2__g_iv_s74_tot");
+            const btnPrev = document.getElementById("btn_prev_so_101_00_2__g_iv_s74_tot");
+            const btnNext = document.getElementById("btn_next_so_101_00_2__g_iv_s74_tot");
+            const btnLast = document.getElementById("btn_last_so_101_00_2__g_iv_s74_tot");
+
+            const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
+            const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
+            
+            const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
+            const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
+
+            function updatePlayer_so_101_00_2__g_iv_s74_tot(idx) {
+                currentIdx_so_101_00_2__g_iv_s74_tot = idx;
+                if(images_so_101_00_2__g_iv_s74_tot[idx]) {
+                    imgEl.src = images_so_101_00_2__g_iv_s74_tot[idx];
                 }
-                
-                // Force playback start if paused
-                if (!isPlaying_so_101_00_2__g_iv_s74_tot) {
-                    togglePlay_so_101_00_2__g_iv_s74_tot();
+                sliderEl.value = idx;
+            }
+
+            function startPlaybackLoop_so_101_00_2__g_iv_s74_tot() {
+                const activeInterval = baseInterval_so_101_00_2__g_iv_s74_tot * speedMultiplier_so_101_00_2__g_iv_s74_tot;
+                interval_so_101_00_2__g_iv_s74_tot = setInterval(function() {
+                    let nextIdx = currentIdx_so_101_00_2__g_iv_s74_tot + 1;
+                    
+                    if (isLoopingLast3_so_101_00_2__g_iv_s74_tot) {
+                        if (nextIdx >= totalFrames_so_101_00_2__g_iv_s74_tot) {
+                            nextIdx = loopStartIdx_so_101_00_2__g_iv_s74_tot;
+                        }
+                    } else {
+                        if (nextIdx >= totalFrames_so_101_00_2__g_iv_s74_tot) {
+                            nextIdx = 0;
+                        }
+                    }
+                    updatePlayer_so_101_00_2__g_iv_s74_tot(nextIdx);
+                }, activeInterval);
+            }
+
+            function togglePlay_so_101_00_2__g_iv_s74_tot() {
+                if(isPlaying_so_101_00_2__g_iv_s74_tot) {
+                    clearInterval(interval_so_101_00_2__g_iv_s74_tot);
+                    playIconContainer.innerHTML = svgPlay;
+                    playTextContainer.textContent = "Play";
+                    isPlaying_so_101_00_2__g_iv_s74_tot = false;
                 } else {
-                    // Reset interval to snap parameters immediately
+                    playIconContainer.innerHTML = svgPause;
+                    playTextContainer.textContent = "Pause";
+                    isPlaying_so_101_00_2__g_iv_s74_tot = true;
+                    
+                    if (isLoopingLast3_so_101_00_2__g_iv_s74_tot && currentIdx_so_101_00_2__g_iv_s74_tot < loopStartIdx_so_101_00_2__g_iv_s74_tot) {
+                        updatePlayer_so_101_00_2__g_iv_s74_tot(loopStartIdx_so_101_00_2__g_iv_s74_tot);
+                    }
+                    startPlaybackLoop_so_101_00_2__g_iv_s74_tot();
+                }
+            }
+
+            function pausePlayback_so_101_00_2__g_iv_s74_tot() {
+                if(isPlaying_so_101_00_2__g_iv_s74_tot) {
+                    clearInterval(interval_so_101_00_2__g_iv_s74_tot);
+                    playIconContainer.innerHTML = svgPlay;
+                    playTextContainer.textContent = "Play";
+                    isPlaying_so_101_00_2__g_iv_s74_tot = false;
+                }
+            }
+
+            function breakLoop3State_so_101_00_2__g_iv_s74_tot() {
+                if (isLoopingLast3_so_101_00_2__g_iv_s74_tot) {
+                    isLoopingLast3_so_101_00_2__g_iv_s74_tot = false;
+                    btnLoop3.classList.remove("active");
+                    btnLoop3.textContent = "🔄 Loop Last 3";
+                }
+            }
+
+            function toggleFullscreen_so_101_00_2__g_iv_s74_tot() {
+                if (!document.fullscreenElement) {
+                    if (wrapperEl.requestFullscreen) {
+                        wrapperEl.requestFullscreen();
+                    } else if (wrapperEl.webkitRequestFullscreen) {
+                        wrapperEl.webkitRequestFullscreen();
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            }
+
+            document.addEventListener('fullscreenchange', function() {
+                if (document.fullscreenElement === wrapperEl) {
+                    fullscreenIconContainer.innerHTML = svgExitScreen;
+                    wrapperEl.style.padding = "30px";
+                } else {
+                    fullscreenIconContainer.innerHTML = svgNormalScreen;
+                    wrapperEl.style.padding = "15px";
+                }
+            });
+
+                        // Instantly load and display the last frame on page load
+            updatePlayer_so_101_00_2__g_iv_s74_tot(totalFrames_so_101_00_2__g_iv_s74_tot - 1);
+
+            // Slider Event
+            sliderEl.addEventListener("input", function(e) {
+                pausePlayback_so_101_00_2__g_iv_s74_tot();
+                breakLoop3State_so_101_00_2__g_iv_s74_tot();
+                updatePlayer_so_101_00_2__g_iv_s74_tot(parseInt(e.target.value));
+            });
+
+            // Speed Change Event Handler
+            speedSelectEl.addEventListener("change", function(e) {
+                speedMultiplier_so_101_00_2__g_iv_s74_tot = parseFloat(e.target.value);
+                if (isPlaying_so_101_00_2__g_iv_s74_tot) {
                     clearInterval(interval_so_101_00_2__g_iv_s74_tot);
                     startPlaybackLoop_so_101_00_2__g_iv_s74_tot();
                 }
-            } else {
-                btnLoop3.classList.remove("active");
-                btnLoop3.textContent = "🔄 Loop Last 3";
+            });
+
+            btnPlay.addEventListener("click", togglePlay_so_101_00_2__g_iv_s74_tot);
+            btnFullscreen.addEventListener("click", toggleFullscreen_so_101_00_2__g_iv_s74_tot);
+
+            // 🔄 Loop Last 3 Button Handler
+            btnLoop3.addEventListener("click", function() {
+                isLoopingLast3_so_101_00_2__g_iv_s74_tot = !isLoopingLast3_so_101_00_2__g_iv_s74_tot;
+                
+                if (isLoopingLast3_so_101_00_2__g_iv_s74_tot) {
+                    btnLoop3.classList.add("active");
+                    btnLoop3.textContent = "Stop Loop";
+                    
+                    if (currentIdx_so_101_00_2__g_iv_s74_tot < loopStartIdx_so_101_00_2__g_iv_s74_tot) {
+                        updatePlayer_so_101_00_2__g_iv_s74_tot(totalFrames_so_101_00_2__g_iv_s74_tot - 1);
+                    }
+                    
+                    if (!isPlaying_so_101_00_2__g_iv_s74_tot) {
+                        togglePlay_so_101_00_2__g_iv_s74_tot();
+                    } else {
+                        clearInterval(interval_so_101_00_2__g_iv_s74_tot);
+                        startPlaybackLoop_so_101_00_2__g_iv_s74_tot();
+                    }
+                } else {
+                    btnLoop3.classList.remove("active");
+                    btnLoop3.textContent = "🔄 Loop Last 3";
+                    pausePlayback_so_101_00_2__g_iv_s74_tot();
+                }
+            });
+
+            // 📥 Single ZIP Download Handler
+            btnDownload.addEventListener("click", async function() {
+                if (!images_so_101_00_2__g_iv_s74_tot || images_so_101_00_2__g_iv_s74_tot.length === 0) {
+                    alert("No source imagery located for this dataset.");
+                    return;
+                }
+
+                const originalText = btnDownload.innerHTML;
+                btnDownload.style.pointerEvents = "none";
+
+                try {
+                    const zip = new JSZip();
+                    let completedCount = 0;
+
+                    btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_so_101_00_2__g_iv_s74_tot})...`;
+                    
+                    const downloadPromises = images_so_101_00_2__g_iv_s74_tot.map(async (url, index) => {
+                        const response = await fetch(url);
+                        if (!response.ok) throw new Error("Failed to fetch image");
+                        const blob = await response.blob();
+                        
+                        let fileName = url.split('/').pop().split('?')[0];
+                        if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
+                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                        }
+                        
+                        zip.file(fileName, blob);
+                        
+                        completedCount++;
+                        btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_so_101_00_2__g_iv_s74_tot})...`;
+                    });
+
+                    await Promise.all(downloadPromises);
+
+                    btnDownload.innerHTML = "📦 Finalizing Zip...";
+                    const content = await zip.generateAsync({ type: "blob" });
+                    
+                    const a = document.createElement("a");
+                    a.href = URL.createObjectURL(content);
+                    a.download = "player_set_" + player_id + ".zip";
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(a.href);
+
+                } catch (error) {
+                    console.error(error);
+                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                } finally {
+                    btnDownload.innerHTML = originalText;
+                    btnDownload.style.pointerEvents = "auto";
+                }
+            });
+
+            btnFirst.addEventListener("click", function() { pausePlayback_so_101_00_2__g_iv_s74_tot(); breakLoop3State_so_101_00_2__g_iv_s74_tot(); updatePlayer_so_101_00_2__g_iv_s74_tot(0); });
+            btnLast.addEventListener("click", function() { pausePlayback_so_101_00_2__g_iv_s74_tot(); breakLoop3State_so_101_00_2__g_iv_s74_tot(); updatePlayer_so_101_00_2__g_iv_s74_tot(totalFrames_so_101_00_2__g_iv_s74_tot - 1); });
+            
+            btnPrev.addEventListener("click", function() {
                 pausePlayback_so_101_00_2__g_iv_s74_tot();
-            }
-        });
+                breakLoop3State_so_101_00_2__g_iv_s74_tot();
+                let prevIdx = currentIdx_so_101_00_2__g_iv_s74_tot - 1;
+                if (prevIdx < 0) prevIdx = totalFrames_so_101_00_2__g_iv_s74_tot - 1;
+                updatePlayer_so_101_00_2__g_iv_s74_tot(prevIdx);
+            });
 
-        btnFirst.addEventListener("click", function() { pausePlayback_so_101_00_2__g_iv_s74_tot(); breakLoop3State_so_101_00_2__g_iv_s74_tot(); updatePlayer_so_101_00_2__g_iv_s74_tot(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_so_101_00_2__g_iv_s74_tot(); breakLoop3State_so_101_00_2__g_iv_s74_tot(); updatePlayer_so_101_00_2__g_iv_s74_tot(totalFrames_so_101_00_2__g_iv_s74_tot - 1); });
-        
-        btnPrev.addEventListener("click", function() {
-            pausePlayback_so_101_00_2__g_iv_s74_tot();
-            breakLoop3State_so_101_00_2__g_iv_s74_tot();
-            let prevIdx = currentIdx_so_101_00_2__g_iv_s74_tot - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_so_101_00_2__g_iv_s74_tot - 1;
-            updatePlayer_so_101_00_2__g_iv_s74_tot(prevIdx);
-        });
+            btnNext.addEventListener("click", function() {
+                pausePlayback_so_101_00_2__g_iv_s74_tot();
+                breakLoop3State_so_101_00_2__g_iv_s74_tot();
+                let nextIdx = (currentIdx_so_101_00_2__g_iv_s74_tot + 1) % totalFrames_so_101_00_2__g_iv_s74_tot;
+                updatePlayer_so_101_00_2__g_iv_s74_tot(nextIdx);
+            });
 
-        btnNext.addEventListener("click", function() {
-            pausePlayback_so_101_00_2__g_iv_s74_tot();
-            breakLoop3State_so_101_00_2__g_iv_s74_tot();
-            let nextIdx = (currentIdx_so_101_00_2__g_iv_s74_tot + 1) % totalFrames_so_101_00_2__g_iv_s74_tot;
-            updatePlayer_so_101_00_2__g_iv_s74_tot(nextIdx);
-        });
+            wrapperEl.addEventListener("mouseenter", function() { isMouseOver_so_101_00_2__g_iv_s74_tot = true; });
+            wrapperEl.addEventListener("mouseleave", function() { isMouseOver_so_101_00_2__g_iv_s74_tot = false; });
 
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_so_101_00_2__g_iv_s74_tot = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_so_101_00_2__g_iv_s74_tot = false; });
+            window.addEventListener("keydown", function(e) {
+                if (!isMouseOver_so_101_00_2__g_iv_s74_tot) return;
 
-        window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_so_101_00_2__g_iv_s74_tot) return;
-
-            switch(e.key) {
-                case "ArrowLeft":
-                    e.preventDefault();
-                    btnPrev.click();
-                    break;
-                case "ArrowRight":
-                    e.preventDefault();
-                    btnNext.click();
-                    break;
-                case " ":
-                    e.preventDefault();
-                    btnPlay.click();
-                    break;
-                case "Home":
-                    e.preventDefault();
-                    btnFirst.click();
-                    break;
-                case "End":
-                    e.preventDefault();
-                    btnLast.click();
-                    break;
-                case "f":
-                case "F":
-                    e.preventDefault();
-                    btnFullscreen.click();
-                    break;
-                case "l":
-                case "L":
-                    e.preventDefault();
-                    e.stopPropagation();
-                    btnLoop3.click();
-                    break;
-            }
-        });
-    })();
-    </script>
+                switch(e.key) {
+                    case "ArrowLeft":
+                        e.preventDefault();
+                        btnPrev.click();
+                        break;
+                    case "ArrowRight":
+                        e.preventDefault();
+                        btnNext.click();
+                        break;
+                    case " ":
+                        e.preventDefault();
+                        btnPlay.click();
+                        break;
+                    case "Home":
+                        e.preventDefault();
+                        btnFirst.click();
+                        break;
+                    case "End":
+                        e.preventDefault();
+                        btnLast.click();
+                        break;
+                    case "f":
+                    case "F":
+                        e.preventDefault();
+                        btnFullscreen.click();
+                        break;
+                    case "l":
+                    case "L":
+                        e.preventDefault();
+                        e.stopPropagation();
+                        btnLoop3.click();
+                        break;
+                }
+            });
+        })();
+        </script>
     
 </section>
 <section id="azimut" class="level5">
@@ -938,7 +1044,7 @@ ul.task-list li input[type="checkbox"] {
         border-radius: 4px; 
         cursor: pointer;
         transition: background-color 0.15s ease;
-        font-family: 'monospace',
+        font-family: 'monospace';
         font-size: 12px;
     }
     #player_wrapper_so_101_00_2__g_iv_s74_azi .btn-nav {
@@ -967,6 +1073,14 @@ ul.task-list li input[type="checkbox"] {
     #player_wrapper_so_101_00_2__g_iv_s74_azi .btn-loop3.active {
         background-color: #dc3545 !important;
     }
+    #player_wrapper_so_101_00_2__g_iv_s74_azi .btn-download {
+        background-color: #198754;
+        padding: 0 12px;
+        font-weight: bold;
+    }
+    #player_wrapper_so_101_00_2__g_iv_s74_azi .btn-download:hover {
+        filter: brightness(1.15);
+    }
     #player_wrapper_so_101_00_2__g_iv_s74_azi .speed-selector {
         background-color: #444444;
         color: #ffffff;
@@ -988,6 +1102,29 @@ ul.task-list li input[type="checkbox"] {
         height: 6px;
         accent-color: #0d6efd; 
     }
+    
+    /* ⌨️ HINT BAR BOX DESIGN */
+    #player_wrapper_so_101_00_2__g_iv_s74_azi .shortcut-hints {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+        padding-top: 12px;
+        border-top: 1px solid #3a3a3a;
+        color: #888888;
+        font-size: 11px;
+        font-family: sans-serif;
+    }
+    #player_wrapper_so_101_00_2__g_iv_s74_azi .shortcut-hints kbd {
+        background: #333;
+        color: #eee;
+        padding: 2px 5px;
+        border-radius: 3px;
+        border: 1px solid #555;
+        font-family: monospace;
+        font-size: 10px;
+    }
 
     /* NATIVE FULLSCREEN LAYOUT FIXES */
     #player_wrapper_so_101_00_2__g_iv_s74_azi:fullscreen {
@@ -1002,12 +1139,15 @@ ul.task-list li input[type="checkbox"] {
         margin-bottom: 20px !important;
     }
     #player_wrapper_so_101_00_2__g_iv_s74_azi:fullscreen #img_display_so_101_00_2__g_iv_s74_azi {
-        max-height: calc(100vh - 120px) !important; 
+        max-height: calc(100vh - 160px) !important; 
         width: auto !important;
+    }
+    #player_wrapper_so_101_00_2__g_iv_s74_azi:fullscreen .shortcut-hints {
+        color: #666;
     }
     </style>
 
-        <!-- 🏗️ HTML STRUCTURE -->
+    <!-- 🏗️ HTML STRUCTURE -->
     <div id="player_wrapper_so_101_00_2__g_iv_s74_azi">
         <div class="image-container">
             <img id="img_display_so_101_00_2__g_iv_s74_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
@@ -1039,11 +1179,11 @@ ul.task-list li input[type="checkbox"] {
             </button>
 
             <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_so_101_00_2__g_iv_s74_azi" class="player-btn btn-loop3" title="Loop last 3 frames">
+            <button id="btn_loop3_so_101_00_2__g_iv_s74_azi" class="player-btn btn-loop3" title="Loop last 3 frames (L)">
                 🔄 Last 3 Measurements
             </button>
 
-            <!-- 🛠️ NEW SPEED DROPDOWN CONTROLLER -->
+            <!-- 🛠️ SPEED DROPDOWN CONTROLLER -->
             <select id="speed_select_so_101_00_2__g_iv_s74_azi" class="speed-selector" title="Playback Speed">
                 <option value="2.0">0.5x</option>
                 <option value="1.5">0.75x</option>
@@ -1051,6 +1191,11 @@ ul.task-list li input[type="checkbox"] {
                 <option value="0.5">2.0x</option>
                 <option value="0.25">4.0x</option>
             </select>
+
+            <!-- 📥 DOWNLOAD BUTTON -->
+            <button id="btn_download_so_101_00_2__g_iv_s74_azi" class="player-btn btn-download" title="Download all frames as individual PNG files">
+                📥 Save Set
+            </button>
 
             <!-- Fullscreen Command -->
             <button id="btn_fullscreen_so_101_00_2__g_iv_s74_azi" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
@@ -1069,241 +1214,308 @@ ul.task-list li input[type="checkbox"] {
                 </button>
             </div>
         </div>
+
+        <!-- ⌨️ DYNAMIC SHORTCUT HUD PANEL (Hover context hints) -->
+        <div class="shortcut-hints">
+            <span>💡 Hover window to use hotkeys:</span>
+            <span><kbd>Space</kbd> Play/Pause</span>
+            <span><kbd>←</kbd> / <kbd>→</kbd> Prev / Next</span>
+            <span><kbd>L</kbd> Loop 3</span>
+            <span><kbd>F</kbd> Fullscreen</span>
+            <span><kbd>Home</kbd> / <kbd>End</kbd> Start / Final</span>
+        </div>
     </div>
+   
+    <!-- Include JSZip Library for client-side zipping -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
     <!-- 🧠 JAVASCRIPT LOGIC -->
-    <script>
-    (function() {
-        const images_so_101_00_2__g_iv_s74_azi = ["./ink/IV-S74/azi/IV-S74_00.png", "./ink/IV-S74/azi/IV-S74_01.png", "./ink/IV-S74/azi/IV-S74_02.png", "./ink/IV-S74/azi/IV-S74_03.png", "./ink/IV-S74/azi/IV-S74_04.png", "./ink/IV-S74/azi/IV-S74_05.png", "./ink/IV-S74/azi/IV-S74_06.png", "./ink/IV-S74/azi/IV-S74_07.png", "./ink/IV-S74/azi/IV-S74_08.png", "./ink/IV-S74/azi/IV-S74_09.png", "./ink/IV-S74/azi/IV-S74_10.png", "./ink/IV-S74/azi/IV-S74_11.png", "./ink/IV-S74/azi/IV-S74_12.png", "./ink/IV-S74/azi/IV-S74_13.png", "./ink/IV-S74/azi/IV-S74_14.png", "./ink/IV-S74/azi/IV-S74_15.png", "./ink/IV-S74/azi/IV-S74_16.png", "./ink/IV-S74/azi/IV-S74_17.png", "./ink/IV-S74/azi/IV-S74_18.png", "./ink/IV-S74/azi/IV-S74_19.png", "./ink/IV-S74/azi/IV-S74_20.png", "./ink/IV-S74/azi/IV-S74_21.png", "./ink/IV-S74/azi/IV-S74_22.png", "./ink/IV-S74/azi/IV-S74_23.png", "./ink/IV-S74/azi/IV-S74_24.png", "./ink/IV-S74/azi/IV-S74_25.png", "./ink/IV-S74/azi/IV-S74_26.png", "./ink/IV-S74/azi/IV-S74_27.png", "./ink/IV-S74/azi/IV-S74_28.png", "./ink/IV-S74/azi/IV-S74_29.png", "./ink/IV-S74/azi/IV-S74_30.png", "./ink/IV-S74/azi/IV-S74_31.png", "./ink/IV-S74/azi/IV-S74_32.png", "./ink/IV-S74/azi/IV-S74_33.png", "./ink/IV-S74/azi/IV-S74_34.png", "./ink/IV-S74/azi/IV-S74_35.png", "./ink/IV-S74/azi/IV-S74_36.png", "./ink/IV-S74/azi/IV-S74_37.png", "./ink/IV-S74/azi/IV-S74_38.png", "./ink/IV-S74/azi/IV-S74_39.png", "./ink/IV-S74/azi/IV-S74_40.png", "./ink/IV-S74/azi/IV-S74_41.png", "./ink/IV-S74/azi/IV-S74_42.png", "./ink/IV-S74/azi/IV-S74_43.png", "./ink/IV-S74/azi/IV-S74_44.png", "./ink/IV-S74/azi/IV-S74_45.png", "./ink/IV-S74/azi/IV-S74_46.png", "./ink/IV-S74/azi/IV-S74_47.png", "./ink/IV-S74/azi/IV-S74_48.png", "./ink/IV-S74/azi/IV-S74_49.png", "./ink/IV-S74/azi/IV-S74_50.png", "./ink/IV-S74/azi/IV-S74_51.png", "./ink/IV-S74/azi/IV-S74_52.png", "./ink/IV-S74/azi/IV-S74_53.png", "./ink/IV-S74/azi/IV-S74_54.png", "./ink/IV-S74/azi/IV-S74_55.png", "./ink/IV-S74/azi/IV-S74_56.png", "./ink/IV-S74/azi/IV-S74_57.png", "./ink/IV-S74/azi/IV-S74_58.png", "./ink/IV-S74/azi/IV-S74_59.png", "./ink/IV-S74/azi/IV-S74_60.png", "./ink/IV-S74/azi/IV-S74_61.png", "./ink/IV-S74/azi/IV-S74_62.png", "./ink/IV-S74/azi/IV-S74_63.png", "./ink/IV-S74/azi/IV-S74_64.png", "./ink/IV-S74/azi/IV-S74_65.png", "./ink/IV-S74/azi/IV-S74_66.png", "./ink/IV-S74/azi/IV-S74_67.png", "./ink/IV-S74/azi/IV-S74_68.png", "./ink/IV-S74/azi/IV-S74_69.png", "./ink/IV-S74/azi/IV-S74_70.png"];
-        const totalFrames_so_101_00_2__g_iv_s74_azi = 71;
-        const baseInterval_so_101_00_2__g_iv_s74_azi = 300; // The baseline 300ms passed from python
-        const loopStartIdx_so_101_00_2__g_iv_s74_azi = 68;
-        
-        let currentIdx_so_101_00_2__g_iv_s74_azi = 0;
-        let isPlaying_so_101_00_2__g_iv_s74_azi = false;
-        let isLoopingLast3_so_101_00_2__g_iv_s74_azi = false;
-        let interval_so_101_00_2__g_iv_s74_azi = null;
-        let isMouseOver_so_101_00_2__g_iv_s74_azi = false;
-        let speedMultiplier_so_101_00_2__g_iv_s74_azi = 1.0;
-
-        const wrapperEl = document.getElementById("player_wrapper_so_101_00_2__g_iv_s74_azi");
-        const imgEl = document.getElementById("img_display_so_101_00_2__g_iv_s74_azi");
-        const sliderEl = document.getElementById("slider_so_101_00_2__g_iv_s74_azi");
-        const speedSelectEl = document.getElementById("speed_select_so_101_00_2__g_iv_s74_azi");
-        
-        const btnPlay = document.getElementById("btn_play_so_101_00_2__g_iv_s74_azi");
-        const playIconContainer = document.getElementById("play_icon_so_101_00_2__g_iv_s74_azi");
-        const playTextContainer = document.getElementById("play_text_so_101_00_2__g_iv_s74_azi");
-        const btnLoop3 = document.getElementById("btn_loop3_so_101_00_2__g_iv_s74_azi");
-        
-        const btnFullscreen = document.getElementById("btn_fullscreen_so_101_00_2__g_iv_s74_azi");
-        const fullscreenIconContainer = document.getElementById("fullscreen_icon_so_101_00_2__g_iv_s74_azi");
-        
-        const btnFirst = document.getElementById("btn_first_so_101_00_2__g_iv_s74_azi");
-        const btnPrev = document.getElementById("btn_prev_so_101_00_2__g_iv_s74_azi");
-        const btnNext = document.getElementById("btn_next_so_101_00_2__g_iv_s74_azi");
-        const btnLast = document.getElementById("btn_last_so_101_00_2__g_iv_s74_azi");
-
-        const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
-        const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
-        
-        const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
-        const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
-
-        function updatePlayer_so_101_00_2__g_iv_s74_azi(idx) {
-            currentIdx_so_101_00_2__g_iv_s74_azi = idx;
-            if(images_so_101_00_2__g_iv_s74_azi[idx]) {
-                imgEl.src = images_so_101_00_2__g_iv_s74_azi[idx];
-            }
-            sliderEl.value = idx;
-        }
-
-        // NOTE: Playback cycles backwards in current implementation
-        function startPlaybackLoop_so_101_00_2__g_iv_s74_azi() {
-            const activeInterval = baseInterval_so_101_00_2__g_iv_s74_azi * speedMultiplier_so_101_00_2__g_iv_s74_azi;
-            interval_so_101_00_2__g_iv_s74_azi = setInterval(function() {
-                let nextIdx = currentIdx_so_101_00_2__g_iv_s74_azi + 1;
-                
-                if (isLoopingLast3_so_101_00_2__g_iv_s74_azi) {
-                    if (nextIdx >= totalFrames_so_101_00_2__g_iv_s74_azi) {
-                        nextIdx = loopStartIdx_so_101_00_2__g_iv_s74_azi;
-                    }
-                } else {
-                    if (nextIdx >= totalFrames_so_101_00_2__g_iv_s74_azi) {
-                        nextIdx = 0;
-                    }
-                }
-                updatePlayer_so_101_00_2__g_iv_s74_azi(nextIdx);
-            }, activeInterval);
-        }
-        function togglePlay_so_101_00_2__g_iv_s74_azi() {
-            if(isPlaying_so_101_00_2__g_iv_s74_azi) {
-                clearInterval(interval_so_101_00_2__g_iv_s74_azi);
-                playIconContainer.innerHTML = svgPlay;
-                playTextContainer.textContent = "Play";
-                isPlaying_so_101_00_2__g_iv_s74_azi = false;
-            } else {
-                playIconContainer.innerHTML = svgPause;
-                playTextContainer.textContent = "Pause";
-                isPlaying_so_101_00_2__g_iv_s74_azi = true;
-                
-                // If looping last 3, guarantee index falls inside boundaries upon launch
-                if (isLoopingLast3_so_101_00_2__g_iv_s74_azi && currentIdx_so_101_00_2__g_iv_s74_azi < loopStartIdx_so_101_00_2__g_iv_s74_azi) {
-                    updatePlayer_so_101_00_2__g_iv_s74_azi(loopStartIdx_so_101_00_2__g_iv_s74_azi);
-                }
-                startPlaybackLoop_so_101_00_2__g_iv_s74_azi();
-            }
-        }
-
-        function pausePlayback_so_101_00_2__g_iv_s74_azi() {
-            if(isPlaying_so_101_00_2__g_iv_s74_azi) {
-                clearInterval(interval_so_101_00_2__g_iv_s74_azi);
-                playIconContainer.innerHTML = svgPlay;
-                playTextContainer.textContent = "Play";
-                isPlaying_so_101_00_2__g_iv_s74_azi = false;
-            }
-        }
-
-        function breakLoop3State_so_101_00_2__g_iv_s74_azi() {
-            if (isLoopingLast3_so_101_00_2__g_iv_s74_azi) {
-                isLoopingLast3_so_101_00_2__g_iv_s74_azi = false;
-                btnLoop3.classList.remove("active");
-                btnLoop3.textContent = "🔄 Loop Last 3";
-            }
-        }
-
-        function toggleFullscreen_so_101_00_2__g_iv_s74_azi() {
-            if (!document.fullscreenElement) {
-                if (wrapperEl.requestFullscreen) {
-                    wrapperEl.requestFullscreen();
-                } else if (wrapperEl.webkitRequestFullscreen) {
-                    wrapperEl.webkitRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
-
-        document.addEventListener('fullscreenchange', function() {
-            if (document.fullscreenElement === wrapperEl) {
-                fullscreenIconContainer.innerHTML = svgExitScreen;
-                wrapperEl.style.padding = "30px";
-            } else {
-                fullscreenIconContainer.innerHTML = svgNormalScreen;
-                wrapperEl.style.padding = "15px";
-            }
-        });
-
-        // Instantly load and display the last frame on page load
-        updatePlayer_so_101_00_2__g_iv_s74_azi(totalFrames_so_101_00_2__g_iv_s74_azi - 1);
-
-        // Slider Event
-        sliderEl.addEventListener("input", function(e) {
-            pausePlayback_so_101_00_2__g_iv_s74_azi();
-            breakLoop3State_so_101_00_2__g_iv_s74_azi();
-            updatePlayer_so_101_00_2__g_iv_s74_azi(parseInt(e.target.value));
-        });
-
-        // Speed Change Event Handler
-        speedSelectEl.addEventListener("change", function(e) {
-            speedMultiplier_so_101_00_2__g_iv_s74_azi = parseFloat(e.target.value);
-            if (isPlaying_so_101_00_2__g_iv_s74_azi) {
-                clearInterval(interval_so_101_00_2__g_iv_s74_azi);
-                startPlaybackLoop_so_101_00_2__g_iv_s74_azi();
-            }
-        });
-        btnPlay.addEventListener("click", togglePlay_so_101_00_2__g_iv_s74_azi);
-        btnFullscreen.addEventListener("click", toggleFullscreen_so_101_00_2__g_iv_s74_azi);
-
-        // 🔄 Loop Last 3 Button Handler
-        btnLoop3.addEventListener("click", function() {
-            isLoopingLast3_so_101_00_2__g_iv_s74_azi = !isLoopingLast3_so_101_00_2__g_iv_s74_azi;
+        <script>
+        (function() {
+            const images_so_101_00_2__g_iv_s74_azi = ["./ink/IV-S74/azi/IV-S74_00.png", "./ink/IV-S74/azi/IV-S74_01.png", "./ink/IV-S74/azi/IV-S74_02.png", "./ink/IV-S74/azi/IV-S74_03.png", "./ink/IV-S74/azi/IV-S74_04.png", "./ink/IV-S74/azi/IV-S74_05.png", "./ink/IV-S74/azi/IV-S74_06.png", "./ink/IV-S74/azi/IV-S74_07.png", "./ink/IV-S74/azi/IV-S74_08.png", "./ink/IV-S74/azi/IV-S74_09.png", "./ink/IV-S74/azi/IV-S74_10.png", "./ink/IV-S74/azi/IV-S74_11.png", "./ink/IV-S74/azi/IV-S74_12.png", "./ink/IV-S74/azi/IV-S74_13.png", "./ink/IV-S74/azi/IV-S74_14.png", "./ink/IV-S74/azi/IV-S74_15.png", "./ink/IV-S74/azi/IV-S74_16.png", "./ink/IV-S74/azi/IV-S74_17.png", "./ink/IV-S74/azi/IV-S74_18.png", "./ink/IV-S74/azi/IV-S74_19.png", "./ink/IV-S74/azi/IV-S74_20.png", "./ink/IV-S74/azi/IV-S74_21.png", "./ink/IV-S74/azi/IV-S74_22.png", "./ink/IV-S74/azi/IV-S74_23.png", "./ink/IV-S74/azi/IV-S74_24.png", "./ink/IV-S74/azi/IV-S74_25.png", "./ink/IV-S74/azi/IV-S74_26.png", "./ink/IV-S74/azi/IV-S74_27.png", "./ink/IV-S74/azi/IV-S74_28.png", "./ink/IV-S74/azi/IV-S74_29.png", "./ink/IV-S74/azi/IV-S74_30.png", "./ink/IV-S74/azi/IV-S74_31.png", "./ink/IV-S74/azi/IV-S74_32.png", "./ink/IV-S74/azi/IV-S74_33.png", "./ink/IV-S74/azi/IV-S74_34.png", "./ink/IV-S74/azi/IV-S74_35.png", "./ink/IV-S74/azi/IV-S74_36.png", "./ink/IV-S74/azi/IV-S74_37.png", "./ink/IV-S74/azi/IV-S74_38.png", "./ink/IV-S74/azi/IV-S74_39.png", "./ink/IV-S74/azi/IV-S74_40.png", "./ink/IV-S74/azi/IV-S74_41.png", "./ink/IV-S74/azi/IV-S74_42.png", "./ink/IV-S74/azi/IV-S74_43.png", "./ink/IV-S74/azi/IV-S74_44.png", "./ink/IV-S74/azi/IV-S74_45.png", "./ink/IV-S74/azi/IV-S74_46.png", "./ink/IV-S74/azi/IV-S74_47.png", "./ink/IV-S74/azi/IV-S74_48.png", "./ink/IV-S74/azi/IV-S74_49.png", "./ink/IV-S74/azi/IV-S74_50.png", "./ink/IV-S74/azi/IV-S74_51.png", "./ink/IV-S74/azi/IV-S74_52.png", "./ink/IV-S74/azi/IV-S74_53.png", "./ink/IV-S74/azi/IV-S74_54.png", "./ink/IV-S74/azi/IV-S74_55.png", "./ink/IV-S74/azi/IV-S74_56.png", "./ink/IV-S74/azi/IV-S74_57.png", "./ink/IV-S74/azi/IV-S74_58.png", "./ink/IV-S74/azi/IV-S74_59.png", "./ink/IV-S74/azi/IV-S74_60.png", "./ink/IV-S74/azi/IV-S74_61.png", "./ink/IV-S74/azi/IV-S74_62.png", "./ink/IV-S74/azi/IV-S74_63.png", "./ink/IV-S74/azi/IV-S74_64.png", "./ink/IV-S74/azi/IV-S74_65.png", "./ink/IV-S74/azi/IV-S74_66.png", "./ink/IV-S74/azi/IV-S74_67.png", "./ink/IV-S74/azi/IV-S74_68.png", "./ink/IV-S74/azi/IV-S74_69.png", "./ink/IV-S74/azi/IV-S74_70.png"];
+            const totalFrames_so_101_00_2__g_iv_s74_azi = 71;
+            const baseInterval_so_101_00_2__g_iv_s74_azi = 300; // The baseline 300ms passed from python
+            const loopStartIdx_so_101_00_2__g_iv_s74_azi = 68;
             
-            if (isLoopingLast3_so_101_00_2__g_iv_s74_azi) {
-                btnLoop3.classList.add("active");
-                btnLoop3.textContent = "Stop Loop";
-                
-                // If current image index falls out of target bounds, jump directly to end frame
-                if (currentIdx_so_101_00_2__g_iv_s74_azi < loopStartIdx_so_101_00_2__g_iv_s74_azi) {
-                    updatePlayer_so_101_00_2__g_iv_s74_azi(totalFrames_so_101_00_2__g_iv_s74_azi - 1);
+            let currentIdx_so_101_00_2__g_iv_s74_azi = 0;
+            let isPlaying_so_101_00_2__g_iv_s74_azi = false;
+            let isLoopingLast3_so_101_00_2__g_iv_s74_azi = false;
+            let interval_so_101_00_2__g_iv_s74_azi = null;
+            let isMouseOver_so_101_00_2__g_iv_s74_azi = false;
+            let speedMultiplier_so_101_00_2__g_iv_s74_azi = 1.0;
+
+            const wrapperEl = document.getElementById("player_wrapper_so_101_00_2__g_iv_s74_azi");
+            const imgEl = document.getElementById("img_display_so_101_00_2__g_iv_s74_azi");
+            const sliderEl = document.getElementById("slider_so_101_00_2__g_iv_s74_azi");
+            const speedSelectEl = document.getElementById("speed_select_so_101_00_2__g_iv_s74_azi");
+            
+            const btnPlay = document.getElementById("btn_play_so_101_00_2__g_iv_s74_azi");
+            const playIconContainer = document.getElementById("play_icon_so_101_00_2__g_iv_s74_azi");
+            const playTextContainer = document.getElementById("play_text_so_101_00_2__g_iv_s74_azi");
+            const btnLoop3 = document.getElementById("btn_loop3_so_101_00_2__g_iv_s74_azi");
+            const btnDownload = document.getElementById("btn_download_so_101_00_2__g_iv_s74_azi");
+            
+            const btnFullscreen = document.getElementById("btn_fullscreen_so_101_00_2__g_iv_s74_azi");
+            const fullscreenIconContainer = document.getElementById("fullscreen_icon_so_101_00_2__g_iv_s74_azi");
+            
+            const btnFirst = document.getElementById("btn_first_so_101_00_2__g_iv_s74_azi");
+            const btnPrev = document.getElementById("btn_prev_so_101_00_2__g_iv_s74_azi");
+            const btnNext = document.getElementById("btn_next_so_101_00_2__g_iv_s74_azi");
+            const btnLast = document.getElementById("btn_last_so_101_00_2__g_iv_s74_azi");
+
+            const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
+            const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
+            
+            const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
+            const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
+
+            function updatePlayer_so_101_00_2__g_iv_s74_azi(idx) {
+                currentIdx_so_101_00_2__g_iv_s74_azi = idx;
+                if(images_so_101_00_2__g_iv_s74_azi[idx]) {
+                    imgEl.src = images_so_101_00_2__g_iv_s74_azi[idx];
                 }
-                
-                // Force playback start if paused
-                if (!isPlaying_so_101_00_2__g_iv_s74_azi) {
-                    togglePlay_so_101_00_2__g_iv_s74_azi();
+                sliderEl.value = idx;
+            }
+
+            function startPlaybackLoop_so_101_00_2__g_iv_s74_azi() {
+                const activeInterval = baseInterval_so_101_00_2__g_iv_s74_azi * speedMultiplier_so_101_00_2__g_iv_s74_azi;
+                interval_so_101_00_2__g_iv_s74_azi = setInterval(function() {
+                    let nextIdx = currentIdx_so_101_00_2__g_iv_s74_azi + 1;
+                    
+                    if (isLoopingLast3_so_101_00_2__g_iv_s74_azi) {
+                        if (nextIdx >= totalFrames_so_101_00_2__g_iv_s74_azi) {
+                            nextIdx = loopStartIdx_so_101_00_2__g_iv_s74_azi;
+                        }
+                    } else {
+                        if (nextIdx >= totalFrames_so_101_00_2__g_iv_s74_azi) {
+                            nextIdx = 0;
+                        }
+                    }
+                    updatePlayer_so_101_00_2__g_iv_s74_azi(nextIdx);
+                }, activeInterval);
+            }
+
+            function togglePlay_so_101_00_2__g_iv_s74_azi() {
+                if(isPlaying_so_101_00_2__g_iv_s74_azi) {
+                    clearInterval(interval_so_101_00_2__g_iv_s74_azi);
+                    playIconContainer.innerHTML = svgPlay;
+                    playTextContainer.textContent = "Play";
+                    isPlaying_so_101_00_2__g_iv_s74_azi = false;
                 } else {
-                    // Reset interval to snap parameters immediately
+                    playIconContainer.innerHTML = svgPause;
+                    playTextContainer.textContent = "Pause";
+                    isPlaying_so_101_00_2__g_iv_s74_azi = true;
+                    
+                    if (isLoopingLast3_so_101_00_2__g_iv_s74_azi && currentIdx_so_101_00_2__g_iv_s74_azi < loopStartIdx_so_101_00_2__g_iv_s74_azi) {
+                        updatePlayer_so_101_00_2__g_iv_s74_azi(loopStartIdx_so_101_00_2__g_iv_s74_azi);
+                    }
+                    startPlaybackLoop_so_101_00_2__g_iv_s74_azi();
+                }
+            }
+
+            function pausePlayback_so_101_00_2__g_iv_s74_azi() {
+                if(isPlaying_so_101_00_2__g_iv_s74_azi) {
+                    clearInterval(interval_so_101_00_2__g_iv_s74_azi);
+                    playIconContainer.innerHTML = svgPlay;
+                    playTextContainer.textContent = "Play";
+                    isPlaying_so_101_00_2__g_iv_s74_azi = false;
+                }
+            }
+
+            function breakLoop3State_so_101_00_2__g_iv_s74_azi() {
+                if (isLoopingLast3_so_101_00_2__g_iv_s74_azi) {
+                    isLoopingLast3_so_101_00_2__g_iv_s74_azi = false;
+                    btnLoop3.classList.remove("active");
+                    btnLoop3.textContent = "🔄 Loop Last 3";
+                }
+            }
+
+            function toggleFullscreen_so_101_00_2__g_iv_s74_azi() {
+                if (!document.fullscreenElement) {
+                    if (wrapperEl.requestFullscreen) {
+                        wrapperEl.requestFullscreen();
+                    } else if (wrapperEl.webkitRequestFullscreen) {
+                        wrapperEl.webkitRequestFullscreen();
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            }
+
+            document.addEventListener('fullscreenchange', function() {
+                if (document.fullscreenElement === wrapperEl) {
+                    fullscreenIconContainer.innerHTML = svgExitScreen;
+                    wrapperEl.style.padding = "30px";
+                } else {
+                    fullscreenIconContainer.innerHTML = svgNormalScreen;
+                    wrapperEl.style.padding = "15px";
+                }
+            });
+
+                        // Instantly load and display the last frame on page load
+            updatePlayer_so_101_00_2__g_iv_s74_azi(totalFrames_so_101_00_2__g_iv_s74_azi - 1);
+
+            // Slider Event
+            sliderEl.addEventListener("input", function(e) {
+                pausePlayback_so_101_00_2__g_iv_s74_azi();
+                breakLoop3State_so_101_00_2__g_iv_s74_azi();
+                updatePlayer_so_101_00_2__g_iv_s74_azi(parseInt(e.target.value));
+            });
+
+            // Speed Change Event Handler
+            speedSelectEl.addEventListener("change", function(e) {
+                speedMultiplier_so_101_00_2__g_iv_s74_azi = parseFloat(e.target.value);
+                if (isPlaying_so_101_00_2__g_iv_s74_azi) {
                     clearInterval(interval_so_101_00_2__g_iv_s74_azi);
                     startPlaybackLoop_so_101_00_2__g_iv_s74_azi();
                 }
-            } else {
-                btnLoop3.classList.remove("active");
-                btnLoop3.textContent = "🔄 Loop Last 3";
+            });
+
+            btnPlay.addEventListener("click", togglePlay_so_101_00_2__g_iv_s74_azi);
+            btnFullscreen.addEventListener("click", toggleFullscreen_so_101_00_2__g_iv_s74_azi);
+
+            // 🔄 Loop Last 3 Button Handler
+            btnLoop3.addEventListener("click", function() {
+                isLoopingLast3_so_101_00_2__g_iv_s74_azi = !isLoopingLast3_so_101_00_2__g_iv_s74_azi;
+                
+                if (isLoopingLast3_so_101_00_2__g_iv_s74_azi) {
+                    btnLoop3.classList.add("active");
+                    btnLoop3.textContent = "Stop Loop";
+                    
+                    if (currentIdx_so_101_00_2__g_iv_s74_azi < loopStartIdx_so_101_00_2__g_iv_s74_azi) {
+                        updatePlayer_so_101_00_2__g_iv_s74_azi(totalFrames_so_101_00_2__g_iv_s74_azi - 1);
+                    }
+                    
+                    if (!isPlaying_so_101_00_2__g_iv_s74_azi) {
+                        togglePlay_so_101_00_2__g_iv_s74_azi();
+                    } else {
+                        clearInterval(interval_so_101_00_2__g_iv_s74_azi);
+                        startPlaybackLoop_so_101_00_2__g_iv_s74_azi();
+                    }
+                } else {
+                    btnLoop3.classList.remove("active");
+                    btnLoop3.textContent = "🔄 Loop Last 3";
+                    pausePlayback_so_101_00_2__g_iv_s74_azi();
+                }
+            });
+
+            // 📥 Single ZIP Download Handler
+            btnDownload.addEventListener("click", async function() {
+                if (!images_so_101_00_2__g_iv_s74_azi || images_so_101_00_2__g_iv_s74_azi.length === 0) {
+                    alert("No source imagery located for this dataset.");
+                    return;
+                }
+
+                const originalText = btnDownload.innerHTML;
+                btnDownload.style.pointerEvents = "none";
+
+                try {
+                    const zip = new JSZip();
+                    let completedCount = 0;
+
+                    btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_so_101_00_2__g_iv_s74_azi})...`;
+                    
+                    const downloadPromises = images_so_101_00_2__g_iv_s74_azi.map(async (url, index) => {
+                        const response = await fetch(url);
+                        if (!response.ok) throw new Error("Failed to fetch image");
+                        const blob = await response.blob();
+                        
+                        let fileName = url.split('/').pop().split('?')[0];
+                        if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
+                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                        }
+                        
+                        zip.file(fileName, blob);
+                        
+                        completedCount++;
+                        btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_so_101_00_2__g_iv_s74_azi})...`;
+                    });
+
+                    await Promise.all(downloadPromises);
+
+                    btnDownload.innerHTML = "📦 Finalizing Zip...";
+                    const content = await zip.generateAsync({ type: "blob" });
+                    
+                    const a = document.createElement("a");
+                    a.href = URL.createObjectURL(content);
+                    a.download = "player_set_" + player_id + ".zip";
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(a.href);
+
+                } catch (error) {
+                    console.error(error);
+                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                } finally {
+                    btnDownload.innerHTML = originalText;
+                    btnDownload.style.pointerEvents = "auto";
+                }
+            });
+
+            btnFirst.addEventListener("click", function() { pausePlayback_so_101_00_2__g_iv_s74_azi(); breakLoop3State_so_101_00_2__g_iv_s74_azi(); updatePlayer_so_101_00_2__g_iv_s74_azi(0); });
+            btnLast.addEventListener("click", function() { pausePlayback_so_101_00_2__g_iv_s74_azi(); breakLoop3State_so_101_00_2__g_iv_s74_azi(); updatePlayer_so_101_00_2__g_iv_s74_azi(totalFrames_so_101_00_2__g_iv_s74_azi - 1); });
+            
+            btnPrev.addEventListener("click", function() {
                 pausePlayback_so_101_00_2__g_iv_s74_azi();
-            }
-        });
+                breakLoop3State_so_101_00_2__g_iv_s74_azi();
+                let prevIdx = currentIdx_so_101_00_2__g_iv_s74_azi - 1;
+                if (prevIdx < 0) prevIdx = totalFrames_so_101_00_2__g_iv_s74_azi - 1;
+                updatePlayer_so_101_00_2__g_iv_s74_azi(prevIdx);
+            });
 
-        btnFirst.addEventListener("click", function() { pausePlayback_so_101_00_2__g_iv_s74_azi(); breakLoop3State_so_101_00_2__g_iv_s74_azi(); updatePlayer_so_101_00_2__g_iv_s74_azi(0); });
-        btnLast.addEventListener("click", function() { pausePlayback_so_101_00_2__g_iv_s74_azi(); breakLoop3State_so_101_00_2__g_iv_s74_azi(); updatePlayer_so_101_00_2__g_iv_s74_azi(totalFrames_so_101_00_2__g_iv_s74_azi - 1); });
-        
-        btnPrev.addEventListener("click", function() {
-            pausePlayback_so_101_00_2__g_iv_s74_azi();
-            breakLoop3State_so_101_00_2__g_iv_s74_azi();
-            let prevIdx = currentIdx_so_101_00_2__g_iv_s74_azi - 1;
-            if (prevIdx < 0) prevIdx = totalFrames_so_101_00_2__g_iv_s74_azi - 1;
-            updatePlayer_so_101_00_2__g_iv_s74_azi(prevIdx);
-        });
+            btnNext.addEventListener("click", function() {
+                pausePlayback_so_101_00_2__g_iv_s74_azi();
+                breakLoop3State_so_101_00_2__g_iv_s74_azi();
+                let nextIdx = (currentIdx_so_101_00_2__g_iv_s74_azi + 1) % totalFrames_so_101_00_2__g_iv_s74_azi;
+                updatePlayer_so_101_00_2__g_iv_s74_azi(nextIdx);
+            });
 
-        btnNext.addEventListener("click", function() {
-            pausePlayback_so_101_00_2__g_iv_s74_azi();
-            breakLoop3State_so_101_00_2__g_iv_s74_azi();
-            let nextIdx = (currentIdx_so_101_00_2__g_iv_s74_azi + 1) % totalFrames_so_101_00_2__g_iv_s74_azi;
-            updatePlayer_so_101_00_2__g_iv_s74_azi(nextIdx);
-        });
+            wrapperEl.addEventListener("mouseenter", function() { isMouseOver_so_101_00_2__g_iv_s74_azi = true; });
+            wrapperEl.addEventListener("mouseleave", function() { isMouseOver_so_101_00_2__g_iv_s74_azi = false; });
 
-        wrapperEl.addEventListener("mouseenter", function() { isMouseOver_so_101_00_2__g_iv_s74_azi = true; });
-        wrapperEl.addEventListener("mouseleave", function() { isMouseOver_so_101_00_2__g_iv_s74_azi = false; });
+            window.addEventListener("keydown", function(e) {
+                if (!isMouseOver_so_101_00_2__g_iv_s74_azi) return;
 
-        window.addEventListener("keydown", function(e) {
-            if (!isMouseOver_so_101_00_2__g_iv_s74_azi) return;
-
-            switch(e.key) {
-                case "ArrowLeft":
-                    e.preventDefault();
-                    btnPrev.click();
-                    break;
-                case "ArrowRight":
-                    e.preventDefault();
-                    btnNext.click();
-                    break;
-                case " ":
-                    e.preventDefault();
-                    btnPlay.click();
-                    break;
-                case "Home":
-                    e.preventDefault();
-                    btnFirst.click();
-                    break;
-                case "End":
-                    e.preventDefault();
-                    btnLast.click();
-                    break;
-                case "f":
-                case "F":
-                    e.preventDefault();
-                    btnFullscreen.click();
-                    break;
-                case "l":
-                case "L":
-                    e.preventDefault();
-                    e.stopPropagation();
-                    btnLoop3.click();
-                    break;
-            }
-        });
-    })();
-    </script>
+                switch(e.key) {
+                    case "ArrowLeft":
+                        e.preventDefault();
+                        btnPrev.click();
+                        break;
+                    case "ArrowRight":
+                        e.preventDefault();
+                        btnNext.click();
+                        break;
+                    case " ":
+                        e.preventDefault();
+                        btnPlay.click();
+                        break;
+                    case "Home":
+                        e.preventDefault();
+                        btnFirst.click();
+                        break;
+                    case "End":
+                        e.preventDefault();
+                        btnLast.click();
+                        break;
+                    case "f":
+                    case "F":
+                        e.preventDefault();
+                        btnFullscreen.click();
+                        break;
+                    case "l":
+                    case "L":
+                        e.preventDefault();
+                        e.stopPropagation();
+                        btnLoop3.click();
+                        break;
+                }
+            });
+        })();
+        </script>
     
 
 
