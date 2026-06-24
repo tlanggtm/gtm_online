@@ -950,7 +950,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_tryskovka_situacia_images || images_tryskovka_situacia_images.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -970,10 +970,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_tryskovka_situacia_images.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -1008,13 +1008,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_tryskovka_situacia_images(); breakLoop3State_tryskovka_situacia_images(); updatePlayer_tryskovka_situacia_images(0); });
             btnLast.addEventListener("click", function() { pausePlayback_tryskovka_situacia_images(); breakLoop3State_tryskovka_situacia_images(); updatePlayer_tryskovka_situacia_images(totalFrames_tryskovka_situacia_images - 1); });

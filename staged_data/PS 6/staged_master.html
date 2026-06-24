@@ -912,7 +912,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_situacia_images || images_ps_6_situacia_images.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -932,10 +932,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_situacia_images.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -970,13 +970,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_situacia_images(); breakLoop3State_ps_6_situacia_images(); updatePlayer_ps_6_situacia_images(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_situacia_images(); breakLoop3State_ps_6_situacia_images(); updatePlayer_ps_6_situacia_images(totalFrames_ps_6_situacia_images - 1); });
@@ -1443,7 +1445,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_vyvoj_images || images_ps_6_vyvoj_images.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -1463,10 +1465,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_vyvoj_images.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -1501,13 +1503,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_vyvoj_images(); breakLoop3State_ps_6_vyvoj_images(); updatePlayer_ps_6_vyvoj_images(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_vyvoj_images(); breakLoop3State_ps_6_vyvoj_images(); updatePlayer_ps_6_vyvoj_images(totalFrames_ps_6_vyvoj_images - 1); });
@@ -1975,7 +1979,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_115_tot || images_ps_6_ivs_115_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -1995,10 +1999,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_115_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -2033,13 +2037,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_115_tot(); breakLoop3State_ps_6_ivs_115_tot(); updatePlayer_ps_6_ivs_115_tot(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_115_tot(); breakLoop3State_ps_6_ivs_115_tot(); updatePlayer_ps_6_ivs_115_tot(totalFrames_ps_6_ivs_115_tot - 1); });
@@ -2504,7 +2510,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_115_azi || images_ps_6_ivs_115_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -2524,10 +2530,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_115_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -2562,13 +2568,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_115_azi(); breakLoop3State_ps_6_ivs_115_azi(); updatePlayer_ps_6_ivs_115_azi(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_115_azi(); breakLoop3State_ps_6_ivs_115_azi(); updatePlayer_ps_6_ivs_115_azi(totalFrames_ps_6_ivs_115_azi - 1); });
@@ -3036,7 +3044,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_116_tot || images_ps_6_ivs_116_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -3056,10 +3064,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_116_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -3094,13 +3102,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_116_tot(); breakLoop3State_ps_6_ivs_116_tot(); updatePlayer_ps_6_ivs_116_tot(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_116_tot(); breakLoop3State_ps_6_ivs_116_tot(); updatePlayer_ps_6_ivs_116_tot(totalFrames_ps_6_ivs_116_tot - 1); });
@@ -3565,7 +3575,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_116_azi || images_ps_6_ivs_116_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -3585,10 +3595,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_116_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -3623,13 +3633,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_116_azi(); breakLoop3State_ps_6_ivs_116_azi(); updatePlayer_ps_6_ivs_116_azi(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_116_azi(); breakLoop3State_ps_6_ivs_116_azi(); updatePlayer_ps_6_ivs_116_azi(totalFrames_ps_6_ivs_116_azi - 1); });
@@ -4097,7 +4109,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_117_tot || images_ps_6_ivs_117_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -4117,10 +4129,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_117_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -4155,13 +4167,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_117_tot(); breakLoop3State_ps_6_ivs_117_tot(); updatePlayer_ps_6_ivs_117_tot(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_117_tot(); breakLoop3State_ps_6_ivs_117_tot(); updatePlayer_ps_6_ivs_117_tot(totalFrames_ps_6_ivs_117_tot - 1); });
@@ -4626,7 +4640,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_117_azi || images_ps_6_ivs_117_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -4646,10 +4660,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_117_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -4684,13 +4698,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_117_azi(); breakLoop3State_ps_6_ivs_117_azi(); updatePlayer_ps_6_ivs_117_azi(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_117_azi(); breakLoop3State_ps_6_ivs_117_azi(); updatePlayer_ps_6_ivs_117_azi(totalFrames_ps_6_ivs_117_azi - 1); });
@@ -5158,7 +5174,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_118_tot || images_ps_6_ivs_118_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -5178,10 +5194,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_118_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -5216,13 +5232,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_118_tot(); breakLoop3State_ps_6_ivs_118_tot(); updatePlayer_ps_6_ivs_118_tot(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_118_tot(); breakLoop3State_ps_6_ivs_118_tot(); updatePlayer_ps_6_ivs_118_tot(totalFrames_ps_6_ivs_118_tot - 1); });
@@ -5687,7 +5705,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_118_azi || images_ps_6_ivs_118_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -5707,10 +5725,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_118_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -5745,13 +5763,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_118_azi(); breakLoop3State_ps_6_ivs_118_azi(); updatePlayer_ps_6_ivs_118_azi(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_118_azi(); breakLoop3State_ps_6_ivs_118_azi(); updatePlayer_ps_6_ivs_118_azi(totalFrames_ps_6_ivs_118_azi - 1); });
@@ -6219,7 +6239,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_119_tot || images_ps_6_ivs_119_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -6239,10 +6259,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_119_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -6277,13 +6297,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_119_tot(); breakLoop3State_ps_6_ivs_119_tot(); updatePlayer_ps_6_ivs_119_tot(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_119_tot(); breakLoop3State_ps_6_ivs_119_tot(); updatePlayer_ps_6_ivs_119_tot(totalFrames_ps_6_ivs_119_tot - 1); });
@@ -6748,7 +6770,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_119_azi || images_ps_6_ivs_119_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -6768,10 +6790,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_119_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -6806,13 +6828,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_119_azi(); breakLoop3State_ps_6_ivs_119_azi(); updatePlayer_ps_6_ivs_119_azi(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_119_azi(); breakLoop3State_ps_6_ivs_119_azi(); updatePlayer_ps_6_ivs_119_azi(totalFrames_ps_6_ivs_119_azi - 1); });
@@ -7280,7 +7304,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_120_tot || images_ps_6_ivs_120_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -7300,10 +7324,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_120_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -7338,13 +7362,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_120_tot(); breakLoop3State_ps_6_ivs_120_tot(); updatePlayer_ps_6_ivs_120_tot(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_120_tot(); breakLoop3State_ps_6_ivs_120_tot(); updatePlayer_ps_6_ivs_120_tot(totalFrames_ps_6_ivs_120_tot - 1); });
@@ -7809,7 +7835,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Subdomain-Safe ZIP Download Handler
+                        // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_120_azi || images_ps_6_ivs_120_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -7829,10 +7855,10 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_120_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image");
+                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
                         const blob = await response.blob();
                         
-                        // Clean filename isolation: Splits string at '?' safely
+                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -7867,13 +7893,15 @@ Your page content starts here... -->
 
                 } catch (error) {
                     console.error(error);
-                    alert("Could not generate ZIP file. Verify assets are completely loaded.");
+                    // Detailed alert to catch the exact error message on your live site
+                    alert("ZIP generation failed: " + error.message);
                 } finally {
                     // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
             btnFirst.addEventListener("click", function() { pausePlayback_ps_6_ivs_120_azi(); breakLoop3State_ps_6_ivs_120_azi(); updatePlayer_ps_6_ivs_120_azi(0); });
             btnLast.addEventListener("click", function() { pausePlayback_ps_6_ivs_120_azi(); breakLoop3State_ps_6_ivs_120_azi(); updatePlayer_ps_6_ivs_120_azi(totalFrames_ps_6_ivs_120_azi - 1); });
