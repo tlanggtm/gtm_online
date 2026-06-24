@@ -973,10 +973,9 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_situacia_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -987,38 +986,36 @@ Your page content starts here... -->
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_situacia_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_situacia_tot.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_situacia_tot(); breakLoop3State_likavka_situacia_tot(); updatePlayer_likavka_situacia_tot(0); });
@@ -1507,10 +1504,9 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ink_lb_102_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -1521,38 +1517,36 @@ Your page content starts here... -->
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ink_lb_102_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ink_lb_102_tot.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ink_lb_102_tot(); breakLoop3State_likavka_ink_lb_102_tot(); updatePlayer_likavka_ink_lb_102_tot(0); });
@@ -2038,10 +2032,9 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ink_lb_102_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -2052,38 +2045,36 @@ Your page content starts here... -->
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ink_lb_102_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ink_lb_102_azi.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ink_lb_102_azi(); breakLoop3State_likavka_ink_lb_102_azi(); updatePlayer_likavka_ink_lb_102_azi(0); });
@@ -2599,10 +2590,9 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ink_lb_103n_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -2613,38 +2603,36 @@ Your page content starts here... -->
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ink_lb_103n_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ink_lb_103n_tot.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ink_lb_103n_tot(); breakLoop3State_likavka_ink_lb_103n_tot(); updatePlayer_likavka_ink_lb_103n_tot(0); });
@@ -3130,10 +3118,9 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ink_lb_103n_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -3144,38 +3131,36 @@ Your page content starts here... -->
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ink_lb_103n_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ink_lb_103n_azi.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ink_lb_103n_azi(); breakLoop3State_likavka_ink_lb_103n_azi(); updatePlayer_likavka_ink_lb_103n_azi(0); });
@@ -3691,10 +3676,9 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ink_lb_104n_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -3705,38 +3689,36 @@ Your page content starts here... -->
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ink_lb_104n_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ink_lb_104n_tot.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ink_lb_104n_tot(); breakLoop3State_likavka_ink_lb_104n_tot(); updatePlayer_likavka_ink_lb_104n_tot(0); });
@@ -4222,10 +4204,9 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ink_lb_104n_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -4236,38 +4217,36 @@ Your page content starts here... -->
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ink_lb_104n_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ink_lb_104n_azi.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ink_lb_104n_azi(); breakLoop3State_likavka_ink_lb_104n_azi(); updatePlayer_likavka_ink_lb_104n_azi(0); });
@@ -4808,10 +4787,9 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_iv_66n_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -4822,38 +4800,36 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_iv_66n_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_iv_66n_tot.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_iv_66n_tot(); breakLoop3State_likavka_iv_66n_tot(); updatePlayer_likavka_iv_66n_tot(0); });
@@ -5339,10 +5315,9 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_iv_66n_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -5353,38 +5328,36 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_iv_66n_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_iv_66n_azi.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_iv_66n_azi(); breakLoop3State_likavka_iv_66n_azi(); updatePlayer_likavka_iv_66n_azi(0); });
@@ -5873,10 +5846,9 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ivs_109_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -5887,38 +5859,36 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ivs_109_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ivs_109_tot.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ivs_109_tot(); breakLoop3State_likavka_ivs_109_tot(); updatePlayer_likavka_ivs_109_tot(0); });
@@ -6404,10 +6374,9 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ivs_109_ivs_109_vs.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -6418,38 +6387,36 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ivs_109_ivs_109_vs})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ivs_109_ivs_109_vs.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ivs_109_ivs_109_vs(); breakLoop3State_likavka_ivs_109_ivs_109_vs(); updatePlayer_likavka_ivs_109_ivs_109_vs(0); });
@@ -6938,10 +6905,9 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ivs_110_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -6952,38 +6918,36 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ivs_110_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ivs_110_tot.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ivs_110_tot(); breakLoop3State_likavka_ivs_110_tot(); updatePlayer_likavka_ivs_110_tot(0); });
@@ -7469,10 +7433,9 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ivs_110_ivs_110_vs.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -7483,38 +7446,36 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ivs_110_ivs_110_vs})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ivs_110_ivs_110_vs.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ivs_110_ivs_110_vs(); breakLoop3State_likavka_ivs_110_ivs_110_vs(); updatePlayer_likavka_ivs_110_ivs_110_vs(0); });
@@ -8003,10 +7964,9 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ivs_174_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -8017,38 +7977,36 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ivs_174_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ivs_174_tot.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ivs_174_tot(); breakLoop3State_likavka_ivs_174_tot(); updatePlayer_likavka_ivs_174_tot(0); });
@@ -8534,10 +8492,9 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ivs_174_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -8548,38 +8505,36 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ivs_174_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ivs_174_azi.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ivs_174_azi(); breakLoop3State_likavka_ivs_174_azi(); updatePlayer_likavka_ivs_174_azi(0); });
@@ -9068,10 +9023,9 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ivs_175_tot.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -9082,38 +9036,36 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ivs_175_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ivs_175_tot.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ivs_175_tot(); breakLoop3State_likavka_ivs_175_tot(); updatePlayer_likavka_ivs_175_tot(0); });
@@ -9599,10 +9551,9 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_likavka_ivs_175_azi.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -9613,38 +9564,36 @@ Veľkosť pohybu od <span class="math inline">\(\Delta = 0.57\text{ mm}\)</span>
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_likavka_ivs_175_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_likavka_ivs_175_azi.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_likavka_ivs_175_azi(); breakLoop3State_likavka_ivs_175_azi(); updatePlayer_likavka_ivs_175_azi(0); });

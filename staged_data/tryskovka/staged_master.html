@@ -970,10 +970,9 @@ Your page content starts here... -->
                     // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_tryskovka_situacia_images.map(async (url, index) => {
                         const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image: " + url);
+                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
                         const blob = await response.blob();
                         
-                        // Extract filename safely as a clean String
                         let rawName = url.split('/').pop();
                         let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                         
@@ -984,38 +983,36 @@ Your page content starts here... -->
                         
                         zip.file(fileName, blob);
                         
-                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_tryskovka_situacia_images})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
-                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
-                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
-                    a.download = "player_set_" + player_id + ".zip";
+                    
+                    // FIXED: Corrected Python template string binding format below
+                    a.download = "player_set_tryskovka_situacia_images.zip";
+                    
                     document.body.appendChild(a);
                     a.click();
                     
-                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
                 } catch (error) {
                     console.error(error);
-                    // Detailed alert to catch the exact error message on your live site
                     alert("ZIP generation failed: " + error.message);
                 } finally {
-                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
             });
+
 
 
             btnFirst.addEventListener("click", function() { pausePlayback_tryskovka_situacia_images(); breakLoop3State_tryskovka_situacia_images(); updatePlayer_tryskovka_situacia_images(0); });
