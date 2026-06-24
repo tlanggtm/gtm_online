@@ -912,7 +912,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_situacia_images || images_ps_6_situacia_images.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -926,35 +926,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_situacia_images})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_situacia_images.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_situacia_images})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -962,6 +972,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -1432,7 +1443,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_vyvoj_images || images_ps_6_vyvoj_images.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -1446,35 +1457,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_vyvoj_images})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_vyvoj_images.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_vyvoj_images})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -1482,6 +1503,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -1953,7 +1975,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_115_tot || images_ps_6_ivs_115_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -1967,35 +1989,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_115_tot})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_115_tot.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_115_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -2003,6 +2035,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -2471,7 +2504,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_115_azi || images_ps_6_ivs_115_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -2485,35 +2518,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_115_azi})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_115_azi.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_115_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -2521,6 +2564,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -2992,7 +3036,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_116_tot || images_ps_6_ivs_116_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -3006,35 +3050,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_116_tot})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_116_tot.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_116_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -3042,6 +3096,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -3510,7 +3565,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_116_azi || images_ps_6_ivs_116_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -3524,35 +3579,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_116_azi})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_116_azi.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_116_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -3560,6 +3625,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -4031,7 +4097,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_117_tot || images_ps_6_ivs_117_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -4045,35 +4111,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_117_tot})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_117_tot.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_117_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -4081,6 +4157,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -4549,7 +4626,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_117_azi || images_ps_6_ivs_117_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -4563,35 +4640,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_117_azi})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_117_azi.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_117_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -4599,6 +4686,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -5070,7 +5158,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_118_tot || images_ps_6_ivs_118_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -5084,35 +5172,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_118_tot})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_118_tot.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_118_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -5120,6 +5218,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -5588,7 +5687,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_118_azi || images_ps_6_ivs_118_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -5602,35 +5701,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_118_azi})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_118_azi.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_118_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -5638,6 +5747,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -6109,7 +6219,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_119_tot || images_ps_6_ivs_119_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -6123,35 +6233,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_119_tot})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_119_tot.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_119_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -6159,6 +6279,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -6627,7 +6748,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_119_azi || images_ps_6_ivs_119_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -6641,35 +6762,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_119_azi})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_119_azi.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_119_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -6677,6 +6808,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -7148,7 +7280,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_120_tot || images_ps_6_ivs_120_tot.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -7162,35 +7294,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_120_tot})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_120_tot.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_120_tot})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -7198,6 +7340,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
@@ -7666,7 +7809,7 @@ Your page content starts here... -->
                 }
             });
 
-            // 📥 Single ZIP Download Handler
+            // 📥 Subdomain-Safe ZIP Download Handler
             btnDownload.addEventListener("click", async function() {
                 if (!images_ps_6_ivs_120_azi || images_ps_6_ivs_120_azi.length === 0) {
                     alert("No source imagery located for this dataset.");
@@ -7680,35 +7823,45 @@ Your page content starts here... -->
                     const zip = new JSZip();
                     let completedCount = 0;
 
+                    // Update UI instantly
                     btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_ps_6_ivs_120_azi})...`;
                     
+                    // Fetch and add each image to the zip structure concurrently
                     const downloadPromises = images_ps_6_ivs_120_azi.map(async (url, index) => {
                         const response = await fetch(url);
                         if (!response.ok) throw new Error("Failed to fetch image");
                         const blob = await response.blob();
                         
-                        let fileName = url.split('/').pop().split('?')[0];
+                        // Clean filename isolation: Splits string at '?' safely
+                        let rawName = url.split('/').pop();
+                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
+                        
+                        // Fallback naming schema check
                         if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(2, '0') + ".png";
+                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
                         }
                         
                         zip.file(fileName, blob);
                         
+                        // Update button live counter text safely
                         completedCount++;
                         btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_ps_6_ivs_120_azi})...`;
                     });
 
                     await Promise.all(downloadPromises);
 
+                    // Compile zip file structure
                     btnDownload.innerHTML = "📦 Finalizing Zip...";
                     const content = await zip.generateAsync({ type: "blob" });
                     
+                    // Trigger a clean single file save dialog window
                     const a = document.createElement("a");
                     a.href = URL.createObjectURL(content);
                     a.download = "player_set_" + player_id + ".zip";
                     document.body.appendChild(a);
                     a.click();
                     
+                    // Cleanup memory allocations
                     document.body.removeChild(a);
                     URL.revokeObjectURL(a.href);
 
@@ -7716,6 +7869,7 @@ Your page content starts here... -->
                     console.error(error);
                     alert("Could not generate ZIP file. Verify assets are completely loaded.");
                 } finally {
+                    // Restore button appearance
                     btnDownload.innerHTML = originalText;
                     btnDownload.style.pointerEvents = "auto";
                 }
