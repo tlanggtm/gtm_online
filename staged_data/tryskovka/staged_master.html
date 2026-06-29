@@ -655,7 +655,7 @@ Your page content starts here... -->
     function firePixelLog(actionType) {
         try {
             const currentPage = window.location.pathname;
-            const basePixelUrl = "http://localhost:5000/track.png";
+            const basePixelUrl = "https://tracking-backend-mflt.onrender.com";
             const finalRequestUrl = basePixelUrl + "?page=" + encodeURIComponent(currentPage) + "&player=" + playerId + "&action=" + encodeURIComponent(actionType);
             
             const pixelImage = new Image(1, 1);
