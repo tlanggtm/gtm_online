@@ -553,147 +553,34 @@ Your page content starts here... -->
 <section id="vizualizácia-časového-záznamu" class="level5">
 <h5 class="anchored" data-anchor-id="vizualizácia-časového-záznamu">🎬 Vizualizácia časového záznamu</h5>
 
+    <!-- 📦 DEPENDENCIES LOAD FIRST -->
+    <script src="https://cdnjs.cloudflare.com//ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
     <!-- 🎛️ STYLE CENTRAL -->
     <style>
-    #player_wrapper_tryskovka_situacia_images {
-        margin-bottom: 30px; 
-        background: #222222; 
-        padding: 15px; 
-        border-radius: 8px; 
-        user-select: none; 
-        -webkit-user-select: none;
-    }
-    #player_wrapper_tryskovka_situacia_images .image-container {
-        background: #000000; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        min-height: 300px; 
-        margin-bottom: 15px; 
-        border-radius: 4px; 
-        overflow: hidden;
-    }
-    #player_wrapper_tryskovka_situacia_images .control-action-bar {
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        gap: 12px;               
-    }
-    #player_wrapper_tryskovka_situacia_images .btn-cluster {
-        display: flex; 
-        gap: 6px;
-    }
-    #player_wrapper_tryskovka_situacia_images .player-btn {
-        color: #ffffff; 
-        border: none; 
-        height: 32px; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        border-radius: 4px; 
-        cursor: pointer;
-        transition: background-color 0.15s ease;
-        font-family: 'monospace';
-        font-size: 12px;
-    }
-    #player_wrapper_tryskovka_situacia_images .btn-nav {
-        background-color: #444444; 
-        width: 38px;
-    }
-    #player_wrapper_tryskovka_situacia_images .btn-nav:hover {
-        background-color: #555555;
-    }
-    #player_wrapper_tryskovka_situacia_images .btn-action {
-        background-color: #0d6efd; 
-        padding: 0 22px; 
-        font-weight: bold;
-    }
-    #player_wrapper_tryskovka_situacia_images .btn-action:hover {
-        filter: brightness(1.15); 
-    }
-    #player_wrapper_tryskovka_situacia_images .btn-loop3 {
-        background-color: #6f42c1;
-        padding: 0 14px;
-        font-weight: bold;
-    }
-    #player_wrapper_tryskovka_situacia_images .btn-loop3:hover {
-        filter: brightness(1.15);
-    }
-    #player_wrapper_tryskovka_situacia_images .btn-loop3.active {
-        background-color: #dc3545 !important;
-    }
-    #player_wrapper_tryskovka_situacia_images .btn-download {
-        background-color: #198754;
-        padding: 0 12px;
-        font-weight: bold;
-    }
-    #player_wrapper_tryskovka_situacia_images .btn-download:hover {
-        filter: brightness(1.15);
-    }
-    #player_wrapper_tryskovka_situacia_images .speed-selector {
-        background-color: #444444;
-        color: #ffffff;
-        border: none;
-        height: 32px;
-        padding: 0 6px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-family: monospace;
-        font-size: 13px;
-        outline: none;
-    }
-    #player_wrapper_tryskovka_situacia_images .speed-selector:hover {
-        background-color: #555555;
-    }
-    #player_wrapper_tryskovka_situacia_images .timeline-slider {
-        flex-grow: 1; 
-        cursor: pointer;
-        height: 6px;
-        accent-color: #0d6efd; 
-    }
-    
-    /* ⌨️ HINT BAR BOX DESIGN */
-    #player_wrapper_tryskovka_situacia_images .shortcut-hints {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 15px;
-        padding-top: 12px;
-        border-top: 1px solid #3a3a3a;
-        color: #888888;
-        font-size: 11px;
-        font-family: sans-serif;
-    }
-    #player_wrapper_tryskovka_situacia_images .shortcut-hints kbd {
-        background: #333;
-        color: #eee;
-        padding: 2px 5px;
-        border-radius: 3px;
-        border: 1px solid #555;
-        font-family: monospace;
-        font-size: 10px;
-    }
-
-    /* NATIVE FULLSCREEN LAYOUT FIXES */
-    #player_wrapper_tryskovka_situacia_images:fullscreen {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        padding: 25px !important;
-        background: #111111 !important;
-    }
-    #player_wrapper_tryskovka_situacia_images:fullscreen .image-container {
-        flex-grow: 1 !important;
-        margin-bottom: 20px !important;
-    }
-    #player_wrapper_tryskovka_situacia_images:fullscreen #img_display_tryskovka_situacia_images {
-        max-height: calc(100vh - 160px) !important; 
-        width: auto !important;
-    }
-    #player_wrapper_tryskovka_situacia_images:fullscreen .shortcut-hints {
-        color: #666;
-    }
+    #player_wrapper_tryskovka_situacia_images { margin-bottom: 30px; background: #222222; padding: 15px; border-radius: 8px; user-select: none; -webkit-user-select: none; } 
+    #player_wrapper_tryskovka_situacia_images .image-container { background: #000000; display: flex; align-items: center; justify-content: center; min-height: 300px; margin-bottom: 15px; border-radius: 4px; overflow: hidden; } 
+    #player_wrapper_tryskovka_situacia_images .control-action-bar { display: flex; align-items: center; justify-content: center; gap: 12px; } 
+    #player_wrapper_tryskovka_situacia_images .btn-cluster { display: flex; gap: 6px; } 
+    #player_wrapper_tryskovka_situacia_images .player-btn { color: #ffffff; border: none; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 4px; cursor: pointer; transition: background-color 0.15s ease; font-family: 'monospace'; font-size: 12px; } 
+    #player_wrapper_tryskovka_situacia_images .btn-nav { background-color: #444444; width: 38px; } 
+    #player_wrapper_tryskovka_situacia_images .btn-nav:hover { background-color: #555555; } 
+    #player_wrapper_tryskovka_situacia_images .btn-action { background-color: #0d6efd; padding: 0 22px; font-weight: bold; } 
+    #player_wrapper_tryskovka_situacia_images .btn-action:hover { filter: brightness(1.15); } 
+    #player_wrapper_tryskovka_situacia_images .btn-loop3 { background-color: #6f42c1; padding: 0 14px; font-weight: bold; } 
+    #player_wrapper_tryskovka_situacia_images .btn-loop3:hover { filter: brightness(1.15); } 
+    #player_wrapper_tryskovka_situacia_images .btn-loop3.active { background-color: #dc3545 !important; } 
+    #player_wrapper_tryskovka_situacia_images .btn-download { background-color: #198754; padding: 0 12px; font-weight: bold; } 
+    #player_wrapper_tryskovka_situacia_images .btn-download:hover { filter: brightness(1.15); } 
+    #player_wrapper_tryskovka_situacia_images .speed-selector { background-color: #444444; color: #ffffff; border: none; height: 32px; padding: 0 6px; border-radius: 4px; cursor: pointer; font-family: monospace; font-size: 13px; outline: none; } 
+    #player_wrapper_tryskovka_situacia_images .speed-selector:hover { background-color: #555555; } 
+    #player_wrapper_tryskovka_situacia_images .timeline-slider { flex-grow: 1; cursor: pointer; height: 6px; accent-color: #0d6efd; } 
+    #player_wrapper_tryskovka_situacia_images .shortcut-hints { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; padding-top: 12px; border-top: 1px solid #3a3a3a; color: #888888; font-size: 11px; font-family: sans-serif; } 
+    #player_wrapper_tryskovka_situacia_images .shortcut-hints kbd { background: #333; color: #eee; padding: 2px 5px; border-radius: 3px; border: 1px solid #555; font-family: monospace; font-size: 10px; } 
+    #player_wrapper_tryskovka_situacia_images:fullscreen { display: flex !important; flex-direction: column !important; justify-content: space-between !important; padding: 25px !important; background: #111111 !important; } 
+    #player_wrapper_tryskovka_situacia_images:fullscreen .image-container { flex-grow: 1 !important; margin-bottom: 20px !important; } 
+    #player_wrapper_tryskovka_situacia_images:fullscreen #img_display_tryskovka_situacia_images { max-height: calc(100vh - 160px) !important; width: auto !important; } 
+    #player_wrapper_tryskovka_situacia_images:fullscreen .shortcut-hints { color: #666; } 
     </style>
 
     <!-- 🏗️ HTML STRUCTURE -->
@@ -701,380 +588,321 @@ Your page content starts here... -->
         <div class="image-container">
             <img id="img_display_tryskovka_situacia_images" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
-        
-        <!-- Timeline Slider Bar -->
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
             <input id="slider_tryskovka_situacia_images" class="timeline-slider" type="range" min="0" max="130" value="0">
         </div>
-
-        <!-- Control Action Bar -->
         <div class="control-action-bar">
-            <!-- Left Cluster -->
             <div class="btn-cluster">
-                <button id="btn_first_tryskovka_situacia_images" class="player-btn btn-nav" title="First Frame (Home)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg>
-                </button>
-                <button id="btn_prev_tryskovka_situacia_images" class="player-btn btn-nav" title="Previous Frame (Left Arrow)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg>
-                </button>
+                <button id="btn_first_tryskovka_situacia_images" class="player-btn btn-nav" title="First Frame"><svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M4 1v14h2V1H4zm3.5 7L13 13V3L7.5 8z"></path></svg></button>
+                <button id="btn_prev_tryskovka_situacia_images" class="player-btn btn-nav" title="Previous Frame"><svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M10 3L5 8l5 5V3z"></path></svg></button>
             </div>
-
-            <!-- Play Command -->
-            <button id="btn_play_tryskovka_situacia_images" class="player-btn btn-action">
-                <span id="play_icon_tryskovka_situacia_images" style="display:flex; align-items:center; margin-right:6px;">
-                    <svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg>
-                </span>
-                <span id="play_text_tryskovka_situacia_images">Play</span>
-            </button>
-
-            <!-- 🔄 LOOP LAST 3 FRAMES ACTION -->
-            <button id="btn_loop3_tryskovka_situacia_images" class="player-btn btn-loop3" title="Loop last 3 frames (L)">
-                🔄 Last 3 Measurements
-            </button>
-
-            <!-- 🛠️ SPEED DROPDOWN CONTROLLER -->
-            <select id="speed_select_tryskovka_situacia_images" class="speed-selector" title="Playback Speed">
-                <option value="2.0">0.5x</option>
-                <option value="1.5">0.75x</option>
-                <option value="1.0" selected="">1.0x</option>
-                <option value="0.5">2.0x</option>
-                <option value="0.25">4.0x</option>
+            <button id="btn_play_tryskovka_situacia_images" class="player-btn btn-action"><span id="play_icon_tryskovka_situacia_images" style="display:flex; align-items:center; margin-right:6px;"><svg width="12" height="12" viewbox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"></path></svg></span><span id="play_text_tryskovka_situacia_images">Play</span></button>
+            <button id="btn_loop3_tryskovka_situacia_images" class="player-btn btn-loop3">🔄 Last 3 Measurements</button>
+            <select id="speed_select_tryskovka_situacia_images" class="speed-selector">
+                <option value="2.0">0.5x</option><option value="1.5">0.75x</option><option value="1.0" selected="">1.0x</option><option value="0.5">2.0x</option><option value="0.25">4.0x</option>
             </select>
-
-            <!-- 📥 DOWNLOAD BUTTON -->
-            <button id="btn_download_tryskovka_situacia_images" class="player-btn btn-download" title="Download all frames as individual PNG files">
-                📥 Save Set
-            </button>
-
-            <!-- Fullscreen Command -->
-            <button id="btn_fullscreen_tryskovka_situacia_images" class="player-btn btn-nav" title="Toggle Fullscreen (F)">
-                <span id="fullscreen_icon_tryskovka_situacia_images" style="display:flex; align-items:center;">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg>
-                </span>
-            </button>
-
-            <!-- Right Cluster -->
+            <button id="btn_download_tryskovka_situacia_images" class="player-btn btn-download">📥 Save Set</button>
+            <button id="btn_fullscreen_tryskovka_situacia_images" class="player-btn btn-nav"><span id="fullscreen_icon_tryskovka_situacia_images" style="display:flex; align-items:center;"><svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"></path></svg></span></button>
             <div class="btn-cluster">
-                <button id="btn_next_tryskovka_situacia_images" class="player-btn btn-nav" title="Next Frame (Right Arrow)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg>
-                </button>
-                <button id="btn_last_tryskovka_situacia_images" class="player-btn btn-nav" title="Last Frame (End)">
-                    <svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg>
-                </button>
+                <button id="btn_next_tryskovka_situacia_images" class="player-btn btn-nav"><svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"></path></svg></button>
+                <button id="btn_last_tryskovka_situacia_images" class="player-btn btn-nav"><svg width="14" height="14" viewbox="0 0 16 16" fill="currentColor"><path d="M12 1v14h-2V1h2zM8.5 8L3 13V3l5.5 5z"></path></svg></button>
             </div>
         </div>
-
-        <!-- ⌨️ DYNAMIC SHORTCUT HUD PANEL (Hover context hints) -->
         <div class="shortcut-hints">
-            <span>💡 Hover window to use hotkeys:</span>
-            <span><kbd>Space</kbd> Play/Pause</span>
-            <span><kbd>←</kbd> / <kbd>→</kbd> Prev / Next</span>
-            <span><kbd>L</kbd> Loop 3</span>
-            <span><kbd>F</kbd> Fullscreen</span>
-            <span><kbd>Home</kbd> / <kbd>End</kbd> Start / Final</span>
+            <span>💡 Hover window to use hotkeys:</span><span><kbd>Space</kbd> Play/Pause</span><span><kbd>←</kbd> / <kbd>→</kbd> Prev / Next</span><span><kbd>L</kbd> Loop 3</span><span><kbd>F</kbd> Fullscreen</span><span><kbd>Home</kbd> / <kbd>End</kbd> Start / Final</span>
         </div>
     </div>
-   
-    <!-- Include JSZip Library for client-side zipping -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     
-    <!-- 🧠 JAVASCRIPT LOGIC -->
-        <script>
-        (function() {
-            const images_tryskovka_situacia_images = ["./real/situacia/images/SO_101-00_2_A_2025-10-01.png", "./real/situacia/images/SO_101-00_2_A_2025-10-02.png", "./real/situacia/images/SO_101-00_2_A_2025-10-03.png", "./real/situacia/images/SO_101-00_2_A_2025-10-04.png", "./real/situacia/images/SO_101-00_2_A_2025-10-05.png", "./real/situacia/images/SO_101-00_2_A_2025-10-06.png", "./real/situacia/images/SO_101-00_2_A_2025-10-07.png", "./real/situacia/images/SO_101-00_2_A_2025-10-08.png", "./real/situacia/images/SO_101-00_2_A_2025-10-09.png", "./real/situacia/images/SO_101-00_2_A_2025-10-10.png", "./real/situacia/images/SO_101-00_2_A_2025-10-11.png", "./real/situacia/images/SO_101-00_2_A_2025-10-12.png", "./real/situacia/images/SO_101-00_2_A_2025-10-13.png", "./real/situacia/images/SO_101-00_2_A_2025-10-14.png", "./real/situacia/images/SO_101-00_2_A_2025-10-15.png", "./real/situacia/images/SO_101-00_2_A_2025-10-16.png", "./real/situacia/images/SO_101-00_2_A_2025-10-17.png", "./real/situacia/images/SO_101-00_2_A_2025-10-18.png", "./real/situacia/images/SO_101-00_2_A_2025-10-19.png", "./real/situacia/images/SO_101-00_2_A_2025-10-20.png", "./real/situacia/images/SO_101-00_2_A_2025-10-21.png", "./real/situacia/images/SO_101-00_2_A_2025-10-22.png", "./real/situacia/images/SO_101-00_2_A_2025-10-23.png", "./real/situacia/images/SO_101-00_2_A_2025-10-24.png", "./real/situacia/images/SO_101-00_2_A_2025-10-25.png", "./real/situacia/images/SO_101-00_2_A_2025-10-26.png", "./real/situacia/images/SO_101-00_2_A_2025-10-27.png", "./real/situacia/images/SO_101-00_2_A_2025-10-28.png", "./real/situacia/images/SO_101-00_2_A_2025-10-29.png", "./real/situacia/images/SO_101-00_2_A_2025-10-30.png", "./real/situacia/images/SO_101-00_2_A_2025-10-31.png", "./real/situacia/images/SO_101-00_2_A_2025-11-01.png", "./real/situacia/images/SO_101-00_2_A_2025-11-02.png", "./real/situacia/images/SO_101-00_2_A_2025-11-03.png", "./real/situacia/images/SO_101-00_2_A_2025-11-04.png", "./real/situacia/images/SO_101-00_2_A_2025-11-05.png", "./real/situacia/images/SO_101-00_2_A_2025-11-06.png", "./real/situacia/images/SO_101-00_2_A_2025-11-07.png", "./real/situacia/images/SO_101-00_2_A_2025-11-08.png", "./real/situacia/images/SO_101-00_2_A_2025-11-09.png", "./real/situacia/images/SO_101-00_2_A_2025-11-10.png", "./real/situacia/images/SO_101-00_2_A_2025-11-11.png", "./real/situacia/images/SO_101-00_2_A_2025-11-12.png", "./real/situacia/images/SO_101-00_2_A_2025-11-13.png", "./real/situacia/images/SO_101-00_2_A_2025-11-14.png", "./real/situacia/images/SO_101-00_2_A_2025-11-15.png", "./real/situacia/images/SO_101-00_2_A_2025-11-16.png", "./real/situacia/images/SO_101-00_2_A_2025-11-17.png", "./real/situacia/images/SO_101-00_2_A_2025-11-18.png", "./real/situacia/images/SO_101-00_2_A_2025-11-19.png", "./real/situacia/images/SO_101-00_2_A_2025-11-20.png", "./real/situacia/images/SO_101-00_2_A_2025-11-21.png", "./real/situacia/images/SO_101-00_2_A_2025-11-22.png", "./real/situacia/images/SO_101-00_2_A_2025-11-23.png", "./real/situacia/images/SO_101-00_2_A_2025-11-24.png", "./real/situacia/images/SO_101-00_2_A_2025-11-25.png", "./real/situacia/images/SO_101-00_2_A_2025-11-26.png", "./real/situacia/images/SO_101-00_2_A_2025-11-27.png", "./real/situacia/images/SO_101-00_2_A_2025-11-28.png", "./real/situacia/images/SO_101-00_2_A_2025-11-29.png", "./real/situacia/images/SO_101-00_2_A_2025-11-30.png", "./real/situacia/images/SO_101-00_2_A_2025-12-01.png", "./real/situacia/images/SO_101-00_2_A_2025-12-02.png", "./real/situacia/images/SO_101-00_2_A_2025-12-03.png", "./real/situacia/images/SO_101-00_2_A_2025-12-04.png", "./real/situacia/images/SO_101-00_2_A_2025-12-05.png", "./real/situacia/images/SO_101-00_2_A_2025-12-06.png", "./real/situacia/images/SO_101-00_2_A_2025-12-07.png", "./real/situacia/images/SO_101-00_2_A_2025-12-08.png", "./real/situacia/images/SO_101-00_2_A_2025-12-09.png", "./real/situacia/images/SO_101-00_2_A_2025-12-10.png", "./real/situacia/images/SO_101-00_2_A_2025-12-11.png", "./real/situacia/images/SO_101-00_2_A_2025-12-12.png", "./real/situacia/images/SO_101-00_2_A_2025-12-13.png", "./real/situacia/images/SO_101-00_2_A_2025-12-14.png", "./real/situacia/images/SO_101-00_2_A_2025-12-15.png", "./real/situacia/images/SO_101-00_2_A_2025-12-16.png", "./real/situacia/images/SO_101-00_2_A_2025-12-17.png", "./real/situacia/images/SO_101-00_2_A_2025-12-18.png", "./real/situacia/images/SO_101-00_2_A_2025-12-19.png", "./real/situacia/images/SO_101-00_2_A_2025-12-20.png", "./real/situacia/images/SO_101-00_2_A_2025-12-21.png", "./real/situacia/images/SO_101-00_2_A_2025-12-22.png", "./real/situacia/images/SO_101-00_2_A_2025-12-23.png", "./real/situacia/images/SO_101-00_2_A_2025-12-24.png", "./real/situacia/images/SO_101-00_2_A_2025-12-25.png", "./real/situacia/images/SO_101-00_2_A_2025-12-26.png", "./real/situacia/images/SO_101-00_2_A_2025-12-27.png", "./real/situacia/images/SO_101-00_2_A_2025-12-28.png", "./real/situacia/images/SO_101-00_2_A_2025-12-29.png", "./real/situacia/images/SO_101-00_2_A_2025-12-30.png", "./real/situacia/images/SO_101-00_2_A_2025-12-31.png", "./real/situacia/images/SO_101-00_2_A_2026-01-01.png", "./real/situacia/images/SO_101-00_2_A_2026-01-02.png", "./real/situacia/images/SO_101-00_2_A_2026-01-03.png", "./real/situacia/images/SO_101-00_2_A_2026-01-04.png", "./real/situacia/images/SO_101-00_2_A_2026-01-05.png", "./real/situacia/images/SO_101-00_2_A_2026-01-06.png", "./real/situacia/images/SO_101-00_2_A_2026-01-07.png", "./real/situacia/images/SO_101-00_2_A_2026-01-08.png", "./real/situacia/images/SO_101-00_2_A_2026-01-09.png", "./real/situacia/images/SO_101-00_2_A_2026-01-10.png", "./real/situacia/images/SO_101-00_2_A_2026-01-11.png", "./real/situacia/images/SO_101-00_2_A_2026-01-12.png", "./real/situacia/images/SO_101-00_2_A_2026-01-13.png", "./real/situacia/images/SO_101-00_2_A_2026-01-14.png", "./real/situacia/images/SO_101-00_2_A_2026-01-15.png", "./real/situacia/images/SO_101-00_2_A_2026-01-16.png", "./real/situacia/images/SO_101-00_2_A_2026-01-17.png", "./real/situacia/images/SO_101-00_2_A_2026-01-18.png", "./real/situacia/images/SO_101-00_2_A_2026-01-19.png", "./real/situacia/images/SO_101-00_2_A_2026-01-20.png", "./real/situacia/images/SO_101-00_2_A_2026-01-21.png", "./real/situacia/images/SO_101-00_2_A_2026-01-22.png", "./real/situacia/images/SO_101-00_2_A_2026-01-23.png", "./real/situacia/images/SO_101-00_2_A_2026-01-24.png", "./real/situacia/images/SO_101-00_2_A_2026-01-25.png", "./real/situacia/images/SO_101-00_2_A_2026-01-26.png", "./real/situacia/images/SO_101-00_2_A_2026-01-27.png", "./real/situacia/images/SO_101-00_2_A_2026-01-28.png", "./real/situacia/images/SO_101-00_2_A_2026-01-29.png", "./real/situacia/images/SO_101-00_2_A_2026-01-30.png", "./real/situacia/images/SO_101-00_2_A_2026-01-31.png", "./real/situacia/images/SO_101-00_2_A_2026-02-01.png", "./real/situacia/images/SO_101-00_2_A_2026-02-02.png", "./real/situacia/images/SO_101-00_2_A_2026-02-03.png", "./real/situacia/images/SO_101-00_2_A_2026-02-04.png", "./real/situacia/images/SO_101-00_2_A_2026-02-05.png", "./real/situacia/images/SO_101-00_2_A_2026-02-06.png", "./real/situacia/images/SO_101-00_2_A_2026-02-07.png", "./real/situacia/images/SO_101-00_2_A_2026-02-08.png"];
-            const totalFrames_tryskovka_situacia_images = 131;
-            const baseInterval_tryskovka_situacia_images = 300; // The baseline 300ms passed from python
-            const loopStartIdx_tryskovka_situacia_images = 128;
+    <!-- 🧠 JAVASCRIPT EXECUTED SAFELY AFTER DEPENDENCIES -->
+    <script>
+    // player_logic.js
+(function() { 
+    const images = ["./real/situacia/images/SO_101-00_2_A_2025-10-01.png", "./real/situacia/images/SO_101-00_2_A_2025-10-02.png", "./real/situacia/images/SO_101-00_2_A_2025-10-03.png", "./real/situacia/images/SO_101-00_2_A_2025-10-04.png", "./real/situacia/images/SO_101-00_2_A_2025-10-05.png", "./real/situacia/images/SO_101-00_2_A_2025-10-06.png", "./real/situacia/images/SO_101-00_2_A_2025-10-07.png", "./real/situacia/images/SO_101-00_2_A_2025-10-08.png", "./real/situacia/images/SO_101-00_2_A_2025-10-09.png", "./real/situacia/images/SO_101-00_2_A_2025-10-10.png", "./real/situacia/images/SO_101-00_2_A_2025-10-11.png", "./real/situacia/images/SO_101-00_2_A_2025-10-12.png", "./real/situacia/images/SO_101-00_2_A_2025-10-13.png", "./real/situacia/images/SO_101-00_2_A_2025-10-14.png", "./real/situacia/images/SO_101-00_2_A_2025-10-15.png", "./real/situacia/images/SO_101-00_2_A_2025-10-16.png", "./real/situacia/images/SO_101-00_2_A_2025-10-17.png", "./real/situacia/images/SO_101-00_2_A_2025-10-18.png", "./real/situacia/images/SO_101-00_2_A_2025-10-19.png", "./real/situacia/images/SO_101-00_2_A_2025-10-20.png", "./real/situacia/images/SO_101-00_2_A_2025-10-21.png", "./real/situacia/images/SO_101-00_2_A_2025-10-22.png", "./real/situacia/images/SO_101-00_2_A_2025-10-23.png", "./real/situacia/images/SO_101-00_2_A_2025-10-24.png", "./real/situacia/images/SO_101-00_2_A_2025-10-25.png", "./real/situacia/images/SO_101-00_2_A_2025-10-26.png", "./real/situacia/images/SO_101-00_2_A_2025-10-27.png", "./real/situacia/images/SO_101-00_2_A_2025-10-28.png", "./real/situacia/images/SO_101-00_2_A_2025-10-29.png", "./real/situacia/images/SO_101-00_2_A_2025-10-30.png", "./real/situacia/images/SO_101-00_2_A_2025-10-31.png", "./real/situacia/images/SO_101-00_2_A_2025-11-01.png", "./real/situacia/images/SO_101-00_2_A_2025-11-02.png", "./real/situacia/images/SO_101-00_2_A_2025-11-03.png", "./real/situacia/images/SO_101-00_2_A_2025-11-04.png", "./real/situacia/images/SO_101-00_2_A_2025-11-05.png", "./real/situacia/images/SO_101-00_2_A_2025-11-06.png", "./real/situacia/images/SO_101-00_2_A_2025-11-07.png", "./real/situacia/images/SO_101-00_2_A_2025-11-08.png", "./real/situacia/images/SO_101-00_2_A_2025-11-09.png", "./real/situacia/images/SO_101-00_2_A_2025-11-10.png", "./real/situacia/images/SO_101-00_2_A_2025-11-11.png", "./real/situacia/images/SO_101-00_2_A_2025-11-12.png", "./real/situacia/images/SO_101-00_2_A_2025-11-13.png", "./real/situacia/images/SO_101-00_2_A_2025-11-14.png", "./real/situacia/images/SO_101-00_2_A_2025-11-15.png", "./real/situacia/images/SO_101-00_2_A_2025-11-16.png", "./real/situacia/images/SO_101-00_2_A_2025-11-17.png", "./real/situacia/images/SO_101-00_2_A_2025-11-18.png", "./real/situacia/images/SO_101-00_2_A_2025-11-19.png", "./real/situacia/images/SO_101-00_2_A_2025-11-20.png", "./real/situacia/images/SO_101-00_2_A_2025-11-21.png", "./real/situacia/images/SO_101-00_2_A_2025-11-22.png", "./real/situacia/images/SO_101-00_2_A_2025-11-23.png", "./real/situacia/images/SO_101-00_2_A_2025-11-24.png", "./real/situacia/images/SO_101-00_2_A_2025-11-25.png", "./real/situacia/images/SO_101-00_2_A_2025-11-26.png", "./real/situacia/images/SO_101-00_2_A_2025-11-27.png", "./real/situacia/images/SO_101-00_2_A_2025-11-28.png", "./real/situacia/images/SO_101-00_2_A_2025-11-29.png", "./real/situacia/images/SO_101-00_2_A_2025-11-30.png", "./real/situacia/images/SO_101-00_2_A_2025-12-01.png", "./real/situacia/images/SO_101-00_2_A_2025-12-02.png", "./real/situacia/images/SO_101-00_2_A_2025-12-03.png", "./real/situacia/images/SO_101-00_2_A_2025-12-04.png", "./real/situacia/images/SO_101-00_2_A_2025-12-05.png", "./real/situacia/images/SO_101-00_2_A_2025-12-06.png", "./real/situacia/images/SO_101-00_2_A_2025-12-07.png", "./real/situacia/images/SO_101-00_2_A_2025-12-08.png", "./real/situacia/images/SO_101-00_2_A_2025-12-09.png", "./real/situacia/images/SO_101-00_2_A_2025-12-10.png", "./real/situacia/images/SO_101-00_2_A_2025-12-11.png", "./real/situacia/images/SO_101-00_2_A_2025-12-12.png", "./real/situacia/images/SO_101-00_2_A_2025-12-13.png", "./real/situacia/images/SO_101-00_2_A_2025-12-14.png", "./real/situacia/images/SO_101-00_2_A_2025-12-15.png", "./real/situacia/images/SO_101-00_2_A_2025-12-16.png", "./real/situacia/images/SO_101-00_2_A_2025-12-17.png", "./real/situacia/images/SO_101-00_2_A_2025-12-18.png", "./real/situacia/images/SO_101-00_2_A_2025-12-19.png", "./real/situacia/images/SO_101-00_2_A_2025-12-20.png", "./real/situacia/images/SO_101-00_2_A_2025-12-21.png", "./real/situacia/images/SO_101-00_2_A_2025-12-22.png", "./real/situacia/images/SO_101-00_2_A_2025-12-23.png", "./real/situacia/images/SO_101-00_2_A_2025-12-24.png", "./real/situacia/images/SO_101-00_2_A_2025-12-25.png", "./real/situacia/images/SO_101-00_2_A_2025-12-26.png", "./real/situacia/images/SO_101-00_2_A_2025-12-27.png", "./real/situacia/images/SO_101-00_2_A_2025-12-28.png", "./real/situacia/images/SO_101-00_2_A_2025-12-29.png", "./real/situacia/images/SO_101-00_2_A_2025-12-30.png", "./real/situacia/images/SO_101-00_2_A_2025-12-31.png", "./real/situacia/images/SO_101-00_2_A_2026-01-01.png", "./real/situacia/images/SO_101-00_2_A_2026-01-02.png", "./real/situacia/images/SO_101-00_2_A_2026-01-03.png", "./real/situacia/images/SO_101-00_2_A_2026-01-04.png", "./real/situacia/images/SO_101-00_2_A_2026-01-05.png", "./real/situacia/images/SO_101-00_2_A_2026-01-06.png", "./real/situacia/images/SO_101-00_2_A_2026-01-07.png", "./real/situacia/images/SO_101-00_2_A_2026-01-08.png", "./real/situacia/images/SO_101-00_2_A_2026-01-09.png", "./real/situacia/images/SO_101-00_2_A_2026-01-10.png", "./real/situacia/images/SO_101-00_2_A_2026-01-11.png", "./real/situacia/images/SO_101-00_2_A_2026-01-12.png", "./real/situacia/images/SO_101-00_2_A_2026-01-13.png", "./real/situacia/images/SO_101-00_2_A_2026-01-14.png", "./real/situacia/images/SO_101-00_2_A_2026-01-15.png", "./real/situacia/images/SO_101-00_2_A_2026-01-16.png", "./real/situacia/images/SO_101-00_2_A_2026-01-17.png", "./real/situacia/images/SO_101-00_2_A_2026-01-18.png", "./real/situacia/images/SO_101-00_2_A_2026-01-19.png", "./real/situacia/images/SO_101-00_2_A_2026-01-20.png", "./real/situacia/images/SO_101-00_2_A_2026-01-21.png", "./real/situacia/images/SO_101-00_2_A_2026-01-22.png", "./real/situacia/images/SO_101-00_2_A_2026-01-23.png", "./real/situacia/images/SO_101-00_2_A_2026-01-24.png", "./real/situacia/images/SO_101-00_2_A_2026-01-25.png", "./real/situacia/images/SO_101-00_2_A_2026-01-26.png", "./real/situacia/images/SO_101-00_2_A_2026-01-27.png", "./real/situacia/images/SO_101-00_2_A_2026-01-28.png", "./real/situacia/images/SO_101-00_2_A_2026-01-29.png", "./real/situacia/images/SO_101-00_2_A_2026-01-30.png", "./real/situacia/images/SO_101-00_2_A_2026-01-31.png", "./real/situacia/images/SO_101-00_2_A_2026-02-01.png", "./real/situacia/images/SO_101-00_2_A_2026-02-02.png", "./real/situacia/images/SO_101-00_2_A_2026-02-03.png", "./real/situacia/images/SO_101-00_2_A_2026-02-04.png", "./real/situacia/images/SO_101-00_2_A_2026-02-05.png", "./real/situacia/images/SO_101-00_2_A_2026-02-06.png", "./real/situacia/images/SO_101-00_2_A_2026-02-07.png", "./real/situacia/images/SO_101-00_2_A_2026-02-08.png"];
+    const totalFrames = 131;
+    const baseInterval = 300;
+    const loopStartIdx = 128;
+    const playerId = "tryskovka_situacia_images";
+    
+    let currentIdx = 0;
+    let isPlaying = false;
+    let isLoopingLast3 = false;
+    let interval = null;
+    let isMouseOver = false;
+    let speedMultiplier = 1.0;
+    
+    const wrapperEl = document.getElementById("player_wrapper_" + playerId);
+    const imgEl = document.getElementById("img_display_" + playerId);
+    const sliderEl = document.getElementById("slider_" + playerId);
+    const speedSelectEl = document.getElementById("speed_select_" + playerId);
+    const btnPlay = document.getElementById("btn_play_" + playerId);
+    const playIconContainer = document.getElementById("play_icon_" + playerId);
+    const playTextContainer = document.getElementById("play_text_" + playerId);
+    const btnLoop3 = document.getElementById("btn_loop3_" + playerId);
+    const btnDownload = document.getElementById("btn_download_" + playerId);
+    const btnFullscreen = document.getElementById("btn_fullscreen_" + playerId);
+    const fullscreenIconContainer = document.getElementById("fullscreen_icon_" + playerId);
+    const btnFirst = document.getElementById("btn_first_" + playerId);
+    const btnPrev = document.getElementById("btn_prev_" + playerId);
+    const btnNext = document.getElementById("btn_next_" + playerId);
+    const btnLast = document.getElementById("btn_last_" + playerId);
+    
+    const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
+    const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
+    const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
+    const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
+    
+    // 📡 CUSTOM TRACKING PIXEL ENGINE
+    function firePixelLog(actionType) {
+        try {
+            const currentPage = window.location.pathname;
+            const basePixelUrl = "http://localhost:5000/track.png";
+            const finalRequestUrl = basePixelUrl + "?page=" + encodeURIComponent(currentPage) + "&player=" + playerId + "&action=" + encodeURIComponent(actionType);
             
-            let currentIdx_tryskovka_situacia_images = 0;
-            let isPlaying_tryskovka_situacia_images = false;
-            let isLoopingLast3_tryskovka_situacia_images = false;
-            let interval_tryskovka_situacia_images = null;
-            let isMouseOver_tryskovka_situacia_images = false;
-            let speedMultiplier_tryskovka_situacia_images = 1.0;
+            const pixelImage = new Image(1, 1);
+            pixelImage.src = finalRequestUrl;
+        } catch (err) {
+            console.error("Tracking failed gracefully:", err);
+        }
+    }
 
-            const wrapperEl = document.getElementById("player_wrapper_tryskovka_situacia_images");
-            const imgEl = document.getElementById("img_display_tryskovka_situacia_images");
-            const sliderEl = document.getElementById("slider_tryskovka_situacia_images");
-            const speedSelectEl = document.getElementById("speed_select_tryskovka_situacia_images");
+    function updatePlayer(idx) { 
+        currentIdx = idx;
+        if(images[idx]) { 
+            imgEl.src = images[idx];
+        } 
+        sliderEl.value = idx;
+    } 
+    
+    function startPlaybackLoop() { 
+        const activeInterval = baseInterval * speedMultiplier;
+        interval = setInterval(function() { 
+            let nextIdx = currentIdx + 1;
+            if (isLoopingLast3) { 
+                if (nextIdx >= totalFrames) { 
+                    nextIdx = loopStartIdx;
+                } 
+            } else { 
+                if (nextIdx >= totalFrames) { 
+                    nextIdx = 0;
+                } 
+            } 
+            updatePlayer(nextIdx);
+        }, activeInterval);
+    } 
+    
+    function togglePlay() { 
+        if(isPlaying) { 
+            clearInterval(interval);
+            playIconContainer.innerHTML = svgPlay;
+            playTextContainer.textContent = "Play";
+            isPlaying = false;
+        } else { 
+            playIconContainer.innerHTML = svgPause;
+            playTextContainer.textContent = "Pause";
+            isPlaying = true;
+            if (isLoopingLast3 && currentIdx < loopStartIdx) { 
+                updatePlayer(loopStartIdx);
+            } 
+            startPlaybackLoop();
+            firePixelLog("click_play");
+        } 
+    } 
+    
+    function pausePlayback() { 
+        if(isPlaying) { 
+            clearInterval(interval);
+            playIconContainer.innerHTML = svgPlay;
+            playTextContainer.textContent = "Play";
+            isPlaying = false;
+        } 
+    } 
+    
+    function breakLoop3State() { 
+        if (isLoopingLast3) { 
+            isLoopingLast3 = false;
+            btnLoop3.classList.remove("active");
+            btnLoop3.textContent = "🔄 Loop Last 3";
+        } 
+    } 
+    
+    function toggleFullscreen() { 
+        if (!document.fullscreenElement) { 
+            if (wrapperEl.requestFullscreen) { 
+                wrapperEl.requestFullscreen();
+            } else if (wrapperEl.webkitRequestFullscreen) { 
+                wrapperEl.webkitRequestFullscreen();
+            } 
+        } else { 
+            if (document.exitFullscreen) { 
+                document.exitFullscreen();
+            } 
+        } 
+    } 
+    
+    document.addEventListener('fullscreenchange', function() { 
+        if (document.fullscreenElement === wrapperEl) { 
+            fullscreenIconContainer.innerHTML = svgExitScreen;
+            wrapperEl.style.padding = "30px";
+        } else { 
+            fullscreenIconContainer.innerHTML = svgNormalScreen;
+            wrapperEl.style.padding = "15px";
+        } 
+    });
+    
+    // Instantly load and display the last frame on page load
+    updatePlayer(totalFrames - 1);
+    firePixelLog("page_load");
+    
+    // Slider Event
+    sliderEl.addEventListener("input", function(e) { 
+        pausePlayback();
+        breakLoop3State();
+        updatePlayer(parseInt(e.target.value));
+    });
+    
+    // Speed Change Event Handler
+    speedSelectEl.addEventListener("change", function(e) { 
+        speedMultiplier = parseFloat(e.target.value);
+        if (isPlaying) { 
+            clearInterval(interval);
+            startPlaybackLoop();
+        } 
+    });
+    
+    btnPlay.addEventListener("click", togglePlay);
+    btnFullscreen.addEventListener("click", toggleFullscreen);
+    
+    // 🔄 Loop Last 3 Button Handler
+    btnLoop3.addEventListener("click", function() { 
+        isLoopingLast3 = !isLoopingLast3;
+        if (isLoopingLast3) { 
+            btnLoop3.classList.add("active");
+            btnLoop3.textContent = "Stop Loop";
+            if (currentIdx < loopStartIdx) { 
+                updatePlayer(totalFrames - 1);
+            } 
+            if (!isPlaying) { 
+                togglePlay();
+            } else { 
+                clearInterval(interval);
+                startPlaybackLoop();
+            } 
+            firePixelLog("click_loop3");
+        } else { 
+            btnLoop3.classList.remove("active");
+            btnLoop3.textContent = "🔄 Loop Last 3";
+            pausePlayback();
+        } 
+    });
+    
+    // 📥 Subdomain-Safe ZIP Download Handler (FIXED)
+    btnDownload.addEventListener("click", async function() { 
+        if (!images || images.length === 0) { 
+            alert("No source imagery located for this dataset.");
+            return;
+        } 
+        const originalText = btnDownload.innerHTML;
+        btnDownload.style.pointerEvents = "none";
+        
+        firePixelLog("click_download");
+        
+        try { 
+            const zip = new JSZip();
+            let completedCount = 0;
+            btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames})...`;
             
-            const btnPlay = document.getElementById("btn_play_tryskovka_situacia_images");
-            const playIconContainer = document.getElementById("play_icon_tryskovka_situacia_images");
-            const playTextContainer = document.getElementById("play_text_tryskovka_situacia_images");
-            const btnLoop3 = document.getElementById("btn_loop3_tryskovka_situacia_images");
-            const btnDownload = document.getElementById("btn_download_tryskovka_situacia_images");
-            
-            const btnFullscreen = document.getElementById("btn_fullscreen_tryskovka_situacia_images");
-            const fullscreenIconContainer = document.getElementById("fullscreen_icon_tryskovka_situacia_images");
-            
-            const btnFirst = document.getElementById("btn_first_tryskovka_situacia_images");
-            const btnPrev = document.getElementById("btn_prev_tryskovka_situacia_images");
-            const btnNext = document.getElementById("btn_next_tryskovka_situacia_images");
-            const btnLast = document.getElementById("btn_last_tryskovka_situacia_images");
-
-            const svgPlay = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.713v12.574l10-6.287-10-6.287z"/></svg>`;
-            const svgPause = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1h4v14H2V1zm8 0h4v14h-4V1z"/></svg>`;
-            
-            const svgNormalScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 1v3.5h1V2h2.5V1H1.5zm13 0h-3.5v1H14v2.5h1V1zm-13 10.5H1v3.5h3.5v-1H2v-2.5h1.5zm13 0h-1.5V14h-2.5v1h3.5v-3.5z"/></svg>`;
-            const svgExitScreen = `<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 1.5v2.5h-2.5v1h3.5V1.5h-1zm5 0v2.5h2.5v1h-3.5V1.5h1zm-5 13v-2.5h-2.5v-1h3.5v3.5h-1zm5 0v-2.5h2.5v-1h-3.5v3.5h1z"/></svg>`;
-
-            function updatePlayer_tryskovka_situacia_images(idx) {
-                currentIdx_tryskovka_situacia_images = idx;
-                if(images_tryskovka_situacia_images[idx]) {
-                    imgEl.src = images_tryskovka_situacia_images[idx];
-                }
-                sliderEl.value = idx;
-            }
-
-            function startPlaybackLoop_tryskovka_situacia_images() {
-                const activeInterval = baseInterval_tryskovka_situacia_images * speedMultiplier_tryskovka_situacia_images;
-                interval_tryskovka_situacia_images = setInterval(function() {
-                    let nextIdx = currentIdx_tryskovka_situacia_images + 1;
-                    
-                    if (isLoopingLast3_tryskovka_situacia_images) {
-                        if (nextIdx >= totalFrames_tryskovka_situacia_images) {
-                            nextIdx = loopStartIdx_tryskovka_situacia_images;
-                        }
-                    } else {
-                        if (nextIdx >= totalFrames_tryskovka_situacia_images) {
-                            nextIdx = 0;
-                        }
-                    }
-                    updatePlayer_tryskovka_situacia_images(nextIdx);
-                }, activeInterval);
-            }
-
-            function togglePlay_tryskovka_situacia_images() {
-                if(isPlaying_tryskovka_situacia_images) {
-                    clearInterval(interval_tryskovka_situacia_images);
-                    playIconContainer.innerHTML = svgPlay;
-                    playTextContainer.textContent = "Play";
-                    isPlaying_tryskovka_situacia_images = false;
-                } else {
-                    playIconContainer.innerHTML = svgPause;
-                    playTextContainer.textContent = "Pause";
-                    isPlaying_tryskovka_situacia_images = true;
-                    
-                    if (isLoopingLast3_tryskovka_situacia_images && currentIdx_tryskovka_situacia_images < loopStartIdx_tryskovka_situacia_images) {
-                        updatePlayer_tryskovka_situacia_images(loopStartIdx_tryskovka_situacia_images);
-                    }
-                    startPlaybackLoop_tryskovka_situacia_images();
-                }
-            }
-
-            function pausePlayback_tryskovka_situacia_images() {
-                if(isPlaying_tryskovka_situacia_images) {
-                    clearInterval(interval_tryskovka_situacia_images);
-                    playIconContainer.innerHTML = svgPlay;
-                    playTextContainer.textContent = "Play";
-                    isPlaying_tryskovka_situacia_images = false;
-                }
-            }
-
-            function breakLoop3State_tryskovka_situacia_images() {
-                if (isLoopingLast3_tryskovka_situacia_images) {
-                    isLoopingLast3_tryskovka_situacia_images = false;
-                    btnLoop3.classList.remove("active");
-                    btnLoop3.textContent = "🔄 Loop Last 3";
-                }
-            }
-
-            function toggleFullscreen_tryskovka_situacia_images() {
-                if (!document.fullscreenElement) {
-                    if (wrapperEl.requestFullscreen) {
-                        wrapperEl.requestFullscreen();
-                    } else if (wrapperEl.webkitRequestFullscreen) {
-                        wrapperEl.webkitRequestFullscreen();
-                    }
-                } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                    }
-                }
-            }
-
-            document.addEventListener('fullscreenchange', function() {
-                if (document.fullscreenElement === wrapperEl) {
-                    fullscreenIconContainer.innerHTML = svgExitScreen;
-                    wrapperEl.style.padding = "30px";
-                } else {
-                    fullscreenIconContainer.innerHTML = svgNormalScreen;
-                    wrapperEl.style.padding = "15px";
-                }
-            });
-
-                        // Instantly load and display the last frame on page load
-            updatePlayer_tryskovka_situacia_images(totalFrames_tryskovka_situacia_images - 1);
-
-            // Slider Event
-            sliderEl.addEventListener("input", function(e) {
-                pausePlayback_tryskovka_situacia_images();
-                breakLoop3State_tryskovka_situacia_images();
-                updatePlayer_tryskovka_situacia_images(parseInt(e.target.value));
-            });
-
-            // Speed Change Event Handler
-            speedSelectEl.addEventListener("change", function(e) {
-                speedMultiplier_tryskovka_situacia_images = parseFloat(e.target.value);
-                if (isPlaying_tryskovka_situacia_images) {
-                    clearInterval(interval_tryskovka_situacia_images);
-                    startPlaybackLoop_tryskovka_situacia_images();
-                }
-            });
-
-            btnPlay.addEventListener("click", togglePlay_tryskovka_situacia_images);
-            btnFullscreen.addEventListener("click", toggleFullscreen_tryskovka_situacia_images);
-
-            // 🔄 Loop Last 3 Button Handler
-            btnLoop3.addEventListener("click", function() {
-                isLoopingLast3_tryskovka_situacia_images = !isLoopingLast3_tryskovka_situacia_images;
+            const downloadPromises = images.map(async (url, index) => { 
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Failed to fetch image target: " + url);
+                const blob = await response.blob();
+                let rawName = url.split('/').pop();
+                let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
                 
-                if (isLoopingLast3_tryskovka_situacia_images) {
-                    btnLoop3.classList.add("active");
-                    btnLoop3.textContent = "Stop Loop";
-                    
-                    if (currentIdx_tryskovka_situacia_images < loopStartIdx_tryskovka_situacia_images) {
-                        updatePlayer_tryskovka_situacia_images(totalFrames_tryskovka_situacia_images - 1);
-                    }
-                    
-                    if (!isPlaying_tryskovka_situacia_images) {
-                        togglePlay_tryskovka_situacia_images();
-                    } else {
-                        clearInterval(interval_tryskovka_situacia_images);
-                        startPlaybackLoop_tryskovka_situacia_images();
-                    }
-                } else {
-                    btnLoop3.classList.remove("active");
-                    btnLoop3.textContent = "🔄 Loop Last 3";
-                    pausePlayback_tryskovka_situacia_images();
-                }
+                if (!fileName || !fileName.toLowerCase().endsWith('.png')) { 
+                    fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
+                } 
+                zip.file(fileName, blob);
+                completedCount++;
+                btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames})...`;
             });
+            await Promise.all(downloadPromises);
+            btnDownload.innerHTML = "📦 Finalizing Zip...";
+            const content = await zip.generateAsync({ type: "blob" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(content);
+            a.download = "player_set_" + playerId + ".zip";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(a.href);
+        } catch (error) { 
+            console.error(error);
+            alert("ZIP generation failed: " + error.message);
+        } finally { 
+            // ✅ Fixed: Changed from 'else' to 'finally' so it runs no matter what
+            btnDownload.innerHTML = originalText;
+            btnDownload.style.pointerEvents = "auto";
+        } 
+    });
+    
+    btnFirst.addEventListener("click", function() { pausePlayback(); breakLoop3State(); updatePlayer(0); });
+    btnLast.addEventListener("click", function() { pausePlayback(); breakLoop3State(); updatePlayer(totalFrames - 1); });
+    btnPrev.addEventListener("click", function() { 
+        pausePlayback();
+        breakLoop3State();
+        let prevIdx = currentIdx - 1;
+        if (prevIdx < 0) prevIdx = totalFrames - 1;
+        updatePlayer(prevIdx);
+    });
+    btnNext.addEventListener("click", function() { 
+        pausePlayback();
+        breakLoop3State();
+        let nextIdx = (currentIdx + 1) % totalFrames;
+        updatePlayer(nextIdx);
+    });
+    
+    wrapperEl.addEventListener("mouseenter", function() { isMouseOver = true; });
+    wrapperEl.addEventListener("mouseleave", function() { isMouseOver = false; });
+    window.addEventListener("keydown", function(e) { 
+        if (!isMouseOver) return;
+        switch(e.key) { 
+            case "ArrowLeft":
+                e.preventDefault();
+                btnPrev.click();
+                break;
+            case "ArrowRight":
+                e.preventDefault();
+                btnNext.click();
+                break;
+            case " ":
+                e.preventDefault();
+                btnPlay.click();
+                break;
+            case "Home":
+                e.preventDefault();
+                btnFirst.click();
+                break;
+            case "End":
+                e.preventDefault();
+                btnLast.click();
+                break;
+            case "f":
+            case "F":
+                e.preventDefault();
+                btnFullscreen.click();
+                break;
+            case "l":
+            case "L":
+                e.preventDefault();
+                e.stopPropagation();
+                btnLoop3.click();
+                break;
+        } 
+    });
+})();
+    
 
-                        // 📥 Subdomain-Safe ZIP Download Handler
-            btnDownload.addEventListener("click", async function() {
-                if (!images_tryskovka_situacia_images || images_tryskovka_situacia_images.length === 0) {
-                    alert("No source imagery located for this dataset.");
-                    return;
-                }
-
-                const originalText = btnDownload.innerHTML;
-                btnDownload.style.pointerEvents = "none";
-
-                try {
-                    const zip = new JSZip();
-                    let completedCount = 0;
-
-                    // Update UI instantly
-                    btnDownload.innerHTML = `⏳ Zipping (0/${totalFrames_tryskovka_situacia_images})...`;
-                    
-                    // Fetch and add each image to the zip structure concurrently
-                    const downloadPromises = images_tryskovka_situacia_images.map(async (url, index) => {
-                        const response = await fetch(url);
-                        if (!response.ok) throw new Error("Failed to fetch image target: " + url);
-                        const blob = await response.blob();
-                        
-                        let rawName = url.split('/').pop();
-                        let fileName = rawName.includes('?') ? rawName.split('?')[0] : rawName;
-                        
-                        // Fallback naming schema check
-                        if (!fileName || !fileName.toLowerCase().endsWith('.png')) {
-                            fileName = "frame_" + String(index + 1).padStart(3, '0') + ".png";
-                        }
-                        
-                        zip.file(fileName, blob);
-                        
-                        completedCount++;
-                        btnDownload.innerHTML = `⏳ Zipping (${completedCount}/${totalFrames_tryskovka_situacia_images})...`;
-                    });
-
-                    await Promise.all(downloadPromises);
-
-                    btnDownload.innerHTML = "📦 Finalizing Zip...";
-                    const content = await zip.generateAsync({ type: "blob" });
-                    
-                    const a = document.createElement("a");
-                    a.href = URL.createObjectURL(content);
-                    
-                    // FIXED: Corrected Python template string binding format below
-                    a.download = "player_set_tryskovka_situacia_images.zip";
-                    
-                    document.body.appendChild(a);
-                    a.click();
-                    
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(a.href);
-
-                } catch (error) {
-                    console.error(error);
-                    alert("ZIP generation failed: " + error.message);
-                } finally {
-                    btnDownload.innerHTML = originalText;
-                    btnDownload.style.pointerEvents = "auto";
-                }
-            });
-
-
-
-            btnFirst.addEventListener("click", function() { pausePlayback_tryskovka_situacia_images(); breakLoop3State_tryskovka_situacia_images(); updatePlayer_tryskovka_situacia_images(0); });
-            btnLast.addEventListener("click", function() { pausePlayback_tryskovka_situacia_images(); breakLoop3State_tryskovka_situacia_images(); updatePlayer_tryskovka_situacia_images(totalFrames_tryskovka_situacia_images - 1); });
-            
-            btnPrev.addEventListener("click", function() {
-                pausePlayback_tryskovka_situacia_images();
-                breakLoop3State_tryskovka_situacia_images();
-                let prevIdx = currentIdx_tryskovka_situacia_images - 1;
-                if (prevIdx < 0) prevIdx = totalFrames_tryskovka_situacia_images - 1;
-                updatePlayer_tryskovka_situacia_images(prevIdx);
-            });
-
-            btnNext.addEventListener("click", function() {
-                pausePlayback_tryskovka_situacia_images();
-                breakLoop3State_tryskovka_situacia_images();
-                let nextIdx = (currentIdx_tryskovka_situacia_images + 1) % totalFrames_tryskovka_situacia_images;
-                updatePlayer_tryskovka_situacia_images(nextIdx);
-            });
-
-            wrapperEl.addEventListener("mouseenter", function() { isMouseOver_tryskovka_situacia_images = true; });
-            wrapperEl.addEventListener("mouseleave", function() { isMouseOver_tryskovka_situacia_images = false; });
-
-            window.addEventListener("keydown", function(e) {
-                if (!isMouseOver_tryskovka_situacia_images) return;
-
-                switch(e.key) {
-                    case "ArrowLeft":
-                        e.preventDefault();
-                        btnPrev.click();
-                        break;
-                    case "ArrowRight":
-                        e.preventDefault();
-                        btnNext.click();
-                        break;
-                    case " ":
-                        e.preventDefault();
-                        btnPlay.click();
-                        break;
-                    case "Home":
-                        e.preventDefault();
-                        btnFirst.click();
-                        break;
-                    case "End":
-                        e.preventDefault();
-                        btnLast.click();
-                        break;
-                    case "f":
-                    case "F":
-                        e.preventDefault();
-                        btnFullscreen.click();
-                        break;
-                    case "l":
-                    case "L":
-                        e.preventDefault();
-                        e.stopPropagation();
-                        btnLoop3.click();
-                        break;
-                }
-            });
-        })();
-        </script>
+    </script>
     
 
 
