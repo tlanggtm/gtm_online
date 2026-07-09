@@ -446,6 +446,18 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../staged_data/SO 101-00(4) LA1/staged_master.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SO 101-00(4) LA1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../staged_data/SO 101-00(4) LB1/staged_master.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SO 101-00(4) LB1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../staged_data/SO 101-00(2) A/staged_master.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SO 101-00(2) A</span></a>
   </div>
@@ -913,7 +925,7 @@ Your page content starts here... -->
 </section>
 <section id="časozberný-vývoj" class="level3">
 <h3 class="anchored" data-anchor-id="časozberný-vývoj">📈 Časozberný vývoj</h3>
-<p>Situácia zobrazuje detailnejší pohľad na kritické inklinometre.</p>
+<p>Situácia zobrazuje detailný pohľad na vývoj deformácií vybraných inklinometrov.</p>
 <section id="vizualizácia-časového-záznamu" class="level5">
 <h5 class="anchored" data-anchor-id="vizualizácia-časového-záznamu">🎬 Vizualizácia časového záznamu</h5>
 
@@ -2057,7 +2069,7 @@ Hodnoty veľkosti pohybu sú malé, <span class="math inline">\(\Delta \le 0.50\
             <img id="img_display_likavka_ink_lb_103n_tot" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ink_lb_103n_tot" class="timeline-slider" type="range" min="0" max="4" value="0">
+            <input id="slider_likavka_ink_lb_103n_tot" class="timeline-slider" type="range" min="0" max="5" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -2085,10 +2097,10 @@ Hodnoty veľkosti pohybu sú malé, <span class="math inline">\(\Delta \le 0.50\
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/INK-LB-103N/tot/INK-LB-103N_01.png", "./ink/INK-LB-103N/tot/INK-LB-103N_02.png", "./ink/INK-LB-103N/tot/INK-LB-103N_03.png", "./ink/INK-LB-103N/tot/INK-LB-103N_04.png", "./ink/INK-LB-103N/tot/INK-LB-103N_05.png"];
-    const totalFrames = 5;
+    const images = ["./ink/INK-LB-103N/tot/INK-LB-103N_01.png", "./ink/INK-LB-103N/tot/INK-LB-103N_02.png", "./ink/INK-LB-103N/tot/INK-LB-103N_03.png", "./ink/INK-LB-103N/tot/INK-LB-103N_04.png", "./ink/INK-LB-103N/tot/INK-LB-103N_05.png", "./ink/INK-LB-103N/tot/INK-LB-103N_06.png"];
+    const totalFrames = 6;
     const baseInterval = 300;
-    const loopStartIdx = 2;
+    const loopStartIdx = 3;
     const playerId = "likavka_ink_lb_103n_tot";
     
     let currentIdx = 0;
@@ -2413,7 +2425,7 @@ Hodnoty veľkosti pohybu sú malé, <span class="math inline">\(\Delta \le 0.50\
             <img id="img_display_likavka_ink_lb_103n_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ink_lb_103n_azi" class="timeline-slider" type="range" min="0" max="5" value="0">
+            <input id="slider_likavka_ink_lb_103n_azi" class="timeline-slider" type="range" min="0" max="6" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -2441,10 +2453,10 @@ Hodnoty veľkosti pohybu sú malé, <span class="math inline">\(\Delta \le 0.50\
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/INK-LB-103N/azi/INK-LB-103N_00.png", "./ink/INK-LB-103N/azi/INK-LB-103N_01.png", "./ink/INK-LB-103N/azi/INK-LB-103N_02.png", "./ink/INK-LB-103N/azi/INK-LB-103N_03.png", "./ink/INK-LB-103N/azi/INK-LB-103N_04.png", "./ink/INK-LB-103N/azi/INK-LB-103N_05.png"];
-    const totalFrames = 6;
+    const images = ["./ink/INK-LB-103N/azi/INK-LB-103N_00.png", "./ink/INK-LB-103N/azi/INK-LB-103N_01.png", "./ink/INK-LB-103N/azi/INK-LB-103N_02.png", "./ink/INK-LB-103N/azi/INK-LB-103N_03.png", "./ink/INK-LB-103N/azi/INK-LB-103N_04.png", "./ink/INK-LB-103N/azi/INK-LB-103N_05.png", "./ink/INK-LB-103N/azi/INK-LB-103N_06.png"];
+    const totalFrames = 7;
     const baseInterval = 300;
-    const loopStartIdx = 3;
+    const loopStartIdx = 4;
     const playerId = "likavka_ink_lb_103n_azi";
     
     let currentIdx = 0;
@@ -2800,7 +2812,7 @@ Hodnoty veľkosti pohybu sú malé, <span class="math inline">\(\Delta \le 0.50\
             <img id="img_display_likavka_ink_lb_104n_tot" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ink_lb_104n_tot" class="timeline-slider" type="range" min="0" max="3" value="0">
+            <input id="slider_likavka_ink_lb_104n_tot" class="timeline-slider" type="range" min="0" max="4" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -2828,10 +2840,10 @@ Hodnoty veľkosti pohybu sú malé, <span class="math inline">\(\Delta \le 0.50\
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/INK-LB-104N/tot/INK-LB-104N_01.png", "./ink/INK-LB-104N/tot/INK-LB-104N_02.png", "./ink/INK-LB-104N/tot/INK-LB-104N_03.png", "./ink/INK-LB-104N/tot/INK-LB-104N_04.png"];
-    const totalFrames = 4;
+    const images = ["./ink/INK-LB-104N/tot/INK-LB-104N_01.png", "./ink/INK-LB-104N/tot/INK-LB-104N_02.png", "./ink/INK-LB-104N/tot/INK-LB-104N_03.png", "./ink/INK-LB-104N/tot/INK-LB-104N_04.png", "./ink/INK-LB-104N/tot/INK-LB-104N_05.png"];
+    const totalFrames = 5;
     const baseInterval = 300;
-    const loopStartIdx = 1;
+    const loopStartIdx = 2;
     const playerId = "likavka_ink_lb_104n_tot";
     
     let currentIdx = 0;
@@ -3156,7 +3168,7 @@ Hodnoty veľkosti pohybu sú malé, <span class="math inline">\(\Delta \le 0.50\
             <img id="img_display_likavka_ink_lb_104n_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ink_lb_104n_azi" class="timeline-slider" type="range" min="0" max="4" value="0">
+            <input id="slider_likavka_ink_lb_104n_azi" class="timeline-slider" type="range" min="0" max="5" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -3184,10 +3196,10 @@ Hodnoty veľkosti pohybu sú malé, <span class="math inline">\(\Delta \le 0.50\
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/INK-LB-104N/azi/INK-LB-104N_00.png", "./ink/INK-LB-104N/azi/INK-LB-104N_01.png", "./ink/INK-LB-104N/azi/INK-LB-104N_02.png", "./ink/INK-LB-104N/azi/INK-LB-104N_03.png", "./ink/INK-LB-104N/azi/INK-LB-104N_04.png"];
-    const totalFrames = 5;
+    const images = ["./ink/INK-LB-104N/azi/INK-LB-104N_00.png", "./ink/INK-LB-104N/azi/INK-LB-104N_01.png", "./ink/INK-LB-104N/azi/INK-LB-104N_02.png", "./ink/INK-LB-104N/azi/INK-LB-104N_03.png", "./ink/INK-LB-104N/azi/INK-LB-104N_04.png", "./ink/INK-LB-104N/azi/INK-LB-104N_05.png"];
+    const totalFrames = 6;
     const baseInterval = 300;
-    const loopStartIdx = 2;
+    const loopStartIdx = 3;
     const playerId = "likavka_ink_lb_104n_azi";
     
     let currentIdx = 0;
@@ -3574,7 +3586,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_iv_66n_tot" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_iv_66n_tot" class="timeline-slider" type="range" min="0" max="2" value="0">
+            <input id="slider_likavka_iv_66n_tot" class="timeline-slider" type="range" min="0" max="3" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -3602,10 +3614,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IV-66N/tot/IV-66N_01.png", "./ink/IV-66N/tot/IV-66N_02.png", "./ink/IV-66N/tot/IV-66N_03.png"];
-    const totalFrames = 3;
+    const images = ["./ink/IV-66N/tot/IV-66N_01.png", "./ink/IV-66N/tot/IV-66N_02.png", "./ink/IV-66N/tot/IV-66N_03.png", "./ink/IV-66N/tot/IV-66N_04.png"];
+    const totalFrames = 4;
     const baseInterval = 300;
-    const loopStartIdx = 0;
+    const loopStartIdx = 1;
     const playerId = "likavka_iv_66n_tot";
     
     let currentIdx = 0;
@@ -3930,7 +3942,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_iv_66n_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_iv_66n_azi" class="timeline-slider" type="range" min="0" max="3" value="0">
+            <input id="slider_likavka_iv_66n_azi" class="timeline-slider" type="range" min="0" max="4" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -3958,10 +3970,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IV-66N/azi/IV-66N_00.png", "./ink/IV-66N/azi/IV-66N_01.png", "./ink/IV-66N/azi/IV-66N_02.png", "./ink/IV-66N/azi/IV-66N_03.png"];
-    const totalFrames = 4;
+    const images = ["./ink/IV-66N/azi/IV-66N_00.png", "./ink/IV-66N/azi/IV-66N_01.png", "./ink/IV-66N/azi/IV-66N_02.png", "./ink/IV-66N/azi/IV-66N_03.png", "./ink/IV-66N/azi/IV-66N_04.png"];
+    const totalFrames = 5;
     const baseInterval = 300;
-    const loopStartIdx = 1;
+    const loopStartIdx = 2;
     const playerId = "likavka_iv_66n_azi";
     
     let currentIdx = 0;
@@ -4289,7 +4301,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_ivs_109_tot" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ivs_109_tot" class="timeline-slider" type="range" min="0" max="81" value="0">
+            <input id="slider_likavka_ivs_109_tot" class="timeline-slider" type="range" min="0" max="28" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -4317,10 +4329,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IVS-109/tot/IVS-109_01.png", "./ink/IVS-109/tot/IVS-109_02.png", "./ink/IVS-109/tot/IVS-109_03.png", "./ink/IVS-109/tot/IVS-109_04.png", "./ink/IVS-109/tot/IVS-109_05.png", "./ink/IVS-109/tot/IVS-109_06.png", "./ink/IVS-109/tot/IVS-109_07.png", "./ink/IVS-109/tot/IVS-109_08.png", "./ink/IVS-109/tot/IVS-109_09.png", "./ink/IVS-109/tot/IVS-109_10.png", "./ink/IVS-109/tot/IVS-109_11.png", "./ink/IVS-109/tot/IVS-109_12.png", "./ink/IVS-109/tot/IVS-109_13.png", "./ink/IVS-109/tot/IVS-109_14.png", "./ink/IVS-109/tot/IVS-109_15.png", "./ink/IVS-109/tot/IVS-109_16.png", "./ink/IVS-109/tot/IVS-109_17.png", "./ink/IVS-109/tot/IVS-109_18.png", "./ink/IVS-109/tot/IVS-109_19.png", "./ink/IVS-109/tot/IVS-109_20.png", "./ink/IVS-109/tot/IVS-109_21.png", "./ink/IVS-109/tot/IVS-109_22.png", "./ink/IVS-109/tot/IVS-109_23.png", "./ink/IVS-109/tot/IVS-109_24.png", "./ink/IVS-109/tot/IVS-109_25.png", "./ink/IVS-109/tot/IVS-109_26.png", "./ink/IVS-109/tot/IVS-109_27.png", "./ink/IVS-109/tot/IVS-109_28.png", "./ink/IVS-109/tot/IVS-109_29.png", "./ink/IVS-109/tot/IVS-109_30.png", "./ink/IVS-109/tot/IVS-109_31.png", "./ink/IVS-109/tot/IVS-109_32.png", "./ink/IVS-109/tot/IVS-109_33.png", "./ink/IVS-109/tot/IVS-109_34.png", "./ink/IVS-109/tot/IVS-109_35.png", "./ink/IVS-109/tot/IVS-109_36.png", "./ink/IVS-109/tot/IVS-109_37.png", "./ink/IVS-109/tot/IVS-109_38.png", "./ink/IVS-109/tot/IVS-109_39.png", "./ink/IVS-109/tot/IVS-109_40.png", "./ink/IVS-109/tot/IVS-109_41.png", "./ink/IVS-109/tot/IVS-109_42.png", "./ink/IVS-109/tot/IVS-109_43.png", "./ink/IVS-109/tot/IVS-109_44.png", "./ink/IVS-109/tot/IVS-109_45.png", "./ink/IVS-109/tot/IVS-109_46.png", "./ink/IVS-109/tot/IVS-109_47.png", "./ink/IVS-109/tot/IVS-109_48.png", "./ink/IVS-109/tot/IVS-109_49.png", "./ink/IVS-109/tot/IVS-109_50.png", "./ink/IVS-109/tot/IVS-109_51.png", "./ink/IVS-109/tot/IVS-109_52.png", "./ink/IVS-109/tot/IVS-109_53.png", "./ink/IVS-109/tot/IVS-109_54.png", "./ink/IVS-109/tot/IVS-109_55.png", "./ink/IVS-109/tot/IVS-109_56.png", "./ink/IVS-109/tot/IVS-109_57.png", "./ink/IVS-109/tot/IVS-109_58.png", "./ink/IVS-109/tot/IVS-109_59.png", "./ink/IVS-109/tot/IVS-109_60.png", "./ink/IVS-109/tot/IVS-109_61.png", "./ink/IVS-109/tot/IVS-109_62.png", "./ink/IVS-109/tot/IVS-109_63.png", "./ink/IVS-109/tot/IVS-109_64.png", "./ink/IVS-109/tot/IVS-109_65.png", "./ink/IVS-109/tot/IVS-109_66.png", "./ink/IVS-109/tot/IVS-109_67.png", "./ink/IVS-109/tot/IVS-109_68.png", "./ink/IVS-109/tot/IVS-109_69.png", "./ink/IVS-109/tot/IVS-109_70.png", "./ink/IVS-109/tot/IVS-109_71.png", "./ink/IVS-109/tot/IVS-109_72.png", "./ink/IVS-109/tot/IVS-109_73.png", "./ink/IVS-109/tot/IVS-109_74.png", "./ink/IVS-109/tot/IVS-109_75.png", "./ink/IVS-109/tot/IVS-109_76.png", "./ink/IVS-109/tot/IVS-109_77.png", "./ink/IVS-109/tot/IVS-109_78.png", "./ink/IVS-109/tot/IVS-109_79.png", "./ink/IVS-109/tot/IVS-109_80.png", "./ink/IVS-109/tot/IVS-109_81.png", "./ink/IVS-109/tot/IVS-109_82.png"];
-    const totalFrames = 82;
+    const images = ["./ink/IVS-109/tot/IVS-109_01.png", "./ink/IVS-109/tot/IVS-109_02.png", "./ink/IVS-109/tot/IVS-109_03.png", "./ink/IVS-109/tot/IVS-109_04.png", "./ink/IVS-109/tot/IVS-109_05.png", "./ink/IVS-109/tot/IVS-109_06.png", "./ink/IVS-109/tot/IVS-109_07.png", "./ink/IVS-109/tot/IVS-109_08.png", "./ink/IVS-109/tot/IVS-109_09.png", "./ink/IVS-109/tot/IVS-109_10.png", "./ink/IVS-109/tot/IVS-109_11.png", "./ink/IVS-109/tot/IVS-109_12.png", "./ink/IVS-109/tot/IVS-109_13.png", "./ink/IVS-109/tot/IVS-109_14.png", "./ink/IVS-109/tot/IVS-109_15.png", "./ink/IVS-109/tot/IVS-109_16.png", "./ink/IVS-109/tot/IVS-109_17.png", "./ink/IVS-109/tot/IVS-109_18.png", "./ink/IVS-109/tot/IVS-109_19.png", "./ink/IVS-109/tot/IVS-109_20.png", "./ink/IVS-109/tot/IVS-109_21.png", "./ink/IVS-109/tot/IVS-109_22.png", "./ink/IVS-109/tot/IVS-109_23.png", "./ink/IVS-109/tot/IVS-109_24.png", "./ink/IVS-109/tot/IVS-109_25.png", "./ink/IVS-109/tot/IVS-109_26.png", "./ink/IVS-109/tot/IVS-109_27.png", "./ink/IVS-109/tot/IVS-109_28.png", "./ink/IVS-109/tot/IVS-109_29.png"];
+    const totalFrames = 29;
     const baseInterval = 300;
-    const loopStartIdx = 79;
+    const loopStartIdx = 26;
     const playerId = "likavka_ivs_109_tot";
     
     let currentIdx = 0;
@@ -4645,7 +4657,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_ivs_109_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ivs_109_azi" class="timeline-slider" type="range" min="0" max="82" value="0">
+            <input id="slider_likavka_ivs_109_azi" class="timeline-slider" type="range" min="0" max="29" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -4673,10 +4685,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IVS-109/azi/IVS-109_00.png", "./ink/IVS-109/azi/IVS-109_01.png", "./ink/IVS-109/azi/IVS-109_02.png", "./ink/IVS-109/azi/IVS-109_03.png", "./ink/IVS-109/azi/IVS-109_04.png", "./ink/IVS-109/azi/IVS-109_05.png", "./ink/IVS-109/azi/IVS-109_06.png", "./ink/IVS-109/azi/IVS-109_07.png", "./ink/IVS-109/azi/IVS-109_08.png", "./ink/IVS-109/azi/IVS-109_09.png", "./ink/IVS-109/azi/IVS-109_10.png", "./ink/IVS-109/azi/IVS-109_11.png", "./ink/IVS-109/azi/IVS-109_12.png", "./ink/IVS-109/azi/IVS-109_13.png", "./ink/IVS-109/azi/IVS-109_14.png", "./ink/IVS-109/azi/IVS-109_15.png", "./ink/IVS-109/azi/IVS-109_16.png", "./ink/IVS-109/azi/IVS-109_17.png", "./ink/IVS-109/azi/IVS-109_18.png", "./ink/IVS-109/azi/IVS-109_19.png", "./ink/IVS-109/azi/IVS-109_20.png", "./ink/IVS-109/azi/IVS-109_21.png", "./ink/IVS-109/azi/IVS-109_22.png", "./ink/IVS-109/azi/IVS-109_23.png", "./ink/IVS-109/azi/IVS-109_24.png", "./ink/IVS-109/azi/IVS-109_25.png", "./ink/IVS-109/azi/IVS-109_26.png", "./ink/IVS-109/azi/IVS-109_27.png", "./ink/IVS-109/azi/IVS-109_28.png", "./ink/IVS-109/azi/IVS-109_29.png", "./ink/IVS-109/azi/IVS-109_30.png", "./ink/IVS-109/azi/IVS-109_31.png", "./ink/IVS-109/azi/IVS-109_32.png", "./ink/IVS-109/azi/IVS-109_33.png", "./ink/IVS-109/azi/IVS-109_34.png", "./ink/IVS-109/azi/IVS-109_35.png", "./ink/IVS-109/azi/IVS-109_36.png", "./ink/IVS-109/azi/IVS-109_37.png", "./ink/IVS-109/azi/IVS-109_38.png", "./ink/IVS-109/azi/IVS-109_39.png", "./ink/IVS-109/azi/IVS-109_40.png", "./ink/IVS-109/azi/IVS-109_41.png", "./ink/IVS-109/azi/IVS-109_42.png", "./ink/IVS-109/azi/IVS-109_43.png", "./ink/IVS-109/azi/IVS-109_44.png", "./ink/IVS-109/azi/IVS-109_45.png", "./ink/IVS-109/azi/IVS-109_46.png", "./ink/IVS-109/azi/IVS-109_47.png", "./ink/IVS-109/azi/IVS-109_48.png", "./ink/IVS-109/azi/IVS-109_49.png", "./ink/IVS-109/azi/IVS-109_50.png", "./ink/IVS-109/azi/IVS-109_51.png", "./ink/IVS-109/azi/IVS-109_52.png", "./ink/IVS-109/azi/IVS-109_53.png", "./ink/IVS-109/azi/IVS-109_54.png", "./ink/IVS-109/azi/IVS-109_55.png", "./ink/IVS-109/azi/IVS-109_56.png", "./ink/IVS-109/azi/IVS-109_57.png", "./ink/IVS-109/azi/IVS-109_58.png", "./ink/IVS-109/azi/IVS-109_59.png", "./ink/IVS-109/azi/IVS-109_60.png", "./ink/IVS-109/azi/IVS-109_61.png", "./ink/IVS-109/azi/IVS-109_62.png", "./ink/IVS-109/azi/IVS-109_63.png", "./ink/IVS-109/azi/IVS-109_64.png", "./ink/IVS-109/azi/IVS-109_65.png", "./ink/IVS-109/azi/IVS-109_66.png", "./ink/IVS-109/azi/IVS-109_67.png", "./ink/IVS-109/azi/IVS-109_68.png", "./ink/IVS-109/azi/IVS-109_69.png", "./ink/IVS-109/azi/IVS-109_70.png", "./ink/IVS-109/azi/IVS-109_71.png", "./ink/IVS-109/azi/IVS-109_72.png", "./ink/IVS-109/azi/IVS-109_73.png", "./ink/IVS-109/azi/IVS-109_74.png", "./ink/IVS-109/azi/IVS-109_75.png", "./ink/IVS-109/azi/IVS-109_76.png", "./ink/IVS-109/azi/IVS-109_77.png", "./ink/IVS-109/azi/IVS-109_78.png", "./ink/IVS-109/azi/IVS-109_79.png", "./ink/IVS-109/azi/IVS-109_80.png", "./ink/IVS-109/azi/IVS-109_81.png", "./ink/IVS-109/azi/IVS-109_82.png"];
-    const totalFrames = 83;
+    const images = ["./ink/IVS-109/azi/IVS-109_00.png", "./ink/IVS-109/azi/IVS-109_01.png", "./ink/IVS-109/azi/IVS-109_02.png", "./ink/IVS-109/azi/IVS-109_03.png", "./ink/IVS-109/azi/IVS-109_04.png", "./ink/IVS-109/azi/IVS-109_05.png", "./ink/IVS-109/azi/IVS-109_06.png", "./ink/IVS-109/azi/IVS-109_07.png", "./ink/IVS-109/azi/IVS-109_08.png", "./ink/IVS-109/azi/IVS-109_09.png", "./ink/IVS-109/azi/IVS-109_10.png", "./ink/IVS-109/azi/IVS-109_11.png", "./ink/IVS-109/azi/IVS-109_12.png", "./ink/IVS-109/azi/IVS-109_13.png", "./ink/IVS-109/azi/IVS-109_14.png", "./ink/IVS-109/azi/IVS-109_15.png", "./ink/IVS-109/azi/IVS-109_16.png", "./ink/IVS-109/azi/IVS-109_17.png", "./ink/IVS-109/azi/IVS-109_18.png", "./ink/IVS-109/azi/IVS-109_19.png", "./ink/IVS-109/azi/IVS-109_20.png", "./ink/IVS-109/azi/IVS-109_21.png", "./ink/IVS-109/azi/IVS-109_22.png", "./ink/IVS-109/azi/IVS-109_23.png", "./ink/IVS-109/azi/IVS-109_24.png", "./ink/IVS-109/azi/IVS-109_25.png", "./ink/IVS-109/azi/IVS-109_26.png", "./ink/IVS-109/azi/IVS-109_27.png", "./ink/IVS-109/azi/IVS-109_28.png", "./ink/IVS-109/azi/IVS-109_29.png"];
+    const totalFrames = 30;
     const baseInterval = 300;
-    const loopStartIdx = 80;
+    const loopStartIdx = 27;
     const playerId = "likavka_ivs_109_azi";
     
     let currentIdx = 0;
@@ -5001,7 +5013,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_ivs_109__ivs_109_vs" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ivs_109__ivs_109_vs" class="timeline-slider" type="range" min="0" max="82" value="0">
+            <input id="slider_likavka_ivs_109__ivs_109_vs" class="timeline-slider" type="range" min="0" max="29" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -5029,10 +5041,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IVS-109/ IVS-109_VS/IVS-109_VS_00.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_01.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_02.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_03.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_04.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_05.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_06.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_07.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_08.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_09.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_10.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_11.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_12.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_13.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_14.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_15.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_16.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_17.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_18.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_19.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_20.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_21.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_22.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_23.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_24.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_25.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_26.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_27.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_28.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_29.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_30.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_31.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_32.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_33.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_34.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_35.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_36.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_37.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_38.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_39.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_40.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_41.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_42.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_43.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_44.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_45.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_46.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_47.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_48.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_49.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_50.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_51.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_52.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_53.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_54.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_55.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_56.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_57.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_58.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_59.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_60.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_61.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_62.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_63.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_64.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_65.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_66.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_67.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_68.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_69.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_70.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_71.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_72.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_73.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_74.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_75.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_76.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_77.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_78.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_79.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_80.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_81.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_82.png"];
-    const totalFrames = 83;
+    const images = ["./ink/IVS-109/ IVS-109_VS/IVS-109_VS_00.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_01.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_02.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_03.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_04.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_05.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_06.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_07.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_08.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_09.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_10.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_11.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_12.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_13.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_14.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_15.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_16.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_17.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_18.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_19.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_20.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_21.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_22.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_23.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_24.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_25.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_26.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_27.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_28.png", "./ink/IVS-109/ IVS-109_VS/IVS-109_VS_29.png"];
+    const totalFrames = 30;
     const baseInterval = 300;
-    const loopStartIdx = 80;
+    const loopStartIdx = 27;
     const playerId = "likavka_ivs_109__ivs_109_vs";
     
     let currentIdx = 0;
@@ -5360,7 +5372,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_ivs_110_tot" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ivs_110_tot" class="timeline-slider" type="range" min="0" max="81" value="0">
+            <input id="slider_likavka_ivs_110_tot" class="timeline-slider" type="range" min="0" max="28" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -5388,10 +5400,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IVS-110/tot/IVS-110_01.png", "./ink/IVS-110/tot/IVS-110_02.png", "./ink/IVS-110/tot/IVS-110_03.png", "./ink/IVS-110/tot/IVS-110_04.png", "./ink/IVS-110/tot/IVS-110_05.png", "./ink/IVS-110/tot/IVS-110_06.png", "./ink/IVS-110/tot/IVS-110_07.png", "./ink/IVS-110/tot/IVS-110_08.png", "./ink/IVS-110/tot/IVS-110_09.png", "./ink/IVS-110/tot/IVS-110_10.png", "./ink/IVS-110/tot/IVS-110_11.png", "./ink/IVS-110/tot/IVS-110_12.png", "./ink/IVS-110/tot/IVS-110_13.png", "./ink/IVS-110/tot/IVS-110_14.png", "./ink/IVS-110/tot/IVS-110_15.png", "./ink/IVS-110/tot/IVS-110_16.png", "./ink/IVS-110/tot/IVS-110_17.png", "./ink/IVS-110/tot/IVS-110_18.png", "./ink/IVS-110/tot/IVS-110_19.png", "./ink/IVS-110/tot/IVS-110_20.png", "./ink/IVS-110/tot/IVS-110_21.png", "./ink/IVS-110/tot/IVS-110_22.png", "./ink/IVS-110/tot/IVS-110_23.png", "./ink/IVS-110/tot/IVS-110_24.png", "./ink/IVS-110/tot/IVS-110_25.png", "./ink/IVS-110/tot/IVS-110_26.png", "./ink/IVS-110/tot/IVS-110_27.png", "./ink/IVS-110/tot/IVS-110_28.png", "./ink/IVS-110/tot/IVS-110_29.png", "./ink/IVS-110/tot/IVS-110_30.png", "./ink/IVS-110/tot/IVS-110_31.png", "./ink/IVS-110/tot/IVS-110_32.png", "./ink/IVS-110/tot/IVS-110_33.png", "./ink/IVS-110/tot/IVS-110_34.png", "./ink/IVS-110/tot/IVS-110_35.png", "./ink/IVS-110/tot/IVS-110_36.png", "./ink/IVS-110/tot/IVS-110_37.png", "./ink/IVS-110/tot/IVS-110_38.png", "./ink/IVS-110/tot/IVS-110_39.png", "./ink/IVS-110/tot/IVS-110_40.png", "./ink/IVS-110/tot/IVS-110_41.png", "./ink/IVS-110/tot/IVS-110_42.png", "./ink/IVS-110/tot/IVS-110_43.png", "./ink/IVS-110/tot/IVS-110_44.png", "./ink/IVS-110/tot/IVS-110_45.png", "./ink/IVS-110/tot/IVS-110_46.png", "./ink/IVS-110/tot/IVS-110_47.png", "./ink/IVS-110/tot/IVS-110_48.png", "./ink/IVS-110/tot/IVS-110_49.png", "./ink/IVS-110/tot/IVS-110_50.png", "./ink/IVS-110/tot/IVS-110_51.png", "./ink/IVS-110/tot/IVS-110_52.png", "./ink/IVS-110/tot/IVS-110_53.png", "./ink/IVS-110/tot/IVS-110_54.png", "./ink/IVS-110/tot/IVS-110_55.png", "./ink/IVS-110/tot/IVS-110_56.png", "./ink/IVS-110/tot/IVS-110_57.png", "./ink/IVS-110/tot/IVS-110_58.png", "./ink/IVS-110/tot/IVS-110_59.png", "./ink/IVS-110/tot/IVS-110_60.png", "./ink/IVS-110/tot/IVS-110_61.png", "./ink/IVS-110/tot/IVS-110_62.png", "./ink/IVS-110/tot/IVS-110_63.png", "./ink/IVS-110/tot/IVS-110_64.png", "./ink/IVS-110/tot/IVS-110_65.png", "./ink/IVS-110/tot/IVS-110_66.png", "./ink/IVS-110/tot/IVS-110_67.png", "./ink/IVS-110/tot/IVS-110_68.png", "./ink/IVS-110/tot/IVS-110_69.png", "./ink/IVS-110/tot/IVS-110_70.png", "./ink/IVS-110/tot/IVS-110_71.png", "./ink/IVS-110/tot/IVS-110_72.png", "./ink/IVS-110/tot/IVS-110_73.png", "./ink/IVS-110/tot/IVS-110_74.png", "./ink/IVS-110/tot/IVS-110_75.png", "./ink/IVS-110/tot/IVS-110_76.png", "./ink/IVS-110/tot/IVS-110_77.png", "./ink/IVS-110/tot/IVS-110_78.png", "./ink/IVS-110/tot/IVS-110_79.png", "./ink/IVS-110/tot/IVS-110_80.png", "./ink/IVS-110/tot/IVS-110_81.png", "./ink/IVS-110/tot/IVS-110_82.png"];
-    const totalFrames = 82;
+    const images = ["./ink/IVS-110/tot/IVS-110_01.png", "./ink/IVS-110/tot/IVS-110_02.png", "./ink/IVS-110/tot/IVS-110_03.png", "./ink/IVS-110/tot/IVS-110_04.png", "./ink/IVS-110/tot/IVS-110_05.png", "./ink/IVS-110/tot/IVS-110_06.png", "./ink/IVS-110/tot/IVS-110_07.png", "./ink/IVS-110/tot/IVS-110_08.png", "./ink/IVS-110/tot/IVS-110_09.png", "./ink/IVS-110/tot/IVS-110_10.png", "./ink/IVS-110/tot/IVS-110_11.png", "./ink/IVS-110/tot/IVS-110_12.png", "./ink/IVS-110/tot/IVS-110_13.png", "./ink/IVS-110/tot/IVS-110_14.png", "./ink/IVS-110/tot/IVS-110_15.png", "./ink/IVS-110/tot/IVS-110_16.png", "./ink/IVS-110/tot/IVS-110_17.png", "./ink/IVS-110/tot/IVS-110_18.png", "./ink/IVS-110/tot/IVS-110_19.png", "./ink/IVS-110/tot/IVS-110_20.png", "./ink/IVS-110/tot/IVS-110_21.png", "./ink/IVS-110/tot/IVS-110_22.png", "./ink/IVS-110/tot/IVS-110_23.png", "./ink/IVS-110/tot/IVS-110_24.png", "./ink/IVS-110/tot/IVS-110_25.png", "./ink/IVS-110/tot/IVS-110_26.png", "./ink/IVS-110/tot/IVS-110_27.png", "./ink/IVS-110/tot/IVS-110_28.png", "./ink/IVS-110/tot/IVS-110_29.png"];
+    const totalFrames = 29;
     const baseInterval = 300;
-    const loopStartIdx = 79;
+    const loopStartIdx = 26;
     const playerId = "likavka_ivs_110_tot";
     
     let currentIdx = 0;
@@ -5716,7 +5728,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_ivs_110_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ivs_110_azi" class="timeline-slider" type="range" min="0" max="82" value="0">
+            <input id="slider_likavka_ivs_110_azi" class="timeline-slider" type="range" min="0" max="29" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -5744,10 +5756,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IVS-110/azi/IVS-110_00.png", "./ink/IVS-110/azi/IVS-110_01.png", "./ink/IVS-110/azi/IVS-110_02.png", "./ink/IVS-110/azi/IVS-110_03.png", "./ink/IVS-110/azi/IVS-110_04.png", "./ink/IVS-110/azi/IVS-110_05.png", "./ink/IVS-110/azi/IVS-110_06.png", "./ink/IVS-110/azi/IVS-110_07.png", "./ink/IVS-110/azi/IVS-110_08.png", "./ink/IVS-110/azi/IVS-110_09.png", "./ink/IVS-110/azi/IVS-110_10.png", "./ink/IVS-110/azi/IVS-110_11.png", "./ink/IVS-110/azi/IVS-110_12.png", "./ink/IVS-110/azi/IVS-110_13.png", "./ink/IVS-110/azi/IVS-110_14.png", "./ink/IVS-110/azi/IVS-110_15.png", "./ink/IVS-110/azi/IVS-110_16.png", "./ink/IVS-110/azi/IVS-110_17.png", "./ink/IVS-110/azi/IVS-110_18.png", "./ink/IVS-110/azi/IVS-110_19.png", "./ink/IVS-110/azi/IVS-110_20.png", "./ink/IVS-110/azi/IVS-110_21.png", "./ink/IVS-110/azi/IVS-110_22.png", "./ink/IVS-110/azi/IVS-110_23.png", "./ink/IVS-110/azi/IVS-110_24.png", "./ink/IVS-110/azi/IVS-110_25.png", "./ink/IVS-110/azi/IVS-110_26.png", "./ink/IVS-110/azi/IVS-110_27.png", "./ink/IVS-110/azi/IVS-110_28.png", "./ink/IVS-110/azi/IVS-110_29.png", "./ink/IVS-110/azi/IVS-110_30.png", "./ink/IVS-110/azi/IVS-110_31.png", "./ink/IVS-110/azi/IVS-110_32.png", "./ink/IVS-110/azi/IVS-110_33.png", "./ink/IVS-110/azi/IVS-110_34.png", "./ink/IVS-110/azi/IVS-110_35.png", "./ink/IVS-110/azi/IVS-110_36.png", "./ink/IVS-110/azi/IVS-110_37.png", "./ink/IVS-110/azi/IVS-110_38.png", "./ink/IVS-110/azi/IVS-110_39.png", "./ink/IVS-110/azi/IVS-110_40.png", "./ink/IVS-110/azi/IVS-110_41.png", "./ink/IVS-110/azi/IVS-110_42.png", "./ink/IVS-110/azi/IVS-110_43.png", "./ink/IVS-110/azi/IVS-110_44.png", "./ink/IVS-110/azi/IVS-110_45.png", "./ink/IVS-110/azi/IVS-110_46.png", "./ink/IVS-110/azi/IVS-110_47.png", "./ink/IVS-110/azi/IVS-110_48.png", "./ink/IVS-110/azi/IVS-110_49.png", "./ink/IVS-110/azi/IVS-110_50.png", "./ink/IVS-110/azi/IVS-110_51.png", "./ink/IVS-110/azi/IVS-110_52.png", "./ink/IVS-110/azi/IVS-110_53.png", "./ink/IVS-110/azi/IVS-110_54.png", "./ink/IVS-110/azi/IVS-110_55.png", "./ink/IVS-110/azi/IVS-110_56.png", "./ink/IVS-110/azi/IVS-110_57.png", "./ink/IVS-110/azi/IVS-110_58.png", "./ink/IVS-110/azi/IVS-110_59.png", "./ink/IVS-110/azi/IVS-110_60.png", "./ink/IVS-110/azi/IVS-110_61.png", "./ink/IVS-110/azi/IVS-110_62.png", "./ink/IVS-110/azi/IVS-110_63.png", "./ink/IVS-110/azi/IVS-110_64.png", "./ink/IVS-110/azi/IVS-110_65.png", "./ink/IVS-110/azi/IVS-110_66.png", "./ink/IVS-110/azi/IVS-110_67.png", "./ink/IVS-110/azi/IVS-110_68.png", "./ink/IVS-110/azi/IVS-110_69.png", "./ink/IVS-110/azi/IVS-110_70.png", "./ink/IVS-110/azi/IVS-110_71.png", "./ink/IVS-110/azi/IVS-110_72.png", "./ink/IVS-110/azi/IVS-110_73.png", "./ink/IVS-110/azi/IVS-110_74.png", "./ink/IVS-110/azi/IVS-110_75.png", "./ink/IVS-110/azi/IVS-110_76.png", "./ink/IVS-110/azi/IVS-110_77.png", "./ink/IVS-110/azi/IVS-110_78.png", "./ink/IVS-110/azi/IVS-110_79.png", "./ink/IVS-110/azi/IVS-110_80.png", "./ink/IVS-110/azi/IVS-110_81.png", "./ink/IVS-110/azi/IVS-110_82.png"];
-    const totalFrames = 83;
+    const images = ["./ink/IVS-110/azi/IVS-110_00.png", "./ink/IVS-110/azi/IVS-110_01.png", "./ink/IVS-110/azi/IVS-110_02.png", "./ink/IVS-110/azi/IVS-110_03.png", "./ink/IVS-110/azi/IVS-110_04.png", "./ink/IVS-110/azi/IVS-110_05.png", "./ink/IVS-110/azi/IVS-110_06.png", "./ink/IVS-110/azi/IVS-110_07.png", "./ink/IVS-110/azi/IVS-110_08.png", "./ink/IVS-110/azi/IVS-110_09.png", "./ink/IVS-110/azi/IVS-110_10.png", "./ink/IVS-110/azi/IVS-110_11.png", "./ink/IVS-110/azi/IVS-110_12.png", "./ink/IVS-110/azi/IVS-110_13.png", "./ink/IVS-110/azi/IVS-110_14.png", "./ink/IVS-110/azi/IVS-110_15.png", "./ink/IVS-110/azi/IVS-110_16.png", "./ink/IVS-110/azi/IVS-110_17.png", "./ink/IVS-110/azi/IVS-110_18.png", "./ink/IVS-110/azi/IVS-110_19.png", "./ink/IVS-110/azi/IVS-110_20.png", "./ink/IVS-110/azi/IVS-110_21.png", "./ink/IVS-110/azi/IVS-110_22.png", "./ink/IVS-110/azi/IVS-110_23.png", "./ink/IVS-110/azi/IVS-110_24.png", "./ink/IVS-110/azi/IVS-110_25.png", "./ink/IVS-110/azi/IVS-110_26.png", "./ink/IVS-110/azi/IVS-110_27.png", "./ink/IVS-110/azi/IVS-110_28.png", "./ink/IVS-110/azi/IVS-110_29.png"];
+    const totalFrames = 30;
     const baseInterval = 300;
-    const loopStartIdx = 80;
+    const loopStartIdx = 27;
     const playerId = "likavka_ivs_110_azi";
     
     let currentIdx = 0;
@@ -6072,7 +6084,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_ivs_110__ivs_110_vs" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ivs_110__ivs_110_vs" class="timeline-slider" type="range" min="0" max="82" value="0">
+            <input id="slider_likavka_ivs_110__ivs_110_vs" class="timeline-slider" type="range" min="0" max="29" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -6100,10 +6112,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IVS-110/ IVS-110_VS/IVS-110_VS_00.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_01.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_02.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_03.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_04.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_05.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_06.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_07.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_08.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_09.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_10.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_11.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_12.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_13.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_14.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_15.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_16.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_17.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_18.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_19.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_20.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_21.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_22.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_23.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_24.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_25.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_26.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_27.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_28.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_29.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_30.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_31.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_32.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_33.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_34.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_35.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_36.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_37.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_38.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_39.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_40.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_41.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_42.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_43.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_44.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_45.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_46.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_47.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_48.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_49.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_50.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_51.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_52.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_53.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_54.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_55.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_56.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_57.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_58.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_59.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_60.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_61.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_62.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_63.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_64.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_65.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_66.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_67.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_68.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_69.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_70.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_71.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_72.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_73.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_74.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_75.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_76.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_77.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_78.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_79.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_80.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_81.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_82.png"];
-    const totalFrames = 83;
+    const images = ["./ink/IVS-110/ IVS-110_VS/IVS-110_VS_00.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_01.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_02.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_03.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_04.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_05.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_06.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_07.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_08.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_09.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_10.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_11.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_12.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_13.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_14.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_15.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_16.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_17.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_18.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_19.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_20.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_21.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_22.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_23.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_24.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_25.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_26.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_27.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_28.png", "./ink/IVS-110/ IVS-110_VS/IVS-110_VS_29.png"];
+    const totalFrames = 30;
     const baseInterval = 300;
-    const loopStartIdx = 80;
+    const loopStartIdx = 27;
     const playerId = "likavka_ivs_110__ivs_110_vs";
     
     let currentIdx = 0;
@@ -6431,7 +6443,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_ivs_174_tot" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ivs_174_tot" class="timeline-slider" type="range" min="0" max="18" value="0">
+            <input id="slider_likavka_ivs_174_tot" class="timeline-slider" type="range" min="0" max="19" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -6459,10 +6471,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IVS-174/tot/IVS-174_01.png", "./ink/IVS-174/tot/IVS-174_02.png", "./ink/IVS-174/tot/IVS-174_03.png", "./ink/IVS-174/tot/IVS-174_04.png", "./ink/IVS-174/tot/IVS-174_05.png", "./ink/IVS-174/tot/IVS-174_06.png", "./ink/IVS-174/tot/IVS-174_07.png", "./ink/IVS-174/tot/IVS-174_08.png", "./ink/IVS-174/tot/IVS-174_09.png", "./ink/IVS-174/tot/IVS-174_10.png", "./ink/IVS-174/tot/IVS-174_11.png", "./ink/IVS-174/tot/IVS-174_12.png", "./ink/IVS-174/tot/IVS-174_13.png", "./ink/IVS-174/tot/IVS-174_14.png", "./ink/IVS-174/tot/IVS-174_15.png", "./ink/IVS-174/tot/IVS-174_16.png", "./ink/IVS-174/tot/IVS-174_17.png", "./ink/IVS-174/tot/IVS-174_18.png", "./ink/IVS-174/tot/IVS-174_19.png"];
-    const totalFrames = 19;
+    const images = ["./ink/IVS-174/tot/IVS-174_01.png", "./ink/IVS-174/tot/IVS-174_02.png", "./ink/IVS-174/tot/IVS-174_03.png", "./ink/IVS-174/tot/IVS-174_04.png", "./ink/IVS-174/tot/IVS-174_05.png", "./ink/IVS-174/tot/IVS-174_06.png", "./ink/IVS-174/tot/IVS-174_07.png", "./ink/IVS-174/tot/IVS-174_08.png", "./ink/IVS-174/tot/IVS-174_09.png", "./ink/IVS-174/tot/IVS-174_10.png", "./ink/IVS-174/tot/IVS-174_11.png", "./ink/IVS-174/tot/IVS-174_12.png", "./ink/IVS-174/tot/IVS-174_13.png", "./ink/IVS-174/tot/IVS-174_14.png", "./ink/IVS-174/tot/IVS-174_15.png", "./ink/IVS-174/tot/IVS-174_16.png", "./ink/IVS-174/tot/IVS-174_17.png", "./ink/IVS-174/tot/IVS-174_18.png", "./ink/IVS-174/tot/IVS-174_19.png", "./ink/IVS-174/tot/IVS-174_20.png"];
+    const totalFrames = 20;
     const baseInterval = 300;
-    const loopStartIdx = 16;
+    const loopStartIdx = 17;
     const playerId = "likavka_ivs_174_tot";
     
     let currentIdx = 0;
@@ -6787,7 +6799,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_ivs_174_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ivs_174_azi" class="timeline-slider" type="range" min="0" max="19" value="0">
+            <input id="slider_likavka_ivs_174_azi" class="timeline-slider" type="range" min="0" max="20" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -6815,10 +6827,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IVS-174/azi/IVS-174_00.png", "./ink/IVS-174/azi/IVS-174_01.png", "./ink/IVS-174/azi/IVS-174_02.png", "./ink/IVS-174/azi/IVS-174_03.png", "./ink/IVS-174/azi/IVS-174_04.png", "./ink/IVS-174/azi/IVS-174_05.png", "./ink/IVS-174/azi/IVS-174_06.png", "./ink/IVS-174/azi/IVS-174_07.png", "./ink/IVS-174/azi/IVS-174_08.png", "./ink/IVS-174/azi/IVS-174_09.png", "./ink/IVS-174/azi/IVS-174_10.png", "./ink/IVS-174/azi/IVS-174_11.png", "./ink/IVS-174/azi/IVS-174_12.png", "./ink/IVS-174/azi/IVS-174_13.png", "./ink/IVS-174/azi/IVS-174_14.png", "./ink/IVS-174/azi/IVS-174_15.png", "./ink/IVS-174/azi/IVS-174_16.png", "./ink/IVS-174/azi/IVS-174_17.png", "./ink/IVS-174/azi/IVS-174_18.png", "./ink/IVS-174/azi/IVS-174_19.png"];
-    const totalFrames = 20;
+    const images = ["./ink/IVS-174/azi/IVS-174_00.png", "./ink/IVS-174/azi/IVS-174_01.png", "./ink/IVS-174/azi/IVS-174_02.png", "./ink/IVS-174/azi/IVS-174_03.png", "./ink/IVS-174/azi/IVS-174_04.png", "./ink/IVS-174/azi/IVS-174_05.png", "./ink/IVS-174/azi/IVS-174_06.png", "./ink/IVS-174/azi/IVS-174_07.png", "./ink/IVS-174/azi/IVS-174_08.png", "./ink/IVS-174/azi/IVS-174_09.png", "./ink/IVS-174/azi/IVS-174_10.png", "./ink/IVS-174/azi/IVS-174_11.png", "./ink/IVS-174/azi/IVS-174_12.png", "./ink/IVS-174/azi/IVS-174_13.png", "./ink/IVS-174/azi/IVS-174_14.png", "./ink/IVS-174/azi/IVS-174_15.png", "./ink/IVS-174/azi/IVS-174_16.png", "./ink/IVS-174/azi/IVS-174_17.png", "./ink/IVS-174/azi/IVS-174_18.png", "./ink/IVS-174/azi/IVS-174_19.png", "./ink/IVS-174/azi/IVS-174_20.png"];
+    const totalFrames = 21;
     const baseInterval = 300;
-    const loopStartIdx = 17;
+    const loopStartIdx = 18;
     const playerId = "likavka_ivs_174_azi";
     
     let currentIdx = 0;
@@ -7146,7 +7158,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_ivs_175_tot" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ivs_175_tot" class="timeline-slider" type="range" min="0" max="18" value="0">
+            <input id="slider_likavka_ivs_175_tot" class="timeline-slider" type="range" min="0" max="19" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -7174,10 +7186,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IVS-175/tot/IVS-175_01.png", "./ink/IVS-175/tot/IVS-175_02.png", "./ink/IVS-175/tot/IVS-175_03.png", "./ink/IVS-175/tot/IVS-175_04.png", "./ink/IVS-175/tot/IVS-175_05.png", "./ink/IVS-175/tot/IVS-175_06.png", "./ink/IVS-175/tot/IVS-175_07.png", "./ink/IVS-175/tot/IVS-175_08.png", "./ink/IVS-175/tot/IVS-175_09.png", "./ink/IVS-175/tot/IVS-175_10.png", "./ink/IVS-175/tot/IVS-175_11.png", "./ink/IVS-175/tot/IVS-175_12.png", "./ink/IVS-175/tot/IVS-175_13.png", "./ink/IVS-175/tot/IVS-175_14.png", "./ink/IVS-175/tot/IVS-175_15.png", "./ink/IVS-175/tot/IVS-175_16.png", "./ink/IVS-175/tot/IVS-175_17.png", "./ink/IVS-175/tot/IVS-175_18.png", "./ink/IVS-175/tot/IVS-175_19.png"];
-    const totalFrames = 19;
+    const images = ["./ink/IVS-175/tot/IVS-175_01.png", "./ink/IVS-175/tot/IVS-175_02.png", "./ink/IVS-175/tot/IVS-175_03.png", "./ink/IVS-175/tot/IVS-175_04.png", "./ink/IVS-175/tot/IVS-175_05.png", "./ink/IVS-175/tot/IVS-175_06.png", "./ink/IVS-175/tot/IVS-175_07.png", "./ink/IVS-175/tot/IVS-175_08.png", "./ink/IVS-175/tot/IVS-175_09.png", "./ink/IVS-175/tot/IVS-175_10.png", "./ink/IVS-175/tot/IVS-175_11.png", "./ink/IVS-175/tot/IVS-175_12.png", "./ink/IVS-175/tot/IVS-175_13.png", "./ink/IVS-175/tot/IVS-175_14.png", "./ink/IVS-175/tot/IVS-175_15.png", "./ink/IVS-175/tot/IVS-175_16.png", "./ink/IVS-175/tot/IVS-175_17.png", "./ink/IVS-175/tot/IVS-175_18.png", "./ink/IVS-175/tot/IVS-175_19.png", "./ink/IVS-175/tot/IVS-175_20.png"];
+    const totalFrames = 20;
     const baseInterval = 300;
-    const loopStartIdx = 16;
+    const loopStartIdx = 17;
     const playerId = "likavka_ivs_175_tot";
     
     let currentIdx = 0;
@@ -7502,7 +7514,7 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
             <img id="img_display_likavka_ivs_175_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ivs_175_azi" class="timeline-slider" type="range" min="0" max="19" value="0">
+            <input id="slider_likavka_ivs_175_azi" class="timeline-slider" type="range" min="0" max="20" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -7530,10 +7542,10 @@ Naďalej podrobne sledovať a analyzovať konštrukciu/SO. Monitoring pokračuje
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/IVS-175/azi/IVS-175_00.png", "./ink/IVS-175/azi/IVS-175_01.png", "./ink/IVS-175/azi/IVS-175_02.png", "./ink/IVS-175/azi/IVS-175_03.png", "./ink/IVS-175/azi/IVS-175_04.png", "./ink/IVS-175/azi/IVS-175_05.png", "./ink/IVS-175/azi/IVS-175_06.png", "./ink/IVS-175/azi/IVS-175_07.png", "./ink/IVS-175/azi/IVS-175_08.png", "./ink/IVS-175/azi/IVS-175_09.png", "./ink/IVS-175/azi/IVS-175_10.png", "./ink/IVS-175/azi/IVS-175_11.png", "./ink/IVS-175/azi/IVS-175_12.png", "./ink/IVS-175/azi/IVS-175_13.png", "./ink/IVS-175/azi/IVS-175_14.png", "./ink/IVS-175/azi/IVS-175_15.png", "./ink/IVS-175/azi/IVS-175_16.png", "./ink/IVS-175/azi/IVS-175_17.png", "./ink/IVS-175/azi/IVS-175_18.png", "./ink/IVS-175/azi/IVS-175_19.png"];
-    const totalFrames = 20;
+    const images = ["./ink/IVS-175/azi/IVS-175_00.png", "./ink/IVS-175/azi/IVS-175_01.png", "./ink/IVS-175/azi/IVS-175_02.png", "./ink/IVS-175/azi/IVS-175_03.png", "./ink/IVS-175/azi/IVS-175_04.png", "./ink/IVS-175/azi/IVS-175_05.png", "./ink/IVS-175/azi/IVS-175_06.png", "./ink/IVS-175/azi/IVS-175_07.png", "./ink/IVS-175/azi/IVS-175_08.png", "./ink/IVS-175/azi/IVS-175_09.png", "./ink/IVS-175/azi/IVS-175_10.png", "./ink/IVS-175/azi/IVS-175_11.png", "./ink/IVS-175/azi/IVS-175_12.png", "./ink/IVS-175/azi/IVS-175_13.png", "./ink/IVS-175/azi/IVS-175_14.png", "./ink/IVS-175/azi/IVS-175_15.png", "./ink/IVS-175/azi/IVS-175_16.png", "./ink/IVS-175/azi/IVS-175_17.png", "./ink/IVS-175/azi/IVS-175_18.png", "./ink/IVS-175/azi/IVS-175_19.png", "./ink/IVS-175/azi/IVS-175_20.png"];
+    const totalFrames = 21;
     const baseInterval = 300;
-    const loopStartIdx = 17;
+    const loopStartIdx = 18;
     const playerId = "likavka_ivs_175_azi";
     
     let currentIdx = 0;
