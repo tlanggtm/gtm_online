@@ -496,6 +496,9 @@ window.Quarto = {
   </ul></li>
   <li><a href="#inklinometria" id="toc-inklinometria" class="nav-link" data-scroll-target="#inklinometria">📉 Inklinometria</a>
   <ul class="collapse">
+  <li><a href="#kritériá-klasifikácie-pohybu" id="toc-kritériá-klasifikácie-pohybu" class="nav-link" data-scroll-target="#kritériá-klasifikácie-pohybu">KRITÉRIÁ KLASIFIKÁCIE POHYBU</a></li>
+  <li><a href="#master-summary-all-checked-elements-8" id="toc-master-summary-all-checked-elements-8" class="nav-link" data-scroll-target="#master-summary-all-checked-elements-8">MASTER SUMMARY: ALL CHECKED ELEMENTS (8)</a></li>
+  <li><a href="#legenda" id="toc-legenda" class="nav-link" data-scroll-target="#legenda">LEGENDA</a></li>
   <li><a href="#situácia" id="toc-situácia" class="nav-link" data-scroll-target="#situácia">🗺️ Situácia</a></li>
   <li><a href="#časozberný-vývoj" id="toc-časozberný-vývoj" class="nav-link" data-scroll-target="#časozberný-vývoj">📈 Časozberný vývoj</a></li>
   <li><a href="#ink-lb-102" id="toc-ink-lb-102" class="nav-link" data-scroll-target="#ink-lb-102">INK-LB-102</a></li>
@@ -563,12 +566,191 @@ Your page content starts here... -->
 </section>
 <section id="inklinometria" class="level2">
 <h2 class="anchored" data-anchor-id="inklinometria">📉 Inklinometria</h2>
-<!-- # likavka Overview
-Your page content starts here... -->
-<p>============================================================ INCLINOMETER DATA ANALYSIS REPORT Execution Date: 2026-07-08 Control Window: 2026-07-01 to 2026-07-30 SUMMARY: CHECKED ELEMENTS (8) ============================================================</p>
-<p>KRITÉRIÁ KLASIFIKÁCIE POHYBU +————-+————————+—————————————-+ | Kategória | Rýchlosť ν [mm/mes.] | Podmienka Posunu (Delta) | +=============+========================+========================================+ | DANGER | 10 až 100 | |Δ| &gt; 1.00 mm | | PROGRESSIVE | 3 až 10 | |Δ| &gt; 1.00 mm | | SLOW | 1 až 3 | |Δ| &gt; 1.00 mm | | REGRESS | -10.1 až 0.0 | |Δ| &gt; 1.00 mm | | – NO – | 0 až 1 | |Δ| ≤ 1.00 mm ALEBO |ν| &lt; 0.10 mm/mes. | +————-+————————+—————————————-+</p>
-<p>MASTER SUMMARY: ALL CHECKED ELEMENTS (8) +————-+—————–+——+——+————–+———-+————-+ | Inkl. | Movement Type | R | Δ | Rýchlosť ν | Azimut | Smerník ς | +=============+=================+======+======+==============+==========+=============+ | INK-LB-102 | – NO – | 31.6 | 0.4 | 0.9 | 276.5 | 298.0 | | INK-LB-103N | REGRESS | -7.5 | -1.0 | -2.2 | 300.3 | 286.7 | | INK-LB-104N | – NO – | 1.8 | 0.4 | 0.9 | 243.7 | 255.0 | | IV-66N | – NO – | -0.4 | 0.4 | 0.9 | 7.7 | 168.0 | | IVS-109 | – NO – | 14.5 | 0.2 | 0.5 | 211.4 | 186.4 | | IVS-110 | PROGRESSIVE | 66.5 | 1.5 | 3.2 | 226.2 | 137.7 | | | REGRESS | 97.9 | -2.0 | -4.3 | 224.8 | 112.9 | | IVS-174 | – NO – | -2.7 | 0.1 | 0.2 | 76.0 | 346.0 | | IVS-175 | – NO – | 0.4 | 0.1 | 0.3 | 298.0 | 267.0 | +————-+—————–+——+——+————–+———-+————-+</p>
-<p>———————————————————————————————————————————————————————————————————————————————————————————————————— NOTICE: EXCLUSION CRITERIA • Elements with displacement variations below or equal to given threshold (|Δ|) ≤ 1.0 mm are omitted. • Elements with speed rates falling completely outside your configured range guidelines (spanning strictly from -10.1 up to 100.0 mm/mes.) are systematically neglected. ———————————————————————————————————————————————————————————————————————————————————————————————————— LEGENDA • Hl. [m] [‘Hĺbka, pre ktorú boli namerané príslušné hodnoty’] • R [mm] [‘Celková výslednica pohybu (Magnitude)’] • Δ [mm] [‘Hodnota zmeny pohybu medzi poslednými meraniami’] • ν [mm/mes.] [‘Normalizovaná rýchlosť pohybu. Hodnota reprezentuje teoretickú mesačnú zmenu’, ‘deformácie, extrapolovanú z aktuálnych dát v čase merania’] deformácie, extrapolovanú z aktuálnych dát v čase merania • Az. [°] [‘Azimut výslednice R k severu’] • ς [°] [‘Smerník - smerovanie aktuálnej zmeny deformácie k severu’] ————————————————————————————————————————————————————————————————————————————————————————————————————</p>
+<pre class="text"><code>============================================================
+ INCLINOMETER DATA ANALYSIS REPORT
+ Execution Date: 2026-07-08
+ Control Window: 2026-07-01 to 2026-07-30
+ SUMMARY: CHECKED ELEMENTS (8)
+============================================================</code></pre>
+<section id="kritériá-klasifikácie-pohybu" class="level3">
+<h3 class="anchored" data-anchor-id="kritériá-klasifikácie-pohybu">KRITÉRIÁ KLASIFIKÁCIE POHYBU</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Kategória</th>
+<th style="text-align: left;">Rýchlosť <span class="math inline">\(\nu\)</span> [mm/mes.]</th>
+<th style="text-align: left;">Podmienka Posunu (Delta)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>DANGER</strong></td>
+<td style="text-align: left;">10 až 100</td>
+<td style="text-align: left;"><span class="math inline">\(|\Delta| &gt; 1.00\)</span> mm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>PROGRESSIVE</strong></td>
+<td style="text-align: left;">3 až 10</td>
+<td style="text-align: left;"><span class="math inline">\(|\Delta| &gt; 1.00\)</span> mm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>SLOW</strong></td>
+<td style="text-align: left;">1 až 3</td>
+<td style="text-align: left;"><span class="math inline">\(|\Delta| &gt; 1.00\)</span> mm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>REGRESS</strong></td>
+<td style="text-align: left;">-10.1 až 0.0</td>
+<td style="text-align: left;"><span class="math inline">\(|\Delta| &gt; 1.00\)</span> mm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>– NO –</strong></td>
+<td style="text-align: left;">0 až 1</td>
+<td style="text-align: left;"><span class="math inline">\(|\Delta| \le 1.00\)</span> mm ALEBO <span class="math inline">\(|\nu| &lt; 0.10\)</span> mm/mes.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="master-summary-all-checked-elements-8" class="level3">
+<h3 class="anchored" data-anchor-id="master-summary-all-checked-elements-8">MASTER SUMMARY: ALL CHECKED ELEMENTS (8)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Inkl.</th>
+<th style="text-align: left;">Movement Type</th>
+<th style="text-align: right;">R</th>
+<th style="text-align: right;">Δ</th>
+<th style="text-align: right;">Rýchlosť <span class="math inline">\(\nu\)</span></th>
+<th style="text-align: right;">Azimut</th>
+<th style="text-align: right;">Smerník <span class="math inline">\(\varsigma\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">INK-LB-102</td>
+<td style="text-align: left;"><code>-- NO --</code></td>
+<td style="text-align: right;">31.6</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">276.5</td>
+<td style="text-align: right;">298.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">INK-LB-103N</td>
+<td style="text-align: left;"><code>REGRESS</code></td>
+<td style="text-align: right;">-7.5</td>
+<td style="text-align: right;">-1.0</td>
+<td style="text-align: right;">-2.2</td>
+<td style="text-align: right;">300.3</td>
+<td style="text-align: right;">286.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">INK-LB-104N</td>
+<td style="text-align: left;"><code>-- NO --</code></td>
+<td style="text-align: right;">1.8</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">243.7</td>
+<td style="text-align: right;">255.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IV-66N</td>
+<td style="text-align: left;"><code>-- NO --</code></td>
+<td style="text-align: right;">-0.4</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">7.7</td>
+<td style="text-align: right;">168.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IVS-109</td>
+<td style="text-align: left;"><code>-- NO --</code></td>
+<td style="text-align: right;">14.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">211.4</td>
+<td style="text-align: right;">186.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IVS-110</td>
+<td style="text-align: left;"><code>PROGRESSIVE</code></td>
+<td style="text-align: right;">66.5</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">226.2</td>
+<td style="text-align: right;">137.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><code>REGRESS</code></td>
+<td style="text-align: right;">97.9</td>
+<td style="text-align: right;">-2.0</td>
+<td style="text-align: right;">-4.3</td>
+<td style="text-align: right;">224.8</td>
+<td style="text-align: right;">112.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IVS-174</td>
+<td style="text-align: left;"><code>-- NO --</code></td>
+<td style="text-align: right;">-2.7</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">76.0</td>
+<td style="text-align: right;">346.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IVS-175</td>
+<td style="text-align: left;"><code>-- NO --</code></td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">298.0</td>
+<td style="text-align: right;">267.0</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>NOTICE: EXCLUSION CRITERIA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Elements with displacement variations below or equal to given threshold (<span class="math inline">\(|\Delta|\)</span>) <span class="math inline">\(\le\)</span> 1.0 mm are omitted.</li>
+<li>Elements with speed rates falling completely outside your configured range guidelines (spanning strictly from -10.1 up to 100.0 mm/mes.) are systematically neglected.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="legenda" class="level3">
+<h3 class="anchored" data-anchor-id="legenda">LEGENDA</h3>
+<ul>
+<li><strong>Hl. [m]</strong>: Hĺbka, pre ktorú boli namerané príslušné hodnoty.</li>
+<li><strong>R [mm]</strong>: Celková výslednica pohybu (Magnitude).</li>
+<li><strong>Δ [mm]</strong>: Hodnota zmeny pohybu medzi poslednými meraniami.</li>
+<li><strong><span class="math inline">\(\nu\)</span> [mm/mes.]</strong>: Normalizovaná rýchlosť pohybu. Hodnota reprezentuje teoretickú mesačnú zmenu deformácie, extrapolovanú z aktuálnych dát v čase merania.</li>
+<li><strong>Az. [°]</strong>: Azimut výslednice R k severu.</li>
+<li><strong><span class="math inline">\(\varsigma\)</span> [°]</strong>: Smerník - smerovanie aktuálnej zmeny deformácie k severu.</li>
+</ul>
+</section>
 <section id="situácia" class="level3">
 <h3 class="anchored" data-anchor-id="situácia">🗺️ Situácia</h3>
 <p>Na danej situácii sú zobrazené priebehy pohybov inklinometrov (časové záznamy z jednotlivých meraní) v okolí opory mosta SO-210, spodnej pilótovej steny (SPS) a hornej pilótovej steny (HPS). Zobrazený je vývoj od 15.09.2025, kedy bola realizovaná trysková injektáž. Realizované bolo aj predĺženie spodnej pilótovej steny, 3. etáž.</p>
