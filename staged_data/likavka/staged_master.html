@@ -1324,7 +1324,7 @@ Your page content starts here... -->
             <img id="img_display_likavka_ink_lb_102_tot" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ink_lb_102_tot" class="timeline-slider" type="range" min="0" max="39" value="0">
+            <input id="slider_likavka_ink_lb_102_tot" class="timeline-slider" type="range" min="0" max="30" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -1352,10 +1352,10 @@ Your page content starts here... -->
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/INK-LB-102/tot/INK-LB-102_01.png", "./ink/INK-LB-102/tot/INK-LB-102_02.png", "./ink/INK-LB-102/tot/INK-LB-102_03.png", "./ink/INK-LB-102/tot/INK-LB-102_04.png", "./ink/INK-LB-102/tot/INK-LB-102_05.png", "./ink/INK-LB-102/tot/INK-LB-102_06.png", "./ink/INK-LB-102/tot/INK-LB-102_07.png", "./ink/INK-LB-102/tot/INK-LB-102_08.png", "./ink/INK-LB-102/tot/INK-LB-102_09.png", "./ink/INK-LB-102/tot/INK-LB-102_10.png", "./ink/INK-LB-102/tot/INK-LB-102_11.png", "./ink/INK-LB-102/tot/INK-LB-102_12.png", "./ink/INK-LB-102/tot/INK-LB-102_13.png", "./ink/INK-LB-102/tot/INK-LB-102_14.png", "./ink/INK-LB-102/tot/INK-LB-102_15.png", "./ink/INK-LB-102/tot/INK-LB-102_16.png", "./ink/INK-LB-102/tot/INK-LB-102_17.png", "./ink/INK-LB-102/tot/INK-LB-102_18.png", "./ink/INK-LB-102/tot/INK-LB-102_19.png", "./ink/INK-LB-102/tot/INK-LB-102_20.png", "./ink/INK-LB-102/tot/INK-LB-102_21.png", "./ink/INK-LB-102/tot/INK-LB-102_22.png", "./ink/INK-LB-102/tot/INK-LB-102_23.png", "./ink/INK-LB-102/tot/INK-LB-102_24.png", "./ink/INK-LB-102/tot/INK-LB-102_25.png", "./ink/INK-LB-102/tot/INK-LB-102_26.png", "./ink/INK-LB-102/tot/INK-LB-102_27.png", "./ink/INK-LB-102/tot/INK-LB-102_28.png", "./ink/INK-LB-102/tot/INK-LB-102_29.png", "./ink/INK-LB-102/tot/INK-LB-102_30.png", "./ink/INK-LB-102/tot/INK-LB-102_31.png", "./ink/INK-LB-102/tot/INK-LB-102_32.png", "./ink/INK-LB-102/tot/INK-LB-102_33.png", "./ink/INK-LB-102/tot/INK-LB-102_34.png", "./ink/INK-LB-102/tot/INK-LB-102_35.png", "./ink/INK-LB-102/tot/INK-LB-102_36.png", "./ink/INK-LB-102/tot/INK-LB-102_37.png", "./ink/INK-LB-102/tot/INK-LB-102_38.png", "./ink/INK-LB-102/tot/INK-LB-102_39.png", "./ink/INK-LB-102/tot/INK-LB-102_40.png"];
-    const totalFrames = 40;
+    const images = ["./ink/INK-LB-102/tot/INK-LB-102_01.png", "./ink/INK-LB-102/tot/INK-LB-102_02.png", "./ink/INK-LB-102/tot/INK-LB-102_03.png", "./ink/INK-LB-102/tot/INK-LB-102_04.png", "./ink/INK-LB-102/tot/INK-LB-102_05.png", "./ink/INK-LB-102/tot/INK-LB-102_06.png", "./ink/INK-LB-102/tot/INK-LB-102_07.png", "./ink/INK-LB-102/tot/INK-LB-102_08.png", "./ink/INK-LB-102/tot/INK-LB-102_09.png", "./ink/INK-LB-102/tot/INK-LB-102_10.png", "./ink/INK-LB-102/tot/INK-LB-102_11.png", "./ink/INK-LB-102/tot/INK-LB-102_12.png", "./ink/INK-LB-102/tot/INK-LB-102_13.png", "./ink/INK-LB-102/tot/INK-LB-102_14.png", "./ink/INK-LB-102/tot/INK-LB-102_15.png", "./ink/INK-LB-102/tot/INK-LB-102_16.png", "./ink/INK-LB-102/tot/INK-LB-102_17.png", "./ink/INK-LB-102/tot/INK-LB-102_18.png", "./ink/INK-LB-102/tot/INK-LB-102_19.png", "./ink/INK-LB-102/tot/INK-LB-102_20.png", "./ink/INK-LB-102/tot/INK-LB-102_21.png", "./ink/INK-LB-102/tot/INK-LB-102_22.png", "./ink/INK-LB-102/tot/INK-LB-102_23.png", "./ink/INK-LB-102/tot/INK-LB-102_24.png", "./ink/INK-LB-102/tot/INK-LB-102_25.png", "./ink/INK-LB-102/tot/INK-LB-102_26.png", "./ink/INK-LB-102/tot/INK-LB-102_27.png", "./ink/INK-LB-102/tot/INK-LB-102_28.png", "./ink/INK-LB-102/tot/INK-LB-102_29.png", "./ink/INK-LB-102/tot/INK-LB-102_30.png", "./ink/INK-LB-102/tot/INK-LB-102_31.png"];
+    const totalFrames = 31;
     const baseInterval = 300;
-    const loopStartIdx = 37;
+    const loopStartIdx = 28;
     const playerId = "likavka_ink_lb_102_tot";
     
     let currentIdx = 0;
@@ -1680,7 +1680,7 @@ Your page content starts here... -->
             <img id="img_display_likavka_ink_lb_102_azi" src="" style="max-width:100%; height:auto; display:block; max-height: 80vh;">
         </div>
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <input id="slider_likavka_ink_lb_102_azi" class="timeline-slider" type="range" min="0" max="40" value="0">
+            <input id="slider_likavka_ink_lb_102_azi" class="timeline-slider" type="range" min="0" max="31" value="0">
         </div>
         <div class="control-action-bar">
             <div class="btn-cluster">
@@ -1708,10 +1708,10 @@ Your page content starts here... -->
     <script>
     // player_logic.js
 (function() { 
-    const images = ["./ink/INK-LB-102/azi/INK-LB-102_00.png", "./ink/INK-LB-102/azi/INK-LB-102_01.png", "./ink/INK-LB-102/azi/INK-LB-102_02.png", "./ink/INK-LB-102/azi/INK-LB-102_03.png", "./ink/INK-LB-102/azi/INK-LB-102_04.png", "./ink/INK-LB-102/azi/INK-LB-102_05.png", "./ink/INK-LB-102/azi/INK-LB-102_06.png", "./ink/INK-LB-102/azi/INK-LB-102_07.png", "./ink/INK-LB-102/azi/INK-LB-102_08.png", "./ink/INK-LB-102/azi/INK-LB-102_09.png", "./ink/INK-LB-102/azi/INK-LB-102_10.png", "./ink/INK-LB-102/azi/INK-LB-102_11.png", "./ink/INK-LB-102/azi/INK-LB-102_12.png", "./ink/INK-LB-102/azi/INK-LB-102_13.png", "./ink/INK-LB-102/azi/INK-LB-102_14.png", "./ink/INK-LB-102/azi/INK-LB-102_15.png", "./ink/INK-LB-102/azi/INK-LB-102_16.png", "./ink/INK-LB-102/azi/INK-LB-102_17.png", "./ink/INK-LB-102/azi/INK-LB-102_18.png", "./ink/INK-LB-102/azi/INK-LB-102_19.png", "./ink/INK-LB-102/azi/INK-LB-102_20.png", "./ink/INK-LB-102/azi/INK-LB-102_21.png", "./ink/INK-LB-102/azi/INK-LB-102_22.png", "./ink/INK-LB-102/azi/INK-LB-102_23.png", "./ink/INK-LB-102/azi/INK-LB-102_24.png", "./ink/INK-LB-102/azi/INK-LB-102_25.png", "./ink/INK-LB-102/azi/INK-LB-102_26.png", "./ink/INK-LB-102/azi/INK-LB-102_27.png", "./ink/INK-LB-102/azi/INK-LB-102_28.png", "./ink/INK-LB-102/azi/INK-LB-102_29.png", "./ink/INK-LB-102/azi/INK-LB-102_30.png", "./ink/INK-LB-102/azi/INK-LB-102_31.png", "./ink/INK-LB-102/azi/INK-LB-102_32.png", "./ink/INK-LB-102/azi/INK-LB-102_33.png", "./ink/INK-LB-102/azi/INK-LB-102_34.png", "./ink/INK-LB-102/azi/INK-LB-102_35.png", "./ink/INK-LB-102/azi/INK-LB-102_36.png", "./ink/INK-LB-102/azi/INK-LB-102_37.png", "./ink/INK-LB-102/azi/INK-LB-102_38.png", "./ink/INK-LB-102/azi/INK-LB-102_39.png", "./ink/INK-LB-102/azi/INK-LB-102_40.png"];
-    const totalFrames = 41;
+    const images = ["./ink/INK-LB-102/azi/INK-LB-102_00.png", "./ink/INK-LB-102/azi/INK-LB-102_01.png", "./ink/INK-LB-102/azi/INK-LB-102_02.png", "./ink/INK-LB-102/azi/INK-LB-102_03.png", "./ink/INK-LB-102/azi/INK-LB-102_04.png", "./ink/INK-LB-102/azi/INK-LB-102_05.png", "./ink/INK-LB-102/azi/INK-LB-102_06.png", "./ink/INK-LB-102/azi/INK-LB-102_07.png", "./ink/INK-LB-102/azi/INK-LB-102_08.png", "./ink/INK-LB-102/azi/INK-LB-102_09.png", "./ink/INK-LB-102/azi/INK-LB-102_10.png", "./ink/INK-LB-102/azi/INK-LB-102_11.png", "./ink/INK-LB-102/azi/INK-LB-102_12.png", "./ink/INK-LB-102/azi/INK-LB-102_13.png", "./ink/INK-LB-102/azi/INK-LB-102_14.png", "./ink/INK-LB-102/azi/INK-LB-102_15.png", "./ink/INK-LB-102/azi/INK-LB-102_16.png", "./ink/INK-LB-102/azi/INK-LB-102_17.png", "./ink/INK-LB-102/azi/INK-LB-102_18.png", "./ink/INK-LB-102/azi/INK-LB-102_19.png", "./ink/INK-LB-102/azi/INK-LB-102_20.png", "./ink/INK-LB-102/azi/INK-LB-102_21.png", "./ink/INK-LB-102/azi/INK-LB-102_22.png", "./ink/INK-LB-102/azi/INK-LB-102_23.png", "./ink/INK-LB-102/azi/INK-LB-102_24.png", "./ink/INK-LB-102/azi/INK-LB-102_25.png", "./ink/INK-LB-102/azi/INK-LB-102_26.png", "./ink/INK-LB-102/azi/INK-LB-102_27.png", "./ink/INK-LB-102/azi/INK-LB-102_28.png", "./ink/INK-LB-102/azi/INK-LB-102_29.png", "./ink/INK-LB-102/azi/INK-LB-102_30.png", "./ink/INK-LB-102/azi/INK-LB-102_31.png"];
+    const totalFrames = 32;
     const baseInterval = 300;
-    const loopStartIdx = 38;
+    const loopStartIdx = 29;
     const playerId = "likavka_ink_lb_102_azi";
     
     let currentIdx = 0;
