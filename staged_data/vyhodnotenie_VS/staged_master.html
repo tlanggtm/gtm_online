@@ -612,9 +612,12 @@ Your page content starts here... -->
 <style>
     .quarto-custom-table-container {
         width: 100%;
+        max-height: 450px;
         overflow-x: auto;
+        overflow-y: auto;
         margin-top: 20px;
         margin-bottom: 20px;
+        border: 1px solid #dee2e6;
     }
     .quarto-custom-table-container table {
         width: auto !important;
@@ -622,27 +625,63 @@ Your page content starts here... -->
         border-collapse: collapse;
     }
     .quarto-custom-table-container th {
-        white-space: normal !important;
-        vertical-align: top;
+        position: sticky;
+        top: 0;
+        z-index: 10;
         background-color: #f8fafc;
-        padding: 8px 12px !important;
+        padding: 8px 8px 0px 8px !important;
+        vertical-align: top;
+        border: 1px solid #dee2e6; 
+        box-shadow: 
+            inset 0 2px 0 #000000,
+            inset 0 -3px 0 #000000;
+    }
+
+    .quarto-custom-table-container th:first-child {
+        box-shadow: 
+            inset 0 2px 0 #000000,
+            inset 0 -3px 0 #000000,
+            inset 2px 0 0 #000000;
+    }
+
+    .quarto-custom-table-container th:last-child {
+        box-shadow: 
+            inset 0 2px 0 #000000,
+            inset 0 -3px 0 #000000,
+            inset -2px 0 0 #000000;
+    }
+    
+    .th-flex-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        min-height: 95px;
+        box-sizing: border-box;
+    }
+    
+    .th-text-content {
         font-size: 0.85rem;
         font-weight: bold;
-        border: 1px solid #dee2e6;
         text-align: center;
+        white-space: normal !important;
+        margin-bottom: 8px;
     }
+    
     .quarto-custom-table-container td {
         font-size: 0.85rem;
         white-space: nowrap;
         padding: 6px 12px !important;
         border: 1px solid #dee2e6;
     }
-    /* Štýl pre malé vyhľadávacie okienka v hlavičke */
+    
     .table-filter-input {
         width: 100%;
         box-sizing: border-box;
-        margin-top: 6px;
-        padding: 2px 5px;
+        margin-top: auto;
+        margin-bottom: 4px;
+        padding: 4px 5px;
         font-size: 0.75rem;
         font-weight: normal;
         border: 1px solid #ccc;
@@ -678,7 +717,7 @@ Your page content starts here... -->
 <td>924.0</td>
 <td>84.4 %</td>
 <td>η = 120.8 %</td>
-<td>Stav medznej prijateľnosti</td>
+<td><span class="status-badge" data-status="Stav medznej prijateľnosti" style="background-color: #ff7f50; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav medznej prijateľnosti</span></td>
 </tr>
 <tr class="even">
 <td>230-01</td>
@@ -690,7 +729,7 @@ Your page content starts here... -->
 <td>480.0</td>
 <td>81.2 %</td>
 <td>η = 81.2 %</td>
-<td>Stav prípustných zmien</td>
+<td><span class="status-badge" data-status="Stav prípustných zmien" style="background-color: #f0e68c; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav prípustných zmien</span></td>
 </tr>
 <tr class="odd">
 <td>2L-I1</td>
@@ -702,7 +741,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>20.9 %</td>
 <td>η = 20.9 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>2L-I2</td>
@@ -714,7 +753,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>25.1 %</td>
 <td>η = 25.1 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>2L-I3</td>
@@ -726,7 +765,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>23.7 %</td>
 <td>η = 23.7 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>2L-I4</td>
@@ -738,7 +777,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>24.0 %</td>
 <td>η = 24.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>2P-I1</td>
@@ -750,7 +789,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>25.7 %</td>
 <td>η = 34.6 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>2P-I2</td>
@@ -762,7 +801,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>23.4 %</td>
 <td>η = 23.4 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>2P-I3</td>
@@ -774,7 +813,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>22.3 %</td>
 <td>η = 22.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>2P-I4</td>
@@ -786,7 +825,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>25.1 %</td>
 <td>η = 25.1 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>3L-I1</td>
@@ -798,7 +837,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>23.4 %</td>
 <td>η = 23.4 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>3L-I2</td>
@@ -810,7 +849,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>25.4 %</td>
 <td>η = 25.4 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>3L-I3</td>
@@ -822,7 +861,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>25.4 %</td>
 <td>η = 25.4 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>3L-I4</td>
@@ -834,7 +873,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>24.0 %</td>
 <td>η = 24.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>3P-I1</td>
@@ -846,7 +885,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>25.4 %</td>
 <td>η = 25.4 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>3P-I2</td>
@@ -858,7 +897,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>22.6 %</td>
 <td>η = 22.6 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>3P-I3</td>
@@ -870,7 +909,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>22.3 %</td>
 <td>η = 22.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>3P-I4</td>
@@ -882,7 +921,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>23.1 %</td>
 <td>η = 23.1 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>4L-I1</td>
@@ -894,7 +933,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>25.1 %</td>
 <td>η = 25.1 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>4L-I2</td>
@@ -906,7 +945,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>23.7 %</td>
 <td>η = 23.7 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>4L-I3</td>
@@ -918,7 +957,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>22.6 %</td>
 <td>η = 22.6 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>4L-I4</td>
@@ -930,7 +969,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>24.0 %</td>
 <td>η = 24.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>4P-I1</td>
@@ -942,7 +981,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>24.3 %</td>
 <td>η = 30.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>4P-I2</td>
@@ -954,7 +993,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>23.7 %</td>
 <td>η = 23.7 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>4P-I3</td>
@@ -966,7 +1005,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>23.4 %</td>
 <td>η = 23.4 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>4P-I4</td>
@@ -978,7 +1017,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>22.6 %</td>
 <td>η = 22.6 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>5L-I1</td>
@@ -990,7 +1029,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>28.3 %</td>
 <td>η = 28.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>5L-I2</td>
@@ -1002,7 +1041,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>21.7 %</td>
 <td>η = 21.7 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>5L-I3</td>
@@ -1014,7 +1053,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>23.4 %</td>
 <td>η = 23.4 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>5L-I4</td>
@@ -1026,7 +1065,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>22.3 %</td>
 <td>η = 22.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>5P-I1</td>
@@ -1038,7 +1077,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>21.1 %</td>
 <td>η = 37.9 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>5P-I2</td>
@@ -1050,7 +1089,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>22.9 %</td>
 <td>η = 22.9 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>5P-I3</td>
@@ -1062,7 +1101,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>23.7 %</td>
 <td>η = 23.7 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>5P-I4</td>
@@ -1074,7 +1113,7 @@ Your page content starts here... -->
 <td>1750.0</td>
 <td>20.9 %</td>
 <td>η = 20.9 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>INK-237-1</td>
@@ -1086,7 +1125,7 @@ Your page content starts here... -->
 <td>1615.0</td>
 <td>47.7 %</td>
 <td>η = 81.0 %</td>
-<td>Stav prípustných zmien</td>
+<td><span class="status-badge" data-status="Stav prípustných zmien" style="background-color: #f0e68c; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav prípustných zmien</span></td>
 </tr>
 <tr class="even">
 <td>INK-237-2</td>
@@ -1098,7 +1137,7 @@ Your page content starts here... -->
 <td>1615.0</td>
 <td>50.5 %</td>
 <td>η = 50.5 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>INK-237-3</td>
@@ -1110,7 +1149,7 @@ Your page content starts here... -->
 <td>NaN</td>
 <td>nan %</td>
 <td>η = 0.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>INK-249-1</td>
@@ -1122,7 +1161,7 @@ Your page content starts here... -->
 <td>924.0</td>
 <td>61.1 %</td>
 <td>η = 61.1 %</td>
-<td>Stav prípustných zmien</td>
+<td><span class="status-badge" data-status="Stav prípustných zmien" style="background-color: #f0e68c; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav prípustných zmien</span></td>
 </tr>
 <tr class="odd">
 <td>INK-249-2</td>
@@ -1134,7 +1173,7 @@ Your page content starts here... -->
 <td>NaN</td>
 <td>nan %</td>
 <td>η = 2.2 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IV-S74</td>
@@ -1146,7 +1185,7 @@ Your page content starts here... -->
 <td>729.0</td>
 <td>74.1 %</td>
 <td>η = 74.1 %</td>
-<td>Stav prípustných zmien</td>
+<td><span class="status-badge" data-status="Stav prípustných zmien" style="background-color: #f0e68c; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav prípustných zmien</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-103</td>
@@ -1158,7 +1197,7 @@ Your page content starts here... -->
 <td>621.0</td>
 <td>37.8 %</td>
 <td>η = 244.9 %</td>
-<td>Havarijný stav</td>
+<td><span class="status-badge" data-status="Havarijný stav" style="background-color: #b22222; color: #ffffff; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Havarijný stav</span></td>
 </tr>
 <tr class="even">
 <td>IVS-104</td>
@@ -1170,7 +1209,7 @@ Your page content starts here... -->
 <td>621.0</td>
 <td>44.3 %</td>
 <td>η = 44.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-105</td>
@@ -1182,7 +1221,7 @@ Your page content starts here... -->
 <td>845.0</td>
 <td>42.0 %</td>
 <td>η = 52.2 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-106</td>
@@ -1194,7 +1233,7 @@ Your page content starts here... -->
 <td>845.0</td>
 <td>38.5 %</td>
 <td>η = 48.8 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-107</td>
@@ -1206,7 +1245,7 @@ Your page content starts here... -->
 <td>845.0</td>
 <td>48.5 %</td>
 <td>η = 48.5 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-108</td>
@@ -1218,7 +1257,7 @@ Your page content starts here... -->
 <td>845.0</td>
 <td>51.5 %</td>
 <td>η = 51.5 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-109</td>
@@ -1230,7 +1269,7 @@ Your page content starts here... -->
 <td>1073.1</td>
 <td>47.1 %</td>
 <td>η = 365.5 %</td>
-<td>Havarijný stav</td>
+<td><span class="status-badge" data-status="Havarijný stav" style="background-color: #b22222; color: #ffffff; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Havarijný stav</span></td>
 </tr>
 <tr class="even">
 <td>IVS-110</td>
@@ -1242,7 +1281,7 @@ Your page content starts here... -->
 <td>1073.1</td>
 <td>nan %</td>
 <td>η = 216.9 %</td>
-<td>Havarijný stav</td>
+<td><span class="status-badge" data-status="Havarijný stav" style="background-color: #b22222; color: #ffffff; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Havarijný stav</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-111</td>
@@ -1254,7 +1293,7 @@ Your page content starts here... -->
 <td>900.0</td>
 <td>50.0 %</td>
 <td>η = 50.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-112</td>
@@ -1266,7 +1305,7 @@ Your page content starts here... -->
 <td>840.0</td>
 <td>39.3 %</td>
 <td>η = 39.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-113</td>
@@ -1278,7 +1317,7 @@ Your page content starts here... -->
 <td>840.0</td>
 <td>36.9 %</td>
 <td>η = 36.9 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-114</td>
@@ -1290,7 +1329,7 @@ Your page content starts here... -->
 <td>840.0</td>
 <td>39.9 %</td>
 <td>η = 39.9 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-115</td>
@@ -1302,7 +1341,7 @@ Your page content starts here... -->
 <td>1680.0</td>
 <td>0.0 %</td>
 <td>η = 9.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-116</td>
@@ -1314,7 +1353,7 @@ Your page content starts here... -->
 <td>1680.0</td>
 <td>0.0 %</td>
 <td>η = 12.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-117</td>
@@ -1326,7 +1365,7 @@ Your page content starts here... -->
 <td>1680.0</td>
 <td>33.3 %</td>
 <td>η = 33.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-118</td>
@@ -1338,7 +1377,7 @@ Your page content starts here... -->
 <td>1680.0</td>
 <td>33.3 %</td>
 <td>η = 33.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-119</td>
@@ -1350,7 +1389,7 @@ Your page content starts here... -->
 <td>1680.0</td>
 <td>33.9 %</td>
 <td>η = 33.9 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-120</td>
@@ -1362,7 +1401,7 @@ Your page content starts here... -->
 <td>1680.0</td>
 <td>33.9 %</td>
 <td>η = 33.9 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-121</td>
@@ -1374,7 +1413,7 @@ Your page content starts here... -->
 <td>1087.0</td>
 <td>60.7 %</td>
 <td>η = 60.7 %</td>
-<td>Stav prípustných zmien</td>
+<td><span class="status-badge" data-status="Stav prípustných zmien" style="background-color: #f0e68c; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav prípustných zmien</span></td>
 </tr>
 <tr class="even">
 <td>IVS-122</td>
@@ -1386,7 +1425,7 @@ Your page content starts here... -->
 <td>1087.0</td>
 <td>54.3 %</td>
 <td>η = 54.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-124</td>
@@ -1398,7 +1437,7 @@ Your page content starts here... -->
 <td>1087.0</td>
 <td>48.8 %</td>
 <td>η = 48.8 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-125</td>
@@ -1410,7 +1449,7 @@ Your page content starts here... -->
 <td>1087.0</td>
 <td>54.7 %</td>
 <td>η = 54.7 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-126</td>
@@ -1422,7 +1461,7 @@ Your page content starts here... -->
 <td>1087.0</td>
 <td>56.1 %</td>
 <td>η = 56.1 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-127</td>
@@ -1434,7 +1473,7 @@ Your page content starts here... -->
 <td>1087.0</td>
 <td>0.0 %</td>
 <td>η = 0.7 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-128</td>
@@ -1446,7 +1485,7 @@ Your page content starts here... -->
 <td>1245.0</td>
 <td>0.0 %</td>
 <td>η = 1.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-129</td>
@@ -1458,7 +1497,7 @@ Your page content starts here... -->
 <td>1245.0</td>
 <td>0.0 %</td>
 <td>η = 0.9 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-130</td>
@@ -1470,7 +1509,7 @@ Your page content starts here... -->
 <td>1245.0</td>
 <td>0.0 %</td>
 <td>η = 0.7 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-131</td>
@@ -1482,7 +1521,7 @@ Your page content starts here... -->
 <td>1927.0</td>
 <td>0.0 %</td>
 <td>η = 1.8 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-132</td>
@@ -1494,7 +1533,7 @@ Your page content starts here... -->
 <td>1927.0</td>
 <td>0.0 %</td>
 <td>η = 1.1 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-133</td>
@@ -1506,7 +1545,7 @@ Your page content starts here... -->
 <td>1927.0</td>
 <td>0.0 %</td>
 <td>η = 3.2 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-134</td>
@@ -1518,7 +1557,7 @@ Your page content starts here... -->
 <td>1927.0</td>
 <td>0.0 %</td>
 <td>η = 0.5 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-135</td>
@@ -1530,7 +1569,7 @@ Your page content starts here... -->
 <td>1927.0</td>
 <td>0.0 %</td>
 <td>η = 1.9 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-136</td>
@@ -1542,7 +1581,7 @@ Your page content starts here... -->
 <td>1927.0</td>
 <td>0.0 %</td>
 <td>η = 2.1 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-137</td>
@@ -1554,7 +1593,7 @@ Your page content starts here... -->
 <td>968.0</td>
 <td>nan %</td>
 <td>η = 0.8 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-138</td>
@@ -1566,7 +1605,7 @@ Your page content starts here... -->
 <td>968.0</td>
 <td>0.0 %</td>
 <td>η = 2.6 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-139</td>
@@ -1578,7 +1617,7 @@ Your page content starts here... -->
 <td>968.0</td>
 <td>0.0 %</td>
 <td>η = 2.1 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-141</td>
@@ -1590,7 +1629,7 @@ Your page content starts here... -->
 <td>968.0</td>
 <td>0.0 %</td>
 <td>η = 0.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-142</td>
@@ -1602,7 +1641,7 @@ Your page content starts here... -->
 <td>968.0</td>
 <td>0.0 %</td>
 <td>η = 0.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-143</td>
@@ -1614,7 +1653,7 @@ Your page content starts here... -->
 <td>968.0</td>
 <td>0.0 %</td>
 <td>η = 1.1 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-144</td>
@@ -1626,7 +1665,7 @@ Your page content starts here... -->
 <td>968.0</td>
 <td>0.0 %</td>
 <td>η = 2.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-145</td>
@@ -1638,7 +1677,7 @@ Your page content starts here... -->
 <td>968.0</td>
 <td>0.0 %</td>
 <td>η = 0.6 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-146</td>
@@ -1650,7 +1689,7 @@ Your page content starts here... -->
 <td>881.0</td>
 <td>0.0 %</td>
 <td>η = 2.7 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-147</td>
@@ -1662,7 +1701,7 @@ Your page content starts here... -->
 <td>881.0</td>
 <td>nan %</td>
 <td>η = 1.8 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-148</td>
@@ -1674,7 +1713,7 @@ Your page content starts here... -->
 <td>881.0</td>
 <td>0.0 %</td>
 <td>η = 0.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-149</td>
@@ -1686,7 +1725,7 @@ Your page content starts here... -->
 <td>881.0</td>
 <td>0.0 %</td>
 <td>η = 0.5 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-150</td>
@@ -1698,7 +1737,7 @@ Your page content starts here... -->
 <td>881.0</td>
 <td>0.0 %</td>
 <td>η = 4.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-153</td>
@@ -1710,7 +1749,7 @@ Your page content starts here... -->
 <td>730.0</td>
 <td>65.8 %</td>
 <td>η = 65.8 %</td>
-<td>Stav prípustných zmien</td>
+<td><span class="status-badge" data-status="Stav prípustných zmien" style="background-color: #f0e68c; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav prípustných zmien</span></td>
 </tr>
 <tr class="even">
 <td>IVS-154</td>
@@ -1722,7 +1761,7 @@ Your page content starts here... -->
 <td>730.0</td>
 <td>65.1 %</td>
 <td>η = 65.1 %</td>
-<td>Stav prípustných zmien</td>
+<td><span class="status-badge" data-status="Stav prípustných zmien" style="background-color: #f0e68c; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav prípustných zmien</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-155</td>
@@ -1734,7 +1773,7 @@ Your page content starts here... -->
 <td>1445.0</td>
 <td>27.3 %</td>
 <td>η = 27.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-156</td>
@@ -1746,7 +1785,7 @@ Your page content starts here... -->
 <td>1445.0</td>
 <td>25.3 %</td>
 <td>η = 25.3 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-157</td>
@@ -1758,7 +1797,7 @@ Your page content starts here... -->
 <td>1445.0</td>
 <td>27.0 %</td>
 <td>η = 27.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-158</td>
@@ -1770,7 +1809,7 @@ Your page content starts here... -->
 <td>660.0</td>
 <td>79.5 %</td>
 <td>η = 79.5 %</td>
-<td>Stav prípustných zmien</td>
+<td><span class="status-badge" data-status="Stav prípustných zmien" style="background-color: #f0e68c; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav prípustných zmien</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-160</td>
@@ -1782,7 +1821,7 @@ Your page content starts here... -->
 <td>785.0</td>
 <td>42.0 %</td>
 <td>η = 42.0 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-161</td>
@@ -1794,7 +1833,7 @@ Your page content starts here... -->
 <td>785.0</td>
 <td>41.4 %</td>
 <td>η = 41.4 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-162</td>
@@ -1806,7 +1845,7 @@ Your page content starts here... -->
 <td>785.0</td>
 <td>38.2 %</td>
 <td>η = 38.2 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="even">
 <td>IVS-174</td>
@@ -1818,7 +1857,7 @@ Your page content starts here... -->
 <td>875.0</td>
 <td>63.4 %</td>
 <td>η = 63.4 %</td>
-<td>Stav prípustných zmien</td>
+<td><span class="status-badge" data-status="Stav prípustných zmien" style="background-color: #f0e68c; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav prípustných zmien</span></td>
 </tr>
 <tr class="odd">
 <td>IVS-175</td>
@@ -1830,7 +1869,7 @@ Your page content starts here... -->
 <td>875.0</td>
 <td>68.6 %</td>
 <td>η = 68.6 %</td>
-<td>Stav prípustných zmien</td>
+<td><span class="status-badge" data-status="Stav prípustných zmien" style="background-color: #f0e68c; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav prípustných zmien</span></td>
 </tr>
 <tr class="even">
 <td>IVS-123</td>
@@ -1842,7 +1881,7 @@ Your page content starts here... -->
 <td>1087.0</td>
 <td>54.7 %</td>
 <td>η = 54.7 %</td>
-<td>Stav vysokej miery bezpečnosti</td>
+<td><span class="status-badge" data-status="Stav vysokej miery bezpečnosti" style="background-color: #98fb98; color: #000000; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Stav vysokej miery bezpečnosti</span></td>
 </tr>
 <tr class="odd">
 <td>INK-236-1</td>
@@ -1854,7 +1893,7 @@ Your page content starts here... -->
 <td>450.0</td>
 <td>nan %</td>
 <td>η = 220.4 %</td>
-<td>Havarijný stav</td>
+<td><span class="status-badge" data-status="Havarijný stav" style="background-color: #b22222; color: #ffffff; font-weight: bold; padding: 4px 8px; border-radius: 4px; display: block; text-align: center;">Havarijný stav</span></td>
 </tr>
 </tbody>
 </table>
@@ -1869,19 +1908,36 @@ document.addEventListener("DOMContentLoaded", function() {
     var headerRow = table.querySelector("thead tr");
     var ths = headerRow.querySelectorAll("th");
     
-    // Vytvorenie riadku s filtrami priamo v hlavičke pod názvami
     ths.forEach(function(th, index) {
+        var originalContent = th.innerHTML;
+        th.innerHTML = "";
+        
+        var wrapper = document.createElement("div");
+        wrapper.className = "th-flex-wrapper";
+        
+        if (index === 0) { wrapper.style.minWidth = "60px"; }
+        else if (index === 1) { wrapper.style.minWidth = "60px"; }
+        else if (index >= 2 && index <= 4) { wrapper.style.minWidth = "60px"; }
+        else if (index === 5) { wrapper.style.minWidth = "60px"; }
+        else if (index >= 6 && index <= 8) { wrapper.style.minWidth = "65px"; }
+        else { wrapper.style.minWidth = "200px"; }
+        
+        var textDiv = document.createElement("div");
+        textDiv.className = "th-text-content";
+        textDiv.innerHTML = originalContent;
+        
         var input = document.createElement("input");
         input.type = "text";
         input.className = "table-filter-input";
         input.placeholder = "🔍 Filtruj...";
         
-        // Zúženie okienok pre číselné stĺpce, aby nerozťahovali stĺpce
-        if (index >= 2 && index <= 7) {
+        if (index >= 1 && index <= 8) {
             input.style.maxWidth = "60px";
         }
         
-        th.appendChild(input);
+        wrapper.appendChild(textDiv);
+        wrapper.appendChild(input);
+        th.appendChild(wrapper);
         
         input.addEventListener("keyup", filterTable);
     });
@@ -1901,7 +1957,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 var cell = cells[index];
                 var cellText = "";
                 
-                // Ošetrenie pre stĺpec so statusom, ktorý obsahuje HTML badge
                 var badge = cell.querySelector(".status-badge");
                 if (badge) {
                     cellText = badge.getAttribute("data-status").toLowerCase();
@@ -37804,7 +37859,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Výsledky a Analýza Geotechnického monitoringu</p>
 </div>
     <div class="nav-footer-right">
-<p>Vytvoril: Ing. Tibor Lang | <a href="mailto:gtm@prolang.sk">gtm@prolang.sk</a> | 24.09.2026 23:55</p>
+<p>Vytvoril: Ing. Tibor Lang | <a href="mailto:gtm@prolang.sk">gtm@prolang.sk</a> | 25.09.2026 00:21</p>
 </div>
   </div>
 </footer>
