@@ -78,6 +78,15 @@ ul.task-list li input[type="checkbox"] {
       box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.08);
       width: 100%;
   }
+  .portal-global-alert-secondary {
+      background: linear-gradient(90deg, #ebfaff 0%, #c7edfe 100%);
+      border: 1px solid #0b69f5;
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.08);
+      width: 100%;
+  }
   .portal-alert-content {
       display: flex;
       justify-content: space-between;
@@ -104,6 +113,11 @@ ul.task-list li input[type="checkbox"] {
   .portal-alert-close:hover {
       color: #78350f;
   }
+  .portal-global-alert + .portal-global-alert-secondary {
+    margin-top: -17px; /* Pulls it up cleanly from 25px down to 8px gap */
+    }
+  
+  
   
   /* 🎯 PREMIUM WIDESCREEN HERO HEADER BANNER STYLE */
   .portal-hero-banner {
@@ -200,6 +214,8 @@ ul.task-list li input[type="checkbox"] {
   .ink-fill { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
   .geo-fill { background: linear-gradient(90deg, #10b981, #34d399); }
   .dyn-fill { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .GTM-fill { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .dat-fill { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
 
   /* LIVE ENGINEERING METRICS RIBBON LAYER */
   .portal-metrics-ribbon {
@@ -329,6 +345,9 @@ ul.task-list li input[type="checkbox"] {
   .toc-back-link { display: inline-block; font-size: 0.85rem; font-weight: 600; color: #6c757d; text-decoration: none; padding: 2px 0; cursor: pointer; }
   .toc-back-link:hover { text-decoration: underline; color: #2b5c8f; }
 
+  .d-none {
+    display: none !important;
+}
 
   /* 🔍 LIVE INTERACTIVE QUICK SEARCH INTERFACE RULES */
   #portalQuickSearch {
@@ -17357,7 +17376,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Výsledky a Analýza Geotechnického monitoringu</p>
 </div>
     <div class="nav-footer-right">
-<p>Vytvoril: Ing. Tibor Lang | <a href="mailto:gtm@prolang.sk">gtm@prolang.sk</a> | 25.09.2026 00:33</p>
+<p>Vytvoril: Ing. Tibor Lang | <a href="mailto:gtm@prolang.sk">gtm@prolang.sk</a> | 05.10.2026 12:17</p>
 </div>
   </div>
 </footer>

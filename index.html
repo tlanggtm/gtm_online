@@ -78,6 +78,15 @@ ul.task-list li input[type="checkbox"] {
       box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.08);
       width: 100%;
   }
+  .portal-global-alert-secondary {
+      background: linear-gradient(90deg, #ebfaff 0%, #c7edfe 100%);
+      border: 1px solid #0b69f5;
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.08);
+      width: 100%;
+  }
   .portal-alert-content {
       display: flex;
       justify-content: space-between;
@@ -104,6 +113,11 @@ ul.task-list li input[type="checkbox"] {
   .portal-alert-close:hover {
       color: #78350f;
   }
+  .portal-global-alert + .portal-global-alert-secondary {
+    margin-top: -17px; /* Pulls it up cleanly from 25px down to 8px gap */
+    }
+  
+  
   
   /* 🎯 PREMIUM WIDESCREEN HERO HEADER BANNER STYLE */
   .portal-hero-banner {
@@ -200,6 +214,8 @@ ul.task-list li input[type="checkbox"] {
   .ink-fill { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
   .geo-fill { background: linear-gradient(90deg, #10b981, #34d399); }
   .dyn-fill { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .GTM-fill { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .dat-fill { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
 
   /* LIVE ENGINEERING METRICS RIBBON LAYER */
   .portal-metrics-ribbon {
@@ -329,6 +345,9 @@ ul.task-list li input[type="checkbox"] {
   .toc-back-link { display: inline-block; font-size: 0.85rem; font-weight: 600; color: #6c757d; text-decoration: none; padding: 2px 0; cursor: pointer; }
   .toc-back-link:hover { text-decoration: underline; color: #2b5c8f; }
 
+  .d-none {
+    display: none !important;
+}
 
   /* 🔍 LIVE INTERACTIVE QUICK SEARCH INTERFACE RULES */
   #portalQuickSearch {
@@ -364,15 +383,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- ⚠️ Global System Notice Banner Panel -->
-<div class="portal-global-alert" id="globalPortalAlert" style="">
+<div class="portal-global-alert " id="globalPortalAlert">
     <div class="portal-alert-content">
-        <span>⚠️ <strong>Upozornenie: Výsledky GTM and ich analýzy sú na tento portál postupne dopĺňané. Momentálne prebieha kompletizácia a nahrávanie dát.</strong></span>
+        <span>⚠️ <strong>Upozornenie: Prebehlo kvartálne meranie. Výsledky GTM and ich analýzy sú na tento portál postupne dopĺňané. </strong></span>
         <button class="portal-alert-close" onclick="document.getElementById('globalPortalAlert').style.display='none'">×</button>
     </div>
 </div>
 
 <!-- ℹ️ Druhý globálny banner (umiestnený hneď pod prvým) -->
-<div class="portal-global-alert" id="globalPortalAlertSecondary" style="; margin-top: 8px;">
+<div class="portal-global-alert-secondary " id="globalPortalAlertSecondary">
     <div class="portal-alert-content">
         <span>ℹ️ <strong>Upozornenie: Prebieha vyhodnotenie varovných stavov objektov GTM s kritériami varovných stavov.</strong></span>
         <button class="portal-alert-close" onclick="document.getElementById('globalPortalAlertSecondary').style.display='none'">×</button>
@@ -386,14 +405,42 @@ ul.task-list li input[type="checkbox"] {
         <div class="portal-dashboard-bars">
             <div class="portal-bar-row">
                 <div class="portal-bar-info">
+                    <span>📉 Objekty GTM analyzované na tomto portáli</span>
+                    <strong class="count-animate" data-target="185">0</strong>
+                </div>
+                <div class="portal-bar-track">
+                    <div class="portal-bar-fill GTM-fill" style="width: 0%;" data-width="100%"></div>
+                </div>
+            </div>
+            <!-- <div class="portal-bar-row">
+                <div class="portal-bar-info">
+                    <span>📉 Aktuálne spracovaný objem dát (merania GTM)</span>
+                    <strong class="count-animate" data-target="300k+">0</strong>
+                </div>
+                <div class="portal-bar-track">
+                    <div class="portal-bar-fill dat-fill" style="width: 0%;" data-width="60%"></div>
+                </div>
+            </div> -->
+            <div class="portal-bar-row">
+                <div class="portal-bar-info">
+                    <span>📊 Aktuálne spracovaný objem dát (merania GTM)</span>
+                    <!-- Passes "300k+" to the front-end -->
+                    <strong class="count-animate" data-target="300k+">0</strong>
+                </div>
+                <div class="portal-bar-track">
+                    <div class="portal-bar-fill dat-fill" style="width: 0%;" data-width="60%"></div>
+                </div>
+        </div>
+            <div class="portal-bar-row d-none"> <!-- This bar will now be completely hidden -->
+                <div class="portal-bar-info">
                     <span>📉 Analýza meraní inklinometrie</span>
-                    <strong class="count-animate" data-target="163">0</strong>
+                    <strong class="count-animate" data-target="184">0</strong>
                 </div>
                 <div class="portal-bar-track">
                     <div class="portal-bar-fill ink-fill" style="width: 0%;" data-width="100%"></div>
                 </div>
             </div>
-            <div class="portal-bar-row">
+            <div class="portal-bar-row  d-none"> <!-- This bar will now be completely hidden -->
                 <div class="portal-bar-info">
                     <span>📐 Analýza geodetických meraní</span>
                     <strong class="count-animate" data-target="0">0</strong>
@@ -402,13 +449,13 @@ ul.task-list li input[type="checkbox"] {
                     <div class="portal-bar-fill geo-fill" style="width: 0%;" data-width="5%"></div>
                 </div>
             </div>
-            <div class="portal-bar-row">
+            <div class="portal-bar-row d-none"> <!-- This bar will now be completely hidden -->
                 <div class="portal-bar-info">
                     <span>⚙️ Analýza meraní dynamometrie</span>
-                    <strong class="count-animate" data-target="0">0</strong>
+                    <strong class="count-animate" data-target="1">0</strong>
                 </div>
                 <div class="portal-bar-track">
-                    <div class="portal-bar-fill dyn-fill" style="width: 0%;" data-width="5%"></div>
+                    <div class="portal-bar-fill dyn-fill" style="width: 0%;" data-width="3%"></div>
                 </div>
             </div>
         </div>
@@ -422,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
             </div>
             <div class="portal-metric-item portal-metric-right">
                 <span class="portal-metric-label">⏱️ Status dát GTM</span>
-                <span class="portal-metric-value">Posledná aktualizácia dát: 24. september 2026, 22:47</span>
+                <span class="portal-metric-value">Posledná aktualizácia dát: 1. október 2026, 18:28</span>
             </div>
         </div>
     </div>
@@ -574,29 +621,45 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 3-SECOND LOCKED COUNTING ENGINE
+    // 📈 3-SECOND LOCKED STRING-AWARE COUNTER ENGINE
     const counters = document.querySelectorAll('.count-animate');
     counters.forEach(function(counter) {
-        const target = parseInt(counter.getAttribute('data-target'), 10);
-        if (target === 0) return;
+        const targetAttr = counter.getAttribute('data-target');
+        if (!targetAttr || targetAttr === "0") {
+            counter.textContent = "0";
+            return;
+        }
         
-        let count = 0;
-        const totalDuration = 3000; 
-        const step = target > 60 ? Math.ceil(target / 60) : 1;
-        const speed = Math.round(totalDuration / (target / step));
-        
-        const timer = setInterval(function() {
-            count += step;
-            if (count >= target) {
-                counter.textContent = target; 
-                clearInterval(timer);
-            } else {
-                counter.textContent = count;
+        // Extract numbers and non-numbers (like 'k', 'M', or '+') safely from Python string
+        const numericValue = parseFloat(targetAttr);
+        const suffix = targetAttr.replace(/[0-9.]/g, ''); 
+
+        if (!isNaN(numericValue) && numericValue > 0) {
+            let start = 0;
+            const totalDuration = 3000; // Locked 3-second completion timeline
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / totalDuration, 1);
+                
+                // Calculate incremental frame value based on runtime progress
+                const currentValue = start + progress * (numericValue - start);
+                
+                // Format output: show decimals only if the original Python target had decimals (e.g., 1.5M)
+                const hasDecimal = targetAttr.includes('.');
+                counter.innerText = (hasDecimal ? currentValue.toFixed(1) : Math.floor(currentValue)) + suffix;
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.innerText = targetAttr; // Lock down precise layout match on completion
+                }
             }
-        }, speed);
-        
-        if (speed <= 0) {
-            counter.textContent = target;
+            requestAnimationFrame(updateCounter);
+        } else {
+            // Fallback: If it's a completely raw text structure, display immediately
+            counter.innerText = targetAttr;
         }
     });
 
@@ -608,6 +671,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, 250);
 });
+
 </script>
 
 
@@ -1044,7 +1108,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Výsledky a Analýza Geotechnického monitoringu</p>
 </div>
     <div class="nav-footer-right">
-<p>Vytvoril: Ing. Tibor Lang | <a href="mailto:gtm@prolang.sk">gtm@prolang.sk</a> | 25.09.2026 00:33</p>
+<p>Vytvoril: Ing. Tibor Lang | <a href="mailto:gtm@prolang.sk">gtm@prolang.sk</a> | 05.10.2026 12:17</p>
 </div>
   </div>
 </footer>
