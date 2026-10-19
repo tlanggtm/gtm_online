@@ -11974,11 +11974,163 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Výsledky a Analýza Geotechnického monitoringu</p>
 </div>
     <div class="nav-footer-right">
-<p>Vytvoril: Ing. Tibor Lang | <a href="mailto:gtm@prolang.sk">gtm@prolang.sk</a> | 19.10.2026 21:56</p>
+<p>Vytvoril: Ing. Tibor Lang | <a href="mailto:gtm@prolang.sk">gtm@prolang.sk</a> | 19.10.2026 22:03</p>
 </div>
   </div>
 </footer>
 <script>
+// document.addEventListener("DOMContentLoaded", function() {
+//   const titleBlock = document.querySelector('.quarto-title-block');
+//   if (!titleBlock) return;
+//   const sections = Array.from(document.querySelectorAll('main > section.level2'));
+//   if (sections.length === 0) return;
+//   const tocContainer = document.querySelector('nav[role="doc-toc"]') || document.querySelector('#TOC');
+//   if (!tocContainer) return;
+//   const firstSectionId = sections.length > 0 ? sections[0].id : 'úvod';
+  
+//   function rebuildRightTOC(activeSection) {
+//     tocContainer.innerHTML = '';
+//     const tocHeader = document.createElement('h2');
+//     tocHeader.id = 'toc-title';
+//     tocHeader.textContent = 'Na tejto stránke';
+//     tocContainer.appendChild(tocHeader);
+    
+//     const subHeaders = activeSection.querySelectorAll('h3, h4');
+//     const ul = document.createElement('ul');
+//     ul.className = 'custom-toc-list';
+    
+//     if (subHeaders.length === 0) {
+//       const liEmpty = document.createElement('li');
+//       liEmpty.className = 'custom-toc-item level-3';
+//       liEmpty.style.color = '#6c757d';
+//       liEmpty.style.fontStyle = 'italic';
+//       liEmpty.textContent = 'Žiadne podsekcie';
+//       ul.appendChild(liEmpty);
+    
+//     } else {
+//       subHeaders.forEach(header => {
+//         const parentSection = header.closest('section');
+//         const targetId = parentSection ? parentSection.id : header.id;
+//         if (!targetId) return;
+        
+//         const tag = header.tagName.toLowerCase();
+//         const isH4 = (tag === 'h4');
+//         const li = document.createElement('li');
+        
+//         li.className = isH4 ? 'custom-toc-item level-4' : 'custom-toc-item level-3';
+//         if (isH4) li.style.display = 'none';
+        
+//         const a = document.createElement('a');
+//         a.className = 'custom-toc-link';
+//         a.setAttribute('href', '#' + targetId);
+//         a.textContent = header.textContent.trim();
+
+//         // 🎯 UNIFIED SMOOTH SCROLLING
+//         const headerText = header.textContent.trim().toLowerCase();
+        
+//         a.addEventListener('click', (e) => {
+//           e.preventDefault();
+//           const targetElement = document.getElementById(targetId);
+//           if (targetElement) {
+//             const positionBlock = (isH4 && headerText === 'vyhodnotenie') ? 'center' : 'start';
+            
+//             targetElement.scrollIntoView({
+//               behavior: 'smooth',
+//               block: positionBlock
+//             });
+            
+//             history.pushState(null, null, '#' + targetId);
+//           }
+//         });
+
+//         li.appendChild(a);
+//         ul.appendChild(li);
+//       });
+//     }
+
+//     tocContainer.appendChild(ul);
+    
+//     const divider = document.createElement('div');
+//     divider.className = 'toc-back-divider';
+//     tocContainer.appendChild(divider);
+
+//     const backLink = document.createElement('a');
+//     backLink.className = 'toc-back-link';
+//     backLink.setAttribute('href', '#' + activeSection.id);
+//     backLink.innerHTML = '⬆️ Hore';
+//     backLink.addEventListener('click', (e) => {
+//       e.preventDefault();
+//       window.scrollTo({ top: 0, behavior: 'smooth' });
+//     });
+//     tocContainer.appendChild(backLink);
+
+//     const observerOptions = { root: null, rootMargin: '0px 0px -70% 0px', threshold: 0 };
+//     const observer = new IntersectionObserver((entries) => {
+//       entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//           const currentId = entry.target.id;
+//           const matchingLink = tocContainer.querySelector(`a[href="#${currentId}"]`);
+//           if (matchingLink) {
+//             const parentLi = matchingLink.closest('li');
+            
+//             if (parentLi && parentLi.classList.contains('level-3')) {
+//               tocContainer.querySelectorAll('.level-3').forEach(el => el.classList.remove('active-parent'));
+//               tocContainer.querySelectorAll('.level-4').forEach(el => {
+//                 el.style.display = 'none';
+//                 el.classList.remove('active-sub');
+//               });
+//               parentLi.classList.add('active-parent');
+//               let nextLi = parentLi.nextElementSibling;
+//               while (nextLi && nextLi.classList.contains('level-4')) {
+//                 nextLi.style.display = 'block';
+//                 nextLi = nextLi.nextElementSibling;
+//               }
+//             }
+            
+//             if (parentLi && parentLi.classList.contains('level-4')) {
+//               tocContainer.querySelectorAll('.level-4').forEach(el => el.classList.remove('active-sub'));
+//               parentLi.classList.add('active-sub');
+//               let prevLi = parentLi.previousElementSibling;
+//               while (prevLi && prevLi.classList.contains('level-4')) {
+//                 prevLi = prevLi.previousElementSibling;
+//               }
+//               if (prevLi && prevLi.classList.contains('level-3')) {
+//                 tocContainer.querySelectorAll('.level-3').forEach(el => el.classList.remove('active-parent'));
+//                 prevLi.classList.add('active-parent');
+//               }
+//             }
+//           }
+//         }
+//       });
+//     }, observerOptions);
+
+//     activeSection.querySelectorAll('section.level3, section.level4').forEach(sec => observer.observe(sec));
+//   }
+
+//   const navContainer = document.createElement('div');
+//   navContainer.className = 'dynamic-tab-nav';
+//   sections.forEach((section, idx) => {
+//     const h2 = section.querySelector('h2');
+//     if (!h2) return;
+//     const btn = document.createElement('button');
+//     btn.className = 'dynamic-tab-btn' + (idx === 0 ? ' active' : '');
+//     btn.textContent = h2.textContent.trim();
+//     section.classList.add('dynamic-tab-content');
+//     if (idx === 0) {
+//       section.classList.add('active');
+//       setTimeout(() => rebuildRightTOC(section), 50);
+//     }
+//     btn.addEventListener('click', () => {
+//       document.querySelectorAll('.dynamic-tab-btn').forEach(b => b.classList.remove('active'));
+//       document.querySelectorAll('.dynamic-tab-content').forEach(s => s.classList.remove('active'));
+//       btn.classList.add('active');
+//       section.classList.add('active');
+//       rebuildRightTOC(section);
+//     });
+//     navContainer.appendChild(btn);
+//   });
+//   titleBlock.after(navContainer);
+// });
 document.addEventListener("DOMContentLoaded", function() {
   const titleBlock = document.querySelector('.quarto-title-block');
   if (!titleBlock) return;
@@ -12107,29 +12259,102 @@ document.addEventListener("DOMContentLoaded", function() {
     activeSection.querySelectorAll('section.level3, section.level4').forEach(sec => observer.observe(sec));
   }
 
+  // 🛠️ BUILD THE INTERACTIVE TABS OBJECT MAP
   const navContainer = document.createElement('div');
   navContainer.className = 'dynamic-tab-nav';
+  
+  // Create arrays to hold buttons and clean section pointers for direct link tracking lookup later
+  const tabButtonMap = {};
+
   sections.forEach((section, idx) => {
     const h2 = section.querySelector('h2');
     if (!h2) return;
+    
+    // Read the unique anchor IDs created by your python script (e.g., LIKAVKA_INK)
+    const sectionId = section.id.toLowerCase();
+    
     const btn = document.createElement('button');
     btn.className = 'dynamic-tab-btn' + (idx === 0 ? ' active' : '');
     btn.textContent = h2.textContent.trim();
     section.classList.add('dynamic-tab-content');
+    
+    // Store button instances by category keys to make tracking execution instant
+    if (sectionId.includes('_ink') || sectionId === 'inklinometria') tabButtonMap['ink'] = { btn, section };
+    if (sectionId.includes('_dyn') || sectionId === 'dynamometria') tabButtonMap['dyn'] = { btn, section };
+    if (sectionId.includes('_geo') || sectionId === 'geodezia')     tabButtonMap['geo'] = { btn, section };
+    if (sectionId.includes('_pic') || sectionId === 'fotodokumentacia') tabButtonMap['pic'] = { btn, section };
+    if (sectionId === 'uvod')                                       tabButtonMap['uvod'] = { btn, section };
+
     if (idx === 0) {
       section.classList.add('active');
       setTimeout(() => rebuildRightTOC(section), 50);
     }
+    
     btn.addEventListener('click', () => {
       document.querySelectorAll('.dynamic-tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.dynamic-tab-content').forEach(s => s.classList.remove('active'));
       btn.classList.add('active');
       section.classList.add('active');
       rebuildRightTOC(section);
+      
+      // Update browser URL silently when clicking tabs so user can bookmark tab states
+      const shortKey = sectionId.split('_')[1] || sectionId;
+      if (shortKey !== 'uvod') {
+        history.replaceState(null, null, '#' + section.id.toUpperCase());
+      } else {
+        history.replaceState(null, null, window.location.pathname);
+      }
     });
+    
     navContainer.appendChild(btn);
   });
+  
   titleBlock.after(navContainer);
+
+  // ------------------------------------------------------------------------
+  // 🎯 REAL-TIME INCOMING LINKING RESOLVER
+  // ------------------------------------------------------------------------
+  const initialHash = window.location.hash.trim().toUpperCase();
+  if (initialHash && initialHash !== '#') {
+    const cleanHashId = initialHash.replace('#', '');
+    let categoryKey = null;
+
+    // Direct routing match condition matrices based on the new explicit namespaces layout
+    if (initialHash.includes('_INK') || initialHash.includes('INK-LB') || initialHash.includes('IV-') || initialHash.includes('IVS-')) {
+      categoryKey = 'ink';
+    } else if (initialHash.includes('_DYN')) {
+      categoryKey = 'dyn';
+    } else if (initialHash.includes('_GEO')) {
+      categoryKey = 'geo';
+    } else if (initialHash.includes('_PIC') || initialHash.includes('FOTODOKUMENTACIA')) {
+      categoryKey = 'pic';
+    }
+
+    // Force open matched section and trigger instant scroll placement
+    if (categoryKey && tabButtonMap[categoryKey]) {
+      const targetData = tabButtonMap[categoryKey];
+      
+      // Mimic manual user panel selection
+      document.querySelectorAll('.dynamic-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.dynamic-tab-content').forEach(s => s.classList.remove('active'));
+      
+      targetData.btn.classList.add('active');
+      targetData.section.classList.add('active');
+      rebuildRightTOC(targetData.section);
+
+      // Wait briefly for CSS layout to calculate visible components, then drop directly into the element anchor viewport
+      setTimeout(() => {
+        // Attempt search by strict ID or deep nested code sections inside container
+        const targetElement = document.getElementById(cleanHashId) || 
+                              document.getElementById(cleanHashId.toLowerCase()) ||
+                              targetData.section.querySelector(`[id*="${cleanHashId}"]`);
+                              
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 250);
+    }
+  }
 });
 
 </script>
